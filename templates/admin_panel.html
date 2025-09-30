@@ -43,6 +43,7 @@
               <th>Kullanıcı Adı</th>
               <th>Rol</th>
               <th>Yeni Rol Ata</th>
+              <th>Şifre Sıfırla</th>
             </tr>
           </thead>
           <tbody>
@@ -61,6 +62,12 @@
                     <option value="admin" {{ 'selected' if u.role == 'admin' else '' }}>Admin</option>
                   </select>
                   <button type="submit" class="btn btn-sm btn-primary">Kaydet</button>
+                </form>
+              </td>
+              <td>
+                <form method="POST" action="{{ url_for('reset_password', user_id=u.id) }}" class="d-flex">
+                  <input type="password" name="new_password" class="form-control form-control-sm me-2" placeholder="Yeni şifre" required>
+                  <button type="submit" class="btn btn-sm btn-warning">Sıfırla</button>
                 </form>
               </td>
             </tr>

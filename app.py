@@ -144,6 +144,25 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("login"))
+# ---- Şifre Değiştir ----
+@app.route("/change_password", methods=["GET", "POST"])
+@login_required
+def change_password():
+    if request.method == "POST":
+        old_password = request.form.get("old_password")
+        new_password = request.form.get("new_password")
+
+        if not check_password_hash(current_user.password, old_password):
+            flash("❌ Mevcut şifre yanlış!", "danger")
+            return redirect(url_for("change_password"))
+
+        current_user.password = generate_password_hash(new_password, method="pbkdf2:sha256")
+        db.session.commit()
+        flash("✅ Şifreniz başarıyla güncellendi.", "success")
+        return redirect(url_for("index"))
+
+    return render_template("change_password.html")
+
 # ---- Soruya Cevap Ver ----
 @app.route("/cevapla/<question_id>", methods=["POST"])
 @login_required
@@ -212,6 +231,28 @@ def change_role(user_id):
     user.role = new_role
     db.session.commit()
     flash(f"✅ {user.username} kullanıcısının rolü '{new_role}' olarak güncellendi.", "success")
+    return redirect(url_for("admin_panel"))
+# ---- Şifre Sıfırlama (Admin) ----
+@app.route("/reset_password/<int:user_id>", methods=["POST"])
+@login_required
+def reset_password(user_id):
+    if current_user.role != "admin":
+        flash("❌ Şifre sıfırlama yetkiniz yok.", "danger")
+        return redirect(url_for("admin_panel"))
+
+    user = User.query.get(user_id)
+    if not user:
+        flash("❌ Kullanıcı bulunamadı.", "danger")
+        return redirect(url_for("admin_panel"))
+
+    new_password = request.form.get("new_password")
+    if not new_password or len(new_password) < 4:
+        flash("⚠️ Yeni şifre en az 4 karakter olmalı.", "warning")
+        return redirect(url_for("admin_panel"))
+
+    user.password = generate_password_hash(new_password, method="pbkdf2:sha256")
+    db.session.commit()
+    flash(f"✅ {user.username} için yeni şifre başarıyla güncellendi.", "success")
     return redirect(url_for("admin_panel"))
 
 # ---- API Endpoints ----
