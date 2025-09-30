@@ -87,25 +87,71 @@
   <!-- 📦 Ana Menü -->
   <div class="menu-card">
     <h1>📦 Yönetim Paneli</h1>
-    <a href="{{ url_for('dashboard') }}" class="btn-orders">📦 Toplam Siparişler</a>
-    <a href="{{ url_for('questions') }}" class="btn-questions">❓ Toplam Ürün Soruları</a>
+    <a href="{{ url_for('dashboard') }}" class="btn-orders">📦 Yeni Gelen Siparişler</a>
+    <a href="{{ url_for('questions') }}" class="btn-questions">❓ Yeni Gelen Ürün Soruları</a>
   </div>
 
 <!-- 🚚 Kargo İstatistikleri -->
 <div class="stats-card">
-  <h4>🚚 Kargo Durumu</h4>
-  <p><strong>Toplam Kargo:</strong> {{ total_to_ship }}</p>
-  <p><strong>Yapılan Kargo:</strong> {{ shipped_count }}</p>
-  <p><strong>Bugün Kargoya Verilen:</strong> {{ shipped_today }}</p>
+  <h4 class="mb-3">🚚 Kargo Durumu</h4>
+
+  <div class="p-3 mb-2 rounded text-white" style="background:#0dcaf0;">
+    <strong>YAPILMASI GEREKEN KARGO:</strong> {{ created_count }}
+  </div>
+
+  <div class="p-3 mb-2 rounded text-white" style="background:#ffc107;">
+    <strong>İŞLEME ALINAN KARGO:</strong> {{ picking_count }}
+  </div>
+
+  <div class="p-3 mb-2 rounded text-white" style="background:#198754;">
+    <strong>TAŞIMADA OLAN KARGO:</strong> {{ shipped_count }}
+  </div>
 </div>
+
 <hr>
-<div style="background:#0d6efd; color:white; padding:15px; border-radius:8px; text-align:center; font-size:1.5rem; font-weight:bold;">
-  Toplam KARGO: {{ total_all }}
+
+<!-- Genel toplam -->
+<div style="background:#0d6efd; color:white; padding:20px; border-radius:10px; text-align:center; font-size:1.6rem; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+  📦 Toplam KARGO: {{ total_all }}
 </div>
-<img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" class="logo" loading="eager">
 
 
+  <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" class="logo" loading="eager">
+
+  <!-- 🔔 Flash Mesaj Modal -->
+  <div class="modal fade" id="flashModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title">⚠️ Uyarı</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body" id="flashMessage"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tamam</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        let flashText = "";
+        {% for category, message in messages %}
+          flashText += `<div class="alert alert-{{ category }}">{{ message }}</div>`;
+        {% endfor %}
+        document.addEventListener("DOMContentLoaded", () => {
+          document.getElementById("flashMessage").innerHTML = flashText;
+          let modal = new bootstrap.Modal(document.getElementById('flashModal'));
+          modal.show();
+        });
+      {% endif %}
+    {% endwith %}
+  </script>
 
 </body>
 </html>
-

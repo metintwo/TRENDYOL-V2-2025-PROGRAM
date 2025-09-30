@@ -36,36 +36,30 @@ from datetime import datetime
 def index():
     try:
         # Created siparişler
-        created_orders, total_to_ship = get_orders(status="Created", size=200)
+        created_orders, created_count = get_orders(status="Created", size=500)
+
+        # Picking siparişler
+        picking_orders, picking_count = get_orders(status="Picking", size=500)
 
         # Shipped siparişler
-        shipped_orders, _ = get_orders(status="Shipped", size=200)
-        shipped_count = len(shipped_orders)
+        shipped_orders, shipped_count = get_orders(status="Shipped", size=500)
 
-        # Bugün Shipped (kargoya verilen) siparişler
-        today_str = datetime.now().strftime("%Y-%m-%d")
-        shipped_today = 0
-        for order in shipped_orders:
-            # shipmentDate varsa onu kullan, yoksa lastModifiedDate
-            mod_date = str(order.get("shipmentDate") or order.get("lastModifiedDate") or "")
-            if today_str in mod_date:
-                shipped_today += 1
+        # Genel toplam
+        total_all = created_count + picking_count + shipped_count
 
     except Exception as e:
         print("❌ Kargo istatistikleri alınamadı:", e)
-        total_to_ship = 0
+        created_count = 0
+        picking_count = 0
         shipped_count = 0
-        shipped_today = 0
-
-    # 🔵 burada toplamı hesaplıyoruz
-    total_all = total_to_ship + shipped_count + shipped_today
+        total_all = 0
 
     return render_template(
         "index.html",
-        total_to_ship=total_to_ship,
+        created_count=created_count,
+        picking_count=picking_count,
         shipped_count=shipped_count,
-        shipped_today=shipped_today,
-        total_all=total_all   # ✅ yeni eklendi
+        total_all=total_all
     )
 
 
