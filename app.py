@@ -12,43 +12,74 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "supersecret")
 
-# ---- Sipariş Yönetimi ----
 PAGE_SIZE = 20
 
-# ---- Routes ----
-
+# ---- Ana Menü ----
 @app.route("/")
 def index():
     return render_template("index.html")
 
+# ---- Siparişler ----
 @app.route("/dashboard")
 def dashboard():
     status = request.args.get("status", "Created")
-    orders, total_to_ship = get_orders(status=status, size=200)  # artık tüm sayfaları çekiyor
+    orders, total_to_ship = get_orders(status=status, size=200)
     return render_template(
         "dashboard.html",
         orders=orders,
-        total_to_ship=total_to_ship,  # 👈 burası hep doğru 811 çıkacak
+        total_to_ship=total_to_ship,
         has_more=False,
         version=int(time.time())
     )
 
+# ---- Sorular ----
+@app.route("/questions")
+def questions():
+    try:
+        product_questions, order_questions = get_all_questions(status="WAITING_FOR_ANSWER", days=14)
+        return render_template(
+            "questions.html",
+            product_questions=product_questions,
+            order_questions=order_questions
+        )
+    except Exception as e:
+        flash(f"Sorular alınamadı: {e}", "danger")
+        return redirect(url_for("index"))
 
+@app.route("/cevapla/<question_id>", methods=["POST"])
+def cevapla(question_id):
+    cevap_text = request.form.get("cevap")
+    supplier_id = request.form.get("supplier_id")
+
+    if not cevap_text or len(cevap_text) < 10:
+        flash("Cevap en az 10 karakter olmalı.", "warning")
+        return redirect(url_for("questions"))
+
+    ok = answer_question(supplier_id, question_id, cevap_text)
+
+    if ok:
+        flash("✅ Cevabınız başarıyla gönderildi.", "success")
+    else:
+        flash("❌ Cevap gönderilemedi.", "danger")
+
+    return redirect(url_for("questions"))
+
+@app.route("/cevaplanan-sorular")
+def cevaplanan_sorular():
+    product_questions, order_questions = get_all_questions(status="ANSWERED", days=14)
+    # ✅ sadece gerçekten cevabı olanlar listelensin
+    sorular = [s for s in product_questions + order_questions if s.get("answerText")]
+    return render_template("cevaplanan_sorular.html", sorular=sorular)
+
+# ---- API Endpoints ----
 @app.route("/api/orders")
 def api_orders():
     status = request.args.get("status", "Created")
     page = int(request.args.get("page", 0))
     size = int(request.args.get("size", PAGE_SIZE))
-
+    # ✅ page parametresi eklendi
     orders, total = get_orders(status=status, page=page, size=size)
-
-    return jsonify({
-        "orders": orders,
-        "page": page,
-        "size": size,
-        "total": total
-    })
-
+    return jsonify({"orders": orders, "page": page, "size": size, "total": total})
 
 @app.route("/api/line-image")
 def api_line_image():
@@ -57,7 +88,8 @@ def api_line_image():
     merchantSku = request.args.get("merchantSku")
     sku = request.args.get("sku")
     productCode = request.args.get("productCode")
-    url = resolve_line_image(supplier_id, barcode=barcode, merchantSku=merchantSku, sku=sku, productCode=productCode)
+    url = resolve_line_image(supplier_id, barcode=barcode, merchantSku=merchantSku,
+                             sku=sku, productCode=productCode)
     return jsonify({"url": url})
 
 @app.route("/isleme-al/<supplier_id>/<int:package_id>", methods=["POST"])
@@ -78,30 +110,6 @@ def etiket_yazdir(supplier_id, package_id):
         flash("Paket detayı getirilemedi.", "danger")
         return redirect(url_for("dashboard"))
     return render_template("etiket.html", o=order)
-
-# ---- Ürün Soruları ----
-@app.route("/sorular")
-def urun_sorulari():
-    sorular = get_all_questions()
-    return render_template("urun_sorulari.html", sorular=sorular)
-
-@app.route("/cevapla/<int:question_id>", methods=["POST"])
-def cevapla(question_id):
-    supplier_id = request.form.get("supplier_id")
-    cevap = request.form.get("cevap")
-    if len(cevap) < 10:
-        flash("Cevap en az 10 karakter olmalı!", "danger")
-    else:
-        if answer_question(supplier_id, question_id, cevap):
-            flash("Cevap gönderildi ✅", "success")
-        else:
-            flash("Cevap gönderilemedi ❌", "danger")
-    return redirect(url_for("urun_sorulari"))
-
-@app.route("/cevaplanan-sorular")
-def cevaplanan_sorular():
-    sorular = get_all_questions(status="ANSWERED")
-    return render_template("cevaplanan_sorular.html", sorular=sorular)
 
 # ---- Main ----
 if __name__ == "__main__":

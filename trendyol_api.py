@@ -4,6 +4,12 @@ from typing import List, Dict, Any, Optional
 import requests
 from requests.auth import HTTPBasicAuth
 import time
+from utils import format_date, calc_remaining_time
+from config import magazalar, id_to_name
+
+BASE = "https://apigw.trendyol.com"
+QNA_PATH = "/integration/qna"
+
 
 # ---- Mağazalar / İsim eşlemesi ----
 magazalar = [
@@ -300,38 +306,89 @@ def calc_remaining_time(ms, hours=12):
     minutes, _ = divmod(remainder, 60)
     return f"{hours_left} saat {minutes} dk kaldı"
 
-def get_all_questions(status="WAITING_FOR_ANSWER"):
-    all_questions = []
+
+def get_all_questions(status="WAITING_FOR_ANSWER", days=14):
+    product_questions = []
+    order_questions = []
+
     now = int(time.time() * 1000)
-    start = now - (7 * 24 * 60 * 60 * 1000)
+    start = now - (days * 24 * 60 * 60 * 1000)
     end = now
+
     for magaza in magazalar:
         sid = magaza["supplier_id"]
-        url = f"{BASE}{QNA_PATH}/sellers/{sid}/questions/filter"
+        auth = HTTPBasicAuth(magaza["api_key"], magaza["api_secret"])
+
         params = {
             "startDate": start,
             "endDate": end,
-            "status": status,
             "size": 50,
-            "page": 0
+            "page": 0,
+            "status": status,
+            "orderByField": "CreatedDate",
+            "orderByDirection": "DESC"
         }
-        try:
-            r = requests.get(url, params=params, auth=HTTPBasicAuth(magaza["api_key"], magaza["api_secret"]))
-            if r.status_code == 200:
-                data = r.json()
-                for q in data.get("content", []):
-                    q["supplier_id"] = sid
-                    q["supplier_name"] = id_to_name.get(sid, sid)
-                    q["creationDateFormatted"] = format_date(q.get("creationDate"))
-                    if "answer" in q and q["answer"]:
-                        q["answerText"] = q["answer"].get("text", "")
-                    q["remainingTime"] = calc_remaining_time(q.get("creationDate"))
-                    all_questions.append(q)
-            else:
-                print(f"❌ {sid} QnA hata: {r.text}")
-        except Exception as e:
-            print(f"⚠️ {sid} QnA exception:", e)
-    return all_questions
+
+        # 1) Ürün soruları
+        url_products = f"{BASE}{QNA_PATH}/sellers/{sid}/questions/filter"
+        r = requests.get(url_products, params=params, auth=auth, timeout=30)
+        if r.status_code == 200:
+            data = r.json()
+            for q in data.get("content", []):
+                q["supplier_id"] = sid
+                q["supplier_name"] = id_to_name.get(sid, sid)
+                q["creationDateFormatted"] = format_date(q.get("creationDate"))
+                q["remainingTime"] = calc_remaining_time(q.get("creationDate"))
+                q["imageUrl"] = q.get("imageUrl")
+                q["productName"] = q.get("productName", "")
+                q["userName"] = q.get("userName") or "Müşteri"
+
+                # ✅ sadece cevap metni
+                answer_text = ""
+                if q.get("answers"):
+                    first_answer = q["answers"][0]
+                    if isinstance(first_answer, dict):
+                        answer_text = first_answer.get("text", "")
+                    else:
+                        answer_text = str(first_answer)
+                elif q.get("answerText"):
+                    answer_text = q["answerText"]
+                elif q.get("answer"):
+                    answer_text = q["answer"]
+                q["answerText"] = answer_text
+
+                product_questions.append(q)
+
+        # 2) Sipariş soruları
+        url_orders = f"{BASE}{QNA_PATH}/sellers/{sid}/order-questions/filter"
+        r2 = requests.get(url_orders, params=params, auth=auth, timeout=30)
+        if r2.status_code == 200:
+            data = r2.json()
+            for q in data.get("content", []):
+                q["supplier_id"] = sid
+                q["supplier_name"] = id_to_name.get(sid, sid)
+                q["creationDateFormatted"] = format_date(q.get("creationDate"))
+                q["remainingTime"] = calc_remaining_time(q.get("creationDate"))
+                q["orderNumber"] = q.get("orderNumber")
+                q["userName"] = q.get("userName") or "Müşteri"
+
+                # ✅ sadece cevap metni
+                answer_text = ""
+                if q.get("answers"):
+                    first_answer = q["answers"][0]
+                    if isinstance(first_answer, dict):
+                        answer_text = first_answer.get("text", "")
+                    else:
+                        answer_text = str(first_answer)
+                elif q.get("answerText"):
+                    answer_text = q["answerText"]
+                elif q.get("answer"):
+                    answer_text = q["answer"]
+                q["answerText"] = answer_text
+
+                order_questions.append(q)
+
+    return product_questions, order_questions
 
 def answer_question(supplier_id, question_id, answer_text):
     magaza = next((m for m in magazalar if m["supplier_id"] == supplier_id), None)

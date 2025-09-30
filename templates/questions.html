@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Trendyol Soruları</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    // 2 dakikada bir otomatik yenile
+    setInterval(() => { window.location.reload(); }, 120000);
+  </script>
+  <style>
+    body { background: #f5f7fb; }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .badge { font-size: 0.8rem; }
+    .remaining-time { font-size: 0.85rem; font-weight: 500; }
+    textarea { resize: none; }
+  </style>
+</head>
+<body class="container py-4">
+
+  <!-- Üst Menü -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">📝 Trendyol Soruları</h2>
+    <div>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
+      <a href="{{ url_for('cevaplanan_sorular') }}" class="btn btn-success">📋 Cevaplanan Sorular</a>
+    </div>
+  </div>
+
+  <!-- Flash mesajlar -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- Ürün Soruları -->
+  <h3 class="mb-3">📦 Ürün Soruları</h3>
+  {% if product_questions %}
+    {% for s in product_questions %}
+      <div class="card p-3">
+        <div class="row g-3">
+          <!-- Ürün görseli -->
+          <div class="col-md-2 text-center">
+            {% if s.get('imageUrl') %}
+              <img src="{{ s['imageUrl'] }}" alt="Ürün" class="img-fluid" style="max-height:120px;">
+            {% elif s.get('productImage') %}
+              <img src="{{ s['productImage'] }}" alt="Ürün" class="img-fluid" style="max-height:120px;">
+            {% else %}
+              <div class="text-muted">Görsel yok</div>
+            {% endif %}
+          </div>
+          <!-- Soru Detayları -->
+          <div class="col-md-10">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-info text-dark">{{ s.get('supplier_name', 'Mağaza') }}</span>
+              <div class="text-end">
+                <small class="text-muted">{{ s.get('creationDateFormatted', s.get('creationDate')) }}</small><br>
+                <small class="remaining-time text-danger">{{ s.get('remainingTime', '') }}</small>
+              </div>
+            </div>
+            <h5 class="mb-1">{{ s.get('productName', 'Ürün adı yok') }}</h5>
+            <p class="mb-1"><strong>{{ s.get('userName', 'Müşteri') }}</strong> sordu:</p>
+            <p class="mb-2">{{ s.get('text', '') }}</p>
+
+            <!-- Cevap formu -->
+            <form method="post" action="{{ url_for('cevapla', question_id=s.get('id')) }}">
+              <input type="hidden" name="supplier_id" value="{{ s.get('supplier_id') }}">
+              <div class="input-group">
+                <textarea name="cevap" class="form-control w-100" rows="2" placeholder="Cevabınızı yazın..." minlength="10" maxlength="2000" required></textarea>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="alert alert-secondary text-center">Hiç ürün sorusu bulunamadı.</div>
+  {% endif %}
+
+  <hr>
+
+  <!-- Sipariş Soruları -->
+  <h3 class="mb-3">🛒 Sipariş Soruları</h3>
+  {% if order_questions %}
+    {% for s in order_questions %}
+      <div class="card p-3">
+        <div class="row g-3">
+          <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-warning text-dark">{{ s.get('supplier_name', 'Mağaza') }}</span>
+              <div class="text-end">
+                <small class="text-muted">{{ s.get('creationDateFormatted', s.get('creationDate')) }}</small><br>
+                <small class="remaining-time text-danger">{{ s.get('remainingTime', '') }}</small>
+              </div>
+            </div>
+
+            <!-- Sipariş numarası -->
+            {% if s.get('orderNumber') %}
+              <p class="mb-1"><strong>Sipariş No:</strong> {{ s['orderNumber'] }}</p>
+            {% endif %}
+
+            <p class="mb-1"><strong>{{ s.get('userName', 'Müşteri') }}</strong> sordu:</p>
+            <p class="mb-2">{{ s.get('text', '') }}</p>
+
+            <!-- Cevap formu -->
+            <form method="post" action="{{ url_for('cevapla', question_id=s.get('id')) }}">
+              <input type="hidden" name="supplier_id" value="{{ s.get('supplier_id') }}">
+              <div class="input-group">
+                <textarea name="cevap" class="form-control w-100" rows="2" placeholder="Cevabınızı yazın..." minlength="10" maxlength="2000" required></textarea>
+                <button type="submit" class="btn btn-warning">Gönder</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="alert alert-secondary text-center">Hiç sipariş sorusu bulunamadı.</div>
+  {% endif %}
+
+</body>
+</html>

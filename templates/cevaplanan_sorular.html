@@ -15,26 +15,35 @@
   </style>
 </head>
 <body class="container py-4">
+  <!-- Üst Menü -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">✅ Cevaplanan Sorular</h2>
     <div>
-      <a href="{{ url_for('urun_sorulari') }}" class="btn btn-secondary">⬅ Sorular</a>
+      <a href="{{ url_for('questions') }}" class="btn btn-secondary">⬅ Bekleyen Sorular</a>
       <a href="{{ url_for('index') }}" class="btn btn-dark">🏠 Ana Sayfa</a>
     </div>
   </div>
 
+  <!-- Soru Listesi -->
   {% if sorular %}
     {% for s in sorular %}
       <div class="card p-3">
         <div class="d-flex justify-content-between">
-          <span class="badge bg-info text-dark">{{ s['supplier_name'] }}</span>
-          <small class="text-muted">{{ s['creationDateFormatted'] }}</small>
+          <span class="badge bg-info text-dark">{{ s.get('supplier_name', 'Mağaza') }}</span>
+          <small class="text-muted">{{ s.get('creationDateFormatted', '') }}</small>
         </div>
-        <h5 class="mt-2">{{ s['productName'] }}</h5>
-        <p><strong>{{ s['userName'] }}</strong> sordu: {{ s['text'] }}</p>
+
+        {% if s.get('productName') %}
+          <h5 class="mt-2">{{ s['productName'] }}</h5>
+        {% elif s.get('orderNumber') %}
+          <h6 class="mt-2">🛒 Sipariş No: {{ s['orderNumber'] }}</h6>
+        {% endif %}
+
+        <p class="mt-2"><strong>{{ s.get('userName', 'Müşteri') }}</strong> sordu: {{ s.get('text', '') }}</p>
+
         <div class="alert alert-success mb-0">
-          <strong>Cevap:</strong> {{ s['answerText'] }}
-        </div>
+  <strong>Cevap:</strong> {{ s.get('answerText', '—') }}
+</div>
       </div>
     {% endfor %}
   {% else %}
