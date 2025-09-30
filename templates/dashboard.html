@@ -14,7 +14,7 @@
     /* ===== Üst Bar (sol-orta-sağ) ===== */
     .toolbar-grid{
       display:grid;
-      grid-template-columns:1fr auto 1fr; /* sol | orta | sağ */
+      grid-template-columns:1fr auto 1fr;
       align-items:center;
       column-gap:24px;
       row-gap:10px;
@@ -79,16 +79,16 @@
       <a href="{{ url_for('index') }}" class="btn btn-secondary me-2">⬅ Ana Sayfa</a>
       <input id="searchBox" type="search" class="form-control search-input" placeholder="Tüm alanlarda ara…">
       <form method="get" action="{{ url_for('dashboard') }}">
-  <div class="input-group">
-    <select class="form-select" name="status" onchange="this.form.submit()">
-      {% set sel = request.args.get('status','Created') %}
-      {% for s in ['Created','Picking','Invoiced','Shipped','Cancelled','Delivered','UnDelivered','Returned','UnPacked','UnSupplied'] %}
-        <option value="{{s}}" {{ 'selected' if sel==s else '' }}>{{ s }}</option>
-      {% endfor %}
-    </select>
-    <span class="input-group-text">Statü</span>
-  </div>
-</form>
+        <div class="input-group">
+          <select class="form-select" name="status" onchange="this.form.submit()">
+            {% set sel = request.args.get('status','Created') %}
+            {% for s in ['Created','Picking','Invoiced','Shipped','Cancelled','Delivered','UnDelivered','Returned','UnPacked','UnSupplied'] %}
+              <option value="{{s}}" {{ 'selected' if sel==s else '' }}>{{ s }}</option>
+            {% endfor %}
+          </select>
+          <span class="input-group-text">Statü</span>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -168,7 +168,6 @@
   <div id="sentinel" class="text-center">
     {% if has_more %}Daha fazla yükleniyor… aşağı kaydırın{% else %}Hepsi bu kadar{% endif %}
   </div>
-
   <!-- Görsel Modal -->
   <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
@@ -255,32 +254,31 @@
     }, { rootMargin:'200px 0px' });
     function observeNewImages(scope=document){ scope.querySelectorAll('img.lazy-img').forEach(img=>imgObserver.observe(img)); }
 
-   /* ==== Countdown ==== */
-function fmt(ms){
-  const s = Math.max(Math.floor(ms/1000), 0);
-  const d = Math.floor(s / 86400);             // gün
-  const h = Math.floor((s % 86400) / 3600);    // saat
-  const m = Math.floor((s % 3600) / 60);       // dakika
-  const ss = s % 60;                           // saniye
-  if(d > 0){
-    return `${d}g ${h}s ${m}d`;   // örn: 2g 5s 30d
-  }
-  return `${h}s ${m}d ${ss}sn`;  // örn: 5s 30d 12sn
-}
-
-function tickCountdowns(){
-  const now = Date.now();
-  document.querySelectorAll('.countdown').forEach(el=>{
-    const dl = Number(el.dataset.deadline || 0);  // ✅ parseInt yerine Number
-    if(!dl || isNaN(dl)){
-      el.textContent = 'Kalan: —';
-      return;
+    /* ==== Countdown ==== */
+    function fmt(ms){
+      const s = Math.max(Math.floor(ms/1000), 0);
+      const d = Math.floor(s / 86400);
+      const h = Math.floor((s % 86400) / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const ss = s % 60;
+      if(d > 0){
+        return `${d}g ${h}s ${m}d`;
+      }
+      return `${h}s ${m}d ${ss}sn`;
     }
-    const diff = dl - now;
-    el.textContent = diff <= 0 ? 'GEÇTİ!' : ('Kalan: ' + fmt(diff));
-  });
-}
 
+    function tickCountdowns(){
+      const now = Date.now();
+      document.querySelectorAll('.countdown').forEach(el=>{
+        const dl = Number(el.dataset.deadline || 0);
+        if(!dl || isNaN(dl)){
+          el.textContent = 'Kalan: —';
+          return;
+        }
+        const diff = dl - now;
+        el.textContent = diff <= 0 ? 'GEÇTİ!' : ('Kalan: ' + fmt(diff));
+      });
+    }
 
     /* ==== Sonsuz Kaydırma ==== */
     function escapeHtml(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
@@ -330,7 +328,7 @@ function tickCountdowns(){
         tickCountdowns();
       }catch(e){ console.warn('load more failed',e); }
       finally{ isLoading=false; }
-     }, { rootMargin:'1200px 0px' });
+    }, { rootMargin:'1200px 0px' });
     sentinelObserver.observe(sentinel);
 
     /* ==== İlk yükleme ==== */

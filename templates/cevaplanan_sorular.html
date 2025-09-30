@@ -5,49 +5,65 @@
   <title>Cevaplanan Sorular</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background: #f5f7fb; }
+    body { background: #f5f7fb; padding: 20px; }
     .card {
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       margin-bottom: 20px;
     }
     .badge { font-size: 0.85rem; }
+    .question-text { font-size: 1rem; font-weight: 500; }
+    .answer-text { margin-top: 8px; font-size: 0.95rem; }
   </style>
 </head>
 <body class="container py-4">
-  <!-- Üst Menü -->
+
+  <!-- ===== ÜST BAR ===== -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">✅ Cevaplanan Sorular</h2>
     <div>
+      <span class="me-2">👤 {{ current_user.username }} (Rol: {{ current_user.role }})</span>
       <a href="{{ url_for('questions') }}" class="btn btn-secondary">⬅ Bekleyen Sorular</a>
-      <a href="{{ url_for('index') }}" class="btn btn-dark">🏠 Ana Sayfa</a>
+      <a href="{{ url_for('dashboard') }}" class="btn btn-dark">📦 Siparişler</a>
+      {% if current_user.role == "admin" %}
+        <a href="{{ url_for('admin_panel') }}" class="btn btn-warning">⚙️ Admin Paneli</a>
+      {% endif %}
+      <a href="{{ url_for('index') }}" class="btn btn-outline-dark">🏠 Ana Sayfa</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-danger">🚪 Çıkış</a>
     </div>
   </div>
 
-  <!-- Soru Listesi -->
-  {% if sorular %}
-    {% for s in sorular %}
-      <div class="card p-3">
-        <div class="d-flex justify-content-between">
-          <span class="badge bg-info text-dark">{{ s.get('supplier_name', 'Mağaza') }}</span>
-          <small class="text-muted">{{ s.get('creationDateFormatted', '') }}</small>
+  <!-- Flash mesajlar -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <!-- ===== Cevaplanan Sorular Listesi ===== -->
+  {% if current_user.role in ["soru", "ofis", "admin"] %}
+    <div class="row">
+      {% for s in sorular %}
+      <div class="col-md-6">
+        <div class="card p-3">
+          <div class="question-text">❓ {{ s['questionText'] }}</div>
+          <div class="text-muted small">
+            Tarih: {{ s['createdDate'] }}
+          </div>
+          <div class="answer-text alert alert-success mt-2">
+            ✅ <strong>Cevap:</strong> {{ s['answerText'] }}
+          </div>
         </div>
-
-        {% if s.get('productName') %}
-          <h5 class="mt-2">{{ s['productName'] }}</h5>
-        {% elif s.get('orderNumber') %}
-          <h6 class="mt-2">🛒 Sipariş No: {{ s['orderNumber'] }}</h6>
-        {% endif %}
-
-        <p class="mt-2"><strong>{{ s.get('userName', 'Müşteri') }}</strong> sordu: {{ s.get('text', '') }}</p>
-
-        <div class="alert alert-success mb-0">
-  <strong>Cevap:</strong> {{ s.get('answerText', '—') }}
-</div>
       </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   {% else %}
-    <div class="alert alert-secondary text-center">Henüz cevaplanmış soru bulunamadı.</div>
+    <div class="alert alert-danger">
+      ❌ Bu sayfayı görüntüleme yetkiniz yok.
+    </div>
   {% endif %}
+  <!-- ===== Sayfa Sonu ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

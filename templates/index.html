@@ -11,12 +11,30 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-direction: column;
+      gap: 20px;
     }
-    .menu-card {
+    .header-bar {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .header-bar h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .menu-card, .stats-card {
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      padding: 40px;
+      padding: 30px;
       text-align: center;
       max-width: 400px;
       width: 100%;
@@ -42,13 +60,51 @@
       background: #198754;
       color: #fff;
     }
+    .stats-card h4 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🔝 Header -->
+  <div class="header-bar">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" loading="eager" style="height:28px;">
+    <h2> YAKAMEL GRUP</h2>
+    <div>
+      {% if current_user.is_authenticated %}
+        {% if current_user.role == 'admin' %}
+          <a href="{{ url_for('admin_panel') }}" class="btn btn-sm btn-warning me-2">⚙️ Admin Paneli</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}" class="btn btn-sm btn-danger">🚪 Çıkış</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-sm btn-primary">🔑 Giriş Yap</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- 📦 Ana Menü -->
   <div class="menu-card">
-    <h1>📊 YAKAMEL GRUP YÖNETİM</h1>
+    <h1>📦 Yönetim Paneli</h1>
     <a href="{{ url_for('dashboard') }}" class="btn-orders">📦 Toplam Siparişler</a>
     <a href="{{ url_for('questions') }}" class="btn-questions">❓ Toplam Ürün Soruları</a>
   </div>
+
+<!-- 🚚 Kargo İstatistikleri -->
+<div class="stats-card">
+  <h4>🚚 Kargo Durumu</h4>
+  <p><strong>Toplam Kargo:</strong> {{ total_to_ship }}</p>
+  <p><strong>Yapılan Kargo:</strong> {{ shipped_count }}</p>
+  <p><strong>Bugün Kargoya Verilen:</strong> {{ shipped_today }}</p>
+</div>
+<hr>
+<div style="background:#0d6efd; color:white; padding:15px; border-radius:8px; text-align:center; font-size:1.5rem; font-weight:bold;">
+  Toplam KARGO: {{ total_all }}
+</div>
+<img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo" class="logo" loading="eager">
+
+
+
 </body>
 </html>
