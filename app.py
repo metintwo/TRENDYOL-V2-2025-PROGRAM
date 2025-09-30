@@ -9,6 +9,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 
+
 # ---- Flask App ----
 import os
 from dotenv import load_dotenv
@@ -32,7 +33,7 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return db.session.get(User, int(user_id))
 
 # ---- .env yükle ----
 load_dotenv()
@@ -270,8 +271,8 @@ def api_orders():
     status = request.args.get("status", "Created")
     page = int(request.args.get("page", 0))
     size = int(request.args.get("size", PAGE_SIZE))
-    orders, total = get_orders(status=status, page=page, size=size)
-    return jsonify({"orders": orders, "page": page, "size": size, "total": total})
+    orders, total = get_orders(status=status, size=size)
+    return jsonify({"orders": orders, "size": size, "total": total})
 
 @app.route("/api/line-image")
 def api_line_image():

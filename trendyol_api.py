@@ -7,6 +7,7 @@ import time
 from utils import format_date, calc_remaining_time
 from config import magazalar, id_to_name
 
+
 BASE = "https://apigw.trendyol.com"
 QNA_PATH = "/integration/qna"
 
@@ -79,6 +80,11 @@ def _pick_addr(a: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
     }
 
 def _normalize_order(pkg: Dict[str, Any], supplier_id: str) -> Dict[str, Any]:
+    """
+    Trendyol paket JSON'unu normalize eder.
+    Sadece işine yarayan alanlar tutulur.
+    """
+    # Ürün satırlarını toparla
     lines = []
     for li in pkg.get("lines", []) or []:
         lines.append({
@@ -91,31 +97,53 @@ def _normalize_order(pkg: Dict[str, Any], supplier_id: str) -> Dict[str, Any]:
             "merchantSku": li.get("merchantSku", ""),
             "sku": li.get("sku", ""),
             "barcode": li.get("barcode", ""),
-            "productCode": li.get("productCode", ""),
+            "productCode": li.get("productCode", "")
         })
+
+    # 🎁 Hediye paketi bilgisi
+    gift_requested = pkg.get("giftPackageRequested") or pkg.get("giftBoxRequested") or False
+    gift_note = pkg.get("giftNote") or pkg.get("giftBoxNote") or pkg.get("message") or ""
 
     return {
         "supplier_id": supplier_id,
         "supplier_name": id_to_name.get(supplier_id, supplier_id),
+
+        # Temel bilgiler
         "id": pkg.get("id"),
         "orderNumber": pkg.get("orderNumber", ""),
         "status": pkg.get("status", ""),
+
+        # Tarihler
         "orderDate": pkg.get("originShipmentDate") or pkg.get("orderDate"),
         "orderDateFormatted": format_date(pkg.get("originShipmentDate") or pkg.get("orderDate")),
         "lastModifiedDate": pkg.get("lastModifiedDate"),
+
+        # Müşteri bilgileri
         "customerFirstName": pkg.get("customerFirstName", ""),
-        "customerLastName":  pkg.get("customerLastName", ""),
+        "customerLastName": pkg.get("customerLastName", ""),
+
+        # Kargo bilgileri
         "cargoTrackingNumber": pkg.get("cargoTrackingNumber"),
-        "cargoTrackingLink":   pkg.get("cargoTrackingLink"),
-        "cargoProviderName":   pkg.get("cargoProviderName"),
-        "cargoSenderNumber":   pkg.get("cargoSenderNumber"),
+        "cargoTrackingLink": pkg.get("cargoTrackingLink"),
+        "cargoProviderName": pkg.get("cargoProviderName"),
+        "cargoSenderNumber": pkg.get("cargoSenderNumber"),
+
+        # Adresler
         "shipmentAddress": _pick_addr(pkg.get("shipmentAddress")),
-        "invoiceAddress":  _pick_addr(pkg.get("invoiceAddress")),
+        "invoiceAddress": _pick_addr(pkg.get("invoiceAddress")),
+
+        # Teslimat
         "agreedDeliveryDate": pkg.get("agreedDeliveryDate"),
         "extendedAgreedDeliveryDate": pkg.get("extendedAgreedDeliveryDate"),
+
+        # Fiyat
         "totalPrice": pkg.get("totalPrice"),
         "grossAmount": pkg.get("grossAmount"),
+
+        # Satır ve notlar
         "lines": lines,
+        "giftPackageRequested": gift_requested,
+        "giftNote": gift_note,
     }
 
 # ---------- orders list ----------
@@ -144,7 +172,7 @@ def get_orders(status: str = "Created", size: int = 200,
                 "endDate": _ms(end),
                 "orderByField": "PackageLastModifiedDate",
                 "orderByDirection": "DESC",
-                "size": size,   # her sayfa en fazla 200
+                "size": size,
                 "page": page,
             }
             try:
@@ -164,7 +192,6 @@ def get_orders(status: str = "Created", size: int = 200,
                 for pkg in content:
                     result.append(_normalize_order(pkg, supplier_id=sid))
 
-                # tüm sayfalar bitince çık
                 if (page + 1) * size >= data.get("totalElements", 0):
                     break
                 page += 1
@@ -173,8 +200,36 @@ def get_orders(status: str = "Created", size: int = 200,
                 print(f"❌ {sid} orders error:", e)
                 break
 
-    # 🔹 Kalan süreye göre sıralama (az kalan en üstte)
     now_ms = int(dt.datetime.now().timestamp() * 1000)
+
+    def _deadline_sort_key(x):
+        dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
+        if not dl:
+            return (10**15, -(x.get("lastModifiedDate") or 0))
+        try:
+            rem = int(dl) - now_ms
+        except Exception:
+            rem = 10**14
+        return (rem, -(x.get("lastModifiedDate") or 0))
+
+    result.sort(key=_deadline_sort_key)
+
+    return result, total
+
+    def _deadline_sort_key(x):
+        dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
+        if not dl:
+            return (10**15, -(x.get("lastModifiedDate") or 0))  # teslim tarihi yoksa sona
+        try:
+            rem = int(dl) - now_ms   # kalan süre (ms)
+        except Exception:
+            rem = 10**14
+        return (rem, -(x.get("lastModifiedDate") or 0))
+
+    result.sort(key=_deadline_sort_key)
+
+    return result, total
+
 
     def _deadline_sort_key(x):
         dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")

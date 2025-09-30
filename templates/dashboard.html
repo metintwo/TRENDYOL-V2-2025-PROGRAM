@@ -125,9 +125,18 @@
             <div class="text-muted">{{ o.get('customerFirstName','') }} {{ o.get('customerLastName','') }}</div>
           </td>
           <td>
-            {{ o['orderDateFormatted'] }}
-            <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
-          </td>
+  {{ o['orderDateFormatted'] }}
+ {% if o['giftPackageRequested'] %}
+  <button type="button" class="badge bg-success text-white mt-1 gift-note-btn"
+          data-note="{{ o['giftNote']|e }}"
+          data-bs-toggle="modal"
+          data-bs-target="#giftNoteModal">
+    🎁 Hediye Paketi
+  </button>
+{% endif %}
+
+  <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
+</td>
           <td>
             <div class="products-grid">
               {% for l in o.get('lines', []) %}
@@ -298,7 +307,12 @@
         <tr data-key="${o.supplier_id}:${o.id}">
           <td><span class="badge bg-info text-dark">${escapeHtml(o.supplier_name)}</span></td>
           <td><div class="fw-semibold">${escapeHtml(o.orderNumber)}</div><div class="text-muted">${escapeHtml((o.customerFirstName||'')+' '+(o.customerLastName||''))}</div></td>
-          <td>${escapeHtml(o.orderDateFormatted)}<div class="small text-danger countdown" data-deadline="${deadline}">Kalan: —</div></td>
+          <td>
+  ${escapeHtml(o.orderDateFormatted)}
+  ${o.giftPackageRequested ? '<div class="text-success fw-bold">🎁 Hediye Paketi</div>' : ''}
+  <div class="small text-danger countdown" data-deadline="${deadline}">Kalan: —</div>
+</td>
+
           <td><div class="products-grid">${productsHtml}</div></td>
           <td>${escapeHtml(o.status||'')}</td>
           <td style="min-width:120px;">
@@ -356,7 +370,30 @@
           tickCountdowns();
         }
       }catch(e){ console.warn('refresh failed',e); }
-    }, 120000);
+        }, 120000);
+    // 🎁 Hediye Notu Modal kontrolü
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.gift-note-btn');
+  if (!btn) return;
+  const note = btn.dataset.note || "Not yok";
+  document.getElementById('giftNoteText').textContent = note;
+});
   </script>
+
+  <!-- Hediye Notu Modal -->
+  <div class="modal fade" id="giftNoteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">🎁 Hediye Notu</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body">
+          <pre id="giftNoteText" class="mb-0" style="white-space: pre-wrap; font-size:0.95rem;"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
