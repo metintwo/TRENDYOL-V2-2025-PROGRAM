@@ -10,11 +10,20 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 
 # ---- Flask App ----
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "supersecret")
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+
+# ✅ Artık PostgreSQL kullanıyoruz
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db.init_app(app)
+
 
 # ---- Login Manager ----
 login_manager = LoginManager()
