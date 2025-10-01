@@ -9,6 +9,27 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 
+def parse_date(dt):
+    """Trendyol tarih alanlarını güvenli şekilde datetime objesine çevirir"""
+    if not dt:
+        return None
+    try:
+        # Eğer string ve tamamen rakamsa → timestamp gibi işleyelim
+        if isinstance(dt, str) and dt.isdigit():
+            dt = int(dt)
+
+        if isinstance(dt, (int, float)):
+            # Trendyol timestamp milisaniye cinsinden geliyor
+            return datetime.fromtimestamp(dt / 1000.0)
+        elif isinstance(dt, str):
+            # ISO string format (ör: "2025-10-01T08:55:42.000Z")
+            return datetime.fromisoformat(dt.replace("Z", "+00:00"))
+        elif isinstance(dt, datetime):
+            return dt
+    except Exception as e:
+        print("⚠️ Tarih parse edilemedi:", dt, e)
+    return None
+
 
 # ---- Flask App ----
 import os
@@ -42,38 +63,60 @@ PAGE_SIZE = 20
 
 # ---- Ana Menü ----
 from datetime import datetime
+
+# ---- Ana Menü ----
 @app.route("/")
 def index():
     try:
+        today = datetime.now().date()
+
         # Created siparişler
         created_orders, created_count = get_orders(status="Created", size=500)
 
         # Picking siparişler
         picking_orders, picking_count = get_orders(status="Picking", size=500)
 
-        # Shipped siparişler
+        # Shipped siparişler (toplam)
         shipped_orders, shipped_count = get_orders(status="Shipped", size=500)
 
-        # Genel toplam
-        total_all = created_count + picking_count + shipped_count
+        # 🔹 Günlük shipped filtreleme (sadece bugünün shipmentCreatedDate eşleşirse)
+        daily_shipped = []
+        for o in shipped_orders:
+            dt_parsed = parse_date(o.get("shipmentCreatedDate"))
+            if dt_parsed and dt_parsed.date() == today:
+                daily_shipped.append(o)
+
+        print("📦 Bugün taşımada olan kargolar:")
+        for o in daily_shipped:
+            dt_parsed = parse_date(o.get("shipmentCreatedDate"))
+            print(
+                f"- SiparişNo: {o.get('orderNumber')} | "
+                f"Durum: {o.get('status')} | "
+                f"Tarih: {dt_parsed}"
+            )
+
+        shipped_today_count = len(daily_shipped)
+
+        # Genel toplam (bugüne göre)
+        total_all = created_count + picking_count + shipped_today_count
 
     except Exception as e:
         print("❌ Kargo istatistikleri alınamadı:", e)
         created_count = 0
         picking_count = 0
-        shipped_count = 0
+        shipped_today_count = 0
         total_all = 0
 
     return render_template(
         "index.html",
         created_count=created_count,
         picking_count=picking_count,
-        shipped_count=shipped_count,
+        shipped_count=shipped_today_count,  # sadece bugünün taşımaları
         total_all=total_all
     )
 
 
-# ---- Siparişler ----
+# ---- Dashboard ----
 @app.route("/dashboard")
 @login_required
 def dashboard():
@@ -87,14 +130,26 @@ def dashboard():
 
     status = request.args.get("status", "Created")
     orders, total_to_ship = get_orders(status=status, size=200)
+
+    today = datetime.now().date()
+    tasimada_orders = []
+    for o in orders:
+        dt_parsed = parse_date(
+            o.get("shipmentCreatedDate") or o.get("lastModifiedDate") or o.get("orderDate")
+        )
+        if dt_parsed and dt_parsed.date() == today and o.get("status") in ("Picking", "Shipped"):
+            tasimada_orders.append(o)
+
+    tasimada_count = len(tasimada_orders)
+
     return render_template(
         "dashboard.html",
         orders=orders,
         total_to_ship=total_to_ship,
+        tasimada_count=tasimada_count,
         has_more=False,
         version=int(time.time())
     )
-
 # ---- Sorular ----
 @app.route("/questions")
 @login_required
