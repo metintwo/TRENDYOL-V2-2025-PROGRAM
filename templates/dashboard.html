@@ -125,18 +125,20 @@
             <div class="text-muted">{{ o.get('customerFirstName','') }} {{ o.get('customerLastName','') }}</div>
           </td>
           <td>
-  {{ o['orderDateFormatted'] }}
- {% if o['giftPackageRequested'] %}
-  <button type="button" class="badge bg-success text-white mt-1 gift-note-btn"
-          data-note="{{ o['giftNote']|e }}"
-          data-bs-toggle="modal"
-          data-bs-target="#giftNoteModal">
-    🎁 Hediye Paketi
-  </button>
-{% endif %}
+  {% if o['giftPackageRequested'] %}
+    <button type="button" class="badge text-white gift-note-btn"
+            style="background:#ff8000; font-size:1.1rem; margin-bottom:5px;"
+            data-note="{{ o['giftNote']|e }}"
+            data-bs-toggle="modal"
+            data-bs-target="#giftNoteModal">
+      🎁 Hediye Paketi
+    </button><br>
+  {% endif %}
 
+  {{ o['orderDateFormatted'] }}
   <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
 </td>
+
           <td>
             <div class="products-grid">
               {% for l in o.get('lines', []) %}
