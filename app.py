@@ -9,6 +9,17 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 
+# 🔹 Filtre SKU listesi
+FILTER_SKUS = [
+    "KFTK", "ETK3I", "BSKLE", "KIKT", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
+    "KSKP", "ESFKP", "KMTK", "BKTK", "KKTK", "OFBS", "BTSH", "SBP", "SGP", "UBP", "UGP",
+    "KBP", "KGP", "ULP", "KKFE", "BSKLTY", "TSH", "HRKA", "FDKY", "FSAH", "KSTK", "OFTA",
+    "HRTK", "EPA", "OBSWT", "DYTK", "SLP", "KLP", "ELBS", "DKP", "KMNO", "ESTK", "SAL",
+    "BAT", "HRKI", "CNT", "MTR", "PBK", "OFT", "PLR"
+]
+# Hepsini büyük harfe çevir
+FILTER_SKUS = [sku.upper() for sku in FILTER_SKUS]
+
 def parse_date(dt):
     """Trendyol tarih alanlarını güvenli şekilde datetime objesine çevirir"""
     if not dt:
@@ -29,6 +40,20 @@ def parse_date(dt):
     except Exception as e:
         print("⚠️ Tarih parse edilemedi:", dt, e)
     return None
+
+# 🔹 Siparişleri filtreleyen fonksiyon
+def filter_orders(orders):
+    filtered = []
+    for order in orders:
+        new_lines = []
+        for line in order.get("lines", []):
+            sku = (line.get("merchantSku") or line.get("sku") or "").upper()
+            if sku in FILTER_SKUS:
+                new_lines.append(line)
+        if new_lines:
+            order["lines"] = new_lines
+            filtered.append(order)
+    return filtered
 
 
 # ---- Flask App ----
@@ -131,6 +156,20 @@ def dashboard():
     status = request.args.get("status", "Created")
     orders, total_to_ship = get_orders(status=status, size=200)
 
+    # 🔹 Eğer filtre seçilmişse siparişleri SKU’ya göre süz
+    filter_param = request.args.get("filter")
+    if filter_param:
+        selected_skus = [f.strip().upper() for f in filter_param.split(",") if f.strip()]
+        filtered_orders = []
+        for o in orders:
+            for l in o.get("lines", []):
+                sku = (l.get("merchantSku") or l.get("sku") or "").upper()
+                if sku in selected_skus:
+                    filtered_orders.append(o)
+                    break
+        orders = filtered_orders
+        total_to_ship = len(orders)
+
     today = datetime.now().date()
     tasimada_orders = []
     for o in orders:
@@ -150,6 +189,7 @@ def dashboard():
         has_more=False,
         version=int(time.time())
     )
+
 # ---- Sorular ----
 @app.route("/questions")
 @login_required

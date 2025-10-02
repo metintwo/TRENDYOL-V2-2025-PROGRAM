@@ -145,7 +145,19 @@ def _normalize_order(pkg: Dict[str, Any], supplier_id: str) -> Dict[str, Any]:
         "giftPackageRequested": gift_requested,
         "giftNote": gift_note,
     }
-
+# 🔹 Siparişleri filtreleyen fonksiyon
+def filter_orders(orders):
+    filtered = []
+    for order in orders:
+        new_lines = []
+        for line in order.get("lines", []):
+            sku = (line.get("merchantSku") or line.get("sku") or "").upper()
+            if sku in FILTER_SKUS:
+                new_lines.append(line)
+        if new_lines:
+            order["lines"] = new_lines
+            filtered.append(order)
+    return filtered
 # ---------- orders list ----------
 def get_orders(status: str = "Created", size: int = 200,
                startDate: Optional[int] = None, include_images: bool = False):

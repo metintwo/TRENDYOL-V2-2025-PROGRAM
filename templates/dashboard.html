@@ -57,42 +57,67 @@
 </head>
 <body class="container-fluid py-3">
 
-  <!-- ===== ÜST BAR ===== -->
-  <div class="toolbar-grid">
-    <!-- Sol: Logo + Başlık -->
-    <div class="toolbar-left">
-      <div class="brand d-flex align-items-center gap-2">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" loading="eager">
-        <h3 class="mb-0">Siparişler</h3>
-      </div>
-    </div>
+<!-- ===== ÜST BAR ===== -->
+<div class="toolbar-grid align-items-center" style="grid-template-columns: auto 1fr auto;">
 
-    <!-- Orta: Kargolanacak toplam -->
-    <div class="text-center">
-      <span id="todoBadge" class="counter-pill">
-        Kargolanacak Toplam Kargo: <strong id="todoCount">{{ total_to_ship }}</strong>
-      </span>
-    </div>
+  <!-- Sol: Logo + YAKAMEL -->
+  <div class="toolbar-left d-flex align-items-center gap-2">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" loading="eager" style="height:34px;">
+    <h3 class="mb-0" style="font-size:1.6rem; font-weight:700;">YAKAMEL</h3>
 
-    <!-- Sağ: Arama + Statü + Geri dön -->
-    <div class="toolbar-right">
-      <a href="{{ url_for('index') }}" class="btn btn-secondary me-2">⬅ Ana Sayfa</a>
-      <input id="searchBox" type="search" class="form-control search-input" placeholder="Tüm alanlarda ara…">
-      <form method="get" action="{{ url_for('dashboard') }}">
-        <div class="input-group">
-          <select class="form-select" name="status" onchange="this.form.submit()">
-            {% set sel = request.args.get('status','Created') %}
-            {% for s in ['Created','Picking','Invoiced','Shipped','Cancelled','Delivered','UnDelivered','Returned','UnPacked','UnSupplied'] %}
-              <option value="{{s}}" {{ 'selected' if sel==s else '' }}>{{ s }}</option>
-            {% endfor %}
-          </select>
-          <span class="input-group-text">Statü</span>
-        </div>
-      </form>
-    </div>
+    <!-- Küçültülmüş arama -->
+    <input id="searchBox" type="search" class="form-control" placeholder="Ara…"
+           style="max-width:200px; margin-left:10px;">
   </div>
 
-  <!-- Flash mesajlar -->
+  <!-- Orta: Kargolanacak toplam -->
+  <div class="text-center">
+    <span id="todoBadge" class="counter-pill">
+      Kargolanacak Toplam Kargo: <strong id="todoCount">{{ total_to_ship }}</strong>
+    </span>
+  </div>
+
+  <!-- Sağ: Ana Sayfa + Statü + SKU -->
+  <div class="toolbar-right d-flex align-items-center gap-2 flex-wrap">
+
+    <!-- Ana sayfa butonu -->
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
+
+    <!-- Statü -->
+    <form method="get" action="{{ url_for('dashboard') }}">
+      <div class="input-group" style="max-width:160px;">
+        <select class="form-select" name="status" onchange="this.form.submit()">
+          {% set sel = request.args.get('status','Created') %}
+          {% for s in ['Created','Picking','Invoiced','Shipped','Cancelled','Delivered','UnDelivered','Returned','UnPacked','UnSupplied'] %}
+            <option value="{{s}}" {{ 'selected' if sel==s else '' }}>{{ s }}</option>
+          {% endfor %}
+        </select>
+        <span class="input-group-text">Statü</span>
+      </div>
+    </form>
+
+    <!-- SKU Filtre -->
+    <form method="get" action="{{ url_for('dashboard') }}">
+      <select class="form-select" name="filter" multiple size="5" onchange="this.form.submit()"
+              style="max-width:160px; min-width:140px;">
+        {% set selected_filters = request.args.getlist('filter') %}
+        {% for code in [
+          "KFTK","ETK3I","BSKLE","KIKT","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
+          "KSKP","ESFKP","KMTK","BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
+          "KBP","KGP","ULP","KKFE","BSKLTY","TSH","HRKA","FDKY","FSAH","KSTK","OFTA",
+          "HRTK","EPA","OBSWT","DYTK","SLP","KLP","ELBS","DKP","KMNO","ESTK","SAL",
+          "BAT","HRKI","CNT","MTR","PBK","OFT","PLR"
+        ] %}
+          <option value="{{ code }}" {% if code in selected_filters %}selected{% endif %}>
+            {{ code }}
+          </option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+</div>
+
+   <!-- Flash mesajlar -->
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, message in messages %}
@@ -364,24 +389,41 @@ window.addEventListener('load', () => {
     }
 
     const sentinelObserver = new IntersectionObserver(async (entries) => {
-      if (!entries.some(e=>e.isIntersecting)) return;
-      if (isLoading || !hasMore) return;
-      isLoading = true;
-      try{
-        const qs=new URLSearchParams({status:currentStatus,page:nextPage});
-        const res=await fetch('/api/orders?'+qs.toString());
-        const data=await res.json();
-        (data.orders||[]).forEach(o=>{
-          const row=document.createElement('tbody'); row.innerHTML=renderRow(o);
-          tbody.appendChild(row.firstElementChild); observeNewImages(row);
-        });
-        hasMore=!!data.has_more; nextPage=(data.page||0)+1;
-        sentinel.textContent=hasMore?'Daha fazla yükleniyor…':'Hepsi bu kadar';
-        tickCountdowns();
-      }catch(e){ console.warn('load more failed',e); }
-      finally{ isLoading=false; }
-    }, { rootMargin:'1200px 0px' });
-    sentinelObserver.observe(sentinel);
+  if (!entries.some(e => e.isIntersecting)) return;
+  if (isLoading || !hasMore) return;
+  isLoading = true;
+  try {
+    const qs = new URLSearchParams({ status: currentStatus, page: nextPage });
+
+   // 🔹 Eğer URL'de birden fazla filter parametresi varsa hepsini ekle
+const urlParams = new URLSearchParams(window.location.search);
+urlParams.getAll('filter').forEach(f => {
+  qs.append('filter', f);
+});
+
+
+    const res = await fetch('/api/orders?' + qs.toString());
+    const data = await res.json();
+
+    (data.orders || []).forEach(o => {
+      const row = document.createElement('tbody');
+      row.innerHTML = renderRow(o);
+      tbody.appendChild(row.firstElementChild);
+      observeNewImages(row);
+    });
+
+    hasMore = !!data.has_more;
+    nextPage = (data.page || 0) + 1;
+    sentinel.textContent = hasMore ? 'Daha fazla yükleniyor…' : 'Hepsi bu kadar';
+    tickCountdowns();
+  } catch (e) {
+    console.warn('load more failed', e);
+  } finally {
+    isLoading = false;
+  }
+}, { rootMargin: '1200px 0px' });
+
+sentinelObserver.observe(sentinel);
 
     /* ==== İlk yükleme ==== */
     observeNewImages(tbody);
