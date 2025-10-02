@@ -106,11 +106,11 @@
       Hepsini Göster
     </option>
     {% for code in [
-      "KFTK","ETK3I","BSKLE","KIKT","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
+      "HRKA","BMBRTK","ETK3I","KFTK","FDKY","BSKLE","KIKT","CNT","MTR","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
       "KSKP","ESFKP","KMTK","BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
-      "KBP","KGP","ULP","KKFE","BSKLTY","TSH","HRKA","FDKY","FSAH","KSTK","OFTA",
+      "KBP","KGP","ULP","KKFE","BSKLTY","TSH","FSAH","KSTK","OFTA",
       "HRTK","EPA","OBSWT","DYTK","SLP","KLP","ELBS","DKP","KMNO","ESTK","SAL",
-      "BAT","HRKI","CNT","MTR","PBK","OFT","PLR"
+      "BAT","HRKI","PBK","OFT","PLR","SFTK","KUKT"
     ] %}
       <option value="{{ code }}" {% if code in selected_filters %}selected{% endif %}>
         {{ code }}
@@ -439,26 +439,29 @@ sentinelObserver.observe(sentinel);
     setInterval(tickCountdowns, 1000);
 
     /* ==== 2 dakikada bir otomatik yenileme ==== */
-    setInterval(async()=>{
-      try{
-        const qs=new URLSearchParams({status:currentStatus,page:0});
-        const res=await fetch('/api/orders?'+qs.toString());
-        const data=await res.json();
-        if((data.version ?? 0)!==orderVersion){
-          tbody.innerHTML='';
-          (data.orders||[]).forEach(o=>{
-            const row=document.createElement('tbody'); row.innerHTML=renderRow(o);
-            tbody.appendChild(row.firstElementChild);
-            observeNewImages(row);
-          });
-          orderVersion=data.version ?? orderVersion;
-          nextPage=1;
-          hasMore=!!data.has_more;
-          sentinel.textContent=hasMore?'Daha fazla yükleniyor…':'Hepsi bu kadar';
-          tickCountdowns();
-        }
-      }catch(e){ console.warn('refresh failed',e); }
-        }, 120000);
+setInterval(async()=>{
+  try{
+    const qs=new URLSearchParams({status:currentStatus,page:0});
+    const res=await fetch('/api/orders?'+qs.toString());
+    const data=await res.json();
+    if((data.version ?? 0)!==orderVersion){
+      tbody.innerHTML='';   // Eski satırlar siliniyor
+      (data.orders||[]).forEach(o=>{
+        const row=document.createElement('tbody');
+        row.innerHTML=renderRow(o);
+        tbody.appendChild(row.firstElementChild);
+      });
+      // 🔹 Resimleri tekrar gözlemle
+      observeNewImages(tbody);
+
+      orderVersion=data.version ?? orderVersion;
+      nextPage=1;
+      hasMore=!!data.has_more;
+      sentinel.textContent=hasMore?'Daha fazla yükleniyor…':'Hepsi bu kadar';
+      tickCountdowns();
+    }
+  }catch(e){ console.warn('refresh failed',e); }
+}, 120000);
     // 🎁 Hediye Notu Modal kontrolü
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('.gift-note-btn');
