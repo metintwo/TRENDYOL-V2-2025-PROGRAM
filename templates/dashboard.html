@@ -116,63 +116,75 @@
         </tr>
       </thead>
       <tbody id="ordersBody">
-        {% for o in orders %}
-        {% set deadline = o['extendedAgreedDeliveryDate'] or o['agreedDeliveryDate'] %}
-        <tr data-key="{{ o['supplier_id'] }}:{{ o['id'] }}">
-          <td><span class="badge bg-info text-dark">{{ o['supplier_name'] }}</span></td>
-          <td>
-            <div class="fw-semibold">{{ o['orderNumber'] }}</div>
-            <div class="text-muted">{{ o.get('customerFirstName','') }} {{ o.get('customerLastName','') }}</div>
-          </td>
-          <td>
-  {% if o['giftPackageRequested'] %}
-    <button type="button" class="badge text-white gift-note-btn"
-            style="background:#ff8000; font-size:1.1rem; margin-bottom:5px;"
-            data-note="{{ o['giftNote']|e }}"
-            data-bs-toggle="modal"
-            data-bs-target="#giftNoteModal">
-      🎁 Hediye Paketi
-    </button><br>
-  {% endif %}
+  {% for o in orders %}
+  {% set deadline = o['extendedAgreedDeliveryDate'] or o['agreedDeliveryDate'] %}
+  <tr id="order-{{ o['id'] }}" data-key="{{ o['supplier_id'] }}:{{ o['id'] }}">
+    <td><span class="badge bg-info text-dark">{{ o['supplier_name'] }}</span></td>
+    <td>
+      <div class="fw-semibold">{{ o['orderNumber'] }}</div>
+      <div class="text-muted">{{ o.get('customerFirstName','') }} {{ o.get('customerLastName','') }}</div>
+    </td>
+    <td>
+      {% if o['giftPackageRequested'] %}
+        <button type="button" class="badge text-white gift-note-btn"
+                style="background:#ff8000; font-size:1.1rem; margin-bottom:5px;"
+                data-note="{{ o['giftNote']|e }}"
+                data-bs-toggle="modal"
+                data-bs-target="#giftNoteModal">
+          🎁 Hediye Paketi
+        </button><br>
+      {% endif %}
+      {{ o['orderDateFormatted'] }}
+      <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
+    </td>
 
-  {{ o['orderDateFormatted'] }}
-  <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
+    <td>
+      <div class="products-grid">
+        {% for l in o.get('lines', []) %}
+        <div class="line-card">
+          <img class="product-img lazy-img"
+               alt="{{ l['productName'] }}"
+               loading="lazy"
+               data-supplier="{{ o['supplier_id'] }}"
+               data-barcode="{{ l.get('barcode','') }}"
+               data-merchant-sku="{{ l.get('merchantSku','') }}"
+               data-sku="{{ l.get('sku','') }}"
+               data-product-code="{{ l.get('productCode','') }}">
+          <div class="line-name">{{ l['productName'] }}</div>
+          <div class="line-meta">Renk: {{ l.get('productColor','-') }}</div>
+          <div class="line-meta">SKU: {{ l.get('merchantSku','-') }}</div>
+          <div class="line-meta">Beden: {{ l.get('productSize','-') }}</div>
+          <div class="line-meta">
+            <span class="badge rounded-pill bg-warning text-dark qty-badge">
+              Adet: {{ l.get('quantity', 1) }}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </td>
+
+    <td>{{ o['status'] }}</td>
+
+    <td style="min-width:120px;">
+  <form class="d-inline" method="post" action="{{ url_for('isleme_al', supplier_id=o['supplier_id'], package_id=o['id']) }}">
+    <input type="hidden" name="lines" value='{{ o.get("lines",[]) | tojson }}'>
+    <input type="hidden" name="redirect_to" value="order-{{ o['id'] }}">
+    <input type="hidden" name="search" value="{{ request.args.get('search','') }}">
+    <input type="hidden" name="status" value="{{ request.args.get('status','Created') }}">
+    <button class="btn btn-sm btn-primary">İşleme Al</button>
+  </form>
 </td>
 
-          <td>
-            <div class="products-grid">
-              {% for l in o.get('lines', []) %}
-              <div class="line-card">
-                <img class="product-img lazy-img"
-                     alt="{{ l['productName'] }}"
-                     loading="lazy"
-                     data-supplier="{{ o['supplier_id'] }}"
-                     data-barcode="{{ l.get('barcode','') }}"
-                     data-merchant-sku="{{ l.get('merchantSku','') }}"
-                     data-sku="{{ l.get('sku','') }}"
-                     data-product-code="{{ l.get('productCode','') }}">
-                <div class="line-name">{{ l['productName'] }}</div>
-                <div class="line-meta">Renk: {{ l.get('productColor','-') }}</div>
-                <div class="line-meta">Beden: {{ l.get('productSize','-') }}</div>
-                <div class="line-meta"><span class="badge rounded-pill bg-warning text-dark qty-badge">Adet: {{ l.get('quantity', 1) }}</span></div>
-              </div>
-              {% endfor %}
-            </div>
-          </td>
-          <td>{{ o['status'] }}</td>
-          <td style="min-width:120px;">
-            <form class="d-inline" method="post" action="{{ url_for('isleme_al', supplier_id=o['supplier_id'], package_id=o['id']) }}">
-              <input type="hidden" name="lines" value='{{ o.get("lines",[]) | tojson }}'>
-              <button class="btn btn-sm btn-primary">İşleme Al</button>
-            </form>
-          </td>
-          <td>
-            <button type="button" class="btn btn-sm btn-secondary btn-print"
-                    data-url="{{ url_for('etiket_yazdir', supplier_id=o['supplier_id'], package_id=o['id']) }}">🖨 Yazdır</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
+    <td>
+      <button type="button" class="btn btn-sm btn-secondary btn-print"
+              data-url="{{ url_for('etiket_yazdir', supplier_id=o['supplier_id'], package_id=o['id']) }}">
+        🖨 Yazdır
+      </button>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
     </table>
   </div>
 
@@ -212,13 +224,37 @@
     const searchBox = document.getElementById('searchBox');
     const todoCountEl = document.getElementById('todoCount');
 
-    /* ==== Arama ==== */
-    searchBox.addEventListener('input', () => {
-      const q = searchBox.value.toLowerCase().trim();
-      for (const tr of tbody.querySelectorAll('tr')) {
-        tr.style.display = tr.innerText.toLowerCase().includes(q) ? '' : 'none';
-      }
-    });
+   /* ==== Arama ==== */
+searchBox.addEventListener('input', () => {
+  const q = searchBox.value.toLowerCase().trim();
+  for (const tr of tbody.querySelectorAll('tr')) {
+    tr.style.display = tr.innerText.toLowerCase().includes(q) ? '' : 'none';
+  }
+
+  // URL parametresine yaz
+  const url = new URL(window.location);
+  if (q) {
+    url.searchParams.set('search', q);
+  } else {
+    url.searchParams.delete('search');
+  }
+  window.history.replaceState({}, '', url);
+});
+
+
+// Sayfa açıldığında search parametresini geri yükle
+window.addEventListener('load', () => {
+  const url = new URL(window.location);
+  const q = url.searchParams.get('search') || '';
+  if (q) {
+    searchBox.value = q;
+    const query = q.toLowerCase().trim();
+    for (const tr of tbody.querySelectorAll('tr')) {
+      tr.style.display = tr.innerText.toLowerCase().includes(query) ? '' : 'none';
+    }
+  }
+});
+
 
     /* ==== Görsel Modal ==== */
     const imgModalEl = document.getElementById('imgModal');
@@ -287,7 +323,7 @@
           return;
         }
         const diff = dl - now;
-        el.textContent = diff <= 0 ? 'GEÇTİ!' : ('Kalan: ' + fmt(diff));
+        el.textContent = diff <= 0 ? 'Cezai İşlem Yapılıcak' : ('Kalan: ' + fmt(diff));
       });
     }
 

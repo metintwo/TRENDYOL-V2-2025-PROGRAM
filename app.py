@@ -340,6 +340,8 @@ def api_line_image():
                              sku=sku, productCode=productCode)
     return jsonify({"url": url})
 
+
+# ---- Sipariş İşleme ----
 # ---- Sipariş İşleme ----
 @app.route("/isleme-al/<supplier_id>/<int:package_id>", methods=["POST"])
 @login_required
@@ -348,14 +350,41 @@ def isleme_al(supplier_id, package_id):
         flash("❌ Sipariş işleme alma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
+    # Satır verileri
     lines_raw = request.form.get("lines", "[]")
     try:
         lines = json.loads(lines_raw)
     except Exception:
         lines = []
-    ok = update_package_status(supplier_id, package_id, lines, status="Picking")
-    flash("✅ Sipariş işleme alındı" if ok else "❌ Sipariş güncellenemedi", "success" if ok else "danger")
-    return redirect(url_for("dashboard"))
+
+    # Paket durumu Picking yap
+    ok = update_package_status(
+        supplier_id,
+        package_id,
+        lines,
+        status="Picking"
+    )
+
+    # Flash mesaj
+    flash(
+        "✅ Sipariş işleme alındı" if ok else "❌ Sipariş güncellenemedi",
+        "success" if ok else "danger"
+    )
+
+    # Formdan gelen anchor ve filtre bilgileri
+    redirect_to = request.form.get("redirect_to")
+    search = request.form.get("search", "")
+    status = request.form.get("status", "Created")
+
+    # Redirect parametrelerini hazırla
+    params = {"status": status}
+    if search:
+        params["search"] = search
+
+    if redirect_to:
+        return redirect(url_for("dashboard", **params) + f"#{redirect_to}")
+    return redirect(url_for("dashboard", **params))
+
 
 # ---- Etiket Yazdır ----
 @app.route("/etiket-yazdir/<supplier_id>/<int:package_id>")
