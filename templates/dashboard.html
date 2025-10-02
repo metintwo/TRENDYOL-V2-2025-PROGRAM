@@ -97,23 +97,27 @@
     </form>
 
     <!-- SKU Filtre -->
-    <form method="get" action="{{ url_for('dashboard') }}">
-      <select class="form-select" name="filter" multiple size="5" onchange="this.form.submit()"
-              style="max-width:160px; min-width:140px;">
-        {% set selected_filters = request.args.getlist('filter') %}
-        {% for code in [
-          "KFTK","ETK3I","BSKLE","KIKT","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
-          "KSKP","ESFKP","KMTK","BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
-          "KBP","KGP","ULP","KKFE","BSKLTY","TSH","HRKA","FDKY","FSAH","KSTK","OFTA",
-          "HRTK","EPA","OBSWT","DYTK","SLP","KLP","ELBS","DKP","KMNO","ESTK","SAL",
-          "BAT","HRKI","CNT","MTR","PBK","OFT","PLR"
-        ] %}
-          <option value="{{ code }}" {% if code in selected_filters %}selected{% endif %}>
-            {{ code }}
-          </option>
-        {% endfor %}
-      </select>
-    </form>
+<form method="get" action="{{ url_for('dashboard') }}">
+  <select class="form-select" name="filter" multiple size="6" onchange="this.form.submit()"
+          style="max-width:160px; min-width:140px;">
+    {% set selected_filters = request.args.getlist('filter') %}
+    <!-- Hepsini Göster seçeneği -->
+    <option value="ALL" {% if not selected_filters or 'ALL' in selected_filters %}selected{% endif %}>
+      Hepsini Göster
+    </option>
+    {% for code in [
+      "KFTK","ETK3I","BSKLE","KIKT","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
+      "KSKP","ESFKP","KMTK","BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
+      "KBP","KGP","ULP","KKFE","BSKLTY","TSH","HRKA","FDKY","FSAH","KSTK","OFTA",
+      "HRTK","EPA","OBSWT","DYTK","SLP","KLP","ELBS","DKP","KMNO","ESTK","SAL",
+      "BAT","HRKI","CNT","MTR","PBK","OFT","PLR"
+    ] %}
+      <option value="{{ code }}" {% if code in selected_filters %}selected{% endif %}>
+        {{ code }}
+      </option>
+    {% endfor %}
+  </select>
+</form>
   </div>
 </div>
 
@@ -235,6 +239,10 @@
       </div>
     </div>
   </div>
+<script>
+
+</script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>

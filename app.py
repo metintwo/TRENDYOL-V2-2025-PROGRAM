@@ -20,23 +20,25 @@ FILTER_SKUS = [
 # Hepsini büyük harfe çevir
 FILTER_SKUS = [sku.upper() for sku in FILTER_SKUS]
 
+from datetime import datetime, timezone
+
 def parse_date(dt):
-    """Trendyol tarih alanlarını güvenli şekilde datetime objesine çevirir"""
+    """Trendyol tarih alanlarını güvenli şekilde datetime objesine çevirir (UTC aware)"""
     if not dt:
         return None
     try:
-        # Eğer string ve tamamen rakamsa → timestamp gibi işleyelim
         if isinstance(dt, str) and dt.isdigit():
             dt = int(dt)
 
         if isinstance(dt, (int, float)):
-            # Trendyol timestamp milisaniye cinsinden geliyor
-            return datetime.fromtimestamp(dt / 1000.0)
+            # Trendyol timestamp milisaniye cinsinden geliyor → UTC
+            return datetime.fromtimestamp(dt / 1000.0, tz=timezone.utc)
         elif isinstance(dt, str):
             # ISO string format (ör: "2025-10-01T08:55:42.000Z")
-            return datetime.fromisoformat(dt.replace("Z", "+00:00"))
+            return datetime.fromisoformat(dt.replace("Z", "+00:00")).astimezone(timezone.utc)
         elif isinstance(dt, datetime):
-            return dt
+            # Eğer timezone bilgisi yoksa UTC ata
+            return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except Exception as e:
         print("⚠️ Tarih parse edilemedi:", dt, e)
     return None
@@ -87,13 +89,13 @@ load_dotenv()
 PAGE_SIZE = 20
 
 # ---- Ana Menü ----
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+IST = timezone(timedelta(hours=3))  # Türkiye saati
 
-# ---- Ana Menü ----
 @app.route("/")
 def index():
     try:
-        today = datetime.now().date()
+        today = datetime.now(IST).date()  # Türkiye tarihi
 
         # Created siparişler
         created_orders, created_count = get_orders(status="Created", size=500)
@@ -101,45 +103,43 @@ def index():
         # Picking siparişler
         picking_orders, picking_count = get_orders(status="Picking", size=500)
 
-        # Shipped siparişler (toplam)
+        # Shipped siparişler
         shipped_orders, shipped_count = get_orders(status="Shipped", size=500)
 
-        # 🔹 Günlük shipped filtreleme (sadece bugünün shipmentCreatedDate eşleşirse)
+        # 🔹 Bugün taşımada olanları yakala
         daily_shipped = []
         for o in shipped_orders:
+            # shipmentCreatedDate → varsa
             dt_parsed = parse_date(o.get("shipmentCreatedDate"))
-            if dt_parsed and dt_parsed.date() == today:
-                daily_shipped.append(o)
+            if not dt_parsed:
+                # fallback: orderDate / lastModifiedDate de kontrol et
+                dt_parsed = parse_date(o.get("lastModifiedDate") or o.get("orderDate"))
 
-        print("📦 Bugün taşımada olan kargolar:")
-        for o in daily_shipped:
-            dt_parsed = parse_date(o.get("shipmentCreatedDate"))
-            print(
-                f"- SiparişNo: {o.get('orderNumber')} | "
-                f"Durum: {o.get('status')} | "
-                f"Tarih: {dt_parsed}"
-            )
+            if dt_parsed:
+                if dt_parsed.tzinfo is None:
+                    dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
 
+                dt_local = dt_parsed.astimezone(IST)
+                if dt_local.date() == today:
+                    daily_shipped.append(o)
+
+        # Günlük shipped sayısı
         shipped_today_count = len(daily_shipped)
 
-        # Genel toplam (bugüne göre)
+        # 📦 Genel toplam
         total_all = created_count + picking_count + shipped_today_count
 
     except Exception as e:
         print("❌ Kargo istatistikleri alınamadı:", e)
-        created_count = 0
-        picking_count = 0
-        shipped_today_count = 0
-        total_all = 0
+        created_count = picking_count = shipped_today_count = total_all = 0
 
     return render_template(
         "index.html",
         created_count=created_count,
         picking_count=picking_count,
-        shipped_count=shipped_today_count,  # sadece bugünün taşımaları
+        shipped_count=shipped_today_count,
         total_all=total_all
     )
-
 
 # ---- Dashboard ----
 @app.route("/dashboard")
@@ -156,28 +156,34 @@ def dashboard():
     status = request.args.get("status", "Created")
     orders, total_to_ship = get_orders(status=status, size=200)
 
-    # 🔹 Eğer filtre seçilmişse siparişleri SKU’ya göre süz
+    # 🔹 SKU Filtre
     filter_param = request.args.get("filter")
     if filter_param:
         selected_skus = [f.strip().upper() for f in filter_param.split(",") if f.strip()]
-        filtered_orders = []
-        for o in orders:
-            for l in o.get("lines", []):
-                sku = (l.get("merchantSku") or l.get("sku") or "").upper()
-                if sku in selected_skus:
-                    filtered_orders.append(o)
-                    break
-        orders = filtered_orders
-        total_to_ship = len(orders)
+        if "ALL" not in selected_skus:
+            filtered_orders = []
+            for o in orders:
+                for l in o.get("lines", []):
+                    sku = (l.get("merchantSku") or l.get("sku") or "").upper()
+                    if sku in selected_skus:
+                        filtered_orders.append(o)
+                        break
+            orders = filtered_orders
+            total_to_ship = len(orders)
 
-    today = datetime.now().date()
+    # 🔹 Bugün taşımada olan kargolar
+    today = datetime.now(IST).date()
     tasimada_orders = []
     for o in orders:
-        dt_parsed = parse_date(
-            o.get("shipmentCreatedDate") or o.get("lastModifiedDate") or o.get("orderDate")
-        )
-        if dt_parsed and dt_parsed.date() == today and o.get("status") in ("Picking", "Shipped"):
-            tasimada_orders.append(o)
+        if o.get("status") in ("Picking", "Shipped"):
+            dt_parsed = parse_date(o.get("shipmentCreatedDate"))
+            if dt_parsed:
+                # tarihleri Türkiye saatine çevir
+                if dt_parsed.tzinfo is None:
+                    dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
+                dt_local = dt_parsed.astimezone(IST)
+                if dt_local.date() == today:
+                    tasimada_orders.append(o)
 
     tasimada_count = len(tasimada_orders)
 
@@ -189,7 +195,6 @@ def dashboard():
         has_more=False,
         version=int(time.time())
     )
-
 # ---- Sorular ----
 @app.route("/questions")
 @login_required
