@@ -82,6 +82,22 @@
 
     <!-- Ana sayfa butonu -->
     <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
+<!-- 24 Saatten Az / Cezai Riskli Filtre -->
+<a href="{{ url_for('dashboard', urgent='true') }}" class="btn btn-warning">
+  ⏰ 24 Saatten Az / Cezai Riskli
+  <span class="badge bg-dark ms-1">{{ urgent_count }}</span>
+</a>
+
+<style>
+.btn-warning {
+  background: linear-gradient(45deg, #ff8c00, #ffb347);
+  color: white;
+  border: none;
+}
+.btn-warning:hover {
+  background: linear-gradient(45deg, #ffa333, #ffd066);
+}
+</style>
 
     <!-- Statü -->
     <form method="get" action="{{ url_for('dashboard') }}">

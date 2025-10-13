@@ -8,7 +8,7 @@ from trendyol_api import (
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
-
+from datetime import datetime, timedelta
 # 🔹 Filtre SKU listesi
 FILTER_SKUS = [
     "KFTK", "ETK3I", "BSKLE", "KIKT", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
@@ -140,7 +140,6 @@ def index():
         shipped_count=shipped_today_count,
         total_all=total_all
     )
-
 # ---- Dashboard ----
 @app.route("/dashboard")
 @login_required
@@ -154,9 +153,12 @@ def dashboard():
         return redirect(url_for("index"))
 
     status = request.args.get("status", "Created")
+    urgent_mode = request.args.get("urgent", "false").lower() == "true"
+
+    # 🔹 Siparişleri Trendyol API'den çek
     orders, total_to_ship = get_orders(status=status, size=200)
 
-    # 🔹 SKU Filtre
+    # 🔹 SKU Filtreleme
     filter_param = request.args.get("filter")
     if filter_param:
         selected_skus = [f.strip().upper() for f in filter_param.split(",") if f.strip()]
@@ -171,30 +173,64 @@ def dashboard():
             orders = filtered_orders
             total_to_ship = len(orders)
 
-    # 🔹 Bugün taşımada olan kargolar
+    # 🔹 Bugün taşımada olan kargolar (status: Picking / Shipped)
     today = datetime.now(IST).date()
     tasimada_orders = []
     for o in orders:
         if o.get("status") in ("Picking", "Shipped"):
             dt_parsed = parse_date(o.get("shipmentCreatedDate"))
             if dt_parsed:
-                # tarihleri Türkiye saatine çevir
                 if dt_parsed.tzinfo is None:
                     dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
                 dt_local = dt_parsed.astimezone(IST)
                 if dt_local.date() == today:
                     tasimada_orders.append(o)
-
     tasimada_count = len(tasimada_orders)
 
+    # 🔸 24 Saatten az kalan & cezai riskli siparişler (Kalan süreye göre)
+    urgent_orders = []
+    now = datetime.now(IST)
+
+    for o in orders:
+        # "Kalan:" kısmında kullanılan deadline — yani teslim için hedef tarih
+        deadline_str = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
+        if not deadline_str:
+            continue
+
+        dt_deadline = parse_date(deadline_str)
+        if not dt_deadline:
+            continue
+
+        if dt_deadline.tzinfo is None:
+            dt_deadline = dt_deadline.replace(tzinfo=timezone.utc)
+        dt_local = dt_deadline.astimezone(IST)
+
+        kalan_saniye = (dt_local - now).total_seconds()
+
+        # 🎯 Ekrandaki “Kalan:” hesaplamasıyla aynı mantık:
+        # 24 saatin altına giren (0–86400 sn) veya süresi geçmiş ama Shipped/Delivered olmayan siparişler
+        if (0 < kalan_saniye <= 86400) or (kalan_saniye < 0 and o.get("status") not in ("Shipped", "Delivered")):
+            urgent_orders.append(o)
+
+    urgent_count = len(urgent_orders)
+
+    # 🔸 Eğer "urgent=true" parametresi geldiyse, sadece kalan süresi 24 saatten az olanları göster
+    if urgent_mode:
+        orders = urgent_orders
+        total_to_ship = urgent_count
+
+    # 🔸 Sayfa render
     return render_template(
         "dashboard.html",
         orders=orders,
         total_to_ship=total_to_ship,
         tasimada_count=tasimada_count,
+        urgent_count=urgent_count,
+        urgent_mode=urgent_mode,
         has_more=False,
         version=int(time.time())
     )
+
 # ---- Sorular ----
 @app.route("/questions")
 @login_required
