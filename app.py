@@ -21,31 +21,31 @@ SURAT_KARGO_HESAPLARI = {
     },
     "940685": {  # YAKAMEL TEKSTİL - TUĞÇE YILMAZ
         "KullaniciAdi": "1500204598",
-        "Sifre": "Kargo.2025",
+        "Sifre": "Yunus.5406",
         "SozlesmeKodu": "1500204598",
         "FirmaAdi": "TUĞÇE YILMAZ"
     },
     "1086036": {  # CMZ COLLECTION
         "KullaniciAdi": "1500200828",
-        "Sifre": "Kargo.2025",
+        "Sifre": "Yunus.5406",
         "SozlesmeKodu": "1500200828",
         "FirmaAdi": "CMZ COLLECTION TEKSTİL"
     },
     "1127426": {  # BARLİZ TEKSTİL
         "KullaniciAdi": "1500199645",
-        "Sifre": "Kargo.2025",
+        "Sifre": "Yunus.5406",
         "SozlesmeKodu": "1500199645",
         "FirmaAdi": "BARLİZ TEKSTİL"
     },
     "938355": {  # YKML-YAŞAR YILMAZ
         "KullaniciAdi": "1500229286",
-        "Sifre": "Kargo.2025",
+        "Sifre": "Yunus.5406",
         "SozlesmeKodu": "1500229286",
         "FirmaAdi": "YKML - YAŞAR YILMAZ"
     },
     "994330": {  # BAY BAYAN
         "KullaniciAdi": "1500228013",
-        "Sifre": "Kargo.2025",
+        "Sifre": "Yunus.5406",
         "SozlesmeKodu": "1500228013",
         "FirmaAdi": "BAY BAYAN TEKSTİL"
     }
