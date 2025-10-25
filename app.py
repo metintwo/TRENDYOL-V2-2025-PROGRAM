@@ -573,9 +573,16 @@ def etiket_yazdir(supplier_id, package_id):
             }
         }
 
-        # 📦 Sürat API
+        # 📦 Sürat API (Railway'de proxy yönlendirmeli)
         url = "https://api01.suratkargo.com.tr/api/OrtakBarkodOlustur"
+
+        # Railway ortamında proxy kullan
+        if os.getenv("RAILWAY_ENVIRONMENT"):
+            print("🌍 Railway ortamı tespit edildi — proxy üzerinden gönderiliyor.")
+            url = "https://etiketproxy.yakamel.com/etiket"  # kendi Türkiye proxy API adresin
+
         r = requests.post(url, json=data, timeout=25)
+
         result = r.json()
         print("📦 Sürat API Yanıtı:", result)
         sys.stdout.flush()
