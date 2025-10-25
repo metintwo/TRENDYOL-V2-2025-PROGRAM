@@ -1,5 +1,8 @@
-import os, json, time
+import os, json, time, sys
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from io import BytesIO
+from flask import send_file
+import requests
 from dotenv import load_dotenv
 from trendyol_api import (
     get_orders, update_package_status, get_order_detail, resolve_line_image,
@@ -9,6 +12,45 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 from datetime import datetime, timedelta
+SURAT_KARGO_HESAPLARI = {
+    "564724": {  # RUNADES
+        "KullaniciAdi": "1500205406",   # ✅ sözleşme kodu artık kullanıcı adı
+        "Sifre": "Yunus.5406",          # ✅ senin gerçek şifren
+        "SozlesmeKodu": "1500205406",   # aynı kalabilir
+        "FirmaAdi": "YUNUS EMRE KAYA"
+    },
+    "940685": {  # YAKAMEL TEKSTİL - TUĞÇE YILMAZ
+        "KullaniciAdi": "1500204598",
+        "Sifre": "Kargo.2025",
+        "SozlesmeKodu": "1500204598",
+        "FirmaAdi": "TUĞÇE YILMAZ"
+    },
+    "1086036": {  # CMZ COLLECTION
+        "KullaniciAdi": "1500200828",
+        "Sifre": "Kargo.2025",
+        "SozlesmeKodu": "1500200828",
+        "FirmaAdi": "CMZ COLLECTION TEKSTİL"
+    },
+    "1127426": {  # BARLİZ TEKSTİL
+        "KullaniciAdi": "1500199645",
+        "Sifre": "Kargo.2025",
+        "SozlesmeKodu": "1500199645",
+        "FirmaAdi": "BARLİZ TEKSTİL"
+    },
+    "938355": {  # YKML-YAŞAR YILMAZ
+        "KullaniciAdi": "1500229286",
+        "Sifre": "Kargo.2025",
+        "SozlesmeKodu": "1500229286",
+        "FirmaAdi": "YKML - YAŞAR YILMAZ"
+    },
+    "994330": {  # BAY BAYAN
+        "KullaniciAdi": "1500228013",
+        "Sifre": "Kargo.2025",
+        "SozlesmeKodu": "1500228013",
+        "FirmaAdi": "BAY BAYAN TEKSTİL"
+    }
+}
+
 # 🔹 Filtre SKU listesi
 FILTER_SKUS = [
     "KFTK", "ETK3I", "BSKLE", "KIKT", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
@@ -475,11 +517,114 @@ def etiket_yazdir(supplier_id, package_id):
         flash("❌ Etiket yazdırma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
-    order = get_order_detail(supplier_id, package_id)
-    if not order:
-        flash("❌ Paket detayı getirilemedi.", "danger")
+    print(f"🚀 Etiket Yazdır | supplier_id={supplier_id}, package_id={package_id}")
+    sys.stdout.flush()
+
+    try:
+        hesap = SURAT_KARGO_HESAPLARI.get(str(supplier_id))
+        if not hesap:
+            flash("⚠️ Bu mağaza için Sürat Kargo bilgisi bulunamadı.", "warning")
+            return redirect(url_for("dashboard"))
+
+        order_detail = get_order_detail(supplier_id, package_id)
+        if not order_detail:
+            flash("❌ Sipariş detayı alınamadı.", "danger")
+            return redirect(url_for("dashboard"))
+
+        # Adres tespiti
+        shipment = order_detail.get("shipmentAddress")
+        if not shipment and order_detail.get("lines"):
+            shipment = order_detail["lines"][0].get("shipmentAddress")
+
+        if not shipment:
+            flash("⚠️ Sipariş adres bilgisi bulunamadı.", "warning")
+            return redirect(url_for("dashboard"))
+
+        isim = shipment.get("fullName", "Müşteri").strip()
+        adres = f"{shipment.get('fullAddress', '')} {shipment.get('district', '')} {shipment.get('city', '')}".strip()
+        il = shipment.get("city", "İSTANBUL").strip()
+        ilce = shipment.get("district", "MERKEZ").strip()
+        telefon = shipment.get("phoneNumber", "0000000000").strip()
+
+        data = {
+            "KullaniciAdi": hesap["KullaniciAdi"],
+            "Sifre": hesap["Sifre"],
+            "SozlesmeKodu": hesap["SozlesmeKodu"],
+            "Gonderi": {
+                "KisiKurum": isim,
+                "AliciAdresi": adres,
+                "Il": il,
+                "Ilce": ilce,
+                "TelefonCep": telefon,
+                "Email": "etiket@yakamel.com",
+                "KargoIcerigi": "Trendyol Siparişi",
+                "KargoTuru": 3,
+                "OdemeTipi": 1,
+                "OzelKargoTakipNo": str(package_id),
+                "Adet": 1,
+                "BirimDesi": 2,
+                "BirimKg": 3,
+                "TasimaSekli": 1,
+                "TeslimSekli": 1,
+                "GonderiSekli": 0,
+                "Pazaryerimi": 0,
+                "EntegrasyonFirmasi": "",
+                "Iademi": 0
+            }
+        }
+
+        # 📦 Sürat API
+        url = "https://api01.suratkargo.com.tr/api/OrtakBarkodOlustur"
+        r = requests.post(url, json=data, timeout=25)
+        result = r.json()
+        print("📦 Sürat API Yanıtı:", result)
+        sys.stdout.flush()
+
+        if result.get("isError"):
+            flash(f"Sürat API Hatası: {result.get('Message')}", "danger")
+            return redirect(url_for("dashboard"))
+
+        zpl_data = result.get("Barcode", [None])[0]
+        if not zpl_data:
+            flash("⚠️ Etiket ZPL verisi bulunamadı.", "warning")
+            return redirect(url_for("dashboard"))
+
+        # 🔧 Temizle
+        zpl_clean = (
+            zpl_data.replace("\\r", "")
+            .replace("\\n", "")
+            .replace("\r", "")
+            .replace("\n", "")
+            .strip()
+        )
+
+        # 🔄 Labelary PDF oluştur
+        labelary_url = "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/"
+        pdf_response = requests.post(
+            labelary_url,
+            data=zpl_clean.encode("utf-8"),
+            headers={"Accept": "application/pdf"},
+            timeout=25
+        )
+
+        # ⚠️ Artık redirect yok — burada PDF'i döndürüyoruz
+        if pdf_response.status_code == 200:
+            pdf_bytes = BytesIO(pdf_response.content)
+            return send_file(
+                pdf_bytes,
+                mimetype="application/pdf",
+                as_attachment=False,
+                download_name=f"etiket_{package_id}.pdf"
+            )
+        else:
+            print("⚠️ Labelary Hata:", pdf_response.text)
+            flash("Labelary PDF dönüşüm hatası.", "warning")
+            return redirect(url_for("dashboard"))
+
+    except Exception as e:
+        print("❌ Etiket Hata:", e)
+        flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
         return redirect(url_for("dashboard"))
-    return render_template("etiket.html", o=order)
 
 # ---- Main ----
 if __name__ == "__main__":
