@@ -541,38 +541,34 @@ def etiket_yazdir(supplier_id, package_id):
             flash("⚠️ Bu mağaza için Sürat Kargo bilgisi bulunamadı.", "warning")
             return redirect(url_for("dashboard"))
 
-        # 🟡 Önce Trendyol’dan gerçek 727 kodunu al
-        order_detail = get_order_detail(supplier_id, package_id)
-        if not order_detail:
-            flash("❌ Trendyol sipariş detayı alınamadı.", "danger")
-            return redirect(url_for("dashboard"))
+        # 🔁 Trendyol'dan 727 kodu için birkaç kez deneme (3 deneme x 2 sn)
+        tracking_number = ""
+        for attempt in range(3):
+            order_detail = get_order_detail(supplier_id, package_id)
+            tracking_number = str(order_detail.get("cargoTrackingNumber") or "")
+            print(f"🟢 Deneme {attempt+1}/3 → Trendyol kodu: {tracking_number}")
 
-        tracking_number = str(order_detail.get("cargoTrackingNumber") or "")
-        print(f"🟢 Trendyol'dan gelen takip numarası: {tracking_number}")
+            if tracking_number.startswith("727"):
+                break
+            time.sleep(2)
 
-        # Trendyol 727 kodu üretmemişse işlem iptal edilir
         if not tracking_number.startswith("727"):
-            flash("⚠️ Trendyol 727 takip kodu henüz oluşturulmamış, lütfen birkaç dakika sonra tekrar deneyin.", "warning")
+            flash("⚠️ Trendyol 727 takip kodu henüz oluşturulmamış. Lütfen birkaç dakika sonra tekrar deneyin.", "warning")
             return redirect(url_for("dashboard"))
 
-        # 📦 Adres bilgilerini hazırla
-        shipment = order_detail.get("shipmentAddress")
-        if not shipment:
-            flash("⚠️ Sipariş adres bilgisi bulunamadı.", "warning")
-            return redirect(url_for("dashboard"))
-
-        isim = (shipment.get(
-            "fullName") or f"{shipment.get('firstName', '')} {shipment.get('lastName', '')}").strip() or "Müşteri"
+        # 📦 Adres bilgileri
+        shipment = order_detail.get("shipmentAddress") or {}
+        isim = (shipment.get("fullName") or f"{shipment.get('firstName','')} {shipment.get('lastName','')}").strip() or "Müşteri"
         adres = (
-                    f"{shipment.get('fullAddress') or ''} "
-                    f"{shipment.get('district') or ''} "
-                    f"{shipment.get('city') or ''}"
-                ).strip() or "Adres bulunamadı"
+            f"{shipment.get('fullAddress') or ''} "
+            f"{shipment.get('district') or ''} "
+            f"{shipment.get('city') or ''}"
+        ).strip() or "Adres bulunamadı"
         il = (shipment.get("city") or "İSTANBUL").strip()
         ilce = (shipment.get("district") or "MERKEZ").strip()
         telefon = (shipment.get("phone") or "0000000000").strip()
 
-        # 🧾 Etiket verisi
+        # 🧾 Sürat API verisi
         data = {
             "KullaniciAdi": hesap["KullaniciAdi"],
             "Sifre": hesap["Sifre"],
@@ -587,15 +583,15 @@ def etiket_yazdir(supplier_id, package_id):
                 "KargoIcerigi": "Trendyol Siparişi",
                 "KargoTuru": 3,
                 "OdemeTipi": 1,
-                "OzelKargoTakipNo": tracking_number,  # 🔥 Artık Trendyol'un 727 kodu gönderiliyor
+                "OzelKargoTakipNo": tracking_number,  # ✅ Trendyol'un 727 kodu
                 "Adet": 1,
                 "BirimDesi": 2,
                 "BirimKg": 3,
                 "TasimaSekli": 1,
                 "TeslimSekli": 1,
                 "GonderiSekli": 0,
-                "Pazaryerimi": 0,
-                "EntegrasyonFirmasi": "TRENDYOL",
+                "Pazaryerimi": 1,
+                "EntegrasyonFirmasi": "Trendyol",
                 "Iademi": 0
             }
         }
@@ -614,7 +610,7 @@ def etiket_yazdir(supplier_id, package_id):
             flash(f"Sürat API Hatası: {result.get('Message')}", "danger")
             return redirect(url_for("dashboard"))
 
-        # 📄 Barkod (ZPL)
+        # 🧾 Barkod ZPL verisi
         zpl_data = result.get("Barcode", [None])[0]
         if not zpl_data:
             flash("⚠️ Etiket ZPL verisi alınamadı.", "warning")
@@ -628,7 +624,7 @@ def etiket_yazdir(supplier_id, package_id):
             .strip()
         )
 
-        # 🖨 Labelary PDF üretimi
+        # 🖨 PDF üretimi (Labelary)
         labelary_url = "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/"
         pdf_response = requests.post(
             labelary_url,
@@ -640,7 +636,7 @@ def etiket_yazdir(supplier_id, package_id):
         if pdf_response.status_code == 200:
             pdf_bytes = BytesIO(pdf_response.content)
 
-            # ✅ Trendyol bildirimi (her şey hazır)
+            # ✅ Trendyol bildirimi
             try:
                 bildir_trendyol_kargo(supplier_id, package_id, tracking_number)
                 print(f"📨 Trendyol bildirimi yapıldı: {tracking_number}")
@@ -653,7 +649,6 @@ def etiket_yazdir(supplier_id, package_id):
                 as_attachment=False,
                 download_name=f"etiket_{package_id}.pdf"
             )
-
         else:
             print("⚠️ Labelary Hata:", pdf_response.text)
             flash("Labelary PDF dönüşüm hatası.", "warning")
@@ -662,66 +657,6 @@ def etiket_yazdir(supplier_id, package_id):
     except Exception as e:
         print("❌ Etiket Hata:", e)
         flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
-        return redirect(url_for("dashboard"))
-
-
-
-# 🔄 TAKİP GÜNCELLEME (Sürat'tan 727 kodu sorgulayıp Trendyol'a bildirir)
-@app.route("/takip-guncelle/<supplier_id>/<int:package_id>")
-@login_required
-def takip_guncelle(supplier_id, package_id):
-    print(f"🔄 Takip Güncelle | supplier_id={supplier_id}, package_id={package_id}")
-    sys.stdout.flush()
-
-    try:
-        hesap = SURAT_KARGO_HESAPLARI.get(str(supplier_id))
-        if not hesap:
-            flash("⚠️ Bu mağaza için Sürat Kargo bilgisi bulunamadı.", "warning")
-            return redirect(url_for("dashboard"))
-
-        data = {
-            "KullaniciAdi": hesap["KullaniciAdi"],
-            "Sifre": hesap["Sifre"],
-            "SozlesmeKodu": hesap["SozlesmeKodu"],
-            "GonderiTakipNo": str(package_id),
-            "EntegrasyonFirmasi": "TRENDYOL"
-        }
-
-        url = "https://api01.suratkargo.com.tr/api/KargoTakipHareketDetayi"
-        if os.getenv("RAILWAY_ENVIRONMENT"):
-            url = "https://etiketproxy.yakamel.com/takip"
-
-        r = requests.post(url, json=data, timeout=25)
-        result = r.json()
-        print("📦 Sürat Takip Yanıtı:", result)
-
-        # 🔍 727 kodunu bul
-        yeni_takip = None
-        if result.get("Value"):
-            hareketler = result["Value"].get("KargoHareketListesi", [])
-            for hareket in hareketler:
-                kod = str(hareket.get("KargoTakipNo", ""))
-                if kod.startswith("727"):
-                    yeni_takip = kod
-                    break
-
-        if not yeni_takip:
-            flash("❌ 727 ile başlayan geçerli takip kodu bulunamadı.", "danger")
-            return redirect(url_for("dashboard"))
-
-        print(f"✅ Yeni takip numarası bulundu: {yeni_takip}")
-
-        # ✅ Trendyol bildirimi
-        if bildir_trendyol_kargo(supplier_id, package_id, yeni_takip):
-            flash(f"✅ Trendyol bildirimi başarıyla gönderildi: {yeni_takip}", "success")
-        else:
-            flash("⚠️ Trendyol bildirimi başarısız oldu, loglara bak.", "warning")
-
-        return redirect(url_for("dashboard"))
-
-    except Exception as e:
-        print("❌ Takip Güncelleme Hatası:", e)
-        flash(f"❌ Takip güncelleme hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
 
 # ---- Main ----
