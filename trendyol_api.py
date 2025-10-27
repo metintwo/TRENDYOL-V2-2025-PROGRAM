@@ -470,3 +470,39 @@ def answer_question(supplier_id, question_id, answer_text):
     payload = {"text": answer_text}
     r = requests.post(url, json=payload, headers=headers, auth=HTTPBasicAuth(magaza["api_key"], magaza["api_secret"]))
     return r.status_code == 200
+
+# ---------- Kargo Bildirimi (etiket yazdırma sonrası) ----------
+def bildir_trendyol_kargo(supplier_id: str, package_id: int, tracking_number: str) -> bool:
+    """
+    Etiket oluşturulduktan sonra Trendyol'a kargo verildi (Shipped) bildirimi yapar.
+    """
+    try:
+        creds = next((m for m in magazalar if m["supplier_id"] == supplier_id), None)
+        if not creds:
+            print(f"❌ bildir_trendyol_kargo: {supplier_id} için API bilgisi bulunamadı.")
+            return False
+
+        url = f"{BASE}/integration/order/sellers/{supplier_id}/shipment-packages"
+        payload = [{
+            "id": package_id,
+            "trackingNumber": tracking_number,
+            "shipmentProviderId": 3,  # 3 = Sürat Kargo
+            "status": "Shipped"
+        }]
+
+        headers = _headers(creds["api_key"], creds["api_secret"])
+
+        r = requests.put(url, json=payload, headers=headers, timeout=30)
+        print(f"📨 Trendyol kargo bildirimi ({supplier_id}) → {r.status_code}")
+        print("Yanıt:", r.text[:500])
+
+        if r.status_code in (200, 202):
+            print("✅ Trendyol kargo bildirimi başarılı.")
+            return True
+        else:
+            print(f"⚠️ Trendyol kargo bildirimi başarısız: {r.status_code} - {r.text[:200]}")
+            return False
+
+    except Exception as e:
+        print("❌ bildir_trendyol_kargo exception:", e)
+        return False
