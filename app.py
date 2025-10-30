@@ -228,7 +228,7 @@ def dashboard():
     # 🔹 Siparişleri Trendyol API'den çek
     orders, total_to_ship = get_orders(status=status, size=200)
 
-    # 🔹 Tüm filtre parametrelerini al
+    # 🔹 Filtre parametreleri
     supplier = request.args.get("supplier", "").strip()
     color_filter = request.args.get("color", "").strip()
     selected_filters = request.args.getlist("filter")
@@ -240,9 +240,10 @@ def dashboard():
         if supplier and str(o.get("supplier_id")) != supplier:
             continue
 
-        # 2️⃣ Renk filtresi — sipariş içinde o renk varsa tüm ürünleri göster
+        # 2️⃣ Renk filtresi (renk varsa ama mağazadan bağımsız şekilde)
         if color_filter:
             color_upper = color_filter.strip().upper()
+            # Eğer siparişin herhangi bir ürününde bu renk varsa, sipariş görünür
             renk_var_mi = any(
                 color_upper in (l.get("productColor") or "").upper()
                 for l in o.get("lines", [])
@@ -252,14 +253,12 @@ def dashboard():
 
         # 3️⃣ SKU filtresi
         if selected_filters and "ALL" not in selected_filters:
-            sku_match = False
             new_lines = []
             for l in o.get("lines", []):
                 sku = (l.get("merchantSku") or l.get("sku") or "").upper()
                 if any(f.upper() in sku for f in selected_filters):
                     new_lines.append(l)
-                    sku_match = True
-            if not sku_match:
+            if not new_lines:
                 continue
             o["lines"] = new_lines
 
@@ -282,39 +281,31 @@ def dashboard():
                     tasimada_orders.append(o)
     tasimada_count = len(tasimada_orders)
 
-    # 🔸 24 Saatten az kalan & cezai riskli siparişler (Kalan süreye göre)
+    # 🔸 24 Saatten az kalan & cezai riskli siparişler
     urgent_orders = []
     now = datetime.now(IST)
 
     for o in orders:
-        # "Kalan:" kısmında kullanılan deadline — yani teslim için hedef tarih
         deadline_str = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
         if not deadline_str:
             continue
-
         dt_deadline = parse_date(deadline_str)
         if not dt_deadline:
             continue
-
         if dt_deadline.tzinfo is None:
             dt_deadline = dt_deadline.replace(tzinfo=timezone.utc)
         dt_local = dt_deadline.astimezone(IST)
-
         kalan_saniye = (dt_local - now).total_seconds()
-
-        # 🎯 Ekrandaki “Kalan:” hesaplamasıyla aynı mantık:
-        # 24 saatin altına giren (0–86400 sn) veya süresi geçmiş ama Shipped/Delivered olmayan siparişler
         if (0 < kalan_saniye <= 86400) or (kalan_saniye < 0 and o.get("status") not in ("Shipped", "Delivered")):
             urgent_orders.append(o)
 
     urgent_count = len(urgent_orders)
 
-    # 🔸 Eğer "urgent=true" parametresi geldiyse, sadece kalan süresi 24 saatten az olanları göster
+    # 🔸 Eğer "urgent=true" parametresi geldiyse sadece riskli siparişleri göster
     if urgent_mode:
         orders = urgent_orders
         total_to_ship = urgent_count
 
-    # 🔸 Sayfa render
     return render_template(
         "dashboard.html",
         orders=orders,
@@ -325,6 +316,7 @@ def dashboard():
         has_more=False,
         version=int(time.time())
     )
+
 
 # ---- Sorular ----
 @app.route("/questions")
