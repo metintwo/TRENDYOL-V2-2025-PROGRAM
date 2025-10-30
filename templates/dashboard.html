@@ -104,31 +104,27 @@
   <!-- Mağaza -->
   <label for="supplier" class="filter-label mb-0">Mağaza:</label>
   <select id="supplier" name="supplier" class="form-select" style="max-width:150px;" onchange="this.form.submit()">
-    <option value="">Tümü</option>
-    <option value="564724">RUNADES</option>
-    <option value="940685">YAKAMEL TEKSTİL</option>
-    <option value="938355">YKML</option>
-    <option value="1086036">CMZ COLLECTION</option>
-    <option value="1127426">BARLİZ TEKSTİL</option>
-    <option value="994330">BAY BAYAN</option>
-  </select>
+  {% set selected_supplier = request.args.get('supplier', '') %}
+  <option value="" {{ 'selected' if not selected_supplier else '' }}>Tümü</option>
+  <option value="564724" {{ 'selected' if selected_supplier == '564724' else '' }}>RUNADES</option>
+  <option value="940685" {{ 'selected' if selected_supplier == '940685' else '' }}>YAKAMEL TEKSTİL</option>
+  <option value="938355" {{ 'selected' if selected_supplier == '938355' else '' }}>YKML</option>
+  <option value="1086036" {{ 'selected' if selected_supplier == '1086036' else '' }}>CMZ COLLECTION</option>
+  <option value="1127426" {{ 'selected' if selected_supplier == '1127426' else '' }}>BARLİZ TEKSTİL</option>
+  <option value="994330" {{ 'selected' if selected_supplier == '994330' else '' }}>BAY BAYAN</option>
+</select>
+
 
   <!-- Renk -->
   <label for="color" class="filter-label mb-0">Renk:</label>
   <select id="color" name="color" class="form-select" style="max-width:140px;" onchange="this.form.submit()">
-    <option value="">Tümü</option>
-    <option value="SİYAH">Siyah</option>
-    <option value="LACİVERT">Lacivert</option>
-    <option value="FÜME">Füme</option>
-    <option value="KAHVERENGİ">Kahverengi</option>
-    <option value="HAKİ">Haki</option>
-    <option value="BEYAZ">Beyaz</option>
-    <option value="BEJ">Bej</option>
-    <option value="GRİ">Gri</option>
-    <option value="KIRMIZI">Kırmızı</option>
-    <option value="MAVİ">Mavi</option>
-    <option value="YEŞİL">Yeşil</option>
-  </select>
+  {% set selected_color = request.args.get('color', '') %}
+  <option value="" {{ 'selected' if not selected_color else '' }}>Tümü</option>
+  {% for renk in ["SİYAH","LACİVERT","FÜME","KAHVERENGİ","HAKİ","BEYAZ","BEJ","GRİ","KIRMIZI","MAVİ","YEŞİL"] %}
+    <option value="{{ renk }}" {{ 'selected' if selected_color == renk else '' }}>{{ renk.title() }}</option>
+  {% endfor %}
+</select>
+
 </form>
 
     <!-- Statü -->
@@ -533,6 +529,23 @@ document.addEventListener('click', (e) => {
       </div>
     </div>
   </div>
+<script>
+    // "Tümü" seçilirse parametreyi URL'den sil
+    document.getElementById('color').addEventListener('change', function() {
+      if (this.value === "") {
+        const url = new URL(window.location);
+        url.searchParams.delete('color');
+        window.location = url.toString();
+      }
+    });
 
+    document.getElementById('supplier').addEventListener('change', function() {
+      if (this.value === "") {
+        const url = new URL(window.location);
+        url.searchParams.delete('supplier');
+        window.location = url.toString();
+      }
+    });
+  </script>
 </body>
 </html>

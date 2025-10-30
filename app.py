@@ -240,17 +240,15 @@ def dashboard():
         if supplier and str(o.get("supplier_id")) != supplier:
             continue
 
-        # 2️⃣ Renk filtresi
+        # 2️⃣ Renk filtresi — sipariş içinde o renk varsa tüm ürünleri göster
         if color_filter:
-            color_upper = color_filter.upper()
-            new_lines = []
-            for l in o.get("lines", []):
-                product_color = (l.get("productColor") or "").upper()
-                if color_upper in product_color:
-                    new_lines.append(l)
-            if not new_lines:
+            color_upper = color_filter.strip().upper()
+            renk_var_mi = any(
+                color_upper in (l.get("productColor") or "").upper()
+                for l in o.get("lines", [])
+            )
+            if not renk_var_mi:
                 continue
-            o["lines"] = new_lines
 
         # 3️⃣ SKU filtresi
         if selected_filters and "ALL" not in selected_filters:
