@@ -228,37 +228,47 @@ def dashboard():
     # 🔹 Siparişleri Trendyol API'den çek
     orders, total_to_ship = get_orders(status=status, size=200)
 
-    # 🔹 SKU Filtreleme
-    filter_param = request.args.get("filter")
-    if filter_param:
-        selected_skus = [f.strip().upper() for f in filter_param.split(",") if f.strip()]
-        if "ALL" not in selected_skus:
-            filtered_orders = []
-            for o in orders:
-                for l in o.get("lines", []):
-                    sku = (l.get("merchantSku") or l.get("sku") or "").upper()
-                    if sku in selected_skus:
-                        filtered_orders.append(o)
-                        break
-            orders = filtered_orders
-            total_to_ship = len(orders)
+    # 🔹 Tüm filtre parametrelerini al
+    supplier = request.args.get("supplier", "").strip()
+    color_filter = request.args.get("color", "").strip()
+    selected_filters = request.args.getlist("filter")
 
-    # 🔹 Renk filtresi
-    color_filter = request.args.get("color")
-    if color_filter:
-        color_filter_upper = color_filter.strip().upper()
-        filtered_orders = []
-        for o in orders:
+    filtered_orders = []
+
+    for o in orders:
+        # 1️⃣ Mağaza filtresi
+        if supplier and str(o.get("supplier_id")) != supplier:
+            continue
+
+        # 2️⃣ Renk filtresi
+        if color_filter:
+            color_upper = color_filter.upper()
             new_lines = []
             for l in o.get("lines", []):
-                # ürün rengini büyük harfe çevirerek karşılaştır
                 product_color = (l.get("productColor") or "").upper()
-                if color_filter_upper in product_color:
+                if color_upper in product_color:
                     new_lines.append(l)
-            if new_lines:
-                o["lines"] = new_lines
-                filtered_orders.append(o)
-        orders = filtered_orders
+            if not new_lines:
+                continue
+            o["lines"] = new_lines
+
+        # 3️⃣ SKU filtresi
+        if selected_filters and "ALL" not in selected_filters:
+            sku_match = False
+            new_lines = []
+            for l in o.get("lines", []):
+                sku = (l.get("merchantSku") or l.get("sku") or "").upper()
+                if any(f.upper() in sku for f in selected_filters):
+                    new_lines.append(l)
+                    sku_match = True
+            if not sku_match:
+                continue
+            o["lines"] = new_lines
+
+        filtered_orders.append(o)
+
+    orders = filtered_orders
+    total_to_ship = len(orders)
 
     # 🔹 Bugün taşımada olan kargolar (status: Picking / Shipped)
     today = datetime.now(IST).date()
