@@ -99,32 +99,30 @@
 }
 </style>
 
-<!-- 🔹 Mağaza ve Renk Filtresi -->
-<form method="get" action="{{ url_for('dashboard') }}" class="d-flex align-items-center gap-2">
+  <!-- 🔹 Mağaza ve Renk Filtresi -->
+<form id="filterForm" method="get" action="{{ url_for('dashboard') }}" class="d-flex align-items-center gap-2">
   <!-- Mağaza -->
   <label for="supplier" class="filter-label mb-0">Mağaza:</label>
-  <select id="supplier" name="supplier" class="form-select" style="max-width:150px;" onchange="this.form.submit()">
-  {% set selected_supplier = request.args.get('supplier', '') %}
-  <option value="" {{ 'selected' if not selected_supplier else '' }}>Tümü</option>
-  <option value="564724" {{ 'selected' if selected_supplier == '564724' else '' }}>RUNADES</option>
-  <option value="940685" {{ 'selected' if selected_supplier == '940685' else '' }}>YAKAMEL TEKSTİL</option>
-  <option value="938355" {{ 'selected' if selected_supplier == '938355' else '' }}>YKML</option>
-  <option value="1086036" {{ 'selected' if selected_supplier == '1086036' else '' }}>CMZ COLLECTION</option>
-  <option value="1127426" {{ 'selected' if selected_supplier == '1127426' else '' }}>BARLİZ TEKSTİL</option>
-  <option value="994330" {{ 'selected' if selected_supplier == '994330' else '' }}>BAY BAYAN</option>
-</select>
-
+  <select id="supplier" name="supplier" class="form-select" style="max-width:150px;">
+    {% set selected_supplier = request.args.get('supplier', '') %}
+    <option value="" {% if not selected_supplier %}selected{% endif %}>Tümü</option>
+    <option value="564724" {% if selected_supplier == '564724' %}selected{% endif %}>RUNADES</option>
+    <option value="940685" {% if selected_supplier == '940685' %}selected{% endif %}>YAKAMEL TEKSTİL</option>
+    <option value="938355" {% if selected_supplier == '938355' %}selected{% endif %}>YKML</option>
+    <option value="1086036" {% if selected_supplier == '1086036' %}selected{% endif %}>CMZ COLLECTION</option>
+    <option value="1127426" {% if selected_supplier == '1127426' %}selected{% endif %}>BARLİZ TEKSTİL</option>
+    <option value="994330" {% if selected_supplier == '994330' %}selected{% endif %}>BAY BAYAN</option>
+  </select>
 
   <!-- Renk -->
   <label for="color" class="filter-label mb-0">Renk:</label>
-  <select id="color" name="color" class="form-select" style="max-width:140px;" onchange="this.form.submit()">
-  {% set selected_color = request.args.get('color', '') %}
-  <option value="" {{ 'selected' if not selected_color else '' }}>Tümü</option>
-  {% for renk in ["SİYAH","LACİVERT","FÜME","KAHVERENGİ","HAKİ","BEYAZ","BEJ","GRİ","KIRMIZI","MAVİ","YEŞİL"] %}
-    <option value="{{ renk }}" {{ 'selected' if selected_color == renk else '' }}>{{ renk.title() }}</option>
-  {% endfor %}
-</select>
-
+  <select id="color" name="color" class="form-select" style="max-width:140px;">
+    {% set selected_color = request.args.get('color', '') %}
+    <option value="" {% if not selected_color %}selected{% endif %}>Tümü</option>
+    {% for renk in ["SİYAH","LACİVERT","FÜME","KAHVERENGİ","HAKİ","BEYAZ","BEJ","GRİ","KIRMIZI","MAVİ","YEŞİL"] %}
+      <option value="{{ renk }}" {% if selected_color.upper() == renk %}selected{% endif %}>{{ renk.title() }}</option>
+    {% endfor %}
+  </select>
 </form>
 
     <!-- Statü -->
@@ -530,22 +528,23 @@ document.addEventListener('click', (e) => {
     </div>
   </div>
 <script>
-    // "Tümü" seçilirse parametreyi URL'den sil
-    document.getElementById('color').addEventListener('change', function() {
-      if (this.value === "") {
+  // 🔹 Filtre değiştikçe sayfa yenilenmeden URL parametreleri güncellensin
+  const form = document.getElementById('filterForm');
+  if (form) {
+    const selects = form.querySelectorAll('select');
+    selects.forEach(sel => {
+      sel.addEventListener('change', () => {
         const url = new URL(window.location);
-        url.searchParams.delete('color');
-        window.location = url.toString();
-      }
+        selects.forEach(s => {
+          if (s.value) url.searchParams.set(s.name, s.value);
+          else url.searchParams.delete(s.name);
+        });
+        // Mevcut diğer parametreler (ör. search, status vb.) korunur
+        window.location.href = url.toString();
+      });
     });
+  }
+</script>
 
-    document.getElementById('supplier').addEventListener('change', function() {
-      if (this.value === "") {
-        const url = new URL(window.location);
-        url.searchParams.delete('supplier');
-        window.location = url.toString();
-      }
-    });
-  </script>
 </body>
 </html>
