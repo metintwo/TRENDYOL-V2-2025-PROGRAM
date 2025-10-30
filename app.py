@@ -59,10 +59,23 @@ FILTER_SKUS = [
     "HRTK", "EPA", "OBSWT", "DYTK", "SLP", "KLP", "ELBS", "DKP", "KMNO", "ESTK", "SAL",
     "BAT", "HRKI", "CNT", "MTR", "PBK", "OFT", "PLR"
 ]
-# Hepsini büyük harfe çevir
 FILTER_SKUS = [sku.upper() for sku in FILTER_SKUS]
 
 from datetime import datetime, timezone
+
+# ⬇️ BURANIN ALTINA EKLE ⬇️
+
+# 🔹 Mağaza ve Renk Filtresi Ayarları
+AVAILABLE_SUPPLIERS = {
+    "564724": "RUNADES",
+    "940685": "YAKAMEL TEKSTİL",
+    "938355": "YKML",
+    "1086036": "CMZ COLLECTION",
+    "1127426": "BARLİZ TEKSTİL",
+    "994330": "BAY BAYAN"
+}
+
+COLOR_FILTERS = ["SİYAH", "LACİVERT", "FÜME", "KAHVERENGİ", "HAKİ", "BEYAZ", "BEJ", "GRİ", "KIRMIZI", "MAVİ", "YEŞİL"]
 
 def parse_date(dt):
     """Trendyol tarih alanlarını güvenli şekilde datetime objesine çevirir (UTC aware)"""
@@ -229,6 +242,23 @@ def dashboard():
                         break
             orders = filtered_orders
             total_to_ship = len(orders)
+
+    # 🔹 Renk filtresi
+    color_filter = request.args.get("color")
+    if color_filter:
+        color_filter_upper = color_filter.strip().upper()
+        filtered_orders = []
+        for o in orders:
+            new_lines = []
+            for l in o.get("lines", []):
+                # ürün rengini büyük harfe çevirerek karşılaştır
+                product_color = (l.get("productColor") or "").upper()
+                if color_filter_upper in product_color:
+                    new_lines.append(l)
+            if new_lines:
+                o["lines"] = new_lines
+                filtered_orders.append(o)
+        orders = filtered_orders
 
     # 🔹 Bugün taşımada olan kargolar (status: Picking / Shipped)
     today = datetime.now(IST).date()

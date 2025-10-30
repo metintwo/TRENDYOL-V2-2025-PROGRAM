@@ -99,6 +99,38 @@
 }
 </style>
 
+<!-- 🔹 Mağaza ve Renk Filtresi -->
+<form method="get" action="{{ url_for('dashboard') }}" class="d-flex align-items-center gap-2">
+  <!-- Mağaza -->
+  <label for="supplier" class="filter-label mb-0">Mağaza:</label>
+  <select id="supplier" name="supplier" class="form-select" style="max-width:150px;" onchange="this.form.submit()">
+    <option value="">Tümü</option>
+    <option value="564724">RUNADES</option>
+    <option value="940685">YAKAMEL TEKSTİL</option>
+    <option value="938355">YKML</option>
+    <option value="1086036">CMZ COLLECTION</option>
+    <option value="1127426">BARLİZ TEKSTİL</option>
+    <option value="994330">BAY BAYAN</option>
+  </select>
+
+  <!-- Renk -->
+  <label for="color" class="filter-label mb-0">Renk:</label>
+  <select id="color" name="color" class="form-select" style="max-width:140px;" onchange="this.form.submit()">
+    <option value="">Tümü</option>
+    <option value="SİYAH">Siyah</option>
+    <option value="LACİVERT">Lacivert</option>
+    <option value="FÜME">Füme</option>
+    <option value="KAHVERENGİ">Kahverengi</option>
+    <option value="HAKİ">Haki</option>
+    <option value="BEYAZ">Beyaz</option>
+    <option value="BEJ">Bej</option>
+    <option value="GRİ">Gri</option>
+    <option value="KIRMIZI">Kırmızı</option>
+    <option value="MAVİ">Mavi</option>
+    <option value="YEŞİL">Yeşil</option>
+  </select>
+</form>
+
     <!-- Statü -->
     <form method="get" action="{{ url_for('dashboard') }}">
       <div class="input-group" style="max-width:160px;">
