@@ -8,7 +8,7 @@
     body {
       background: #f7f8fa;
       font-family: 'Segoe UI', sans-serif;
-      font-size: 11px; /* 🔹 1 px büyütüldü */
+      font-size: 11px;
       padding: 10px;
     }
 
@@ -23,7 +23,7 @@
 
     .urun-baslik {
       font-weight: 700;
-      font-size: 12px; /* 🔹 1 px büyütüldü */
+      font-size: 12px;
       padding: 5px 9px;
       border-radius: 6px 6px 0 0;
       text-transform: uppercase;
@@ -45,12 +45,12 @@
       width: 100%;
       border-collapse: collapse;
       text-align: center;
-      font-size: 10.5px; /* 🔹 1 px büyütüldü */
+      font-size: 10.5px;
     }
 
     .beden-tablo th, .beden-tablo td {
       border: 1px solid #ddd;
-      padding: 4px 5px; /* 🔹 1 px arttı */
+      padding: 4px 5px;
       line-height: 1.25;
     }
 
@@ -75,7 +75,7 @@
       .beden-tablo th, .beden-tablo td {
         border: 1px solid #000 !important;
         padding: 3px 4px;
-        font-size: 9.5px; /* 🔹 yazıcıda da 1 px büyütüldü */
+        font-size: 9.5px;
       }
     }
   </style>
@@ -99,11 +99,11 @@
   {% set bedenler = ["S", "M", "L", "XL"] %}
 
   {% for r in tablo %}
-    {% set combo = r.stok ~ "-" ~ r.renk %}
+    {% set combo = r.stok ~ "-" ~ r.renk_ad %}
     {% if combo not in seen %}
       {% set _ = seen.append(combo) %}
       {% set adetler = {} %}
-      {% for rr in tablo if rr.stok == r.stok and rr.renk == r.renk %}
+      {% for rr in tablo if rr.stok == r.stok and rr.renk_ad == r.renk_ad %}
         {% set _ = adetler.update({rr.beden: rr.adet}) %}
       {% endfor %}
 
@@ -113,7 +113,7 @@
       <div class="urun-kutu">
         <div class="urun-baslik" style="background: {{ bg }}; color: {{ text_color }};">
           <span class="renk-dot" style="background: {{ bg }}"></span>
-          {{ r.urun_adi }} - {{ r.renk }}
+          {{ r.urun_adi }} - {{ r.renk_ad }}
         </div>
 
         <table class="beden-tablo">

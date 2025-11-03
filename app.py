@@ -688,7 +688,8 @@ def etiket_yazdir(supplier_id, package_id):
         print("❌ Etiket Hata:", e)
         flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
         return redirect(url_for("dashboard"))
-# ---- Kargo Toplama (Ürün Adı + Alfabetik Renk + Beden Sıralı + Renk Kodlu) ----
+
+# ---- Kargo Toplama (Renk Birleştirme + Toplamlama) ----
 from collections import defaultdict
 
 @app.route("/kargo_toplama")
@@ -705,12 +706,13 @@ def kargo_toplama():
             "urun_adi": "",
             "adet": 0,
             "renk": "",
+            "renk_ad": "",
             "beden": "",
             "stok": "",
             "renk_kodu": "#cccccc"
         })
 
-        # 🔹 STK → Ürün adı dönüşüm tablosu
+        # 🔹 STK -> Ürün isimleri
         STK_TO_NAME = {
             "ETK3I": "JAGGER EŞOFMAN TAKIMI",
             "BMBRTK": "BOMBER TAKIM",
@@ -728,74 +730,164 @@ def kargo_toplama():
             "PLR": "POLAR HIRKA"
         }
 
-        # 🔹 Renk çözümleme fonksiyonu
+        # 🔹 Renk normalize fonksiyonu (tüm varyasyonları kapsar)
+        import re
+        import unicodedata
+
         def normalize_color_name(name):
+            import re
+            import unicodedata
+
             if not name:
-                return "#cccccc"
-            renk = (
-                name.lower()
+                return {"kod": "#cccccc", "ad": "Belirsiz", "key": "belirsiz"}
+
+            # 🔹 Unicode temizliği (örnek: Vi̇zon → Vizon)
+            raw = unicodedata.normalize("NFKD", name)
+            raw = raw.replace("İ", "i").replace("ı", "i").replace("i̇", "i")
+            raw = raw.encode("ascii", "ignore").decode("utf-8", "ignore")
+            raw = raw.strip().upper()
+
+            # 🔹 Parantez ve boşluk temizliği
+            raw = re.sub(r"\((.*?)\)", "", raw)
+            raw = re.sub(r"\s+", " ", raw)
+
+            # 🔹 Gereksiz kelimeler silinsin
+            for junk in ["RENK", "RENGI", "RENGİ", "RNG", "MAVI", "MAVİ", "MAVISI", "MAVİSİ", "VERT", "MELANJ",
+                         "COLOR"]:
+                raw = raw.replace(junk, "")
+
+            # === RENK NORMALİZASYONLARI ===
+
+            # FÜME
+            if re.search(r"FÜM|FUME|SMOKE|CHARCOAL|DARK GREY", raw):
+                raw = "FÜME"
+
+            # GRİ
+            elif re.search(r"GRI|GREY|GRAY", raw):
+                raw = "GRİ"
+
+            # SAKS MAVİSİ (tüm varyasyonlar)
+            elif re.search(r"SAX|SAKS|SAX BLUE|SAKS MAVI", raw):
+                raw = "SAKS MAVİSİ"
+
+            # BEBE MAVİSİ
+            elif re.search(r"BEBE|BABY BLUE|BEBEMAVI|BEBEMAVISI", raw):
+                raw = "BEBE MAVİSİ"
+
+            # MÜRDÜM
+            elif re.search(r"MURDUM|MORDO|MURDUM MELANJ|MURDU", raw):
+                raw = "MÜRDÜM"
+
+            # SİYAH
+            elif re.search(r"BLACK|SIYAHH|SIYAH|SIAH", raw):
+                raw = "SİYAH"
+
+            # LACİVERT
+            elif re.search(r"LACI|LACIVERT|NAVY", raw):
+                raw = "LACİVERT"
+
+            # HAKİ
+            elif re.search(r"HAKI|KHAKI|HACKI", raw):
+                raw = "HAKİ"
+
+            # KAHVERENGİ
+            elif re.search(r"KAHVE|BROWN|COFFEE|CHOCOLATE", raw):
+                raw = "KAHVERENGİ"
+
+            # BEJ
+            elif re.search(r"BEIGE|BEIJE|BEYJ", raw):
+                raw = "BEJ"
+
+            # VİZON
+            elif re.search(r"VIZON|VISON|MINK", raw):
+                raw = "VİZON"
+
+            # BORDO
+            elif re.search(r"BORDO", raw):
+                raw = "BORDO"
+
+            # TURUNCU
+            elif re.search(r"ORANGE", raw):
+                raw = "TURUNCU"
+
+            # Eğer hiçbirine uymuyorsa ismini olduğu gibi bırak
+            raw = raw.strip()
+            renk_ad = raw.title()
+
+            # 🔹 Key üret
+            renk_key = (
+                raw.lower()
                 .replace(" ", "")
                 .replace("-", "")
                 .replace("_", "")
                 .replace(".", "")
-                .replace("(", "")
-                .replace(")", "")
                 .replace("/", "")
                 .replace("\\", "")
-                .replace("ı", "i")
-                .replace("ş", "s")
-                .replace("ğ", "g")
-                .replace("ü", "u")
-                .replace("ö", "o")
-                .replace("ç", "c")
+                .replace("ı", "i").replace("i̇", "i").replace("ş", "s")
+                .replace("ğ", "g").replace("ü", "u").replace("ö", "o").replace("ç", "c")
             )
 
+            # 🔹 Renk kodları
             renkler = {
-                "beyaz": "#ffffff", "white": "#ffffff",
-                "siyah": "#000000", "black": "#000000",
-                "lacivert": "#001f3f", "navy": "#001f3f",
-                "mavi": "#007bff", "blue": "#007bff",
-                "saks": "#0033a0", "sax": "#0033a0", "saksmavisi": "#0033a0",
-                "bebemavisi": "#a5d8ff", "bebe": "#a5d8ff",
-                "gri": "#b0b0b0", "gray": "#b0b0b0",
-                "kirmizi": "#d62828", "red": "#d62828",
-                "yesil": "#198754", "green": "#198754",
-                "pembe": "#f472b6", "pink": "#f472b6", "fusya": "#c026d3",
-                "turuncu": "#ff7b00", "orange": "#ff7b00",
-                "mor": "#6d28d9", "purple": "#6d28d9",
-                "kahve": "#6f4e37", "kahverengi": "#6f4e37",
-                "vizon": "#c6b299", "bej": "#f5f0d0", "beige": "#f5f0d0",
-                "haki": "#6b705c", "khaki": "#6b705c",
-                "bordo": "#800020", "camel": "#c19a6b",
-                "tas": "#d6cfc7", "tasrengi": "#d6cfc7",
-                "fume": "#5a5a5a", "fume2": "#4a4a4a", "acikgri": "#d8e2dc"
+                "beyaz": "#ffffff",
+                "siyah": "#000000",
+                "lacivert": "#001f3f",
+                "mavi": "#007bff",
+                "saksmavisi": "#0066cc",
+                "bebemavisi": "#a5d8ff",
+                "gri": "#b0b0b0",
+                "füme": "#5a5a5a",
+                "kirmizi": "#d62828",
+                "bordo": "#800020",
+                "yesil": "#198754",
+                "pembe": "#f472b6",
+                "fusya": "#c026d3",
+                "mor": "#6d28d9",
+                "mürdüm": "#5f0f40",
+                "kahverengi": "#6f4e37",
+                "bej": "#f5f0d0",
+                "vizon": "#c6b299",
+                "haki": "#6b705c",
+                "camel": "#c19a6b",
+                "turuncu": "#ff7b00",
+                "tas": "#d6cfc7"
             }
 
+            kod = "#cccccc"
             for key, val in renkler.items():
-                if key in renk:
-                    return val
-            return "#cccccc"
+                if renk_key.endswith(key):
+                    kod = val
+                    break
 
-        # 🔹 Siparişleri birleştir
+            return {"kod": kod, "ad": renk_ad, "key": renk_key}
+
+        # 🔹 Siparişleri birleştiriyoruz
         for order in all_orders:
             for l in order.get("lines", []):
                 stok = str(l.get("merchantSku") or l.get("productCode") or "BELİRSİZ").strip().upper()
-                renk = str(l.get("productColor") or "BELİRSİZ").strip().upper()
+                renk_raw = str(l.get("productColor") or "BELİRSİZ").strip().upper()
                 beden = str(l.get("productSize") or "BELİRSİZ").strip().upper()
                 urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
+
+                renk_bilgi = normalize_color_name(renk_raw)
+                renk_ad = renk_bilgi["ad"]
+                renk_kodu = renk_bilgi["kod"]
+                renk_key = renk_bilgi["key"]
 
                 try:
                     adet = int(l.get("quantity", 1))
                 except:
                     adet = 1
 
-                key = (stok, renk, beden)
+                key = (stok, renk_key, beden)
+
                 toplu_liste[key]["urun_adi"] = urun_adi
                 toplu_liste[key]["adet"] += adet
-                toplu_liste[key]["renk"] = renk
+                toplu_liste[key]["renk"] = renk_raw
+                toplu_liste[key]["renk_ad"] = renk_ad
                 toplu_liste[key]["beden"] = beden
                 toplu_liste[key]["stok"] = stok
-                toplu_liste[key]["renk_kodu"] = normalize_color_name(renk)
+                toplu_liste[key]["renk_kodu"] = renk_kodu
 
         SKU_ORDER = [
             "ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE",
@@ -805,7 +897,7 @@ def kargo_toplama():
 
         def sort_key(x):
             stok = x["stok"]
-            renk = x["renk"]
+            renk = x["renk_ad"]
             beden = x["beden"]
 
             try:
@@ -813,13 +905,12 @@ def kargo_toplama():
             except ValueError:
                 sku_index = 999
 
-            renk_index = renk.lower()
             try:
                 beden_index = BEDEN_ORDER.index(beden)
             except ValueError:
                 beden_index = len(BEDEN_ORDER)
 
-            return (sku_index, renk_index, beden_index)
+            return (sku_index, renk.lower(), beden_index)
 
         tablo = sorted(toplu_liste.values(), key=sort_key)
 
