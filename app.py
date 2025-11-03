@@ -688,6 +688,149 @@ def etiket_yazdir(supplier_id, package_id):
         print("❌ Etiket Hata:", e)
         flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
         return redirect(url_for("dashboard"))
+# ---- Kargo Toplama (Ürün Adı + Alfabetik Renk + Beden Sıralı + Renk Kodlu) ----
+from collections import defaultdict
+
+@app.route("/kargo_toplama")
+@login_required
+def kargo_toplama():
+    if current_user.role not in ["kargo", "ofis", "admin"]:
+        flash("❌ Bu sayfaya erişim yetkiniz yok.", "danger")
+        return redirect(url_for("dashboard"))
+
+    try:
+        all_orders, total = get_orders(status="Created", size=500)
+
+        toplu_liste = defaultdict(lambda: {
+            "urun_adi": "",
+            "adet": 0,
+            "renk": "",
+            "beden": "",
+            "stok": "",
+            "renk_kodu": "#cccccc"
+        })
+
+        # 🔹 STK → Ürün adı dönüşüm tablosu
+        STK_TO_NAME = {
+            "ETK3I": "JAGGER EŞOFMAN TAKIMI",
+            "BMBRTK": "BOMBER TAKIM",
+            "HRKA": "HIRKA",
+            "FDKY": "DİK YAKA",
+            "KFTK": "KADIN FİTİLLİ TAKIM",
+            "BSKLE": "BİSİKLET YAKA TAKIM",
+            "SWT3I": "SWEATSHİRT",
+            "ESF3I": "3 İPLİK TEK ALT",
+            "ESPE": "PENYE EŞOFMAN ALTI",
+            "KMTK": "KİMONO BÜRÜMCÜK TAKIM",
+            "BKTK": "BÜRÜMCÜK KISA KOLLU TAKIM",
+            "KKTK": "KAŞKORSE TAKIM",
+            "DYTK": "DİK YAKA EŞOFMAN TAKIMI",
+            "PLR": "POLAR HIRKA"
+        }
+
+        # 🔹 Renk çözümleme fonksiyonu
+        def normalize_color_name(name):
+            if not name:
+                return "#cccccc"
+            renk = (
+                name.lower()
+                .replace(" ", "")
+                .replace("-", "")
+                .replace("_", "")
+                .replace(".", "")
+                .replace("(", "")
+                .replace(")", "")
+                .replace("/", "")
+                .replace("\\", "")
+                .replace("ı", "i")
+                .replace("ş", "s")
+                .replace("ğ", "g")
+                .replace("ü", "u")
+                .replace("ö", "o")
+                .replace("ç", "c")
+            )
+
+            renkler = {
+                "beyaz": "#ffffff", "white": "#ffffff",
+                "siyah": "#000000", "black": "#000000",
+                "lacivert": "#001f3f", "navy": "#001f3f",
+                "mavi": "#007bff", "blue": "#007bff",
+                "saks": "#0033a0", "sax": "#0033a0", "saksmavisi": "#0033a0",
+                "bebemavisi": "#a5d8ff", "bebe": "#a5d8ff",
+                "gri": "#b0b0b0", "gray": "#b0b0b0",
+                "kirmizi": "#d62828", "red": "#d62828",
+                "yesil": "#198754", "green": "#198754",
+                "pembe": "#f472b6", "pink": "#f472b6", "fusya": "#c026d3",
+                "turuncu": "#ff7b00", "orange": "#ff7b00",
+                "mor": "#6d28d9", "purple": "#6d28d9",
+                "kahve": "#6f4e37", "kahverengi": "#6f4e37",
+                "vizon": "#c6b299", "bej": "#f5f0d0", "beige": "#f5f0d0",
+                "haki": "#6b705c", "khaki": "#6b705c",
+                "bordo": "#800020", "camel": "#c19a6b",
+                "tas": "#d6cfc7", "tasrengi": "#d6cfc7",
+                "fume": "#5a5a5a", "fume2": "#4a4a4a", "acikgri": "#d8e2dc"
+            }
+
+            for key, val in renkler.items():
+                if key in renk:
+                    return val
+            return "#cccccc"
+
+        # 🔹 Siparişleri birleştir
+        for order in all_orders:
+            for l in order.get("lines", []):
+                stok = str(l.get("merchantSku") or l.get("productCode") or "BELİRSİZ").strip().upper()
+                renk = str(l.get("productColor") or "BELİRSİZ").strip().upper()
+                beden = str(l.get("productSize") or "BELİRSİZ").strip().upper()
+                urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
+
+                try:
+                    adet = int(l.get("quantity", 1))
+                except:
+                    adet = 1
+
+                key = (stok, renk, beden)
+                toplu_liste[key]["urun_adi"] = urun_adi
+                toplu_liste[key]["adet"] += adet
+                toplu_liste[key]["renk"] = renk
+                toplu_liste[key]["beden"] = beden
+                toplu_liste[key]["stok"] = stok
+                toplu_liste[key]["renk_kodu"] = normalize_color_name(renk)
+
+        SKU_ORDER = [
+            "ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE",
+            "KMTK","BKTK","KKTK","DYTK","PLR"
+        ]
+        BEDEN_ORDER = ["XS", "S", "M", "L", "XL", "XXL"]
+
+        def sort_key(x):
+            stok = x["stok"]
+            renk = x["renk"]
+            beden = x["beden"]
+
+            try:
+                sku_index = SKU_ORDER.index(stok)
+            except ValueError:
+                sku_index = 999
+
+            renk_index = renk.lower()
+            try:
+                beden_index = BEDEN_ORDER.index(beden)
+            except ValueError:
+                beden_index = len(BEDEN_ORDER)
+
+            return (sku_index, renk_index, beden_index)
+
+        tablo = sorted(toplu_liste.values(), key=sort_key)
+
+        return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
+
+    except Exception as e:
+        import traceback
+        print("❌ Kargo Toplama Hatası:", e)
+        traceback.print_exc()
+        flash(f"Kargo toplama hatası: {e}", "danger")
+        return redirect(url_for("dashboard"))
 
 # ---- Main ----
 if __name__ == "__main__":

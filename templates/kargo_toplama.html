@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kargo Toplama Listesi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f7f8fa;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 11px; /* 🔹 1 px büyütüldü */
+      padding: 10px;
+    }
+
+    .urun-kutu {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      background: #fff;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+
+    .urun-baslik {
+      font-weight: 700;
+      font-size: 12px; /* 🔹 1 px büyütüldü */
+      padding: 5px 9px;
+      border-radius: 6px 6px 0 0;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 22px;
+    }
+
+    .renk-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 1px solid #444;
+      display: inline-block;
+    }
+
+    .beden-tablo {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 10.5px; /* 🔹 1 px büyütüldü */
+    }
+
+    .beden-tablo th, .beden-tablo td {
+      border: 1px solid #ddd;
+      padding: 4px 5px; /* 🔹 1 px arttı */
+      line-height: 1.25;
+    }
+
+    .beden-tablo th {
+      background: #f0f0f0;
+      font-weight: 600;
+    }
+
+    .beden-tablo td.zero {
+      color: #bbb;
+      font-style: italic;
+    }
+
+    .no-print { margin-bottom: 10px; }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body { background: white; font-size: 10pt; padding: 6px; }
+      .no-print { display: none !important; }
+      .urun-kutu { box-shadow: none; border: 1px solid #000; margin-bottom: 5px; }
+      .urun-baslik { color: white !important; padding: 4px 7px; font-size: 11px; }
+      .beden-tablo th, .beden-tablo td {
+        border: 1px solid #000 !important;
+        padding: 3px 4px;
+        font-size: 9.5px; /* 🔹 yazıcıda da 1 px büyütüldü */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center mb-1 no-print">
+    <h6>🚛 Kargo Toplama Listesi</h6>
+    <div>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">⬅ Ana Sayfa</a>
+      <button onclick="window.print()" class="btn btn-primary btn-sm">🖨️ Yazdır</button>
+    </div>
+  </div>
+
+  <div class="alert alert-info py-1 px-2 no-print">
+    Toplam Ürün Çeşidi: <strong>{{ total }}</strong>
+  </div>
+
+  {% set seen = [] %}
+  {% set bedenler = ["XS", "S", "M", "L", "XL", "XXL", "3XL"] %}
+
+  {% for r in tablo %}
+    {% set combo = r.stok ~ "-" ~ r.renk %}
+    {% if combo not in seen %}
+      {% set _ = seen.append(combo) %}
+      {% set adetler = {} %}
+      {% for rr in tablo if rr.stok == r.stok and rr.renk == r.renk %}
+        {% set _ = adetler.update({rr.beden: rr.adet}) %}
+      {% endfor %}
+
+      {% set bg = r.renk_kodu %}
+      {% set text_color = "white" if bg in ["#000000", "#001f3f", "#0033a0", "#800020", "#6d28d9"] else "black" %}
+
+      <div class="urun-kutu">
+        <div class="urun-baslik" style="background: {{ bg }}; color: {{ text_color }};">
+          <span class="renk-dot" style="background: {{ bg }}"></span>
+          {{ r.urun_adi }} - {{ r.renk }}
+        </div>
+
+        <table class="beden-tablo">
+          <tr>
+            <th>BEDEN</th>
+            {% for b in bedenler %}
+              <th>{{ b }}</th>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td><strong>ADET</strong></td>
+            {% for b in bedenler %}
+              {% set adet = adetler.get(b, 0) %}
+              <td class="{% if adet == 0 %}zero{% endif %}">{{ adet }}</td>
+            {% endfor %}
+          </tr>
+        </table>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+</body>
+</html>
