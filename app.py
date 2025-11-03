@@ -801,7 +801,7 @@ def kargo_toplama():
             "ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE",
             "KMTK","BKTK","KKTK","DYTK","PLR"
         ]
-        BEDEN_ORDER = ["XS", "S", "M", "L", "XL", "XXL"]
+        BEDEN_ORDER = ["S", "M", "L", "XL"]
 
         def sort_key(x):
             stok = x["stok"]
