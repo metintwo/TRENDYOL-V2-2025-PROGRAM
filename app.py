@@ -134,8 +134,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
+import sys, os
+from flask import Flask
+
+# PyInstaller uyumlu base path
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS  # derlenmiş exe içindeki temp klasör
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app = Flask(__name__,
+            template_folder=os.path.join(BASE_DIR, "templates"),
+            static_folder=os.path.join(BASE_DIR, "static"))
 app.secret_key = os.getenv("SECRET_KEY", "supersecret")
+
+
 
 # ✅ Artık PostgreSQL kullanıyoruz
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
