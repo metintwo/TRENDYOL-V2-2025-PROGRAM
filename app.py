@@ -510,7 +510,6 @@ def api_line_image():
 
 
 # ---- Sipariş İşleme ----
-# ---- Sipariş İşleme ----
 @app.route("/isleme-al/<supplier_id>/<int:package_id>", methods=["POST"])
 @login_required
 def isleme_al(supplier_id, package_id):
