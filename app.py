@@ -1,6 +1,7 @@
 import os, json, time, sys
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from io import BytesIO
+from flask_migrate import Migrate
 from flask import send_file
 import requests
 from dotenv import load_dotenv
@@ -155,6 +156,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
+migrate = Migrate(app, db)
 
 
 # ---- Login Manager ----
@@ -639,8 +641,6 @@ def etiket_yazdir(supplier_id, package_id):
         }
 
         url = "https://api01.suratkargo.com.tr/api/OrtakBarkodOlustur"
-        if os.getenv("RAILWAY_ENVIRONMENT"):
-            url = "https://etiketproxy.yakamel.com/etiket"
 
         # 🚀 Etiket isteği gönder
         r = requests.post(url, json=data, timeout=25)
@@ -938,5 +938,4 @@ def kargo_toplama():
 # ---- Main ----
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
 
