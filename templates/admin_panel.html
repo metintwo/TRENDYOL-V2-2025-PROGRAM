@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Paneli</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f5f7fb; }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    .badge { font-size: 0.9rem; }
+  </style>
+</head>
+<body class="container py-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">👑 Admin Paneli</h2>
+    <a href="{{ url_for('index') }}" class="btn btn-dark">⬅ Ana Sayfa</a>
+  </div>
+
+  <!-- Flash Mesajlar -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      Kullanıcı Yönetimi
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Kullanıcı Adı</th>
+              <th>Rol</th>
+              <th>Yeni Rol Ata</th>
+              <th>Şifre Sıfırla</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for u in users %}
+            <tr>
+              <td>{{ u.id }}</td>
+              <td>{{ u.username }}</td>
+              <td><span class="badge bg-info">{{ u.role }}</span></td>
+              <td>
+                <form method="POST" action="{{ url_for('change_role', user_id=u.id) }}" class="d-flex">
+                  <select name="role" class="form-select form-select-sm me-2">
+                    <option value="üye" {{ 'selected' if u.role == 'üye' else '' }}>Üye</option>
+                    <option value="kargo" {{ 'selected' if u.role == 'kargo' else '' }}>Kargo</option>
+                    <option value="soru" {{ 'selected' if u.role == 'soru' else '' }}>Soru</option>
+                    <option value="ofis" {{ 'selected' if u.role == 'ofis' else '' }}>Ofis</option>
+                    <option value="admin" {{ 'selected' if u.role == 'admin' else '' }}>Admin</option>
+                  </select>
+                  <button type="submit" class="btn btn-sm btn-primary">Kaydet</button>
+                </form>
+              </td>
+              <td>
+                <form method="POST" action="{{ url_for('reset_password', user_id=u.id) }}" class="d-flex">
+                  <input type="password" name="new_password" class="form-control form-control-sm me-2" placeholder="Yeni şifre" required>
+                  <button type="submit" class="btn btn-sm btn-warning">Sıfırla</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center text-muted mt-4">
+    © {{ 2025 }} Yönetim Paneli - Tüm Hakları Saklıdır
+  </footer>
+
+</body>
+</html>
