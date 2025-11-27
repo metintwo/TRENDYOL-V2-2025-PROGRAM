@@ -14,6 +14,7 @@ from trendyol_api import (
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
+from flask import session
 from datetime import datetime, timedelta
 SURAT_KARGO_HESAPLARI = {
     "564724": {  # RUNADES
@@ -146,16 +147,17 @@ if getattr(sys, 'frozen', False):
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# ---- Flask Ayarları ----
 app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR, "templates"),
             static_folder=os.path.join(BASE_DIR, "static"))
 app.secret_key = os.getenv("SECRET_KEY", "supersecret")
 
+# ---- DB Ayarları ----
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-
-# ✅ Artık PostgreSQL kullanıyoruz
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:12345@localhost:5432/trendyol_v2_2025_program"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -227,113 +229,147 @@ def index():
         shipped_count=shipped_today_count,
         total_all=total_all
     )
-# ---- Dashboard ----
+# ============================
+# 🚀 D A S H B O A R D – MODEL A (SABİT SAYFALAMA)
+# ============================
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    if current_user.role == "üye":
-        flash("❌ Yetkiniz yok. Lütfen admin rol atamasını bekleyin.", "danger")
-        return redirect(url_for("index"))
-
-    if current_user.role not in ["kargo", "ofis", "admin"]:
-        flash("❌ Sipariş ekranına giriş yetkiniz yok.", "danger")
-        return redirect(url_for("index"))
-
     status = request.args.get("status", "Created")
-    urgent_mode = request.args.get("urgent", "false").lower() == "true"
+    page = int(request.args.get("page", 1))
+    per_page = 100
 
-    # 🔹 Siparişleri Trendyol API'den çek
-    orders, total_to_ship = get_orders(status=status, size=200)
-
-    # 🔹 Filtre parametreleri
-    supplier = request.args.get("supplier", "").strip()
-    color_filter = request.args.get("color", "").strip()
+    supplier_filter = request.args.get("supplier", "")
+    color_filter = request.args.get("color", "")
+    search_query = (request.args.get("search") or "").strip().lower()
     selected_filters = request.args.getlist("filter")
 
-    filtered_orders = []
+    # 🔹 Trendyol’dan sipariş çek
+    orders_raw, total_elements = get_orders(status=status, size=500)
 
-    for o in orders:
-        # 1️⃣ Mağaza filtresi
-        if supplier and str(o.get("supplier_id")) != supplier:
-            continue
-
-        # 2️⃣ Renk filtresi (renk varsa ama mağazadan bağımsız şekilde)
-        if color_filter:
-            color_upper = color_filter.strip().upper()
-            # Eğer siparişin herhangi bir ürününde bu renk varsa, sipariş görünür
-            renk_var_mi = any(
-                color_upper in (l.get("productColor") or "").upper()
-                for l in o.get("lines", [])
-            )
-            if not renk_var_mi:
-                continue
-
-        # 3️⃣ SKU filtresi
-        if selected_filters and "ALL" not in selected_filters:
-            new_lines = []
+    # 🔥 SKU filtreleme (ALL seçilmişse hepsi gelir)
+    if selected_filters and "ALL" not in selected_filters:
+        new_list = []
+        for o in orders_raw:
+            valid_lines = []
             for l in o.get("lines", []):
                 sku = (l.get("merchantSku") or l.get("sku") or "").upper()
-                if any(f.upper() in sku for f in selected_filters):
-                    new_lines.append(l)
-            if not new_lines:
-                continue
-            o["lines"] = new_lines
+                if sku in selected_filters:
+                    valid_lines.append(l)
+            if valid_lines:
+                o["lines"] = valid_lines
+                new_list.append(o)
+        orders_raw = new_list
 
-        filtered_orders.append(o)
+    # 🔥 Mağaza filtresi
+    if supplier_filter:
+        orders_raw = [o for o in orders_raw if str(o.get("supplier_id")) == supplier_filter]
 
-    orders = filtered_orders
-    total_to_ship = len(orders)
+    # 🔥 Renk filtresi
+    if color_filter:
+        cf = color_filter.upper()
+        for o in orders_raw:
+            o["lines"] = [
+                l for l in o.get("lines", [])
+                if (l.get("productColor") or "").upper().startswith(cf)
+            ]
+        orders_raw = [o for o in orders_raw if o["lines"]]
 
-    # 🔹 Bugün taşımada olan kargolar (status: Picking / Shipped)
-    today = datetime.now(IST).date()
-    tasimada_orders = []
-    for o in orders:
-        if o.get("status") in ("Picking", "Shipped"):
-            dt_parsed = parse_date(o.get("shipmentCreatedDate"))
-            if dt_parsed:
-                if dt_parsed.tzinfo is None:
-                    dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
-                dt_local = dt_parsed.astimezone(IST)
-                if dt_local.date() == today:
-                    tasimada_orders.append(o)
-    tasimada_count = len(tasimada_orders)
+    # 🔥 Arama filtresi
+    if search_query:
+        filtered = []
+        for o in orders_raw:
+            base = (
+                str(o.get("orderNumber", "")) + " " +
+                str(o.get("customerFirstName","")) + " " +
+                str(o.get("customerLastName",""))
+            ).lower()
 
-    # 🔸 24 Saatten az kalan & cezai riskli siparişler
+            found = search_query in base
+
+            if not found:
+                for l in o.get("lines", []):
+                    if search_query in str(l.get("productName","")).lower():
+                        found = True
+                        break
+                    if search_query in str(l.get("merchantSku","")).lower():
+                        found = True
+                        break
+            if found:
+                filtered.append(o)
+
+        orders_raw = filtered
+
+    # 🔹 Mağaza adı
+    for o in orders_raw:
+        o["supplier_name"] = AVAILABLE_SUPPLIERS.get(str(o.get("supplier_id")), "Bilinmeyen")
+
+    # 🔥 24 saatten az kalanlar
     urgent_orders = []
-    now = datetime.now(IST)
+    now = datetime.now(timezone.utc)
 
-    for o in orders:
-        deadline_str = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
-        if not deadline_str:
-            continue
-        dt_deadline = parse_date(deadline_str)
-        if not dt_deadline:
-            continue
-        if dt_deadline.tzinfo is None:
-            dt_deadline = dt_deadline.replace(tzinfo=timezone.utc)
-        dt_local = dt_deadline.astimezone(IST)
-        kalan_saniye = (dt_local - now).total_seconds()
-        if (0 < kalan_saniye <= 86400) or (kalan_saniye < 0 and o.get("status") not in ("Shipped", "Delivered")):
-            urgent_orders.append(o)
+    for o in orders_raw:
+        dl = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
+        dt = parse_date(dl)
+
+        if dt:
+            diff = (dt - now).total_seconds() / 3600
+            if diff <= 24:
+                urgent_orders.append(o)
 
     urgent_count = len(urgent_orders)
 
-    # 🔸 Eğer "urgent=true" parametresi geldiyse sadece riskli siparişleri göster
-    if urgent_mode:
-        orders = urgent_orders
-        total_to_ship = urgent_count
+    # 🔥 URL parametresine göre listeyi filtrele
+    if request.args.get("urgent") == "true":
+        orders_raw = urgent_orders
+
+    # 🔹 Kargolanacak Created sipariş sayısı
+    total_to_ship = sum(1 for o in orders_raw if o.get("status") == "Created")
+
+    # 🔹 Tarih formatla
+    for o in orders_raw:
+        dt = parse_date(o.get("orderDate"))
+        if dt:
+            o["orderDateFormatted"] = dt.astimezone(IST).strftime("%d.%m.%Y %H:%M")
+        else:
+            o["orderDateFormatted"] = "-"
+
+    # 📌 SAYFALAMA
+    total_pages = max((len(orders_raw) // per_page) + (1 if len(orders_raw) % per_page else 0), 1)
+
+    if page < 1:
+        page = 1
+    if page > total_pages:
+        page = total_pages
+
+    start = (page - 1) * per_page
+    end = start + per_page
+    orders = orders_raw[start:end]
+    # --- Pagination Button Range ---
+    start_page = max(1, page - 3)
+    end_page = min(total_pages, page + 3)
+    page_numbers = list(range(start_page, end_page + 1))
 
     return render_template(
         "dashboard.html",
         orders=orders,
-        total_to_ship=total_to_ship,
-        tasimada_count=tasimada_count,
+        page=page,
+        total_pages=total_pages,
+        page_numbers=page_numbers,
         urgent_count=urgent_count,
-        urgent_mode=urgent_mode,
-        has_more=False,
-        version=int(time.time())
+        total_to_ship=total_to_ship,
+        selected_filters=selected_filters,
+        supplier_filter=supplier_filter,
+        color_filter=color_filter,
+        status=status,
+        per_page=per_page,
+        current_filters={
+            "supplier": supplier_filter,
+            "color": color_filter,
+            "filter": selected_filters,
+            "status": status
+        }
     )
-
 
 # ---- Sorular ----
 @app.route("/questions")
@@ -534,14 +570,12 @@ def isleme_al(supplier_id, package_id):
         flash("❌ Sipariş işleme alma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
-    # Satır verileri
     lines_raw = request.form.get("lines", "[]")
     try:
         lines = json.loads(lines_raw)
-    except Exception:
+    except:
         lines = []
 
-    # Paket durumu Picking yap
     ok = update_package_status(
         supplier_id,
         package_id,
@@ -549,24 +583,92 @@ def isleme_al(supplier_id, package_id):
         status="Picking"
     )
 
-    # Flash mesaj
-    flash(
-        "✅ Sipariş işleme alındı" if ok else "❌ Sipariş güncellenemedi",
-        "success" if ok else "danger"
-    )
+    # LOG YAZ
+    print("=== LOG BAŞLIYOR ===")
 
-    # Formdan gelen anchor ve filtre bilgileri
-    redirect_to = request.form.get("redirect_to")
-    search = request.form.get("search", "")
-    status = request.form.get("status", "Created")
+    if ok:
+        print("update_package_status OK ✓")
+        from models import ShippingLog
+        from trendyol_api import get_order_detail
 
-    # Redirect parametrelerini hazırla
-    params = {"status": status}
-    if search:
-        params["search"] = search
+        try:
+            print("→ Sipariş detay çekiliyor...")
+            order_detail = get_order_detail(supplier_id, package_id)
+            print("order_detail:", order_detail)
 
-    if redirect_to:
-        return redirect(url_for("dashboard", **params) + f"#{redirect_to}")
+            customer_name = None
+            supplier_name = None
+
+            if order_detail:
+                customer_name = f"{order_detail.get('customerFirstName', '')} {order_detail.get('customerLastName', '')}"
+                supplier_name = order_detail.get("supplierName") or ""
+
+            print("→ Line sayısı:", len(lines))
+
+            for line in lines:
+                print("→ LOG EKLENİYOR:", line.get("productName"))
+
+                log = ShippingLog(
+                    supplier_id=supplier_id,
+                    supplier_name=supplier_name,
+
+                    order_number=line.get("orderNumber"),
+                    package_id=package_id,
+
+                    customer_name=customer_name,
+
+                    product_name=line.get("productName"),
+                    sku=line.get("merchantSku"),
+                    quantity=line.get("quantity", 1),
+                    color=line.get("productColor"),
+                    size=line.get("productSize"),
+
+                    image_url=line.get("imageUrl") or line.get("productImageUrl"),
+
+                    processed_at=datetime.utcnow(),
+                    shipped_at=None
+                )
+
+                db.session.add(log)
+
+            db.session.commit()
+            print("✓ LOG KAYDEDİLDİ")
+
+        except Exception as e:
+            print("❌ LOG HATASI:", e)
+            db.session.rollback()
+    else:
+        print("❌ update_package_status başarısız!")
+
+    # 🔥 TÜM PARAMETRELERİ GERİ GÖNDER
+    params = {}
+
+    params["page"] = request.form.get("page", "1")
+    params["status"] = request.form.get("status", "Created")
+
+    supplier_f = request.form.get("supplier")
+    if supplier_f:
+        params["supplier"] = supplier_f
+
+    color_f = request.form.get("color")
+    if color_f:
+        params["color"] = color_f
+
+    # SKU filtreleri
+    for f in request.form.getlist("filter"):
+        params.setdefault("filter", []).append(f)
+
+    urgent = request.form.get("urgent")
+    if urgent:
+        params["urgent"] = urgent
+
+    # 🔥 Satır index
+    row_index = request.form.get("row_index")
+    if row_index:
+        params["row_index"] = row_index
+
+    flash("✅ Sipariş işleme alındı", "success")
+
     return redirect(url_for("dashboard", **params))
 
 
@@ -936,6 +1038,59 @@ def kargo_toplama():
         traceback.print_exc()
         flash(f"Kargo toplama hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
+# ---- Excel Raporu ----
+from flask import send_file
+import pandas as pd
+from io import BytesIO
+
+@app.route("/kargo-raporu", methods=["GET"])
+@login_required
+def kargo_raporu():
+    from models import ShippingLog
+
+    # Tarih filtresi (opsiyonel)
+    start = request.args.get("start")
+    end = request.args.get("end")
+
+    query = ShippingLog.query
+
+    if start:
+        query = query.filter(ShippingLog.processed_at >= start)
+    if end:
+        query = query.filter(ShippingLog.processed_at <= end + " 23:59:59")
+
+    logs = query.order_by(ShippingLog.processed_at.desc()).all()
+
+    # Excel tablosu için liste oluştur
+    rows = []
+    for log in logs:
+        rows.append({
+            "Mağaza": log.supplier_name,
+            "Order No": log.order_number,
+            "Müşteri": log.customer_name,
+            "Sipariş Tarihi": log.order_date,
+            "Ürün Adı": log.product_name,
+            "SKU": log.sku,
+            "Renk": log.color,
+            "Beden": log.size,
+            "Adet": log.quantity,
+            "Görsel": log.image_url,
+            "İşleme Alınma": log.processed_at.strftime("%d.%m.%Y %H:%M:%S"),
+            "Kargo Geçiş (varsa)": log.ship_time.strftime("%d.%m.%Y %H:%M:%S") if log.ship_time else "",
+        })
+
+    df = pd.DataFrame(rows)
+
+    output = BytesIO()
+    df.to_excel(output, index=False)
+    output.seek(0)
+
+    return send_file(
+        output,
+        as_attachment=True,
+        download_name=f"kargo_raporu.xlsx",
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 # ---- Main ----
 if __name__ == "__main__":

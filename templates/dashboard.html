@@ -4,547 +4,463 @@
   <meta charset="UTF-8">
   <title>Siparişler | Çoklu Mağaza</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    html, body { height:100%; }
-    body { background:#f5f7fb; padding:12px; }
+    body { background:#f5f7fb; padding:15px; }
 
-    .badge{ font-size:.85rem; }
-    .table thead th{ white-space:nowrap; }
-
-    /* ===== Üst Bar (sol-orta-sağ) ===== */
-    .toolbar-grid{
+    .products-grid {
       display:grid;
-      grid-template-columns:1fr auto 1fr;
-      align-items:center;
-      column-gap:24px;
-      row-gap:10px;
-      margin-bottom:18px;
+      grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+      gap:10px;
     }
-    .toolbar-left{ display:flex; align-items:center; gap:10px; }
-    .toolbar-right{ display:flex; justify-content:flex-end; align-items:center; gap:10px; }
-    .brand .logo{ height:28px; width:auto; user-select:none; -webkit-user-drag:none; }
-    .counter-pill{
-      background:#fff7e6; color:#b76e00;
-      border:1px solid #f1b04c; border-radius:999px;
-      padding:.5rem 1.2rem; font-weight:600; white-space:nowrap;
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    .line-card {
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:10px;
+      padding:8px;
     }
-    .search-input{ min-width:360px; }
-    @media (max-width:992px){
-      .toolbar-grid{ grid-template-columns:1fr; }
-      .search-input{ min-width:0; width:100%; }
-      .toolbar-right{ justify-content:stretch; }
+    .product-img {
+      width:100%;
+      height:120px;
+      border-radius:8px;
+      object-fit:cover;
+      cursor:pointer;
+      background:#eee;
     }
 
-    /* ===== Ürün kutuları ===== */
-    .products-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; align-items:start; }
-    .line-card{ background:#fff; border:1px solid #e7eaf0; border-radius:10px; padding:8px; box-shadow:0 2px 6px rgba(0,0,0,.04); height:100%; display:flex; flex-direction:column; gap:6px; }
-    .line-card img.product-img{ width:100%; height:120px; border-radius:8px; object-fit:cover; cursor:zoom-in; background:#eee; }
-    .line-name{ font-size:.92rem; font-weight:600; line-height:1.2; min-height:2.2em; }
-    .line-meta{ font-size:.85rem; color:#6c757d; line-height:1.2; }
-    .qty-badge{ font-weight:600; letter-spacing:.2px; }
+    .pagination-container {
+      display:flex;
+      justify-content:center;
+      margin-top:20px;
+    }
 
-    /* ===== Görsel modalı ===== */
-    #imgModal .modal-content{ background:transparent!important; border:none; box-shadow:none; }
-    #imgModal .modal-body{ background:transparent!important; padding:0; display:flex; align-items:center; justify-content:center; min-height:40vh; }
-    #modalImg{ max-width:96vw; max-height:96vh; object-fit:contain; border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,.2); cursor:zoom-out; }
+    .pagination a {
+      padding:8px 14px;
+      margin:0 4px;
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:6px;
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+    }
 
-    /* ===== Yazdırma modalı ===== */
-    #printModal .modal-content{ background:rgba(255,255,255,.9); border-radius:12px; border:0; box-shadow:0 6px 24px rgba(0,0,0,.15); }
+    .pagination a.active {
+      background:#0d6efd;
+      color:#fff;
+      border-color:#0d6efd;
+    }
 
-    #sentinel{ padding:14px; color:#6c757d; }
+    .pagination a:hover {
+      background:#e9ecef;
+    }
   </style>
 </head>
-<body class="container-fluid py-3">
+
+<body>
 
 <!-- ===== ÜST BAR ===== -->
-<div class="toolbar-grid align-items-center" style="grid-template-columns: auto 1fr auto;">
-
-  <!-- Sol: Logo + YAKAMEL -->
-  <div class="toolbar-left d-flex align-items-center gap-2">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo" loading="eager" style="height:34px;">
-    <h3 class="mb-0" style="font-size:1.6rem; font-weight:700;">YAKAMEL</h3>
-
-    <!-- Küçültülmüş arama -->
-    <input id="searchBox" type="search" class="form-control" placeholder="Ara…"
-           style="max-width:200px; margin-left:10px;">
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div class="d-flex align-items-center gap-2">
+    <img src="{{ url_for('static', filename='logo.png') }}" style="height:34px;">
+    <h3 class="mb-0">YAKAMEL</h3>
   </div>
 
-  <!-- Orta: Kargolanacak toplam -->
-  <div class="text-center">
-    <span id="todoBadge" class="counter-pill">
-      Kargolanacak Toplam Kargo: <strong id="todoCount">{{ total_to_ship }}</strong>
-    </span>
-  </div>
+  <input id="searchBox" type="search" class="form-control" placeholder="Ara…" style="max-width:220px;">
 
-  <!-- Sağ: Ana Sayfa + Statü + SKU -->
-  <div class="toolbar-right d-flex align-items-center gap-2 flex-wrap">
-
-    <!-- Ana sayfa butonu -->
-    <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
-<!-- 24 Saatten Az / Cezai Riskli Filtre -->
-<a href="{{ url_for('dashboard', urgent='true') }}" class="btn btn-warning">
-  ⏰ 24 Saatten Az / Cezai Riskli
-  <span class="badge bg-dark ms-1">{{ urgent_count }}</span>
-</a>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
+</div>
 
 <style>
 .btn-warning {
-  background: linear-gradient(45deg, #ff8c00, #ffb347);
-  color: white;
-  border: none;
+  background: linear-gradient(45deg,#ff8c00,#ffb347);
+  color:white;
+  border:none;
 }
 .btn-warning:hover {
-  background: linear-gradient(45deg, #ffa333, #ffd066);
+  background: linear-gradient(45deg,#ffa333,#ffd066);
 }
 </style>
 
-  <!-- 🔹 Mağaza ve Renk Filtresi -->
-<form id="filterForm" method="get" action="{{ url_for('dashboard') }}" class="d-flex align-items-center gap-2">
+<!-- ===== FİLTRELER ===== -->
+<form id="filterForm" class="d-flex flex-wrap gap-3 mb-3" method="get" action="{{ url_for('dashboard') }}">
+
+  <!-- 🔥 24 Saat Kalanlar BUTONU -->
+  <a href="{{ url_for('dashboard', urgent='true') }}"
+     class="btn btn-warning"
+     style="height:38px; display:flex; align-items:center;">
+    ⏰ 24 Saatten Az Kalan Siparişler
+    <span class="badge bg-dark ms-2">{{ urgent_count }}</span>
+  </a>
+
   <!-- Mağaza -->
-  <label for="supplier" class="filter-label mb-0">Mağaza:</label>
-  <select id="supplier" name="supplier" class="form-select" style="max-width:150px;">
-    {% set selected_supplier = request.args.get('supplier', '') %}
-    <option value="" {% if not selected_supplier %}selected{% endif %}>Tümü</option>
-    <option value="564724" {% if selected_supplier == '564724' %}selected{% endif %}>RUNADES</option>
-    <option value="940685" {% if selected_supplier == '940685' %}selected{% endif %}>YAKAMEL TEKSTİL</option>
-    <option value="938355" {% if selected_supplier == '938355' %}selected{% endif %}>YKML</option>
-    <option value="1086036" {% if selected_supplier == '1086036' %}selected{% endif %}>CMZ COLLECTION</option>
-    <option value="1127426" {% if selected_supplier == '1127426' %}selected{% endif %}>BARLİZ TEKSTİL</option>
-    <option value="994330" {% if selected_supplier == '994330' %}selected{% endif %}>BAY BAYAN</option>
+  <select name="supplier" class="form-select" style="max-width:150px;">
+    <option value="">Tümü</option>
+    <option value="564724" {% if request.args.get('supplier') == '564724' %}selected{% endif %}>RUNADES</option>
+    <option value="940685" {% if request.args.get('supplier') == '940685' %}selected{% endif %}>YAKAMEL TEKSTİL</option>
+    <option value="938355" {% if request.args.get('supplier') == '938355' %}selected{% endif %}>YKML</option>
+    <option value="1086036" {% if request.args.get('supplier') == '1086036' %}selected{% endif %}>CMZ COLLECTION</option>
+    <option value="1127426" {% if request.args.get('supplier') == '1127426' %}selected{% endif %}>BARLİZ TEKSTİL</option>
+    <option value="994330" {% if request.args.get('supplier') == '994330' %}selected{% endif %}>BAY BAYAN</option>
   </select>
 
   <!-- Renk -->
-  <label for="color" class="filter-label mb-0">Renk:</label>
-  <select id="color" name="color" class="form-select" style="max-width:140px;">
-    {% set selected_color = request.args.get('color', '') %}
-    <option value="" {% if not selected_color %}selected{% endif %}>Tümü</option>
+  <select name="color" class="form-select" style="max-width:140px;">
+    <option value="">Tümü</option>
     {% for renk in ["SİYAH","LACİVERT","FÜME","KAHVERENGİ","HAKİ","BEYAZ","BEJ","GRİ","KIRMIZI","MAVİ","YEŞİL"] %}
-      <option value="{{ renk }}" {% if selected_color.upper() == renk %}selected{% endif %}>{{ renk.title() }}</option>
+      <option value="{{ renk }}" {% if request.args.get('color') == renk %}selected{% endif %}>{{ renk }}</option>
     {% endfor %}
   </select>
+
+  <!-- Statü -->
+  <select name="status" class="form-select" style="max-width:160px;">
+    {% for s in ['Created','Picking','Shipped','Delivered'] %}
+      <option value="{{ s }}" {% if request.args.get('status','Created') == s %}selected{% endif %}>{{ s }}</option>
+    {% endfor %}
+  </select>
+
+  <!-- 🔥 STOK KODU FİLTRESİ -->
+<div class="dropdown">
+  <button class="btn btn-light dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
+      Stok Kodu
+  </button>
+
+  <ul class="dropdown-menu p-2" style="max-height:300px; overflow-y:auto;">
+
+      <!-- Hepsi -->
+      <li>
+        <a class="dropdown-item {% if 'ALL' in selected_filters %}active fw-bold{% endif %}"
+           href="{{ url_for('dashboard',
+                            supplier=request.args.get('supplier'),
+                            color=request.args.get('color'),
+                            status=request.args.get('status','Created'),
+                            filter='ALL') }}">
+            Hepsi
+        </a>
+      </li>
+
+      <!-- Kodlar -->
+      {% for code in [
+        "HRKA","BMBRTK","ETK3I","KFTK","FDKY","BSKLE","KIKT","CNT","MTR","ETKP",
+        "TAYT","ESF3I","ESPE","SWT3I","PLZO","KSKP","ESFKP","KMTK",
+        "BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
+        "KBP","KGP","ULP","KKFE","BSKLTY","TSH","FSAH",
+        "KSTK","OFTA","HRTK","EPA","OBSWT","DYTK","SLP","KLP",
+        "ELBS","DKP","KMNO","ESTK","SAL","BAT","HRKI","PBK",
+        "OFT","PLR","SFTK","KUKT"
+      ] %}
+      <li>
+        <a class="dropdown-item {% if code in selected_filters %}active fw-bold{% endif %}"
+           href="{{ url_for('dashboard',
+                            supplier=request.args.get('supplier'),
+                            color=request.args.get('color'),
+                            status=request.args.get('status','Created'),
+                            filter=code) }}">
+            {{ code }}
+        </a>
+      </li>
+      {% endfor %}
+  </ul>
+</div>
+
+<!-- 📦 Kargo Excel Raporu (Buraya EKLENDİ) -->
+<a href="/kargo-raporu" class="btn btn-success"
+   style="height:38px; display:flex; align-items:center;">
+  📦 Kargo Excel Raporu
+</a>
+  <button class="btn btn-primary">Filtrele</button>
 </form>
 
-    <!-- Statü -->
-    <form method="get" action="{{ url_for('dashboard') }}">
-      <div class="input-group" style="max-width:160px;">
-        <select class="form-select" name="status" onchange="this.form.submit()">
-          {% set sel = request.args.get('status','Created') %}
-          {% for s in ['Created','Picking','Invoiced','Shipped','Cancelled','Delivered','UnDelivered','Returned','UnPacked','UnSupplied'] %}
-            <option value="{{s}}" {{ 'selected' if sel==s else '' }}>{{ s }}</option>
-          {% endfor %}
-        </select>
-        <span class="input-group-text">Statü</span>
+
+<!-- ===== TABLO ===== -->
+<div class="table-responsive bg-white rounded shadow-sm">
+  <table class="table table-hover align-middle mb-0">
+    <thead class="table-dark">
+  <tr>
+    <th>#</th>
+    <th>Mağaza</th>
+    <th>Sipariş</th>
+    <th>Tarih</th>
+    <th>Ürünler (max 100)</th>
+    <th>Durum</th>
+    <th>İşlem</th>
+    <th>Yazdır</th>
+  </tr>
+</thead>
+
+    <tbody id="ordersBody">
+
+      {% for o in orders %}
+<tr>
+    <td>{{ (page-1) * per_page + loop.index }}</td>
+
+        <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
+
+        <td>
+          <b>{{ o.orderNumber }}</b><br>
+          <small>{{ o.customerFirstName }} {{ o.customerLastName }}</small>
+        </td>
+
+        <td>
+    {{ o.orderDateFormatted }}
+
+    {% set deadline = o.extendedAgreedDeliveryDate or o.agreedDeliveryDate %}
+    <div class="small text-danger countdown"
+         data-deadline="{{ deadline }}">
+         Kalan: —
+    </div>
+</td>
+
+
+        <td>
+  <div class="products-grid">
+    {% for l in o.lines %}
+    <div class="line-card">
+
+      <!-- 🔥 SKU fallback -->
+      <img class="product-img lazy-img"
+           data-supplier="{{ o.supplier_id }}"
+           data-barcode="{{ l.barcode }}"
+           data-merchant-sku="{{ l.merchantSku }}"
+           data-sku="{{ l.sku }}"
+           data-product-code="{{ l.productCode }}">
+
+      <div class="fw-bold" style="font-size:.9rem">{{ l.productName }}</div>
+
+      <div class="text-muted" style="font-size:.8rem">Renk: {{ l.productColor }}</div>
+
+      <!-- 🔥 YENİ EKLENDİ: STOK KODU -->
+      <div class="text-muted" style="font-size:.8rem">
+        Stok Kodu: {{ l.merchantSku or l.sku or "-" }}
       </div>
-    </form>
 
-    <!-- SKU Filtre -->
-<form method="get" action="{{ url_for('dashboard') }}">
-  <select class="form-select" name="filter" multiple size="6" onchange="this.form.submit()"
-          style="max-width:160px; min-width:140px;">
-    {% set selected_filters = request.args.getlist('filter') %}
-    <!-- Hepsini Göster seçeneği -->
-    <option value="ALL" {% if not selected_filters or 'ALL' in selected_filters %}selected{% endif %}>
-      Hepsini Göster
-    </option>
-    {% for code in [
-      "HRKA","BMBRTK","ETK3I","KFTK","FDKY","BSKLE","KIKT","CNT","MTR","ETKP","TAYT","ESF3I","ESPE","SWT3I","PLZO",
-      "KSKP","ESFKP","KMTK","BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
-      "KBP","KGP","ULP","KKFE","BSKLTY","TSH","FSAH","KSTK","OFTA",
-      "HRTK","EPA","OBSWT","DYTK","SLP","KLP","ELBS","DKP","KMNO","ESTK","SAL",
-      "BAT","HRKI","PBK","OFT","PLR","SFTK","KUKT"
-    ] %}
-      <option value="{{ code }}" {% if code in selected_filters %}selected{% endif %}>
-        {{ code }}
-      </option>
+      <div class="text-muted" style="font-size:.8rem">Beden: {{ l.productSize }}</div>
+
+      {% if l.quantity > 1 %}
+        <span class="badge bg-danger text-white" style="font-size:1rem;">Adet: {{ l.quantity }}</span>
+      {% else %}
+        <span class="badge bg-warning text-dark">Adet: 1</span>
+      {% endif %}
+    </div>
     {% endfor %}
-  </select>
+  </div>
+</td>
+
+
+        <td>{{ o.status }}</td>
+<td>
+ <form method="POST" action="{{ url_for('isleme_al', supplier_id=o.supplier_id, package_id=o.id) }}">
+    <input type="hidden" name="lines" value='{{ o.lines | tojson }}'>
+
+    <input type="hidden" name="status" value="{{ request.args.get('status', 'Created') }}">
+    <input type="hidden" name="page" value="{{ page }}">
+    <input type="hidden" name="supplier" value="{{ request.args.get('supplier','') }}">
+    <input type="hidden" name="color" value="{{ request.args.get('color','') }}">
+
+    {% for f in request.args.getlist('filter') %}
+      <input type="hidden" name="filter" value="{{ f }}">
+    {% endfor %}
+
+    <input type="hidden" name="urgent" value="{{ request.args.get('urgent','') }}">
+
+    <!-- 🔥 Satır index -->
+    <input type="hidden" name="row_index" value="{{ loop.index }}">
+
+    <button class="btn btn-primary btn-sm">İşleme Al</button>
 </form>
+
+</td>
+
+
+        <td>
+          <button class="btn btn-secondary btn-sm btn-print"
+                  data-url="{{ url_for('etiket_yazdir', supplier_id=o.supplier_id, package_id=o.id) }}">
+            🖨
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+<!-- ========================= -->
+<!--     PAGINATION           -->
+<!-- ========================= -->
+<div class="pagination-container">
+  <div class="pagination">
+
+    {% if page > 1 %}
+      <a href="{{ url_for('dashboard', page=1, **current_filters) }}">« İlk</a>
+      <a href="{{ url_for('dashboard', page=page-1, **current_filters) }}">‹ Önceki</a>
+    {% endif %}
+
+    {% for p in page_numbers %}
+      <a href="{{ url_for('dashboard', page=p, **current_filters) }}"
+         class="{% if p == page %}active{% endif %}">
+        {{ p }}
+      </a>
+    {% endfor %}
+
+    {% if page < total_pages %}
+      <a href="{{ url_for('dashboard', page=page+1, **current_filters) }}">Sonraki ›</a>
+      <a href="{{ url_for('dashboard', page=total_pages, **current_filters) }}">Son »</a>
+    {% endif %}
+
   </div>
 </div>
 
-   <!-- Flash mesajlar -->
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class="alert alert-{{ category }}">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-
-  <!-- Sipariş tablosu -->
-  <div class="table-responsive">
-    <table class="table table-hover align-middle bg-white">
-      <thead class="table-dark">
-        <tr>
-          <th>Mağaza</th>
-          <th>Sipariş / Müşteri</th>
-          <th>Tarih</th>
-          <th>Ürünler</th>
-          <th>Durum</th>
-          <th>İşlemler</th>
-          <th>Etiket Yazdır</th>
-        </tr>
-      </thead>
-      <tbody id="ordersBody">
-  {% for o in orders %}
-  {% set deadline = o['extendedAgreedDeliveryDate'] or o['agreedDeliveryDate'] %}
-  <tr id="order-{{ o['id'] }}" data-key="{{ o['supplier_id'] }}:{{ o['id'] }}">
-    <td><span class="badge bg-info text-dark">{{ o['supplier_name'] }}</span></td>
-    <td>
-      <div class="fw-semibold">{{ o['orderNumber'] }}</div>
-      <div class="text-muted">{{ o.get('customerFirstName','') }} {{ o.get('customerLastName','') }}</div>
-    </td>
-    <td>
-      {% if o['giftPackageRequested'] %}
-        <button type="button" class="badge text-white gift-note-btn"
-                style="background:#ff8000; font-size:1.1rem; margin-bottom:5px;"
-                data-note="{{ o['giftNote']|e }}"
-                data-bs-toggle="modal"
-                data-bs-target="#giftNoteModal">
-          🎁 Hediye Paketi
-        </button><br>
-      {% endif %}
-      {{ o['orderDateFormatted'] }}
-      <div class="small text-danger countdown" data-deadline="{{ deadline or '' }}">Kalan: —</div>
-    </td>
-
-    <td>
-      <div class="products-grid">
-        {% for l in o.get('lines', []) %}
-        <div class="line-card">
-          <img class="product-img lazy-img"
-               alt="{{ l['productName'] }}"
-               loading="lazy"
-               data-supplier="{{ o['supplier_id'] }}"
-               data-barcode="{{ l.get('barcode','') }}"
-               data-merchant-sku="{{ l.get('merchantSku','') }}"
-               data-sku="{{ l.get('sku','') }}"
-               data-product-code="{{ l.get('productCode','') }}">
-          <div class="line-name">{{ l['productName'] }}</div>
-          <div class="line-meta">Renk: {{ l.get('productColor','-') }}</div>
-          <div class="line-meta">SKU: {{ l.get('merchantSku','-') }}</div>
-          <div class="line-meta">Beden: {{ l.get('productSize','-') }}</div>
-          <div class="line-meta">
-            <span class="badge rounded-pill bg-warning text-dark qty-badge">
-              Adet: {{ l.get('quantity', 1) }}
-            </span>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </td>
-
-    <td>{{ o['status'] }}</td>
-
-    <td style="min-width:120px;">
-  <form class="d-inline" method="post" action="{{ url_for('isleme_al', supplier_id=o['supplier_id'], package_id=o['id']) }}">
-    <input type="hidden" name="lines" value='{{ o.get("lines",[]) | tojson }}'>
-    <input type="hidden" name="redirect_to" value="order-{{ o['id'] }}">
-    <input type="hidden" name="search" value="{{ request.args.get('search','') }}">
-    <input type="hidden" name="status" value="{{ request.args.get('status','Created') }}">
-    <button class="btn btn-sm btn-primary">İşleme Al</button>
-  </form>
-</td>
-
-    <td>
-      <button type="button" class="btn btn-sm btn-secondary btn-print"
-              data-url="{{ url_for('etiket_yazdir', supplier_id=o['supplier_id'], package_id=o['id']) }}">
-        🖨 Yazdır
-      </button>
-    </td>
-  </tr>
-  {% endfor %}
-</tbody>
-    </table>
-  </div>
-
-  <div id="sentinel" class="text-center">
-    {% if has_more %}Daha fazla yükleniyor… aşağı kaydırın{% else %}Hepsi bu kadar{% endif %}
-  </div>
-  <!-- Görsel Modal -->
-  <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-      <div class="modal-content"><div class="modal-body"><img id="modalImg" src="" alt="Ürün"></div></div>
-    </div>
-  </div>
-
-  <!-- Yazdırma Modal -->
-  <div class="modal fade" id="printModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body text-center">
-          <div class="spinner-border" role="status" aria-hidden="true"></div>
-          <div class="mt-2 text-muted">Etiket hazırlanıyor…</div>
-          <iframe id="printFrame" style="width:0;height:0;border:0;position:absolute;left:-9999px;"></iframe>
-        </div>
+<!-- ========================= -->
+<!--     GÖRSEL POPUP          -->
+<!-- ========================= -->
+<div class="modal fade" id="imgModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body d-flex justify-content-center align-items-center">
+        <img id="modalImg" src="" style="max-width:95vw; max-height:95vh; border-radius:10px;">
       </div>
     </div>
   </div>
+</div>
+
+<!-- ========================= -->
+<!--     YAZDIRMA POPUP        -->
+<!-- ========================= -->
+<div class="modal fade" id="printModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4 text-center">
+      <div class="spinner-border"></div>
+      <div class="mt-2">Etiket hazırlanıyor…</div>
+      <iframe id="printFrame" style="width:0;height:0;border:0;position:absolute;"></iframe>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-
-</script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    let currentStatus = new URLSearchParams(location.search).get('status') || 'Created';
-    let nextPage = 1;
-    let hasMore = {{ 'true' if has_more else 'false' }};
-    let isLoading = false;
-    let orderVersion = {{ version|default(0) }};
-
-    const tbody = document.getElementById('ordersBody');
-    const sentinel = document.getElementById('sentinel');
-    const searchBox = document.getElementById('searchBox');
-    const todoCountEl = document.getElementById('todoCount');
-
-   /* ==== Arama ==== */
-searchBox.addEventListener('input', () => {
-  const q = searchBox.value.toLowerCase().trim();
-  for (const tr of tbody.querySelectorAll('tr')) {
-    tr.style.display = tr.innerText.toLowerCase().includes(q) ? '' : 'none';
-  }
-
-  // URL parametresine yaz
-  const url = new URL(window.location);
-  if (q) {
-    url.searchParams.set('search', q);
-  } else {
-    url.searchParams.delete('search');
-  }
-  window.history.replaceState({}, '', url);
+// ===============================
+//   📌 ARAMA
+// ===============================
+document.getElementById("searchBox").addEventListener("input", function() {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll("#ordersBody tr").forEach(tr => {
+        tr.style.display = tr.innerText.toLowerCase().includes(q) ? "" : "none";
+    });
 });
 
 
-// Sayfa açıldığında search parametresini geri yükle
-window.addEventListener('load', () => {
-  const url = new URL(window.location);
-  const q = url.searchParams.get('search') || '';
-  if (q) {
-    searchBox.value = q;
-    const query = q.toLowerCase().trim();
-    for (const tr of tbody.querySelectorAll('tr')) {
-      tr.style.display = tr.innerText.toLowerCase().includes(query) ? '' : 'none';
-    }
-  }
+// ===============================
+//   📌 GÖRSEL POPUP
+// ===============================
+const imgModal = new bootstrap.Modal(document.getElementById("imgModal"));
+const modalImg = document.getElementById("modalImg");
+
+document.addEventListener("click", e => {
+    const img = e.target.closest(".product-img");
+    if (!img) return;
+    modalImg.src = img.src;
+    imgModal.show();
+});
+
+modalImg.addEventListener("click", () => imgModal.hide());
+
+
+// ===============================
+//   📌 YAZDIRMA POPUP
+// ===============================
+document.addEventListener("click", e => {
+    const btn = e.target.closest(".btn-print");
+    if (!btn) return;
+
+    const modal = new bootstrap.Modal(document.getElementById("printModal"));
+    const iframe = document.getElementById("printFrame");
+
+    iframe.onload = () => {
+        try { iframe.contentWindow.print(); } catch(err){}
+        setTimeout(() => modal.hide(), 1200);
+    };
+
+    iframe.src = btn.dataset.url + "?_=" + Date.now();
+    modal.show();
 });
 
 
-    /* ==== Görsel Modal ==== */
-    const imgModalEl = document.getElementById('imgModal');
-    const imgModal = bootstrap.Modal.getOrCreateInstance(imgModalEl);
-    const modalImg = document.getElementById('modalImg');
-    let lastOpenedSrc = '';
-    document.addEventListener('click', (e) => {
-      const thumb = e.target.closest('.product-img');
-      if (!thumb) return;
-      if (imgModalEl.classList.contains('show') && lastOpenedSrc === thumb.src) { imgModal.hide(); return; }
-      lastOpenedSrc = thumb.src; modalImg.src = thumb.src; imgModal.show();
-    });
-    modalImg.addEventListener('click', () => imgModal.hide());
-
-    /* ==== Yazdırma ==== */
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.btn-print'); if (!btn) return;
-      e.preventDefault();
-      const printModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('printModal'));
-      const iframe = document.getElementById('printFrame');
-      iframe.onload = function(){ try{ iframe.contentWindow.print(); }catch(e){} setTimeout(()=>printModal.hide(),1200); };
-      iframe.src = btn.dataset.url + '?_=' + Date.now();
-      printModal.show();
+// ===============================
+//   📌 LAZY LOAD
+// ===============================
+function loadImage(img) {
+    const qs = new URLSearchParams({
+        supplier_id: img.dataset.supplier,
+        barcode: img.dataset.barcode,
+        merchantSku: img.dataset.merchantSku,
+        sku: img.dataset.sku,
+        productCode: img.dataset.productCode
     });
 
-    /* ==== Lazy Image Loader ==== */
-    const imgObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const img = entry.target; imgObserver.unobserve(img);
-        if (img.dataset.loaded === '1') return;
-        const qs = new URLSearchParams({
-          supplier_id: img.dataset.supplier||'',
-          barcode: img.dataset.barcode||'',
-          merchantSku: img.dataset.merchantSku||'',
-          sku: img.dataset.sku||'',
-          productCode: img.dataset.productCode||''
+    fetch("/api/line-image?" + qs.toString())
+        .then(r => r.json())
+        .then(d => {
+            if (d.url) img.src = d.url;
         });
-        fetch('/api/line-image?' + qs.toString())
-          .then(r=>r.json())
-          .then(d=>{ if(d&&d.url){ img.src=d.url; img.dataset.loaded='1'; } else { img.style.display='none'; }})
-          .catch(()=>{ img.style.display='none'; });
-      });
-    }, { rootMargin:'200px 0px' });
-    function observeNewImages(scope=document){ scope.querySelectorAll('img.lazy-img').forEach(img=>imgObserver.observe(img)); }
+}
 
-    /* ==== Countdown ==== */
-    function fmt(ms){
-      const s = Math.max(Math.floor(ms/1000), 0);
-      const d = Math.floor(s / 86400);
-      const h = Math.floor((s % 86400) / 3600);
-      const m = Math.floor((s % 3600) / 60);
-      const ss = s % 60;
-      if(d > 0){
-        return `${d}g ${h}s ${m}d`;
-      }
-      return `${h}s ${m}d ${ss}sn`;
-    }
+document.querySelectorAll("img.lazy-img").forEach(loadImage);
 
-    function tickCountdowns(){
-      const now = Date.now();
-      document.querySelectorAll('.countdown').forEach(el=>{
-        const dl = Number(el.dataset.deadline || 0);
-        if(!dl || isNaN(dl)){
-          el.textContent = 'Kalan: —';
-          return;
+
+// ===============================
+//   📌 COUNTDOWN
+// ===============================
+function fmt(ms){
+    const total = Math.floor(ms / 1000);
+    const d = Math.floor(total / 86400);
+    const h = Math.floor((total % 86400) / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+
+    if (d > 0) return `${d} gün ${h} saat ${m} dk`;
+    return `${h} saat ${m} dk ${s} sn`;
+}
+
+function tickCountdowns(){
+    const now = Date.now();
+    document.querySelectorAll(".countdown").forEach(el => {
+        const dl = Number(el.dataset.deadline);
+        if (!dl) {
+            el.textContent = "Kalan: —";
+            return;
         }
+
         const diff = dl - now;
-        el.textContent = diff <= 0 ? 'Cezai İşlem Yapılıcak' : ('Kalan: ' + fmt(diff));
-      });
+        if (diff <= 0) {
+            el.textContent = "SÜRE DOLDU ❗";
+        } else {
+            el.textContent = "Kalan: " + fmt(diff);
+        }
+    });
+}
+
+tickCountdowns();
+setInterval(tickCountdowns, 1000);
+
+
+// ======================================
+// 🔥 İşlem sonrası aynı sıraya geri dön
+// ======================================
+document.addEventListener("DOMContentLoaded", function() {
+    const rowIndex = new URLSearchParams(window.location.search).get("row_index");
+    if (rowIndex) {
+        const row = document.querySelector(`#ordersBody tr:nth-child(${rowIndex})`);
+        if (row) {
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     }
-
-    /* ==== Sonsuz Kaydırma ==== */
-    function escapeHtml(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-    function renderRow(o){
-      const deadline = o.extendedAgreedDeliveryDate || o.agreedDeliveryDate || '';
-      const productsHtml = (o.lines||[]).map(l => `
-        <div class="line-card">
-          <img class="product-img lazy-img" alt="${escapeHtml(l.productName)}" loading="lazy"
-               data-supplier="${o.supplier_id}" data-barcode="${l.barcode||''}"
-               data-merchant-sku="${l.merchantSku||''}" data-sku="${l.sku||''}" data-product-code="${l.productCode||''}">
-          <div class="line-name">${escapeHtml(l.productName)}</div>
-          <div class="line-meta">Renk: ${escapeHtml(l.productColor||'-')}</div>
-          <div class="line-meta">Beden: ${escapeHtml(l.productSize||'-')}</div>
-          <div class="line-meta"><span class="badge rounded-pill bg-warning text-dark qty-badge">Adet: ${l.quantity||1}</span></div>
-        </div>`).join('');
-      return `
-        <tr data-key="${o.supplier_id}:${o.id}">
-          <td><span class="badge bg-info text-dark">${escapeHtml(o.supplier_name)}</span></td>
-          <td><div class="fw-semibold">${escapeHtml(o.orderNumber)}</div><div class="text-muted">${escapeHtml((o.customerFirstName||'')+' '+(o.customerLastName||''))}</div></td>
-          <td>
-  ${escapeHtml(o.orderDateFormatted)}
-  ${o.giftPackageRequested ? '<div class="text-success fw-bold">🎁 Hediye Paketi</div>' : ''}
-  <div class="small text-danger countdown" data-deadline="${deadline}">Kalan: —</div>
-</td>
-
-          <td><div class="products-grid">${productsHtml}</div></td>
-          <td>${escapeHtml(o.status||'')}</td>
-          <td style="min-width:120px;">
-            <form class="d-inline" method="post" action="/isleme-al/${o.supplier_id}/${o.id}">
-              <input type="hidden" name="lines" value='${JSON.stringify(o.lines||[])}'>
-              <button class="btn btn-sm btn-primary">İşleme Al</button>
-            </form>
-          </td>
-          <td><button type="button" class="btn btn-sm btn-secondary btn-print" data-url="/etiket-yazdir/${o.supplier_id}/${o.id}">🖨 Yazdır</button></td>
-        </tr>`;
-    }
-
-    const sentinelObserver = new IntersectionObserver(async (entries) => {
-  if (!entries.some(e => e.isIntersecting)) return;
-  if (isLoading || !hasMore) return;
-  isLoading = true;
-  try {
-    const qs = new URLSearchParams({ status: currentStatus, page: nextPage });
-
-   // 🔹 Eğer URL'de birden fazla filter parametresi varsa hepsini ekle
-const urlParams = new URLSearchParams(window.location.search);
-urlParams.getAll('filter').forEach(f => {
-  qs.append('filter', f);
 });
 
-
-    const res = await fetch('/api/orders?' + qs.toString());
-    const data = await res.json();
-
-    (data.orders || []).forEach(o => {
-      const row = document.createElement('tbody');
-      row.innerHTML = renderRow(o);
-      tbody.appendChild(row.firstElementChild);
-      observeNewImages(row);
-    });
-
-    hasMore = !!data.has_more;
-    nextPage = (data.page || 0) + 1;
-    sentinel.textContent = hasMore ? 'Daha fazla yükleniyor…' : 'Hepsi bu kadar';
-    tickCountdowns();
-  } catch (e) {
-    console.warn('load more failed', e);
-  } finally {
-    isLoading = false;
-  }
-}, { rootMargin: '1200px 0px' });
-
-sentinelObserver.observe(sentinel);
-
-    /* ==== İlk yükleme ==== */
-    observeNewImages(tbody);
-    tickCountdowns();
-    setInterval(tickCountdowns, 1000);
-
-    /* ==== 2 dakikada bir otomatik yenileme ==== */
-setInterval(async()=>{
-  try{
-    const qs=new URLSearchParams({status:currentStatus,page:0});
-    const res=await fetch('/api/orders?'+qs.toString());
-    const data=await res.json();
-    if((data.version ?? 0)!==orderVersion){
-      tbody.innerHTML='';   // Eski satırlar siliniyor
-      (data.orders||[]).forEach(o=>{
-        const row=document.createElement('tbody');
-        row.innerHTML=renderRow(o);
-        tbody.appendChild(row.firstElementChild);
-      });
-      // 🔹 Resimleri tekrar gözlemle
-      observeNewImages(tbody);
-
-      orderVersion=data.version ?? orderVersion;
-      nextPage=1;
-      hasMore=!!data.has_more;
-      sentinel.textContent=hasMore?'Daha fazla yükleniyor…':'Hepsi bu kadar';
-      tickCountdowns();
-    }
-  }catch(e){ console.warn('refresh failed',e); }
-}, 120000);
-    // 🎁 Hediye Notu Modal kontrolü
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.gift-note-btn');
-  if (!btn) return;
-  const note = btn.dataset.note || "Not yok";
-  document.getElementById('giftNoteText').textContent = note;
-});
-  </script>
-
-  <!-- Hediye Notu Modal -->
-  <div class="modal fade" id="giftNoteModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">🎁 Hediye Notu</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Kapat"></button>
-        </div>
-        <div class="modal-body">
-          <pre id="giftNoteText" class="mb-0" style="white-space: pre-wrap; font-size:0.95rem;"></pre>
-        </div>
-      </div>
-    </div>
-  </div>
-<script>
-  // 🔹 Filtre değiştikçe sayfa yenilenmeden URL parametreleri güncellensin
-  const form = document.getElementById('filterForm');
-  if (form) {
-    const selects = form.querySelectorAll('select');
-    selects.forEach(sel => {
-      sel.addEventListener('change', () => {
-        const url = new URL(window.location);
-        selects.forEach(s => {
-          if (s.value) url.searchParams.set(s.name, s.value);
-          else url.searchParams.delete(s.name);
-        });
-        // Mevcut diğer parametreler (ör. search, status vb.) korunur
-        window.location.href = url.toString();
-      });
-    });
-  }
 </script>
+
 
 </body>
 </html>

@@ -1,20 +1,25 @@
-from app import app, db
-from models import User
-from werkzeug.security import generate_password_hash
+from app import app
+from models import db, User
 
 with app.app_context():
-    # Veritabanı tablolarını oluştur
+    print("📌 Tablo oluşturma başlatılıyor...")
     db.create_all()
+    print("✅ PostgreSQL tabloları başarıyla oluşturuldu!")
 
-    # Eğer admin zaten yoksa ekle
-    if not User.query.filter_by(username="admin").first():
+    # Admin yoksa oluştur
+    admin = User.query.filter_by(username="admin").first()
+    if not admin:
+        print("👤 Admin kullanıcısı oluşturuluyor...")
+
         admin_user = User(
             username="admin",
-            password=generate_password_hash("1234", method="pbkdf2:sha256"),
             role="admin"
         )
+        admin_user.set_password("12345")  # İstersen değiştir
+
         db.session.add(admin_user)
         db.session.commit()
-        print("✅ İlk admin kullanıcı oluşturuldu: admin / 1234")
+
+        print("✅ Admin kullanıcı eklendi!")
     else:
-        print("ℹ️ Admin kullanıcısı zaten mevcut.")
+        print("ℹ Admin zaten mevcut.")

@@ -328,35 +328,69 @@ def _extract_first_image_from_item(item: Dict[str, Any]) -> Optional[str]:
                 return r
     return None
 
-def resolve_line_image(supplier_id: str, barcode: Optional[str] = None, merchantSku: Optional[str] = None,
-                       sku: Optional[str] = None, productCode: Optional[str] = None) -> Optional[str]:
+def resolve_line_image(
+    supplier_id: str,
+    barcode: Optional[str] = None,
+    merchantSku: Optional[str] = None,
+    sku: Optional[str] = None,
+    productCode: Optional[str] = None
+) -> Optional[str]:
+
     creds = next((m for m in magazalar if m["supplier_id"] == supplier_id), None)
     if not creds:
         return None
-    queries = []
-    if barcode:     queries.append({"barcode": barcode})
-    if merchantSku: queries.append({"stockCode": merchantSku})
-    if sku:         queries.append({"stockCode": sku})
-    if productCode: queries.append({"productCode": productCode})
+
+    url = BASE + PRODUCTS_PATH.format(sellerId=supplier_id)
+
+    # ---- En doğrudan en zayıfa doğru arama sırası ----
+    search_list = []
+
+    # 1) BARCODE → %99 doğru
+    if barcode:
+        search_list.append({"barcode": barcode})
+
+    # 2) PRODUCT CODE (ör: CMZ-017, ETK3I)
+    if productCode:
+        search_list.append({"productCode": productCode})
+
+    # 3) productId → productCode rakamsa
     if productCode and productCode.isdigit():
-        queries.append({"productId": int(productCode)})
-    for q in queries:
+        search_list.append({"productId": int(productCode)})
+
+    # 4) merchantSku ile tarama (stokCode DEĞİL!)
+    if merchantSku:
+        search_list.append({"merchantSku": merchantSku})
+
+    # 5) sku da merchantSku gibi taranır
+    if sku:
+        search_list.append({"merchantSku": sku})
+
+    # ---- API çağrısı ----
+    for q in search_list:
         try:
-            url = BASE + PRODUCTS_PATH.format(sellerId=supplier_id)
             params = {**q, "size": 1, "page": 0}
-            r = SESSION.get(url, headers=_headers(creds["api_key"], creds["api_secret"]), params=params, timeout=TIMEOUT)
+            r = SESSION.get(
+                url,
+                headers=_headers(creds["api_key"], creds["api_secret"]),
+                params=params,
+                timeout=TIMEOUT
+            )
             if r.status_code != 200:
                 continue
+
             data = r.json() or {}
-            items = data.get("items") or data.get("content") or data.get("products") or []
+            items = data.get("items") or data.get("products") or data.get("content") or []
+
             if not items:
                 continue
+
             img = _extract_first_image_from_item(items[0])
             if img:
                 return img
+
         except Exception as e:
             print("resolve_line_image error:", e)
-            continue
+
     return None
 
 # ---------- Sorular & Cevaplar ----------
