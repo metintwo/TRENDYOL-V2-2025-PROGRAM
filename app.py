@@ -398,16 +398,20 @@ def register():
         password = request.form.get("password")
 
         if User.query.filter_by(username=username).first():
-            flash("❌ Bu kullanıcı adı zaten alınmış.", "danger")
+            flash("❌ Bu kullanıcı adı zaten var.", "danger")
             return redirect(url_for("register"))
 
-        hashed_pw = generate_password_hash(password, method="pbkdf2:sha256")
-        new_user = User(username=username, password=hashed_pw, role="üye")
+        new_user = User(username=username)
+        new_user.set_password(password)   # ✔️ HASHLİYOR
+
         db.session.add(new_user)
         db.session.commit()
-        flash("✅ Kayıt başarılı! Giriş yapabilirsiniz.", "success")
+
+        flash("✔️ Kayıt başarılı, giriş yapabilirsiniz", "success")
         return redirect(url_for("login"))
+
     return render_template("register.html")
+
 
 # ---- Kullanıcı Giriş ----
 @app.route("/login", methods=["GET", "POST"])
@@ -417,12 +421,15 @@ def login():
         password = request.form.get("password")
 
         user = User.query.filter_by(username=username).first()
-        if user and check_password_hash(user.password, password):
+
+        if user and user.check_password(password):
             login_user(user)
             return redirect(url_for("index"))
         else:
             flash("Hatalı kullanıcı adı veya şifre", "danger")
+
     return render_template("login.html")
+
 
 # ---- Çıkış ----
 @app.route("/logout")
@@ -442,7 +449,7 @@ def change_password():
             flash("❌ Mevcut şifre yanlış!", "danger")
             return redirect(url_for("change_password"))
 
-        current_user.password = generate_password_hash(new_password, method="pbkdf2:sha256")
+        current_user.set_password(new_password)
         db.session.commit()
         flash("✅ Şifreniz başarıyla güncellendi.", "success")
         return redirect(url_for("index"))
