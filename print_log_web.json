@@ -1,0 +1,58 @@
+[
+  {
+    "ts": "2025-11-29T11:39:55.858555",
+    "barcode": "BMBR0018",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM M"
+  },
+  {
+    "ts": "2025-11-29T11:40:03.672138",
+    "barcode": "BMBR0018",
+    "qty": 20,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM M"
+  },
+  {
+    "ts": "2025-11-29T11:40:07.561582",
+    "barcode": "BMBR0019",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM L"
+  },
+  {
+    "ts": "2025-11-29T13:00:03.890326",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T13:06:16.919351",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T13:07:12.910236",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T13:10:16.304988",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T13:24:37.482925",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  }
+]

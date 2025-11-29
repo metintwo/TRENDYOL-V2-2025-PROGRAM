@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Paketleme Paneli</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body { background:#f5f7fb; padding:15px; }
+
+    .table thead th {
+        background:#2d3436;
+        color:white;
+        white-space:nowrap;
+    }
+
+    .barcode-img {
+        width: 180px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 4px;
+        background:white;
+    }
+
+    .preview-box {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .footer-counter {
+        background:#fff3cd;
+        padding:10px;
+        border:1px solid #ffeeba;
+        border-radius:8px;
+        font-size:1.1rem;
+        margin-bottom:12px;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <!-- ÜST BAR -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+
+        <h3 class="mb-0">📦 Paketleme Paneli</h3>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a href="/rapor" class="btn btn-secondary">📊 Etiket Raporları</a>
+            <a href="/settings" class="btn btn-outline-dark">⚙️ Ayarlar</a>
+        </div>
+
+    </div>
+
+    <!-- XML YÜKLEME ALANI -->
+    <div class="card p-3 mb-3">
+
+        <form action="/upload-xml" method="POST" enctype="multipart/form-data" class="d-flex flex-wrap gap-2">
+            <input type="file" name="xml_file" class="form-control" style="max-width:260px;">
+            <button class="btn btn-primary">XML Yükle</button>
+
+            {% if xml_name %}
+            <span class="badge bg-success align-self-center">✔ Yüklendi: {{ xml_name }}</span>
+            {% endif %}
+        </form>
+
+    </div>
+
+    <!-- ARAMA VE GÜNLÜK ÇIKIŞ -->
+    <div class="footer-counter">
+        📅 <b>BUGÜN BASILAN ETİKET:</b> {{ counter }}
+    </div>
+
+    <form method="GET" class="mb-3 d-flex flex-wrap gap-2">
+        <input type="text" name="q" class="form-control" placeholder="Barkod, Stok, Ürün..." value="{{ q }}" style="max-width:260px;">
+        <button class="btn btn-primary">Ara</button>
+        <a href="/paketleme" class="btn btn-secondary">Temizle</a>
+    </form>
+
+    <!-- ÜRÜN TABLOSU -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Barkod</th>
+                    <th>Stok Kodu</th>
+                    <th>Ürün Adı</th>
+                    <th>Önizleme</th>
+                    <th>Yazdır</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for row in rows %}
+                <tr>
+
+                    <td>{{ row.Barkod }}</td>
+                    <td>{{ row.StokKodu }}</td>
+                    <td>{{ row.UrunAdi }}</td>
+
+                    <!-- Barkod Önizleme -->
+                    <td class="preview-box">
+                        <img src="/preview?barcode={{ row.Barkod }}&stok_kodu={{ row.StokKodu }}&urun_adi={{ row.UrunAdi }}"
+                             class="barcode-img">
+                    </td>
+
+                    <!-- Yazdır -->
+                    <td style="width:150px;">
+                        <form action="/browser_print" method="POST" class="d-flex gap-2">
+
+                            <input type="hidden" name="barcode" value="{{ row.Barkod }}">
+                            <input type="hidden" name="stok_kodu" value="{{ row.StokKodu }}">
+                            <input type="hidden" name="urun_adi" value="{{ row.UrunAdi }}">
+
+                            <input type="number" name="qty" class="form-control" value="1" style="max-width:55px;">
+
+                            <button class="btn btn-success w-100">Yazdır</button>
+
+                        </form>
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SAYFA NUMARALAMA -->
+    <div class="d-flex justify-content-center mt-3">
+
+        <nav>
+            <ul class="pagination">
+
+                {% for p in range(1, total_pages + 1) %}
+                <li class="page-item {% if p == page %}active{% endif %}">
+                    <a class="page-link" href="?page={{ p }}&q={{ q }}">{{ p }}</a>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </nav>
+
+    </div>
+
+</div>
+
+</body>
+</html>

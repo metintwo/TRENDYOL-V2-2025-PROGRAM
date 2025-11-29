@@ -1,0 +1,12 @@
+{
+  "printer_name": "Xprinter XP-470B",
+  "dpi": 203,
+  "label_width_mm": 50,
+  "label_height_mm": 30,
+  "barcode_height_mm": 18,
+  "module_width": 0.35,
+  "header_font_size": 18,
+  "product_font_size": 20,
+  "margin_left": 2,
+  "margin_top": 2
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "ts": "2025-11-29T10:56:20.074320",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T10:56:25.521219",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:03:51.930897",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:03:57.352380",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:12:39.331213",
+    "barcode": "BMBR0020",
+    "qty": 10,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:12:51.831643",
+    "barcode": "BMBR0020",
+    "qty": 10,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:16:52.179146",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:18:37.657731",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
+  },
+  {
+    "ts": "2025-11-29T11:25:00.074669",
+    "barcode": "SFTK0014",
+    "qty": 15,
+    "stok": "SFTK",
+    "urun": "LACİVERT STRAİGHT FİT EŞOFMAN TAKIMI XL"
+  },
+  {
+    "ts": "2025-11-29T11:25:06.745248",
+    "barcode": "SFTK0022",
+    "qty": 20,
+    "stok": "SFTK",
+    "urun": "HAKİ STRAİGHT FİT EŞOFMAN TAKIMI M"
+  }
+]

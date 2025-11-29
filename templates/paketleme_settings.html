@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>⚙ Yazıcı & Etiket Ayarları</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#f5f5f5; padding:25px; }
+.card { border-radius:12px; }
+label { font-weight:600; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3>⚙ Yazıcı & Etiket Ayarları</h3>
+        <a class="btn btn-dark" href="/paketleme">← Geri</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+            <form method="POST">
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+                        <label class="form-label">Yazıcı Adı</label>
+                        <input type="text" name="printer_name" value="{{ s.printer_name }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">DPI</label>
+                        <input type="number" name="dpi" value="{{ s.dpi }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Module Width (Çizgi Kalınlığı)</label>
+                        <input type="number" step="0.01" name="module_width"
+                               value="{{ s.module_width }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Etiket Genişliği (mm)</label>
+                        <input type="number" name="label_width_mm" value="{{ s.label_width_mm }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Etiket Yüksekliği (mm)</label>
+                        <input type="number" name="label_height_mm" value="{{ s.label_height_mm }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Barkod Yüksekliği (mm)</label>
+                        <input type="number" name="barcode_height_mm" value="{{ s.barcode_height_mm }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Stok Kodu Font Boyutu</label>
+                        <input type="number" name="header_font_size" value="{{ s.header_font_size }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Ürün Adı Font Boyutu</label>
+                        <input type="number" name="product_font_size" value="{{ s.product_font_size }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Sol Boşluk (px)</label>
+                        <input type="number" name="margin_left" value="{{ s.margin_left }}" class="form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label">Üst Boşluk (px)</label>
+                        <input type="number" name="margin_top" value="{{ s.margin_top }}" class="form-control">
+                    </div>
+
+                </div>
+
+                <button class="btn btn-success w-100 mt-4">💾 Kaydet</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

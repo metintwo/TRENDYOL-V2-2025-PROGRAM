@@ -88,8 +88,13 @@
   <!-- 📦 Ana Menü -->
   <div class="menu-card">
     <h1>📦 Yönetim Paneli</h1>
+
     <a href="{{ url_for('dashboard', status='Created') }}" class="btn-orders">📦 Yeni Gelen Siparişler</a>
+
     <a href="{{ url_for('kargo_toplama') }}" class="btn btn-dark">🚛 Kargo Toplama</a>
+
+    <a href="{{ url_for('paketleme') }}" class="btn btn-warning w-100 mb-2">📦 Paketleme</a>
+
     <a href="{{ url_for('questions') }}" class="btn-questions">❓ Yeni Gelen Ürün Soruları</a>
   </div>
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Etiket Tasarım Ayarları</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#0b1443; padding:40px; color:#fff; }
+.card { background:rgba(255,255,255,0.07); border-radius:16px; padding:25px; }
+label { font-weight:600; }
+.form-control { background:rgba(255,255,255,0.15); border:none; color:#fff; }
+.form-control:focus { background:rgba(255,255,255,0.25); color:#fff; }
+.btn-primary { background:#1e7bff; border:none; font-size:18px; padding:10px; }
+.btn-secondary { background:#444; border:none; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="d-flex justify-content-between mb-4">
+        <h3>🖨 Etiket Tasarım Ayarları</h3>
+        <a href="/paketleme" class="btn btn-secondary">← Geri</a>
+    </div>
+
+    <div class="card">
+
+        <form method="POST">
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label>Genişlik (mm)</label>
+                    <input type="number" name="label_width_mm" step="0.1"
+                           class="form-control"
+                           value="{{ settings.label_width_mm }}">
+                </div>
+
+                <div class="col">
+                    <label>Yükseklik (mm)</label>
+                    <input type="number" name="label_height_mm" step="0.1"
+                           class="form-control"
+                           value="{{ settings.label_height_mm }}">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label>Barkod Yüksekliği (mm)</label>
+                <input type="number" step="0.1" name="barcode_height_mm"
+                       class="form-control"
+                       value="{{ settings.barcode_height_mm }}">
+            </div>
+
+            <div class="mb-3">
+                <label>Barkod Çizgi Kalınlığı (module width)</label>
+                <input type="number" step="0.01" name="module_width"
+                       class="form-control"
+                       value="{{ settings.module_width }}">
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label>Başlık Yazı Boyutu</label>
+                    <input type="number" name="header_font_size" class="form-control"
+                           value="{{ settings.header_font_size }}">
+                </div>
+
+                <div class="col">
+                    <label>Ürün Adı Yazı Boyutu</label>
+                    <input type="number" name="product_font_size" class="form-control"
+                           value="{{ settings.product_font_size }}">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label>Sol Boşluk (px)</label>
+                    <input type="number" name="margin_left" class="form-control"
+                           value="{{ settings.margin_left }}">
+                </div>
+
+                <div class="col">
+                    <label>Üst Boşluk (px)</label>
+                    <input type="number" name="margin_top" class="form-control"
+                           value="{{ settings.margin_top }}">
+                </div>
+            </div>
+
+            <button class="btn btn-primary w-100">Kaydet</button>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

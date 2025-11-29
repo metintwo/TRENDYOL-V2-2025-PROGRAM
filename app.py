@@ -16,6 +16,316 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 from flask import session
 from datetime import datetime, timedelta
+
+
+# ===========================
+#  PAKETLEME MODÜLÜ IMPORT
+# ===========================
+import io
+import json
+import pandas as pd
+import xml.etree.ElementTree as ET
+from pathlib import Path
+from datetime import datetime, timedelta
+from PIL import Image, ImageDraw, ImageFont
+
+try:
+    from barcode import Code128
+    from barcode.writer import ImageWriter
+    HAS_BARCODE = True
+except:
+    HAS_BARCODE = False
+
+XML_FILE = Path("Entegra.xml")
+LOG_FILE = Path("print_log_web.json")
+
+DEFAULT_LAYOUT = {
+    "dpi": 203,
+    "label_width_mm": 50.0,
+    "label_height_mm": 30.0,
+    "margin_x_mm": 3.0,
+    "margin_top_mm": 3.0,
+    "margin_bottom_mm": 3.0,
+    "barcode_height_mm": 18.0,
+    "module_width": 0.35,
+    "header_font_size": 18,
+    "barcode_text_font_size": 14,
+    "product_font_size": 20,
+}
+# ===========================
+#   XML OKUMA
+# ===========================
+def read_xml_file():
+    if not XML_FILE.exists():
+        return pd.DataFrame(columns=["Barkod", "StokKodu", "UrunAdi"])
+
+    try:
+        tree = ET.parse(str(XML_FILE))
+        root = tree.getroot()
+    except Exception as e:
+        print("XML okunamadı:", e)
+        return pd.DataFrame(columns=["Barkod", "StokKodu", "UrunAdi"])
+
+    rows = []
+
+    for tag in ["product", "Product", "urun", "Urun", "URUN"]:
+        for p in root.findall(f".//{tag}"):
+            barkod = p.findtext("Barkod") or p.findtext("barcode") or ""
+            stok = p.findtext("StokKodu") or p.findtext("Kod") or ""
+            urun = p.findtext("UrunAdi") or p.findtext("Baslik") or ""
+            rows.append({"Barkod": barkod, "StokKodu": stok, "UrunAdi": urun})
+
+    return pd.DataFrame(rows)
+# ---- Flask App ----
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+import sys, os
+from flask import Flask
+
+# PyInstaller uyumlu base path
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS  # derlenmiş exe içindeki temp klasör
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ---- Flask Ayarları ----
+app = Flask(__name__,
+            template_folder=os.path.join(BASE_DIR, "templates"),
+            static_folder=os.path.join(BASE_DIR, "static"))
+app.secret_key = os.getenv("SECRET_KEY", "supersecret")
+# ⬇⬇⬇ BUNLAR BURAYA GELECEK ⬇⬇⬇
+from yakamel_paketleme import paketleme_blueprint
+app.register_blueprint(paketleme_blueprint)
+# ⬆⬆⬆ BUNLAR BURAYA GELECEK ⬆⬆⬆
+# ---- DB Ayarları ----
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:12345@localhost:5432/trendyol_v2_2025_program"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db.init_app(app)
+migrate = Migrate(app, db)
+
+
+# ---- Login Manager ----
+login_manager = LoginManager()
+login_manager.login_view = "login"
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(User, int(user_id))
+
+# ---- .env yükle ----
+load_dotenv()
+
+PAGE_SIZE = 20
+
+# ===========================
+#   LOG SİSTEMİ
+# ===========================
+def ensure_log():
+    if not LOG_FILE.exists():
+        LOG_FILE.write_text("[]", encoding="utf-8")
+
+
+def add_log(barcode, qty, stok, urun):
+    ensure_log()
+    try:
+        data = json.loads(LOG_FILE.read_text("utf-8"))
+    except:
+        data = []
+
+    data.append({
+        "ts": datetime.utcnow().isoformat(),
+        "barcode": barcode,
+        "qty": qty,
+        "stok": stok,
+        "urun": urun
+    })
+
+    LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
+
+
+
+def get_14h_count():
+    ensure_log()
+    try:
+        data = json.loads(LOG_FILE.read_text("utf-8"))
+    except:
+        return 0
+
+    cutoff = datetime.utcnow() - timedelta(hours=14)
+    total = 0
+    for r in data:
+        try:
+            ts = datetime.fromisoformat(r["ts"])
+            if ts >= cutoff:
+                total += int(r["qty"])
+        except:
+            pass
+    return total
+# ===========================
+#  ETİKET OLUŞTURMA
+# ===========================
+def mm_to_px(mm, dpi):
+    return int((mm / 25.4) * dpi)
+
+def load_font(size, bold=False):
+    paths = [
+        "C:/Windows/Fonts/arialbd.ttf" if bold else "C:/Windows/Fonts/arial.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold
+        else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    ]
+    for p in paths:
+        if Path(p).exists():
+            return ImageFont.truetype(p, size)
+    return ImageFont.load_default()
+
+def render_label(barcode, stok, urun):
+    dpi = DEFAULT_LAYOUT["dpi"]
+    W = mm_to_px(DEFAULT_LAYOUT["label_width_mm"], dpi)
+    H = mm_to_px(DEFAULT_LAYOUT["label_height_mm"], dpi)
+
+    img = Image.new("L", (W, H), 255)
+    d = ImageDraw.Draw(img)
+
+    # Stok kodu
+    font_h = load_font(DEFAULT_LAYOUT["header_font_size"], bold=True)
+    d.text((10, 5), f"STOK: {stok}", 0, font=font_h)
+
+    # Barkod
+    if HAS_BARCODE:
+        code = Code128(str(barcode), writer=ImageWriter())
+        tmp = io.BytesIO()
+        code.write(tmp, options={"module_width": DEFAULT_LAYOUT["module_width"], "font_size": 0})
+        bc = Image.open(io.BytesIO(tmp.getvalue()))
+
+        bc = bc.resize((W - 20, 50))
+        img.paste(bc, (10, 40))
+
+    # Ürün
+    font_u = load_font(DEFAULT_LAYOUT["product_font_size"], bold=True)
+    d.text((10, H - 35), urun[:25], 0, font=font_u)
+
+    return img
+# ===========================
+#  PAKETLEME SAYFASI
+# ===========================
+@app.route("/paketleme", methods=["GET"])
+@login_required
+def paketleme():
+    ensure_log()
+
+    xml_name = XML_FILE.name if XML_FILE.exists() else None
+    q = request.args.get("q", "").strip().lower()
+    page = int(request.args.get("page", 1))
+    per_page = 20
+    counter = get_14h_count()
+
+    # Eğer arama yoksa boş liste göster
+    if q == "":
+        return render_template(
+            "paketleme.html",
+            xml_name=xml_name,
+            rows=[],
+            q=q,
+            counter=counter,
+            total_pages=0,
+            page=1
+        )
+
+    # Tüm XML'i oku
+    df = read_xml_file()
+
+    # lowercase kolonlar
+    df["lb"] = df["Barkod"].astype(str).str.lower()
+    df["ls"] = df["StokKodu"].astype(str).str.lower()
+    df["lu"] = df["UrunAdi"].astype(str).str.lower()
+
+    # Filtre
+    filt = df[
+        df["lb"].str.contains(q) |
+        df["ls"].str.contains(q) |
+        df["lu"].str.contains(q)
+    ]
+
+    total_rows = len(filt)
+    total_pages = (total_rows // per_page) + (1 if total_rows % per_page else 0)
+
+    # Sayfa sınırları
+    if page < 1:
+        page = 1
+    if page > total_pages:
+        page = total_pages
+
+    start = (page - 1) * per_page
+    end = start + per_page
+
+    filt_page = filt.iloc[start:end]
+
+    rows = filt_page[["Barkod", "StokKodu", "UrunAdi"]].to_dict(orient="records")
+
+    return render_template(
+        "paketleme.html",
+        xml_name=xml_name,
+        rows=rows,
+        q=q,
+        counter=counter,
+        page=page,
+        total_pages=total_pages
+    )
+
+
+@app.route("/upload_xml", methods=["POST"])
+@login_required
+def upload_xml():
+    f = request.files.get("xml_file")
+    if not f:
+        flash("XML seçilmedi!", "err")
+        return redirect("/paketleme")
+
+    f.save(XML_FILE)
+    flash("XML başarıyla yüklendi!", "ok")
+    return redirect("/paketleme")
+
+
+@app.route("/preview")
+@login_required
+def preview_label_route():
+    barcode = request.args.get("barcode")
+    stok = request.args.get("stok_kodu")
+    urun = request.args.get("urun_adi")
+
+    img = render_label(barcode, stok, urun)
+    buf = io.BytesIO()
+    img = img.resize((img.width*3, img.height*3))
+    img.save(buf, "PNG")
+    buf.seek(0)
+    return send_file(buf, mimetype="image/png")
+
+
+@app.route("/browser_print", methods=["POST"])
+@login_required
+def browser_print():
+    barcode = request.form.get("barcode")
+    stok = request.form.get("stok_kodu")
+    urun = request.form.get("urun_adi")
+    qty = int(request.form.get("qty", "1"))
+
+    add_log(barcode, qty, stok, urun)
+
+    return render_template_string("""
+        <html><body onload="window.print();window.close();">
+        {% for i in range(qty) %}
+            <img src="/preview?barcode={{barcode}}&stok_kodu={{stok}}&urun_adi={{urun}}">
+        {% endfor %}
+        </body></html>
+    """, barcode=barcode, stok=stok, urun=urun, qty=qty)
+
 SURAT_KARGO_HESAPLARI = {
     "564724": {  # RUNADES
         "KullaniciAdi": "1500205406",   # ✅ sözleşme kodu artık kullanıcı adı
@@ -132,50 +442,6 @@ def bildir_trendyol_kargo(supplier_id, package_id, tracking_number):
     print("📨 Trendyol Kargo Bildirimi:", r.status_code, r.text)
     return r.status_code == 200
 
-# ---- Flask App ----
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-import sys, os
-from flask import Flask
-
-# PyInstaller uyumlu base path
-if getattr(sys, 'frozen', False):
-    BASE_DIR = sys._MEIPASS  # derlenmiş exe içindeki temp klasör
-else:
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# ---- Flask Ayarları ----
-app = Flask(__name__,
-            template_folder=os.path.join(BASE_DIR, "templates"),
-            static_folder=os.path.join(BASE_DIR, "static"))
-app.secret_key = os.getenv("SECRET_KEY", "supersecret")
-
-# ---- DB Ayarları ----
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:12345@localhost:5432/trendyol_v2_2025_program"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-db.init_app(app)
-migrate = Migrate(app, db)
-
-
-# ---- Login Manager ----
-login_manager = LoginManager()
-login_manager.login_view = "login"
-login_manager.init_app(app)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.session.get(User, int(user_id))
-
-# ---- .env yükle ----
-load_dotenv()
-
-PAGE_SIZE = 20
 
 # ---- Ana Menü ----
 from datetime import datetime, timezone, timedelta
