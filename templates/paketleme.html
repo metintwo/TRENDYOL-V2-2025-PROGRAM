@@ -108,19 +108,24 @@
                              class="barcode-img">
                     </td>
 
-                    <!-- Yazdır -->
                     <td style="width:150px;">
-                        <form action="/browser_print" method="POST" class="d-flex gap-2">
 
-                            <input type="hidden" name="barcode" value="{{ row.Barkod }}">
-                            <input type="hidden" name="stok_kodu" value="{{ row.StokKodu }}">
-                            <input type="hidden" name="urun_adi" value="{{ row.UrunAdi }}">
+                        <!-- Adet -->
+                        <input type="number" id="qty_{{ loop.index }}"
+                               class="form-control mb-1" value="1"
+                               style="max-width:55px;">
 
-                            <input type="number" name="qty" class="form-control" value="1" style="max-width:55px;">
+                        <!-- POPUP YAZDIR BUTONU -->
+                        <button type="button" class="btn btn-dark w-100"
+                            onclick="openPopupPrint(
+                                '{{ row.Barkod }}',
+                                '{{ row.StokKodu }}',
+                                '{{ row.UrunAdi }}',
+                                document.getElementById('qty_{{ loop.index }}').value
+                            )">
+                            🖨 Yazdır
+                        </button>
 
-                            <button class="btn btn-success w-100">Yazdır</button>
-
-                        </form>
                     </td>
 
                 </tr>
@@ -148,6 +153,27 @@
     </div>
 
 </div>
+
+<script>
+function openPopupPrint(barcode, stok, urun, qty) {
+
+    const params = "width=400,height=600,left=200,top=100";
+    const popup = window.open("", "printWindow", params);
+
+    let imgs = "";
+    for (let i = 0; i < qty; i++) {
+        imgs += `<img src="/preview?barcode=${barcode}&stok_kodu=${stok}&urun_adi=${encodeURIComponent(urun)}"><br>`;
+    }
+
+    popup.document.write(`
+        <html>
+        <body onload="window.print(); window.close();">
+            ${imgs}
+        </body>
+        </html>
+    `);
+}
+</script>
 
 </body>
 </html>
