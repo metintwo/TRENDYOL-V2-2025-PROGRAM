@@ -167,8 +167,17 @@ function openPopupPrint(barcode, stok, urun, qty) {
 
     popup.document.write(`
         <html>
-        <body onload="window.print(); window.close();">
+        <body style="text-align:center; padding:10px;">
+
+            <h4>Etiket Önizleme</h4>
             ${imgs}
+
+            <hr>
+            <button onclick="window.print();"
+                    style="padding:10px 20px; font-size:18px; background:black; color:white; border:none; border-radius:6px;">
+                🖨 Yazdır
+            </button>
+
         </body>
         </html>
     `);

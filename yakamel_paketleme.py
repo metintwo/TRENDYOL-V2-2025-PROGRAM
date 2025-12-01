@@ -263,20 +263,20 @@ def render_label(barcode, stok, urun):
         bc_h = mm_to_px(settings["barcode_height_mm"], dpi)
 
         bc = bc.resize((W - 20, bc_h))
-        img.paste(bc, (10, f_stok.size + 12))
+        img.paste(bc, (int(settings["margin_left"]), f_stok.size + 12))
 
     except Exception as e:
         print("❌ Barkod çizilemedi:", e)
 
     # Ürün adı
     f_prod = load_font(int(settings["product_font_size"]), bold=True)
-    max_width = W - 20
+    max_width = W - int(settings["margin_left"]) - 10
 
     lines = wrap_text(draw, urun, f_prod, max_width)
     y = H - (len(lines) * (f_prod.size + 4)) - 5
 
     for line in lines:
-        draw.text((10, y), line, 0, font=f_prod)
+        draw.text((int(settings["margin_left"]), y), line, 0, font=f_prod)
         y += f_prod.size + 4
 
     return img
