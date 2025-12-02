@@ -157,6 +157,19 @@
 <script>
 function openPopupPrint(barcode, stok, urun, qty) {
 
+    // 1) Önce sayaç için backend'e POST gönder
+    const formData = new FormData();
+    formData.append("barcode", barcode);
+    formData.append("stok_kodu", stok);
+    formData.append("urun_adi", urun);
+    formData.append("qty", qty);
+
+    fetch("/browser_print", {
+        method: "POST",
+        body: formData
+    });
+
+    // 2) Popup aç – yazdırma yine tarayıcıdan olacak
     const params = "width=400,height=600,left=200,top=100";
     const popup = window.open("", "printWindow", params);
 
@@ -168,20 +181,18 @@ function openPopupPrint(barcode, stok, urun, qty) {
     popup.document.write(`
         <html>
         <body style="text-align:center; padding:10px;">
-
             <h4>Etiket Önizleme</h4>
             ${imgs}
-
             <hr>
             <button onclick="window.print();"
                     style="padding:10px 20px; font-size:18px; background:black; color:white; border:none; border-radius:6px;">
                 🖨 Yazdır
             </button>
-
         </body>
         </html>
     `);
 }
+
 </script>
 
 </body>
