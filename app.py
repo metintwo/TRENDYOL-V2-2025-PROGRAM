@@ -977,6 +977,7 @@ def isleme_al(supplier_id, package_id):
 
     return redirect(url_for("dashboard", **params))
 
+
 # ---- Etiket Yazdır ----
 @app.route("/etiket-yazdir/<supplier_id>/<int:package_id>")
 @login_required
@@ -985,45 +986,48 @@ def etiket_yazdir(supplier_id, package_id):
         flash("❌ Etiket yazdırma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
+    print(f"🚀 Etiket Yazdır | supplier_id={supplier_id}, package_id={package_id}")
+    sys.stdout.flush()
+
     try:
         hesap = SURAT_KARGO_HESAPLARI.get(str(supplier_id))
         if not hesap:
             flash("⚠️ Bu mağaza için Sürat Kargo bilgisi bulunamadı.", "warning")
             return redirect(url_for("dashboard"))
 
-        # 727 kodu Trendyol'dan çek
+        # 🔁 Trendyol 727 kodu al (3 deneme)
         tracking_number = ""
         order_detail = None
-
         for attempt in range(3):
             order_detail = get_order_detail(supplier_id, package_id)
             tracking_number = str(order_detail.get("cargoTrackingNumber") or "")
+            print(f"🟢 Deneme {attempt + 1}/3 → Trendyol kodu: {tracking_number}")
+
             if tracking_number.startswith("727"):
                 break
+
             time.sleep(2)
 
         if not tracking_number.startswith("727"):
-            flash("⚠️ Trendyol 727 kodu oluşmamış.", "warning")
+            flash("⚠️ Trendyol 727 takip kodu henüz oluşmadı.", "warning")
             return redirect(url_for("dashboard"))
 
-        # Adres bilgileri
+        # 📦 Adres bilgileri
         shipment = order_detail.get("shipmentAddress") or {}
-        isim = (
-            shipment.get("fullName")
-            or f"{shipment.get('firstName','')} {shipment.get('lastName','')}"
-        ).strip()
-
+        isim = (shipment.get("fullName") or f"{shipment.get('firstName', '')} {shipment.get('lastName', '')}").strip()
         adres = (
-            f"{shipment.get('fullAddress','')} "
-            f"{shipment.get('district','')} "
-            f"{shipment.get('city','')}"
+            f"{shipment.get('fullAddress') or ''} "
+            f"{shipment.get('district') or ''} "
+            f"{shipment.get('city') or ''}"
         ).strip()
 
         il = shipment.get("city") or "İSTANBUL"
         ilce = shipment.get("district") or "MERKEZ"
         telefon = shipment.get("phone") or "0000000000"
 
-        # --- Sürat API ---
+        # -------------------------
+        #  📤 Sürat Etiket API
+        # -------------------------
         data = {
             "KullaniciAdi": hesap["KullaniciAdi"],
             "Sifre": hesap["Sifre"],
@@ -1047,55 +1051,28 @@ def etiket_yazdir(supplier_id, package_id):
                 "GonderiSekli": 0,
                 "Pazaryerimi": 1,
                 "EntegrasyonFirmasi": "Trendyol",
-                "Iademi": 0,
-            },
+                "Iademi": 0
+            }
         }
 
         url = "https://api01.suratkargo.com.tr/api/OrtakBarkodOlustur"
         r = requests.post(url, json=data, timeout=25)
         result = r.json()
 
+        print("📦 Sürat API Yanıtı:", result)
+        sys.stdout.flush()
+
         if result.get("isError"):
-            flash(f"Sürat Hatası: {result.get('Message')}", "danger")
+            flash(f"Sürat API Hatası: {result.get('Message')}", "danger")
             return redirect(url_for("dashboard"))
 
-        # Barkod numarası
+        # 🔢 Barkod Numarası
         barcode_no = (result.get("BarcodeNo") or [None])[0]
 
-        # --- Barkod PNG çek ---
-        barcode_image_base64 = None
-        if barcode_no:
-            try:
-                img_url = f"http://{SERVER_IP}:5000/api/line-image?barcode={barcode_no}"
-                img_res = requests.get(img_url)
-                if img_res.status_code == 200:
-                    barcode_image_base64 = base64.b64encode(img_res.content).decode()
-            except:
-                pass
-
-        # --- DB LOG KAYIT ---
-        log = ShippingLog(
-            supplier_id=supplier_id,
-            supplier_name=order_detail.get("supplierName") or "",
-            order_number=str(package_id),
-            package_id=str(package_id),
-            customer_name=isim,
-            product_name=order_detail.get("lines", [{}])[0].get("productName", ""),
-            sku=order_detail.get("lines", [{}])[0].get("sku", ""),
-            color=order_detail.get("lines", [{}])[0].get("color", ""),
-            size=order_detail.get("lines", [{}])[0].get("size", ""),
-            quantity=order_detail.get("lines", [{}])[0].get("quantity", 1),
-            image_url="",
-            processed_at=datetime.utcnow(),
-            order_date=datetime.utcnow(),
-            shipped_at=None,
-            barcode_image=barcode_image_base64
-        )
-
-        db.session.add(log)
-        db.session.commit()
-
-        # --- ZPL → PNG ---
+        # -------------------------
+        #  🖼 Barkod Görseli ÇEK
+        # -------------------------
+        # ESKİ SİSTEM: ZPL → PDF (PNG İSTEMİYOR)
         zpl_raw = (result.get("Barcode") or [""])[0]
         zpl_clean = (
             zpl_raw.replace("\\r", "")
@@ -1105,51 +1082,40 @@ def etiket_yazdir(supplier_id, package_id):
             .strip()
         )
 
-        png_response = requests.post(
-            "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/",
-            data=zpl_clean.encode("utf-8"),
-            headers={"Accept": "image/png"},
-            timeout=25,
-        )
-
-        if png_response.status_code == 200:
-            png_b64 = base64.b64encode(png_response.content).decode()
-            if png_b64:
-                log.barcode_image = png_b64
-                db.session.commit()
-
         # --- ZPL → PDF ---
+        labelary_pdf_url = "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/"
+
         pdf_response = requests.post(
-            "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/",
+            labelary_pdf_url,
             data=zpl_clean.encode("utf-8"),
             headers={"Accept": "application/pdf"},
-            timeout=25,
+            timeout=25
         )
 
         if pdf_response.status_code == 200:
             pdf_bytes = BytesIO(pdf_response.content)
 
-            # Trendyol bildirimi
+            # 🔔 Trendyol’a teslim bildirimi
             try:
                 bildir_trendyol_kargo(supplier_id, package_id, tracking_number)
-            except:
-                pass
+            except Exception as e:
+                print("⚠️ Trendyol bildirim hatası:", e)
 
             return send_file(
                 pdf_bytes,
                 mimetype="application/pdf",
                 as_attachment=False,
-                download_name=f"etiket_{package_id}.pdf",
+                download_name=f"etiket_{package_id}.pdf"
             )
 
-        else:
-            flash("PDF dönüşüm hatası", "warning")
-            return redirect(url_for("dashboard"))
+        flash("Labelary PDF dönüşüm hatası oluştu.", "warning")
+        return redirect(url_for("dashboard"))
 
     except Exception as e:
-        print("❌ Etiket Hatası:", e)
-        flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
+        print("❌ Etiket Yazdırma Hatası:", e)
+        flash("Etiket oluşturulurken hata oluştu.", "danger")
         return redirect(url_for("dashboard"))
+
 
 @app.route("/kargo_toplama")
 @login_required
