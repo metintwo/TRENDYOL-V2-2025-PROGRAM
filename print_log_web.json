@@ -26,5 +26,12 @@
     "qty": 3,
     "stok": "BMBRTK",
     "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM L"
+  },
+  {
+    "ts": "2025-12-02T11:34:55.389957",
+    "barcode": "BMBR0020",
+    "qty": 1,
+    "stok": "BMBRTK",
+    "urun": "KADIN FÜME ÇIMALI BOMBER TAKIM XL"
   }
 ]
