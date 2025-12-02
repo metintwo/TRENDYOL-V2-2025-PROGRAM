@@ -146,18 +146,15 @@ def read_logs():
 # ==================================
 
 def get_today_count():
-    today = datetime.utcnow().strftime("%Y-%m-%d")
-    archive_file = ARCHIVE_DIR / f"{today}.json"
-
-    if not archive_file.exists():
-        return 0
+    ensure_log()
 
     try:
-        logs = json.loads(archive_file.read_text("utf-8"))
+        logs = json.loads(LOG_FILE.read_text("utf-8"))
     except:
         return 0
 
     return sum(int(r["qty"]) for r in logs)
+
 
 # ==================================
 # XML OKUMA
