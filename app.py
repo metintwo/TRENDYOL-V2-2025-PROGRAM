@@ -14,6 +14,7 @@ from trendyol_api import (
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
+from models import ShippingLog
 from flask import session
 from datetime import datetime, timedelta
 
@@ -830,8 +831,27 @@ def api_line_image():
     merchantSku = request.args.get("merchantSku")
     sku = request.args.get("sku")
     productCode = request.args.get("productCode")
-    url = resolve_line_image(supplier_id, barcode=barcode, merchantSku=merchantSku,
-                             sku=sku, productCode=productCode)
+
+    print("🔍 /api/line-image İSTEĞİ:")
+    print("supplier_id:", supplier_id)
+    print("barcode:", barcode)
+    print("merchantSku:", merchantSku)
+    print("sku:", sku)
+    print("productCode:", productCode)
+
+    # 🔥 Barkod veya SKU ile resim çöz
+    url = resolve_line_image(
+        supplier_id=supplier_id,
+        barcode=barcode,
+        merchantSku=merchantSku,
+        sku=sku,
+        productCode=productCode
+    )
+
+    # ❗ Eğer bulunamazsa default değer dön
+    if not url:
+        url = "https://via.placeholder.com/300x300.png?text=BARKOD+YOK"
+
     return jsonify({"url": url})
 
 
@@ -856,7 +876,6 @@ def isleme_al(supplier_id, package_id):
         status="Picking"
     )
 
-    # LOG YAZ
     print("=== LOG BAŞLIYOR ===")
 
     if ok:
@@ -865,16 +884,33 @@ def isleme_al(supplier_id, package_id):
         from trendyol_api import get_order_detail
 
         try:
-            print("→ Sipariş detay çekiliyor...")
             order_detail = get_order_detail(supplier_id, package_id)
             print("order_detail:", order_detail)
 
-            customer_name = None
-            supplier_name = None
+            # Müşteri isim
+            customer_name = f"{order_detail.get('customerFirstName','')} {order_detail.get('customerLastName','')}"
 
-            if order_detail:
-                customer_name = f"{order_detail.get('customerFirstName', '')} {order_detail.get('customerLastName', '')}"
-                supplier_name = order_detail.get("supplierName") or ""
+            # 🔥 Mağaza adı
+            supplier_name = order_detail.get("supplier_name") or order_detail.get("supplierName") or ""
+
+            # 🔥 Sipariş numarası
+            order_number = order_detail.get("orderNumber")
+
+            # 🔥 Tracking Number (kargo barkodu)
+            tracking_number = order_detail.get("cargoTrackingNumber")
+
+            # Sipariş tarihi (ISO → datetime)
+            from datetime import timezone, timedelta
+            IST = timezone(timedelta(hours=3))
+
+            order_date_raw = order_detail.get("orderDate")
+            order_date = None
+            if order_date_raw:
+                try:
+                    dt = datetime.fromtimestamp(int(order_date_raw)/1000, tz=timezone.utc)
+                    order_date = dt.astimezone(IST)
+                except:
+                    order_date = None
 
             print("→ Line sayısı:", len(lines))
 
@@ -885,10 +921,12 @@ def isleme_al(supplier_id, package_id):
                     supplier_id=supplier_id,
                     supplier_name=supplier_name,
 
-                    order_number=line.get("orderNumber"),
-                    package_id=package_id,
+                    order_number=order_number,
+                    tracking_number=tracking_number,
+                    package_id=str(package_id),
 
                     customer_name=customer_name,
+                    order_date=order_date,
 
                     product_name=line.get("productName"),
                     sku=line.get("merchantSku"),
@@ -910,40 +948,34 @@ def isleme_al(supplier_id, package_id):
         except Exception as e:
             print("❌ LOG HATASI:", e)
             db.session.rollback()
+
     else:
         print("❌ update_package_status başarısız!")
 
-    # 🔥 TÜM PARAMETRELERİ GERİ GÖNDER
+    # Parametreleri geri gönder
     params = {}
 
     params["page"] = request.form.get("page", "1")
     params["status"] = request.form.get("status", "Created")
 
-    supplier_f = request.form.get("supplier")
-    if supplier_f:
-        params["supplier"] = supplier_f
+    if request.form.get("supplier"):
+        params["supplier"] = request.form.get("supplier")
 
-    color_f = request.form.get("color")
-    if color_f:
-        params["color"] = color_f
+    if request.form.get("color"):
+        params["color"] = request.form.get("color")
 
-    # SKU filtreleri
     for f in request.form.getlist("filter"):
         params.setdefault("filter", []).append(f)
 
-    urgent = request.form.get("urgent")
-    if urgent:
-        params["urgent"] = urgent
+    if request.form.get("urgent"):
+        params["urgent"] = request.form.get("urgent")
 
-    # 🔥 Satır index
-    row_index = request.form.get("row_index")
-    if row_index:
-        params["row_index"] = row_index
+    if request.form.get("row_index"):
+        params["row_index"] = request.form.get("row_index")
 
     flash("✅ Sipariş işleme alındı", "success")
 
     return redirect(url_for("dashboard", **params))
-
 
 # ---- Etiket Yazdır ----
 @app.route("/etiket-yazdir/<supplier_id>/<int:package_id>")
@@ -953,43 +985,45 @@ def etiket_yazdir(supplier_id, package_id):
         flash("❌ Etiket yazdırma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
-    print(f"🚀 Etiket Yazdır | supplier_id={supplier_id}, package_id={package_id}")
-    sys.stdout.flush()
-
     try:
         hesap = SURAT_KARGO_HESAPLARI.get(str(supplier_id))
         if not hesap:
             flash("⚠️ Bu mağaza için Sürat Kargo bilgisi bulunamadı.", "warning")
             return redirect(url_for("dashboard"))
 
-        # 🔁 Trendyol'dan 727 kodu için birkaç kez deneme (3 deneme x 2 sn)
+        # 727 kodu Trendyol'dan çek
         tracking_number = ""
+        order_detail = None
+
         for attempt in range(3):
             order_detail = get_order_detail(supplier_id, package_id)
             tracking_number = str(order_detail.get("cargoTrackingNumber") or "")
-            print(f"🟢 Deneme {attempt+1}/3 → Trendyol kodu: {tracking_number}")
-
             if tracking_number.startswith("727"):
                 break
             time.sleep(2)
 
         if not tracking_number.startswith("727"):
-            flash("⚠️ Trendyol 727 takip kodu henüz oluşturulmamış. Lütfen birkaç dakika sonra tekrar deneyin.", "warning")
+            flash("⚠️ Trendyol 727 kodu oluşmamış.", "warning")
             return redirect(url_for("dashboard"))
 
-        # 📦 Adres bilgileri
+        # Adres bilgileri
         shipment = order_detail.get("shipmentAddress") or {}
-        isim = (shipment.get("fullName") or f"{shipment.get('firstName','')} {shipment.get('lastName','')}").strip() or "Müşteri"
-        adres = (
-            f"{shipment.get('fullAddress') or ''} "
-            f"{shipment.get('district') or ''} "
-            f"{shipment.get('city') or ''}"
-        ).strip() or "Adres bulunamadı"
-        il = (shipment.get("city") or "İSTANBUL").strip()
-        ilce = (shipment.get("district") or "MERKEZ").strip()
-        telefon = (shipment.get("phone") or "0000000000").strip()
+        isim = (
+            shipment.get("fullName")
+            or f"{shipment.get('firstName','')} {shipment.get('lastName','')}"
+        ).strip()
 
-        # 🧾 Sürat API verisi
+        adres = (
+            f"{shipment.get('fullAddress','')} "
+            f"{shipment.get('district','')} "
+            f"{shipment.get('city','')}"
+        ).strip()
+
+        il = shipment.get("city") or "İSTANBUL"
+        ilce = shipment.get("district") or "MERKEZ"
+        telefon = shipment.get("phone") or "0000000000"
+
+        # --- Sürat API ---
         data = {
             "KullaniciAdi": hesap["KullaniciAdi"],
             "Sifre": hesap["Sifre"],
@@ -1004,7 +1038,7 @@ def etiket_yazdir(supplier_id, package_id):
                 "KargoIcerigi": "Trendyol Siparişi",
                 "KargoTuru": 3,
                 "OdemeTipi": 1,
-                "OzelKargoTakipNo": tracking_number,  # ✅ Trendyol'un 727 kodu
+                "OzelKargoTakipNo": tracking_number,
                 "Adet": 1,
                 "BirimDesi": 2,
                 "BirimKg": 3,
@@ -1013,73 +1047,109 @@ def etiket_yazdir(supplier_id, package_id):
                 "GonderiSekli": 0,
                 "Pazaryerimi": 1,
                 "EntegrasyonFirmasi": "Trendyol",
-                "Iademi": 0
-            }
+                "Iademi": 0,
+            },
         }
 
         url = "https://api01.suratkargo.com.tr/api/OrtakBarkodOlustur"
-
-        # 🚀 Etiket isteği gönder
         r = requests.post(url, json=data, timeout=25)
         result = r.json()
-        print("📦 Sürat API Yanıtı:", result)
-        sys.stdout.flush()
 
         if result.get("isError"):
-            flash(f"Sürat API Hatası: {result.get('Message')}", "danger")
+            flash(f"Sürat Hatası: {result.get('Message')}", "danger")
             return redirect(url_for("dashboard"))
 
-        # 🧾 Barkod ZPL verisi
-        zpl_data = result.get("Barcode", [None])[0]
-        if not zpl_data:
-            flash("⚠️ Etiket ZPL verisi alınamadı.", "warning")
-            return redirect(url_for("dashboard"))
+        # Barkod numarası
+        barcode_no = (result.get("BarcodeNo") or [None])[0]
 
+        # --- Barkod PNG çek ---
+        barcode_image_base64 = None
+        if barcode_no:
+            try:
+                img_url = f"http://{SERVER_IP}:5000/api/line-image?barcode={barcode_no}"
+                img_res = requests.get(img_url)
+                if img_res.status_code == 200:
+                    barcode_image_base64 = base64.b64encode(img_res.content).decode()
+            except:
+                pass
+
+        # --- DB LOG KAYIT ---
+        log = ShippingLog(
+            supplier_id=supplier_id,
+            supplier_name=order_detail.get("supplierName") or "",
+            order_number=str(package_id),
+            package_id=str(package_id),
+            customer_name=isim,
+            product_name=order_detail.get("lines", [{}])[0].get("productName", ""),
+            sku=order_detail.get("lines", [{}])[0].get("sku", ""),
+            color=order_detail.get("lines", [{}])[0].get("color", ""),
+            size=order_detail.get("lines", [{}])[0].get("size", ""),
+            quantity=order_detail.get("lines", [{}])[0].get("quantity", 1),
+            image_url="",
+            processed_at=datetime.utcnow(),
+            order_date=datetime.utcnow(),
+            shipped_at=None,
+            barcode_image=barcode_image_base64
+        )
+
+        db.session.add(log)
+        db.session.commit()
+
+        # --- ZPL → PNG ---
+        zpl_raw = (result.get("Barcode") or [""])[0]
         zpl_clean = (
-            zpl_data.replace("\\r", "")
+            zpl_raw.replace("\\r", "")
             .replace("\\n", "")
             .replace("\r", "")
             .replace("\n", "")
             .strip()
         )
 
-        # 🖨 PDF üretimi (Labelary)
-        labelary_url = "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/"
+        png_response = requests.post(
+            "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/",
+            data=zpl_clean.encode("utf-8"),
+            headers={"Accept": "image/png"},
+            timeout=25,
+        )
+
+        if png_response.status_code == 200:
+            png_b64 = base64.b64encode(png_response.content).decode()
+            if png_b64:
+                log.barcode_image = png_b64
+                db.session.commit()
+
+        # --- ZPL → PDF ---
         pdf_response = requests.post(
-            labelary_url,
+            "https://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/",
             data=zpl_clean.encode("utf-8"),
             headers={"Accept": "application/pdf"},
-            timeout=25
+            timeout=25,
         )
 
         if pdf_response.status_code == 200:
             pdf_bytes = BytesIO(pdf_response.content)
 
-            # ✅ Trendyol bildirimi
+            # Trendyol bildirimi
             try:
                 bildir_trendyol_kargo(supplier_id, package_id, tracking_number)
-                print(f"📨 Trendyol bildirimi yapıldı: {tracking_number}")
-            except Exception as e:
-                print("⚠️ Trendyol bildirim hatası:", e)
+            except:
+                pass
 
             return send_file(
                 pdf_bytes,
                 mimetype="application/pdf",
                 as_attachment=False,
-                download_name=f"etiket_{package_id}.pdf"
+                download_name=f"etiket_{package_id}.pdf",
             )
+
         else:
-            print("⚠️ Labelary Hata:", pdf_response.text)
-            flash("Labelary PDF dönüşüm hatası.", "warning")
+            flash("PDF dönüşüm hatası", "warning")
             return redirect(url_for("dashboard"))
 
     except Exception as e:
-        print("❌ Etiket Hata:", e)
+        print("❌ Etiket Hatası:", e)
         flash(f"❌ Etiket oluşturulamadı: {e}", "danger")
         return redirect(url_for("dashboard"))
-
-# ---- Kargo Toplama (Renk Birleştirme + Toplamlama) ----
-from collections import defaultdict
 
 @app.route("/kargo_toplama")
 @login_required
@@ -1119,91 +1189,42 @@ def kargo_toplama():
             "PLR": "POLAR HIRKA"
         }
 
-        # 🔹 Renk normalize fonksiyonu (tüm varyasyonları kapsar)
         import re
         import unicodedata
 
+        # 🔹 Renk normalize fonksiyonu
         def normalize_color_name(name):
-            import re
-            import unicodedata
-
             if not name:
                 return {"kod": "#cccccc", "ad": "Belirsiz", "key": "belirsiz"}
 
-            # 🔹 Unicode temizliği (örnek: Vi̇zon → Vizon)
             raw = unicodedata.normalize("NFKD", name)
             raw = raw.replace("İ", "i").replace("ı", "i").replace("i̇", "i")
             raw = raw.encode("ascii", "ignore").decode("utf-8", "ignore")
             raw = raw.strip().upper()
 
-            # 🔹 Parantez ve boşluk temizliği
             raw = re.sub(r"\((.*?)\)", "", raw)
             raw = re.sub(r"\s+", " ", raw)
 
-            # 🔹 Gereksiz kelimeler silinsin
-            for junk in ["RENK", "RENGI", "RENGİ", "RNG", "MAVI", "MAVİ", "MAVISI", "MAVİSİ", "VERT", "MELANJ",
-                         "COLOR"]:
+            for junk in ["RENK", "RENGI", "RENGİ", "RNG", "MAVI", "MAVİ", "MAVISI", "MAVİSİ", "VERT", "MELANJ", "COLOR"]:
                 raw = raw.replace(junk, "")
 
-            # === RENK NORMALİZASYONLARI ===
+            if re.search(r"FÜM|FUME|SMOKE|CHARCOAL|DARK GREY", raw): raw = "FÜME"
+            elif re.search(r"GRI|GREY|GRAY", raw): raw = "GRİ"
+            elif re.search(r"SAX|SAKS|SAX BLUE|SAKS MAVI", raw): raw = "SAKS MAVİSİ"
+            elif re.search(r"BEBE|BABY BLUE|BEBEMAVI", raw): raw = "BEBE MAVİSİ"
+            elif re.search(r"MURDUM|MORDO", raw): raw = "MÜRDÜM"
+            elif re.search(r"BLACK|SIYAH", raw): raw = "SİYAH"
+            elif re.search(r"LACI|LACIVERT", raw): raw = "LACİVERT"
+            elif re.search(r"HAKI|KHAKI", raw): raw = "HAKİ"
+            elif re.search(r"KAHVE|BROWN", raw): raw = "KAHVERENGİ"
+            elif re.search(r"BEIGE", raw): raw = "BEJ"
+            elif re.search(r"VIZON|VISON", raw): raw = "VİZON"
+            elif re.search(r"BORDO", raw): raw = "BORDO"
+            elif re.search(r"ORANGE", raw): raw = "TURUNCU"
 
-            # FÜME
-            if re.search(r"FÜM|FUME|SMOKE|CHARCOAL|DARK GREY", raw):
-                raw = "FÜME"
-
-            # GRİ
-            elif re.search(r"GRI|GREY|GRAY", raw):
-                raw = "GRİ"
-
-            # SAKS MAVİSİ (tüm varyasyonlar)
-            elif re.search(r"SAX|SAKS|SAX BLUE|SAKS MAVI", raw):
-                raw = "SAKS MAVİSİ"
-
-            # BEBE MAVİSİ
-            elif re.search(r"BEBE|BABY BLUE|BEBEMAVI|BEBEMAVISI", raw):
-                raw = "BEBE MAVİSİ"
-
-            # MÜRDÜM
-            elif re.search(r"MURDUM|MORDO|MURDUM MELANJ|MURDU", raw):
-                raw = "MÜRDÜM"
-
-            # SİYAH
-            elif re.search(r"BLACK|SIYAHH|SIYAH|SIAH", raw):
-                raw = "SİYAH"
-
-            # LACİVERT
-            elif re.search(r"LACI|LACIVERT|NAVY", raw):
-                raw = "LACİVERT"
-
-            # HAKİ
-            elif re.search(r"HAKI|KHAKI|HACKI", raw):
-                raw = "HAKİ"
-
-            # KAHVERENGİ
-            elif re.search(r"KAHVE|BROWN|COFFEE|CHOCOLATE", raw):
-                raw = "KAHVERENGİ"
-
-            # BEJ
-            elif re.search(r"BEIGE|BEIJE|BEYJ", raw):
-                raw = "BEJ"
-
-            # VİZON
-            elif re.search(r"VIZON|VISON|MINK", raw):
-                raw = "VİZON"
-
-            # BORDO
-            elif re.search(r"BORDO", raw):
-                raw = "BORDO"
-
-            # TURUNCU
-            elif re.search(r"ORANGE", raw):
-                raw = "TURUNCU"
-
-            # Eğer hiçbirine uymuyorsa ismini olduğu gibi bırak
             raw = raw.strip()
             renk_ad = raw.title()
 
-            # 🔹 Key üret
             renk_key = (
                 raw.lower()
                 .replace(" ", "")
@@ -1212,11 +1233,14 @@ def kargo_toplama():
                 .replace(".", "")
                 .replace("/", "")
                 .replace("\\", "")
-                .replace("ı", "i").replace("i̇", "i").replace("ş", "s")
-                .replace("ğ", "g").replace("ü", "u").replace("ö", "o").replace("ç", "c")
+                .replace("ı", "i")
+                .replace("ş", "s")
+                .replace("ç", "c")
+                .replace("ö", "o")
+                .replace("ü", "u")
+                .replace("ğ", "g")
             )
 
-            # 🔹 Renk kodları
             renkler = {
                 "beyaz": "#ffffff",
                 "siyah": "#000000",
@@ -1289,15 +1313,11 @@ def kargo_toplama():
             renk = x["renk_ad"]
             beden = x["beden"]
 
-            try:
-                sku_index = SKU_ORDER.index(stok)
-            except ValueError:
-                sku_index = 999
+            try: sku_index = SKU_ORDER.index(stok)
+            except ValueError: sku_index = 999
 
-            try:
-                beden_index = BEDEN_ORDER.index(beden)
-            except ValueError:
-                beden_index = len(BEDEN_ORDER)
+            try: beden_index = BEDEN_ORDER.index(beden)
+            except ValueError: beden_index = len(BEDEN_ORDER)
 
             return (sku_index, renk.lower(), beden_index)
 
@@ -1311,30 +1331,30 @@ def kargo_toplama():
         traceback.print_exc()
         flash(f"Kargo toplama hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
-# ---- Excel Raporu ----
+
+
+# ---- Excel Raporu İçin Genel Importlar ----
 from flask import send_file
 import pandas as pd
 from io import BytesIO
 
-@app.route("/kargo-raporu", methods=["GET"])
+
+@app.route("/kargo-raporu")
 @login_required
 def kargo_raporu():
-    from models import ShippingLog
+    import pandas as pd
+    from openpyxl import load_workbook
+    from openpyxl.drawing.image import Image as XLImage
+    from datetime import datetime
+    import base64, os, tempfile
 
-    # Tarih filtresi (opsiyonel)
-    start = request.args.get("start")
-    end = request.args.get("end")
+    today = datetime.now().strftime("%Y-%m-%d")
+    excel_path = "kargo_raporu.xlsx"
 
-    query = ShippingLog.query
+    # 🔥 TÜM LOG KAYITLARI
+    logs = ShippingLog.query.order_by(ShippingLog.processed_at.desc()).all()
 
-    if start:
-        query = query.filter(ShippingLog.processed_at >= start)
-    if end:
-        query = query.filter(ShippingLog.processed_at <= end + " 23:59:59")
-
-    logs = query.order_by(ShippingLog.processed_at.desc()).all()
-
-    # Excel tablosu için liste oluştur
+    # 🔥 Excel için tablo
     rows = []
     for log in logs:
         rows.append({
@@ -1347,23 +1367,53 @@ def kargo_raporu():
             "Renk": log.color,
             "Beden": log.size,
             "Adet": log.quantity,
-            "Görsel": log.image_url,
-            "İşleme Alınma": log.processed_at.strftime("%d.%m.%Y %H:%M:%S"),
-            "Kargo Geçiş (varsa)": log.ship_time.strftime("%d.%m.%Y %H:%M:%S") if log.ship_time else "",
+            "Kargo Barkod": log.tracking_number,
+
+            # ❗️ Eksik olan sütunları geri ekledik
+            "İşleme Alınma Tarihi": log.processed_at,
+            "Kargo Teslim Alma / Geçiş": log.shipped_at
         })
 
     df = pd.DataFrame(rows)
 
-    output = BytesIO()
-    df.to_excel(output, index=False)
-    output.seek(0)
+    # 1) DOSYA YOKSA OLUŞTUR
+    if not os.path.exists(excel_path):
+        df.to_excel(excel_path, sheet_name=today, index=False)
 
-    return send_file(
-        output,
-        as_attachment=True,
-        download_name=f"kargo_raporu.xlsx",
-        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
+    # 2) SHEET GÜNCELLE / YENİ SAYFA OLARAK EKLE
+    with pd.ExcelWriter(excel_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
+        df.to_excel(writer, sheet_name=today, index=False)
+
+    # 3) BARKOD PNG EKLE
+    wb = load_workbook(excel_path)
+    ws = wb[today]
+
+    start_row = 2  # Başlık 1. satır
+
+    for idx, log in enumerate(logs):
+        if log.barcode_image:
+            try:
+                # Base64 → PNG temp
+                png_bytes = base64.b64decode(log.barcode_image)
+
+                tmpfile = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
+                tmpfile.write(png_bytes)
+                tmpfile.close()
+
+                img = XLImage(tmpfile.name)
+                img.width = 120
+                img.height = 120
+
+                # 📌 Barkod Resmi sütunu = L sütunu
+                cell = f"L{start_row + idx}"
+                ws.add_image(img, cell)
+
+            except Exception as e:
+                print("PNG ekleme hatası:", e)
+
+    wb.save(excel_path)
+
+    return send_file(excel_path, as_attachment=True)
 
 # ---- Main ----
 if __name__ == "__main__":

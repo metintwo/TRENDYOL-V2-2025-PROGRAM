@@ -40,8 +40,9 @@ class ShippingLog(db.Model):
     supplier_name = db.Column(db.String(200), nullable=True)
 
     order_number = db.Column(db.String(50), nullable=True)
-    package_id = db.Column(db.Integer, nullable=True)
-
+    tracking_number = db.Column(db.String(50), nullable=True)   # 🔥 EKLENDİ
+    package_id = db.Column(db.String(50), nullable=True)
+    barcode_image = db.Column(db.Text, nullable=True)  # Base64 PNG string
     customer_name = db.Column(db.String(200), nullable=True)
     product_name = db.Column(db.String(200), nullable=True)
 
@@ -54,3 +55,5 @@ class ShippingLog(db.Model):
 
     processed_at = db.Column(db.DateTime, default=datetime.utcnow)
     shipped_at = db.Column(db.DateTime, nullable=True)
+
+    order_date = db.Column(db.DateTime, nullable=True)

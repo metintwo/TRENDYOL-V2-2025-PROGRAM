@@ -365,18 +365,35 @@ def browser_print():
 @paketleme_blueprint.route("/rapor", methods=["GET"])
 @login_required
 def rapor_page():
-    archive_if_new_day()
+    ensure_log()
 
     q = (request.args.get("q") or "").lower()
     date_sel = request.args.get("date") or datetime.utcnow().strftime("%Y-%m-%d")
 
-    file_path = ARCHIVE_DIR / f"{date_sel}.json"
-    logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
+    # Eğer seçilen tarih bugünse → aktif log dosyasını oku
+    today = datetime.utcnow().strftime("%Y-%m-%d")
 
+    if date_sel == today:
+        try:
+            logs = json.loads(LOG_FILE.read_text("utf-8"))
+        except:
+            logs = []
+    else:
+        # Arşivden oku
+        file_path = ARCHIVE_DIR / f"{date_sel}.json"
+        logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
+
+    # Arama filtresi
     if q:
-        logs = [r for r in logs if q in r["barcode"].lower() or q in r["stok"].lower() or q in r["urun"].lower()]
+        logs = [
+            r for r in logs
+            if q in r["barcode"].lower()
+            or q in r["stok"].lower()
+            or q in r["urun"].lower()
+        ]
 
     return render_template("paketleme_rapor.html", logs=logs, q=q, date_sel=date_sel)
+
 
 # ==================================
 # RAPOR – GÜNLÜK EXCEL
@@ -410,11 +427,24 @@ def rapor_excel():
 @paketleme_blueprint.route("/rapor-toplam", methods=["GET"])
 @login_required
 def rapor_toplam():
+    ensure_log()
+
     date_sel = request.args.get("date") or datetime.utcnow().strftime("%Y-%m-%d")
 
-    file_path = ARCHIVE_DIR / f"{date_sel}.json"
-    logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
+    today = datetime.utcnow().strftime("%Y-%m-%d")
 
+    # Bugün ise: aktif log dosyasını oku
+    if date_sel == today:
+        try:
+            logs = json.loads(LOG_FILE.read_text("utf-8"))
+        except:
+            logs = []
+    else:
+        # Arşivden oku
+        file_path = ARCHIVE_DIR / f"{date_sel}.json"
+        logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
+
+    # Barkod bazlı toplama
     totals = {}
     for r in logs:
         key = r["barcode"]
@@ -430,20 +460,37 @@ def rapor_toplam():
     rows = list(totals.values())
     total_qty = sum(x["qty"] for x in rows)
 
-    return render_template("paketleme_rapor_toplam.html", date_sel=date_sel, rows=rows, total=total_qty)
+    return render_template(
+        "paketleme_rapor_toplam.html",
+        date_sel=date_sel,
+        rows=rows,
+        total=total_qty
+    )
+
 
 # ==================================
 # RAPOR – TOPLAM EXCEL (/rapor-toplam-excel)
 # ==================================
-
 @paketleme_blueprint.route("/rapor-toplam-excel", methods=["GET"])
 @login_required
 def rapor_toplam_excel():
+    ensure_log()
+
     date_sel = request.args.get("date") or datetime.utcnow().strftime("%Y-%m-%d")
+    today = datetime.utcnow().strftime("%Y-%m-%d")
 
-    file_path = ARCHIVE_DIR / f"{date_sel}.json"
-    logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
+    # Eğer bugün seçildiyse → aktif log dosyasından oku
+    if date_sel == today:
+        try:
+            logs = json.loads(LOG_FILE.read_text("utf-8"))
+        except:
+            logs = []
+    else:
+        # Eski gün → arşivden oku
+        file_path = ARCHIVE_DIR / f"{date_sel}.json"
+        logs = json.loads(file_path.read_text("utf-8")) if file_path.exists() else []
 
+    # Barkod bazlı toplama
     totals = {}
     for r in logs:
         key = r["barcode"]
@@ -468,6 +515,7 @@ def rapor_toplam_excel():
         as_attachment=True,
         download_name=f"toplam_rapor_{date_sel}.xlsx"
     )
+
 
 # ==================================
 # AYAR SAYFASI
