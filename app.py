@@ -17,6 +17,7 @@ from models import db, User
 from models import ShippingLog
 from flask import session
 from datetime import datetime, timedelta
+from collections import defaultdict
 
 
 # ===========================
@@ -1117,7 +1118,7 @@ def etiket_yazdir(supplier_id, package_id):
         return redirect(url_for("dashboard"))
 
 
-@app.route("/kargo_toplama")
+@app.route("/etiket_rapor_toplama")
 @login_required
 def kargo_toplama():
     if current_user.role not in ["kargo", "ofis", "admin"]:
@@ -1315,12 +1316,13 @@ def kargo_raporu():
     import base64, os, tempfile
 
     today = datetime.now().strftime("%Y-%m-%d")
-    excel_path = "kargo_raporu.xlsx"
 
-    # 🔥 TÜM LOG KAYITLARI
+    # 🔥 Sunucuda güvenli geçici klasöre yaz
+    excel_path = f"/tmp/kargo_raporu_{today}.xlsx"
+
+    # 🔥 Verileri çek
     logs = ShippingLog.query.order_by(ShippingLog.processed_at.desc()).all()
 
-    # 🔥 Excel için tablo
     rows = []
     for log in logs:
         rows.append({
@@ -1334,34 +1336,24 @@ def kargo_raporu():
             "Beden": log.size,
             "Adet": log.quantity,
             "Kargo Barkod": log.tracking_number,
-
-            # ❗️ Eksik olan sütunları geri ekledik
             "İşleme Alınma Tarihi": log.processed_at,
             "Kargo Teslim Alma / Geçiş": log.shipped_at
         })
 
     df = pd.DataFrame(rows)
 
-    # 1) DOSYA YOKSA OLUŞTUR
-    if not os.path.exists(excel_path):
-        df.to_excel(excel_path, sheet_name=today, index=False)
+    # 🔥 Excel oluştur / güncelle
+    df.to_excel(excel_path, sheet_name=today, index=False, engine="openpyxl")
 
-    # 2) SHEET GÜNCELLE / YENİ SAYFA OLARAK EKLE
-    with pd.ExcelWriter(excel_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
-        df.to_excel(writer, sheet_name=today, index=False)
-
-    # 3) BARKOD PNG EKLE
+    # 🔥 Barkod resimlerini sheet’e ekle
     wb = load_workbook(excel_path)
     ws = wb[today]
 
-    start_row = 2  # Başlık 1. satır
-
+    start_row = 2
     for idx, log in enumerate(logs):
         if log.barcode_image:
             try:
-                # Base64 → PNG temp
                 png_bytes = base64.b64decode(log.barcode_image)
-
                 tmpfile = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
                 tmpfile.write(png_bytes)
                 tmpfile.close()
@@ -1370,9 +1362,7 @@ def kargo_raporu():
                 img.width = 120
                 img.height = 120
 
-                # 📌 Barkod Resmi sütunu = L sütunu
-                cell = f"L{start_row + idx}"
-                ws.add_image(img, cell)
+                ws.add_image(img, f"L{start_row + idx}")
 
             except Exception as e:
                 print("PNG ekleme hatası:", e)
