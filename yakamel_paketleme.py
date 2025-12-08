@@ -237,13 +237,15 @@ def render_label(barcode, stok, urun):
     settings = load_settings()
 
     dpi = int(settings["dpi"])
-    W = int(mm_to_px(settings["label_width_mm"], dpi))
-    H = int(mm_to_px(settings["label_height_mm"], dpi))
+    SCALE = 1.10  # %90 boyut (10% küçültme)
+
+    W = int(mm_to_px(settings["label_width_mm"], dpi) * SCALE)
+    H = int(mm_to_px(settings["label_height_mm"], dpi) * SCALE)
 
     # Etiket yazıcıları taşma toleransı ister
     W -= 2
     H -= 2
-    LEFT_OFFSET = -25  # Etiketi komple sola çek
+    LEFT_OFFSET = -15  # Etiketi komple sola çek
     img = Image.new("L", (W, H), 255)
     draw = ImageDraw.Draw(img)
 

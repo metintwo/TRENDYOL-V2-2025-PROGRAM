@@ -89,5 +89,19 @@
     "qty": 1,
     "stok": "C3ETK",
     "urun": "ÇOCUK 3.İPLK KOYU YEŞİL EŞOFMAN TK XL"
+  },
+  {
+    "ts": "2025-12-08T12:21:09.426260",
+    "barcode": "C3ETK068",
+    "qty": 1,
+    "stok": "C3ETK",
+    "urun": "ÇOCUK 3.İPLK KOYU YEŞİL EŞOFMAN TK XL"
+  },
+  {
+    "ts": "2025-12-08T12:22:15.563618",
+    "barcode": "C3ETK068",
+    "qty": 1,
+    "stok": "C3ETK",
+    "urun": "ÇOCUK 3.İPLK KOYU YEŞİL EŞOFMAN TK XL"
   }
 ]
