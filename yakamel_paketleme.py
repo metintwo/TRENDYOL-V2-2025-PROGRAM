@@ -232,51 +232,82 @@ def wrap_text(draw, text, font, max_width):
 
     return lines
 
+
 def render_label(barcode, stok, urun):
     settings = load_settings()
 
     dpi = int(settings["dpi"])
-    W = mm_to_px(settings["label_width_mm"], dpi)
-    H = mm_to_px(settings["label_height_mm"], dpi)
+    W = int(mm_to_px(settings["label_width_mm"], dpi))
+    H = int(mm_to_px(settings["label_height_mm"], dpi))
 
+    # Etiket yazıcıları taşma toleransı ister
+    W -= 2
+    H -= 2
+    LEFT_OFFSET = -25  # Etiketi komple sola çek
     img = Image.new("L", (W, H), 255)
     draw = ImageDraw.Draw(img)
 
-    # Stok kodu
+    # === STOK KODU ===
     f_stok = load_font(int(settings["header_font_size"]), bold=True)
-    draw.text((settings["margin_left"], settings["margin_top"]), stok, 0, font=f_stok)
+    stok_x = int(settings["margin_left"]) + LEFT_OFFSET
+    stok_y = int(settings["margin_top"])
+    draw.text((stok_x, stok_y), stok, 0, font=f_stok)
 
-    # Barkod
+    # === BARKOD OLUŞTURMA ===
     try:
         from barcode import Code128
         from barcode.writer import ImageWriter
 
         code = Code128(str(barcode), writer=ImageWriter())
         buf = io.BytesIO()
-
         code.write(buf, options={"module_width": float(settings["module_width"]), "font_size": 0})
 
         bc = Image.open(io.BytesIO(buf.getvalue()))
         bc_h = mm_to_px(settings["barcode_height_mm"], dpi)
 
-        bc = bc.resize((W - 20, bc_h))
-        img.paste(bc, (int(settings["margin_left"]), f_stok.size + 12))
+        # Barkod genişliği
+        usable_w = W - int(settings["margin_left"]) - 10
+
+        # Resize
+        bc = bc.resize((usable_w, bc_h))
+
+        # Barkod pozisyonu
+        bc_x = int(settings["margin_left"]) + LEFT_OFFSET
+        bc_y = stok_y + f_stok.size + 12
+        img.paste(bc, (bc_x, bc_y))
+
+        # === BARKOD NUMARASI: Stok kodu ile aynı hizaya, en sağa ===
+        f_barc = load_font(int(settings["header_font_size"]) - 2, bold=False)
+
+        barcode_text = str(barcode)
+        text_w = draw.textlength(barcode_text, font=f_barc)
+
+        # Sağ tarafa yerleştir (5px içeride)
+        barcode_x = W - text_w - 5 + LEFT_OFFSET
+        barcode_y = stok_y  # Stok kodu ile aynı çizgi
+
+        draw.text((barcode_x, barcode_y), barcode_text, 0, font=f_barc)
 
     except Exception as e:
         print("❌ Barkod çizilemedi:", e)
 
-    # Ürün adı
+    # === ÜRÜN ADI ORTALANMIŞ ===
     f_prod = load_font(int(settings["product_font_size"]), bold=True)
     max_width = W - int(settings["margin_left"]) - 10
 
     lines = wrap_text(draw, urun, f_prod, max_width)
-    y = H - (len(lines) * (f_prod.size + 4)) - 5
+
+    # Başlangıç Y konumu (barkodun altına 10px boşluk)
+    y = bc_y + bc_h + 10
 
     for line in lines:
-        draw.text((int(settings["margin_left"]), y), line, 0, font=f_prod)
+        text_w = draw.textlength(line, font=f_prod)
+        center_x = (W - text_w) // 2 + LEFT_OFFSET # → ORTALA
+        draw.text((center_x, y), line, 0, font=f_prod)
         y += f_prod.size + 4
 
     return img
+
 
 # ==================================
 # PAKETLEME SAYFASI
