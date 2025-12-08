@@ -529,45 +529,27 @@ def dashboard():
                 new_list.append(o)
         orders_raw = new_list
 
-
-    # 🔥 Mağaza filtresi
-    if supplier_filter:
-        orders_raw = [o for o in orders_raw if str(o.get("supplier_id")) == supplier_filter]
-
-    # 🔥 Renk filtresi
+    # 🔥 Renk filtresi (Doğru yöntem)
     if color_filter:
         cf = color_filter.upper()
+        filtered_orders = []
+
         for o in orders_raw:
-            o["lines"] = [
-                l for l in o.get("lines", [])
-                if (l.get("productColor") or "").upper().startswith(cf)
-            ]
-        orders_raw = [o for o in orders_raw if o["lines"]]
+            # Sipariş içinde eşleşen herhangi bir renk var mı?
+            has_color = False
 
-    # 🔥 Arama filtresi
-    if search_query:
-        filtered = []
-        for o in orders_raw:
-            base = (
-                str(o.get("orderNumber", "")) + " " +
-                str(o.get("customerFirstName","")) + " " +
-                str(o.get("customerLastName",""))
-            ).lower()
+            for l in o.get("lines", []):
+                color = (l.get("productColor") or "").upper()
+                if color.startswith(cf):
+                    has_color = True
+                    break
 
-            found = search_query in base
+            # Eğer sipariş bu rengi içeriyorsa listeye ekle
+            if has_color:
+                filtered_orders.append(o)
 
-            if not found:
-                for l in o.get("lines", []):
-                    if search_query in str(l.get("productName","")).lower():
-                        found = True
-                        break
-                    if search_query in str(l.get("merchantSku","")).lower():
-                        found = True
-                        break
-            if found:
-                filtered.append(o)
-
-        orders_raw = filtered
+        # Siparişleri güncelle (içindeki satırları silmeden)
+        orders_raw = filtered_orders
 
     # 🔹 Mağaza adı
     for o in orders_raw:
