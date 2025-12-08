@@ -5,56 +5,136 @@
   <title>Siparişler | Çoklu Mağaza</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    body { background:#f5f7fb; padding:15px; }
+<style>
 
+    /* --- ARKA PLAN (Paketleme paneli ile %100 aynı) --- */
+    body {
+        background: #0f152c;
+        background-image:
+            radial-gradient(circle at 0% 0%, rgba(59,130,246,0.35) 0%, rgba(15,21,44,0) 60%),
+            radial-gradient(circle at 100% 0%, rgba(37,99,235,0.20) 0%, rgba(15,21,44,0) 70%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 15px;
+        font-family: "Segoe UI", sans-serif;
+        color: #e6e9f0;
+    }
+
+
+    /* --- ÜRÜN GRID --- */
     .products-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-      gap:10px;
-    }
-    .line-card {
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:10px;
-      padding:8px;
-    }
-    .product-img {
-      width:100%;
-      height:120px;
-      border-radius:8px;
-      object-fit:cover;
-      cursor:pointer;
-      background:#eee;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
     }
 
+
+
+/* --- ÜRÜN KARTI (line-card) --- */
+.line-card {
+    background: #e8edf7;              /* ❗ Soft açık mavi-gri */
+    border: 2px solid #cfd6e6;        /* Hafif daha koyu çerçeve */
+    border-radius: 10px;
+    padding: 8px;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    color: #0f152c;                   /* Yazı rengi koyu lacivert */
+}
+
+/* Hover efekti — ürün kartı parlasın */
+.line-card:hover {
+    transform: scale(1.03);
+    border-color: #4acbff;
+    box-shadow: 0 6px 20px rgba(0, 200, 255, 0.25);
+}
+
+
+
+    /* --- ADETLİ ÜRÜN KARTI (çerçevesi sarı) --- */
+    .line-card.multiple {
+        border-color: #ffd54f !important;
+        border-width: 3px !important;
+        box-shadow: 0 0 12px rgba(255, 213, 79, 0.45);
+    }
+
+
+    /* --- ÜRÜN FOTOĞRAFI --- */
+    .product-img {
+        width: 100%;
+        height: 120px;
+        border-radius: 8px;
+        object-fit: cover;
+        cursor: pointer;
+        background: #111827;
+        border: 1px solid #384264;
+        transition: 0.25s ease;
+    }
+
+    .product-img:hover {
+        opacity: 0.9;
+        border-color: #4acbff;
+    }
+
+
+    /* ADET BADGE – CANLI KIRMIZI */
+.adet-badge {
+    background: #ff0033 !important;    /* canlı kırmızı */
+    border-color: #cc0026 !important;  /* koyu kırmızı çerçeve */
+    color: #fff !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+}
+
+
+    /* Normal adet */
+    .qty-badge-one {
+        background: #ffc107 !important;
+        color: #000 !important;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-top: 4px;
+    }
+
+
+    /* --- SAYFALAMA --- */
     .pagination-container {
-      display:flex;
-      justify-content:center;
-      margin-top:20px;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .pagination a {
-      padding:8px 14px;
-      margin:0 4px;
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:6px;
-      text-decoration:none;
-      color:#333;
-      font-weight:600;
+        padding: 8px 14px;
+        margin: 0 4px;
+        background: #24304d;
+        border: 1px solid #3f4a70;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #e2e8f0;
+        font-weight: 600;
+        transition: 0.25s;
     }
 
     .pagination a.active {
-      background:#0d6efd;
-      color:#fff;
-      border-color:#0d6efd;
+        background: #4acbff;
+        color: #0f1a2e;
+        border-color: #4acbff;
+        box-shadow: 0 0 12px rgba(74,203,255,0.8);
     }
 
     .pagination a:hover {
-      background:#e9ecef;
+        background: #3e4a6a;
+        border-color: #4acbff;
+        color: white;
     }
-  </style>
+
+</style>
+
+
 </head>
 
 <body>
@@ -194,14 +274,27 @@
 <tr>
     <td>{{ (page-1) * per_page + loop.index }}</td>
 
-        <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
+    <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
 
-        <td>
-          <b>{{ o.orderNumber }}</b><br>
-          <small>{{ o.customerFirstName }} {{ o.customerLastName }}</small>
-        </td>
+    <td>
+        <b>{{ o.orderNumber }}</b><br>
+        <small>{{ o.customerFirstName }} {{ o.customerLastName }}</small>
 
-        <td>
+        {% if o.giftPackageRequested %}
+          <div class="badge bg-warning text-dark mt-1" style="font-size:.8rem;">
+            🎁 HEDİYE PAKETİ TALEBİ VAR
+          </div>
+
+          {% if o.giftNote %}
+            <div class="text-muted" style="font-size:.75rem;">
+              Not: {{ o.giftNote }}
+            </div>
+          {% endif %}
+        {% endif %}
+    </td>
+
+
+<td>
     {{ o.orderDateFormatted }}
 
     {% set deadline = o.extendedAgreedDeliveryDate or o.agreedDeliveryDate %}
@@ -212,10 +305,12 @@
 </td>
 
 
+
         <td>
   <div class="products-grid">
     {% for l in o.lines %}
-    <div class="line-card">
+    <div class="line-card"
+     style="border:6px solid {% if l.quantity > 1 %}#ffeb3b{% else %}#ddd{% endif %};">
 
       <!-- 🔥 SKU fallback -->
       <img class="product-img lazy-img"
@@ -230,21 +325,28 @@
       <div class="text-muted" style="font-size:.8rem">Renk: {{ l.productColor }}</div>
 
       <!-- 🔥 YENİ EKLENDİ: STOK KODU -->
-      <div class="text-muted" style="font-size:.8rem">
-        Stok Kodu: {{ l.merchantSku or l.sku or "-" }}
-      </div>
+<div class="text-muted" style="font-size:.8rem">
+    Stok Kodu: {{ l.merchantSku or l.sku or "-" }}
+</div>
 
-      <div class="text-muted" style="font-size:.8rem">Beden: {{ l.productSize }}</div>
+<div class="text-muted" style="font-size:.8rem">
+    Beden: {{ l.productSize }}
+</div>
 
-      {% if l.quantity > 1 %}
-        <span class="badge bg-danger text-white" style="font-size:1rem;">Adet: {{ l.quantity }}</span>
-      {% else %}
-        <span class="badge bg-warning text-dark">Adet: 1</span>
-      {% endif %}
-    </div>
-    {% endfor %}
-  </div>
+{% if l.quantity > 1 %}
+    <span class="adet-badge">
+        Adet: {{ l.quantity }}
+    </span>
+{% else %}
+    <span class="qty-badge-one">
+        Adet: 1
+    </span>
+{% endif %}
+
+</div>
+{% endfor %}
 </td>
+
 
 
         <td>{{ o.status }}</td>

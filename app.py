@@ -529,6 +529,7 @@ def dashboard():
                 new_list.append(o)
         orders_raw = new_list
 
+
     # 🔥 Mağaza filtresi
     if supplier_filter:
         orders_raw = [o for o in orders_raw if str(o.get("supplier_id")) == supplier_filter]
@@ -571,6 +572,19 @@ def dashboard():
     # 🔹 Mağaza adı
     for o in orders_raw:
         o["supplier_name"] = AVAILABLE_SUPPLIERS.get(str(o.get("supplier_id")), "Bilinmeyen")
+
+        # 🔥 Hediye Paketi Talebi kontrolü
+        is_gift = o.get("giftBoxRequested", False)
+
+        gift_note = (
+                o.get("giftNote") or
+                o.get("giftMessage") or
+                o.get("customerNote") or
+                ""
+        )
+
+        o["is_gift"] = is_gift
+        o["gift_note"] = gift_note
 
     # 🔥 24 saatten az kalanlar
     urgent_orders = []
