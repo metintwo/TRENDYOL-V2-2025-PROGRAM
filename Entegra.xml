@@ -1,6 +1,321 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>KAİ</Kod>
+    <Baslik>KIZILPINAR ATATÜRK İ.O KANGURU C 4</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>10001205</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59408</UrunID>
+    <Fiyat1>355</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>1</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KAİ</Kod>
+    <Baslik>KIZILPINAR ATATÜRK İ.O KANGURU C 3</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>10001204</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59405</UrunID>
+    <Fiyat1>355</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>1</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KAİ</Kod>
+    <Baslik>KIZILPINAR ATATÜRK İ.O KANGURU C 2</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>10001203</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59402</UrunID>
+    <Fiyat1>355</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>1</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>SAX MAVİSİ KADIN BASİC TAYT L/XL</Baslik>
+    <Marka>SAX</Marka>
+    <barcode>TAYT0021</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59399</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>SAX MAVİSİ KADIN BASİC TAYT M/L</Baslik>
+    <Marka>SAX</Marka>
+    <barcode>TAYT0020</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59396</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>SAX MAVİSİ KADIN BASİC TAYT S/M</Baslik>
+    <Marka>SAX</Marka>
+    <barcode>TAYT0019</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59393</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>BORDO KADIN BASİC TAYT L/XL</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>TAYT0018</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59390</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>BORDO KADIN BASİC TAYT M/L</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>TAYT0017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59387</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>BORDO KADIN BASİC TAYT S/M</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>TAYT0016</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59384</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>TURUNCU KADIN BASİC TAYT L/XL</Baslik>
+    <Marka>TURUNCU</Marka>
+    <barcode>TAYT0015</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59381</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>TURUNCU KADIN BASİC TAYT M/L</Baslik>
+    <Marka>TURUNCU</Marka>
+    <barcode>TAYT0014</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59378</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>TURUNCU KADIN BASİC TAYT S/M</Baslik>
+    <Marka>TURUNCU</Marka>
+    <barcode>TAYT0013</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59375</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>KIRMIZI KADIN BASİC TAYT  L/XL</Baslik>
+    <Marka>KIRMIZI</Marka>
+    <barcode>TAYT0012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59372</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>KIRMIZI KADIN BASİC TAYT M/L</Baslik>
+    <Marka>KIRMIZI</Marka>
+    <barcode>TAYT0011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59369</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>TYT</Kod>
+    <Baslik>KIRMIZI KADIN BASİC TAYT S/M</Baslik>
+    <Marka>KIRMIZI</Marka>
+    <barcode>TAYT0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>59366</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>C3ETK</Kod>
     <Baslik>ÇOCUK 3.İPLK KOYU YEŞİL EŞOFMAN TK XL</Baslik>
     <Marka>ÇOCUK</Marka>
@@ -59620,8 +59935,8 @@
     <ImageName5 />
   </Urun>
   <Urun>
-    <Kod>-30000701</Kod>
-    <Baslik>WELSOFT B. EBAT BATTANİYE</Baslik>
+    <Kod>TVB</Kod>
+    <Baslik>WELSOFT  BATTANİYE 120X170</Baslik>
     <Marka>WELSOFT</Marka>
     <barcode>30000701</barcode>
     <Aciklama>-</Aciklama>
@@ -59630,8 +59945,8 @@
     <category />
     <subcategory />
     <UrunID>50846</UrunID>
-    <Fiyat1>150</Fiyat1>
-    <Fiyat2>300</Fiyat2>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -93799,7 +94114,7 @@
     <UrunID>45965</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>1000</Fiyat2>
-    <Stok>38</Stok>
+    <Stok>35</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -94555,7 +94870,7 @@
     <UrunID>45857</UrunID>
     <Fiyat1>700</Fiyat1>
     <Fiyat2>1000</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -94597,7 +94912,7 @@
     <UrunID>45851</UrunID>
     <Fiyat1>700</Fiyat1>
     <Fiyat2>1000</Fiyat2>
-    <Stok>47</Stok>
+    <Stok>46</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -94660,7 +94975,7 @@
     <UrunID>45842</UrunID>
     <Fiyat1>700</Fiyat1>
     <Fiyat2>1000</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -94996,7 +95311,7 @@
     <UrunID>45794</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -96634,7 +96949,7 @@
     <UrunID>45560</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97327,7 +97642,7 @@
     <UrunID>45461</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>29</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -97432,7 +97747,7 @@
     <UrunID>45443</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -97453,7 +97768,7 @@
     <UrunID>45440</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -97537,7 +97852,7 @@
     <UrunID>45428</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97558,7 +97873,7 @@
     <UrunID>45425</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-4</Stok>
+    <Stok>-7</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97579,7 +97894,7 @@
     <UrunID>45422</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-3</Stok>
+    <Stok>-7</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97600,7 +97915,7 @@
     <UrunID>45419</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97621,7 +97936,7 @@
     <UrunID>45416</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-7</Stok>
+    <Stok>-12</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97726,7 +98041,7 @@
     <UrunID>45401</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>15</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97957,7 +98272,7 @@
     <UrunID>45368</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -97978,7 +98293,7 @@
     <UrunID>45365</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -99490,7 +99805,7 @@
     <UrunID>45149</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>-2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -100645,7 +100960,7 @@
     <UrunID>44984</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>50</Stok>
+    <Stok>49</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -100666,7 +100981,7 @@
     <UrunID>44981</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>93</Stok>
+    <Stok>92</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -100687,7 +101002,7 @@
     <UrunID>44978</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>31</Stok>
+    <Stok>27</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -100981,7 +101296,7 @@
     <UrunID>44936</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -101590,7 +101905,7 @@
     <UrunID>44849</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>86</Stok>
+    <Stok>85</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -101737,7 +102052,7 @@
     <UrunID>44828</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -102241,7 +102556,7 @@
     <UrunID>44756</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-5</Stok>
+    <Stok>-6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -102262,7 +102577,7 @@
     <UrunID>44753</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -103060,7 +103375,7 @@
     <UrunID>44639</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -103102,7 +103417,7 @@
     <UrunID>44633</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -103690,7 +104005,7 @@
     <UrunID>44549</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -103711,7 +104026,7 @@
     <UrunID>44546</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -109612,7 +109927,7 @@
     <UrunID>43703</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -114337,7 +114652,7 @@
     <UrunID>43028</UrunID>
     <Fiyat1>100</Fiyat1>
     <Fiyat2>100</Fiyat2>
-    <Stok>77</Stok>
+    <Stok>69</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -117256,7 +117571,7 @@
     <UrunID>42611</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -117277,7 +117592,7 @@
     <UrunID>42608</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -117319,7 +117634,7 @@
     <UrunID>42602</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -117781,7 +118096,7 @@
     <UrunID>42536</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -118369,7 +118684,7 @@
     <UrunID>42452</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -118978,7 +119293,7 @@
     <UrunID>42365</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -122800,7 +123115,7 @@
     <UrunID>41804</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -124417,7 +124732,7 @@
     <UrunID>41570</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -124921,7 +125236,7 @@
     <UrunID>41498</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -124984,7 +125299,7 @@
     <UrunID>41489</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126244,7 +126559,7 @@
     <UrunID>41309</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126265,7 +126580,7 @@
     <UrunID>41306</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-4</Stok>
+    <Stok>-7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126349,7 +126664,7 @@
     <UrunID>41294</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>39</Stok>
+    <Stok>38</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126391,7 +126706,7 @@
     <UrunID>41288</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>-5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126412,7 +126727,7 @@
     <UrunID>41285</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126454,7 +126769,7 @@
     <UrunID>41279</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126475,7 +126790,7 @@
     <UrunID>41276</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126517,7 +126832,7 @@
     <UrunID>41270</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-17</Stok>
+    <Stok>-18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126664,7 +126979,7 @@
     <UrunID>41249</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126706,7 +127021,7 @@
     <UrunID>41243</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-5</Stok>
+    <Stok>-8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126832,7 +127147,7 @@
     <UrunID>41225</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-29</Stok>
+    <Stok>-34</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126853,7 +127168,7 @@
     <UrunID>41222</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>-5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126916,7 +127231,7 @@
     <UrunID>41213</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>48</Stok>
+    <Stok>44</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126937,7 +127252,7 @@
     <UrunID>41210</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>52</Stok>
+    <Stok>49</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -126979,7 +127294,7 @@
     <UrunID>41204</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>47</Stok>
+    <Stok>46</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127126,7 +127441,7 @@
     <UrunID>41183</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127189,7 +127504,7 @@
     <UrunID>41174</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127462,7 +127777,7 @@
     <UrunID>41135</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>34</Stok>
+    <Stok>33</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127588,7 +127903,7 @@
     <UrunID>41117</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127630,7 +127945,7 @@
     <UrunID>41111</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127735,7 +128050,7 @@
     <UrunID>41096</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -127987,7 +128302,7 @@
     <UrunID>41060</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128050,7 +128365,7 @@
     <UrunID>41051</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128092,7 +128407,7 @@
     <UrunID>41045</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128197,7 +128512,7 @@
     <UrunID>41030</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128239,7 +128554,7 @@
     <UrunID>41024</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128281,7 +128596,7 @@
     <UrunID>41018</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128323,7 +128638,7 @@
     <UrunID>41012</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>-9</Stok>
+    <Stok>-19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128365,7 +128680,7 @@
     <UrunID>41006</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>38</Stok>
+    <Stok>37</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128386,7 +128701,7 @@
     <UrunID>41003</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1600</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -128638,7 +128953,7 @@
     <UrunID>40967</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -128659,7 +128974,7 @@
     <UrunID>40964</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -132250,7 +132565,7 @@
     <UrunID>40453</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>15</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -133426,7 +133741,7 @@
     <UrunID>40263</UrunID>
     <Fiyat1>439,94</Fiyat1>
     <Fiyat2>749,9</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -133447,7 +133762,7 @@
     <UrunID>40260</UrunID>
     <Fiyat1>1814,94</Fiyat1>
     <Fiyat2>3399,9</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -134035,7 +134350,7 @@
     <UrunID>40176</UrunID>
     <Fiyat1>1594,94</Fiyat1>
     <Fiyat2>2999,9</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -134161,7 +134476,7 @@
     <UrunID>40158</UrunID>
     <Fiyat1>899,94</Fiyat1>
     <Fiyat2>1649,9</Fiyat2>
-    <Stok>105</Stok>
+    <Stok>104</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -135841,7 +136156,7 @@
     <UrunID>39918</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -137143,7 +137458,7 @@
     <UrunID>39732</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>250</Fiyat2>
-    <Stok>-45</Stok>
+    <Stok>-47</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -331813,7 +332128,7 @@
     <UrunID>11919</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>-3</Stok>
+    <Stok>-4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332002,7 +332317,7 @@
     <UrunID>11892</UrunID>
     <Fiyat1>1539,95</Fiyat1>
     <Fiyat2>2975</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332296,7 +332611,7 @@
     <UrunID>11847</UrunID>
     <Fiyat1>539,94</Fiyat1>
     <Fiyat2>899,99</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332317,7 +332632,7 @@
     <UrunID>11844</UrunID>
     <Fiyat1>539,94</Fiyat1>
     <Fiyat2>899,99</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>1</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332443,7 +332758,7 @@
     <UrunID>11826</UrunID>
     <Fiyat1>108</Fiyat1>
     <Fiyat2>189,9</Fiyat2>
-    <Stok>90</Stok>
+    <Stok>88</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332611,7 +332926,7 @@
     <UrunID>11802</UrunID>
     <Fiyat1>480</Fiyat1>
     <Fiyat2>845</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332905,7 +333220,7 @@
     <UrunID>11760</UrunID>
     <Fiyat1>155</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>60</Stok>
+    <Stok>59</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -332989,7 +333304,7 @@
     <UrunID>11748</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1600</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>43</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333073,7 +333388,7 @@
     <UrunID>11736</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1550</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333136,7 +333451,7 @@
     <UrunID>11727</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1550</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333178,7 +333493,7 @@
     <UrunID>11721</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1550</Fiyat2>
-    <Stok>55</Stok>
+    <Stok>54</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333346,7 +333661,7 @@
     <UrunID>11697</UrunID>
     <Fiyat1>650</Fiyat1>
     <Fiyat2>1400</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333430,7 +333745,7 @@
     <UrunID>11646</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>31</Stok>
+    <Stok>29</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333682,7 +333997,7 @@
     <UrunID>11610</UrunID>
     <Fiyat1>299,9</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>634</Stok>
+    <Stok>633</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -333703,7 +334018,7 @@
     <UrunID>11607</UrunID>
     <Fiyat1>1869,94</Fiyat1>
     <Fiyat2>3149,9</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -334984,7 +335299,7 @@
     <UrunID>10752</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>-2</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335005,7 +335320,7 @@
     <UrunID>10749</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>-15</Stok>
+    <Stok>-7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335026,7 +335341,7 @@
     <UrunID>10746</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335047,7 +335362,7 @@
     <UrunID>10743</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335068,7 +335383,7 @@
     <UrunID>10740</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335215,7 +335530,7 @@
     <UrunID>10719</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335299,7 +335614,7 @@
     <UrunID>10707</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335320,7 +335635,7 @@
     <UrunID>10704</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335530,7 +335845,7 @@
     <UrunID>10674</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>39</Stok>
+    <Stok>38</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335614,7 +335929,7 @@
     <UrunID>10662</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>37</Stok>
+    <Stok>36</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -335887,7 +336202,7 @@
     <UrunID>10620</UrunID>
     <Fiyat1>988,9</Fiyat1>
     <Fiyat2>1859,9</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -336412,7 +336727,7 @@
     <UrunID>10515</UrunID>
     <Fiyat1>250</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>28</Stok>
+    <Stok>27</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -337567,7 +337882,7 @@
     <UrunID>10335</UrunID>
     <Fiyat1>5</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>2510</Stok>
+    <Stok>2579</Stok>
     <KDV>0</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -337966,7 +338281,7 @@
     <UrunID>10266</UrunID>
     <Fiyat1>5</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>2582</Stok>
+    <Stok>3042</Stok>
     <KDV>0</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -338029,7 +338344,7 @@
     <UrunID>10257</UrunID>
     <Fiyat1>5</Fiyat1>
     <Fiyat2>0</Fiyat2>
-    <Stok>105</Stok>
+    <Stok>657</Stok>
     <KDV>0</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -338764,7 +339079,7 @@
     <UrunID>10079</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -338785,7 +339100,7 @@
     <UrunID>10076</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -339184,7 +339499,7 @@
     <UrunID>10021</UrunID>
     <Fiyat1>630</Fiyat1>
     <Fiyat2>1000</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>20</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -339373,7 +339688,7 @@
     <UrunID>9994</UrunID>
     <Fiyat1>600</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -339898,7 +340213,7 @@
     <UrunID>9866</UrunID>
     <Fiyat1>65,89</Fiyat1>
     <Fiyat2>174,99</Fiyat2>
-    <Stok>134</Stok>
+    <Stok>132</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -340759,7 +341074,7 @@
     <UrunID>9728</UrunID>
     <Fiyat1>460</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -340780,7 +341095,7 @@
     <UrunID>9725</UrunID>
     <Fiyat1>460</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -340822,7 +341137,7 @@
     <UrunID>9719</UrunID>
     <Fiyat1>460</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -340843,7 +341158,7 @@
     <UrunID>9716</UrunID>
     <Fiyat1>460</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -342019,7 +342334,7 @@
     <UrunID>9548</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -342964,7 +343279,7 @@
     <UrunID>9314</UrunID>
     <Fiyat1>894,28</Fiyat1>
     <Fiyat2>1689,99</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -343069,7 +343384,7 @@
     <UrunID>9299</UrunID>
     <Fiyat1>824,98</Fiyat1>
     <Fiyat2>1699,99</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -343363,7 +343678,7 @@
     <UrunID>9257</UrunID>
     <Fiyat1>845</Fiyat1>
     <Fiyat2>1289,99</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -344119,7 +344434,7 @@
     <UrunID>7594</UrunID>
     <Fiyat1>155</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345547,7 +345862,7 @@
     <UrunID>6219</UrunID>
     <Fiyat1>550</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345589,7 +345904,7 @@
     <UrunID>6213</UrunID>
     <Fiyat1>550</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>-6</Stok>
+    <Stok>-7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345715,7 +346030,7 @@
     <UrunID>6195</UrunID>
     <Fiyat1>550</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345736,7 +346051,7 @@
     <UrunID>6192</UrunID>
     <Fiyat1>550</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345841,7 +346156,7 @@
     <UrunID>6180</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -345883,7 +346198,7 @@
     <UrunID>6174</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346891,7 +347206,7 @@
     <UrunID>6035</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -347332,7 +347647,7 @@
     <UrunID>5975</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -347353,7 +347668,7 @@
     <UrunID>5972</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>32</Stok>
+    <Stok>31</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -348655,7 +348970,7 @@
     <UrunID>5799</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349138,7 +349453,7 @@
     <UrunID>5734</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349222,7 +349537,7 @@
     <UrunID>5724</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349243,7 +349558,7 @@
     <UrunID>5721</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349264,7 +349579,7 @@
     <UrunID>5718</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349285,7 +349600,7 @@
     <UrunID>5715</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>24</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349306,7 +349621,7 @@
     <UrunID>5712</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349558,7 +349873,7 @@
     <UrunID>5690</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349621,7 +349936,7 @@
     <UrunID>5685</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350125,7 +350440,7 @@
     <UrunID>5642</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350461,7 +350776,7 @@
     <UrunID>5598</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350482,7 +350797,7 @@
     <UrunID>5595</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -351091,7 +351406,7 @@
     <UrunID>5514</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -351700,7 +352015,7 @@
     <UrunID>5434</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352141,7 +352456,7 @@
     <UrunID>5380</UrunID>
     <Fiyat1>365</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352162,7 +352477,7 @@
     <UrunID>5377</UrunID>
     <Fiyat1>365</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>27</Stok>
+    <Stok>26</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352183,7 +352498,7 @@
     <UrunID>5374</UrunID>
     <Fiyat1>365</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>33</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352393,7 +352708,7 @@
     <UrunID>5344</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352414,7 +352729,7 @@
     <UrunID>5341</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352582,7 +352897,7 @@
     <UrunID>5317</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>26</Stok>
+    <Stok>24</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -353191,7 +353506,7 @@
     <UrunID>5234</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -353317,7 +353632,7 @@
     <UrunID>5228</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -353338,7 +353653,7 @@
     <UrunID>5227</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>15</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -354157,7 +354472,7 @@
     <UrunID>5188</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -354682,7 +354997,7 @@
     <UrunID>5162</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -354955,7 +355270,7 @@
     <UrunID>5149</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -355102,7 +355417,7 @@
     <UrunID>5142</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -355165,7 +355480,7 @@
     <UrunID>5139</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>32</Stok>
+    <Stok>31</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -355186,7 +355501,7 @@
     <UrunID>5138</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -355732,7 +356047,7 @@
     <UrunID>5112</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -355921,7 +356236,7 @@
     <UrunID>5102</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357181,7 +357496,7 @@
     <UrunID>5042</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357517,7 +357832,7 @@
     <UrunID>5026</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357559,7 +357874,7 @@
     <UrunID>5024</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357601,7 +357916,7 @@
     <UrunID>5022</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>58</Stok>
+    <Stok>56</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357643,7 +357958,7 @@
     <UrunID>5020</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>-2</Stok>
+    <Stok>-3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357664,7 +357979,7 @@
     <UrunID>5019</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>-3</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357790,7 +358105,7 @@
     <UrunID>5012</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357811,7 +358126,7 @@
     <UrunID>5011</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359071,7 +359386,7 @@
     <UrunID>4950</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359134,7 +359449,7 @@
     <UrunID>4947</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359470,7 +359785,7 @@
     <UrunID>4931</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359638,7 +359953,7 @@
     <UrunID>4923</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359764,7 +360079,7 @@
     <UrunID>4916</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359806,7 +360121,7 @@
     <UrunID>4914</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -360394,7 +360709,7 @@
     <UrunID>4885</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -361255,7 +361570,7 @@
     <UrunID>4823</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -361276,7 +361591,7 @@
     <UrunID>4822</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -362368,7 +362683,7 @@
     <UrunID>4770</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -362494,7 +362809,7 @@
     <UrunID>4764</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -364279,7 +364594,7 @@
     <UrunID>4677</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365182,7 +365497,7 @@
     <UrunID>4632</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365224,7 +365539,7 @@
     <UrunID>4630</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365686,7 +366001,7 @@
     <UrunID>4607</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365707,7 +366022,7 @@
     <UrunID>4606</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365728,7 +366043,7 @@
     <UrunID>4605</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -365917,7 +366232,7 @@
     <UrunID>4596</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366379,7 +366694,7 @@
     <UrunID>4574</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>147</Stok>
+    <Stok>146</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366400,7 +366715,7 @@
     <UrunID>4573</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>140</Stok>
+    <Stok>138</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366421,7 +366736,7 @@
     <UrunID>4572</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>122</Stok>
+    <Stok>117</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366442,7 +366757,7 @@
     <UrunID>4571</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>74</Stok>
+    <Stok>72</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366463,7 +366778,7 @@
     <UrunID>4570</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>45</Stok>
+    <Stok>44</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366484,7 +366799,7 @@
     <UrunID>4569</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>36</Stok>
+    <Stok>35</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366547,7 +366862,7 @@
     <UrunID>4566</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366631,7 +366946,7 @@
     <UrunID>4562</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>68</Stok>
+    <Stok>67</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366673,7 +366988,7 @@
     <UrunID>4560</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>72</Stok>
+    <Stok>70</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366736,7 +367051,7 @@
     <UrunID>4557</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>91</Stok>
+    <Stok>90</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366925,7 +367240,7 @@
     <UrunID>4548</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -366946,7 +367261,7 @@
     <UrunID>4547</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -367156,7 +367471,7 @@
     <UrunID>4536</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -367177,7 +367492,7 @@
     <UrunID>4532</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -367996,7 +368311,7 @@
     <UrunID>4492</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -368458,7 +368773,7 @@
     <UrunID>4470</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -369235,7 +369550,7 @@
     <UrunID>4426</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>66</Stok>
+    <Stok>65</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -370978,7 +371293,7 @@
     <UrunID>4341</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -371146,7 +371461,7 @@
     <UrunID>4333</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -372511,7 +372826,7 @@
     <UrunID>4267</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -373708,7 +374023,7 @@
     <UrunID>4201</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -375199,7 +375514,7 @@
     <UrunID>4097</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -375346,7 +375661,7 @@
     <UrunID>4090</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -376102,7 +376417,7 @@
     <UrunID>4053</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -376123,7 +376438,7 @@
     <UrunID>4052</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -376459,7 +376774,7 @@
     <UrunID>4036</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -377404,7 +377719,7 @@
     <UrunID>3990</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -378139,7 +378454,7 @@
     <UrunID>3954</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -379378,7 +379693,7 @@
     <UrunID>3894</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -381058,7 +381373,7 @@
     <UrunID>3809</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -381730,7 +382045,7 @@
     <UrunID>3752</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -381898,7 +382213,7 @@
     <UrunID>3732</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -382066,7 +382381,7 @@
     <UrunID>3724</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>27</Stok>
+    <Stok>26</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -382087,7 +382402,7 @@
     <UrunID>3723</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>27</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -382927,7 +383242,7 @@
     <UrunID>3683</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -382948,7 +383263,7 @@
     <UrunID>3682</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383368,7 +383683,7 @@
     <UrunID>3660</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383893,7 +384208,7 @@
     <UrunID>3635</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384460,7 +384775,7 @@
     <UrunID>3599</UrunID>
     <Fiyat1>155</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384523,7 +384838,7 @@
     <UrunID>3596</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>36</Stok>
+    <Stok>34</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384565,7 +384880,7 @@
     <UrunID>3594</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>48</Stok>
+    <Stok>47</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384628,7 +384943,7 @@
     <UrunID>3591</UrunID>
     <Fiyat1>405</Fiyat1>
     <Fiyat2>750</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384712,7 +385027,7 @@
     <UrunID>3587</UrunID>
     <Fiyat1>470</Fiyat1>
     <Fiyat2>1049,99</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -385195,7 +385510,7 @@
     <UrunID>3561</UrunID>
     <Fiyat1>410</Fiyat1>
     <Fiyat2>799,99</Fiyat2>
-    <Stok>-15</Stok>
+    <Stok>-16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -385447,7 +385762,7 @@
     <UrunID>3549</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -385489,7 +385804,7 @@
     <UrunID>3547</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -385552,7 +385867,7 @@
     <UrunID>3544</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -386161,7 +386476,7 @@
     <UrunID>3515</UrunID>
     <Fiyat1>355</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>15</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -386497,7 +386812,7 @@
     <UrunID>3499</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>38</Stok>
+    <Stok>37</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -386518,7 +386833,7 @@
     <UrunID>3498</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>37</Stok>
+    <Stok>36</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -386644,7 +386959,7 @@
     <UrunID>3492</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -389647,7 +389962,7 @@
     <UrunID>3341</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -390434,7 +390749,7 @@
   </Urun>
   <Urun>
     <Kod>-30000701</Kod>
-    <Baslik>WELSOFT B. EBAT BATTANİYE</Baslik>
+    <Baslik>WELSOFT BATTANİYE</Baslik>
     <Marka>WELSOFT</Marka>
     <barcode>30000701</barcode>
     <Aciklama />
@@ -390443,8 +390758,8 @@
     <category />
     <subcategory />
     <UrunID>3300</UrunID>
-    <Fiyat1>150</Fiyat1>
-    <Fiyat2>300</Fiyat2>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391306,7 +391621,7 @@
     <UrunID>3255</UrunID>
     <Fiyat1>900</Fiyat1>
     <Fiyat2>1599,9</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -391453,7 +391768,7 @@
     <UrunID>3242</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -392230,7 +392545,7 @@
     <UrunID>3140</UrunID>
     <Fiyat1>100</Fiyat1>
     <Fiyat2>100</Fiyat2>
-    <Stok>1842</Stok>
+    <Stok>1832</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -392356,7 +392671,7 @@
     <UrunID>3134</UrunID>
     <Fiyat1>330</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -392650,7 +392965,7 @@
     <UrunID>3120</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -392671,7 +392986,7 @@
     <UrunID>3119</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>25</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -397018,7 +397333,7 @@
     <UrunID>2801</UrunID>
     <Fiyat1>215</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -399769,7 +400084,7 @@
     <UrunID>2670</UrunID>
     <Fiyat1>550</Fiyat1>
     <Fiyat2>1099,99</Fiyat2>
-    <Stok>82</Stok>
+    <Stok>76</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400378,7 +400693,7 @@
     <UrunID>2641</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400399,7 +400714,7 @@
     <UrunID>2640</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>30</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400420,7 +400735,7 @@
     <UrunID>2639</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400441,7 +400756,7 @@
     <UrunID>2638</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>52</Stok>
+    <Stok>50</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400462,7 +400777,7 @@
     <UrunID>2637</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400483,7 +400798,7 @@
     <UrunID>2636</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>-51</Stok>
+    <Stok>-52</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -400504,7 +400819,7 @@
     <UrunID>2635</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -401155,7 +401470,7 @@
     <UrunID>2604</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>36</Stok>
+    <Stok>35</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -401260,7 +401575,7 @@
     <UrunID>2599</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>43</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -401302,7 +401617,7 @@
     <UrunID>2597</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -401323,7 +401638,7 @@
     <UrunID>2596</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -402835,7 +403150,7 @@
     <UrunID>2518</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403045,7 +403360,7 @@
     <UrunID>2508</UrunID>
     <Fiyat1>400</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403213,7 +403528,7 @@
     <UrunID>2500</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403255,7 +403570,7 @@
     <UrunID>2498</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>72</Stok>
+    <Stok>69</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403276,7 +403591,7 @@
     <UrunID>2497</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>118</Stok>
+    <Stok>116</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403318,7 +403633,7 @@
     <UrunID>2495</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>52</Stok>
+    <Stok>51</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403759,7 +404074,7 @@
     <UrunID>2474</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404053,7 +404368,7 @@
     <UrunID>2460</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404074,7 +404389,7 @@
     <UrunID>2459</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>-8</Stok>
+    <Stok>-4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404095,7 +404410,7 @@
     <UrunID>2458</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>-14</Stok>
+    <Stok>-12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404116,7 +404431,7 @@
     <UrunID>2457</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404137,7 +404452,7 @@
     <UrunID>2456</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>25</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404179,7 +404494,7 @@
     <UrunID>2454</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>35</Stok>
+    <Stok>44</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404200,7 +404515,7 @@
     <UrunID>2453</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404221,7 +404536,7 @@
     <UrunID>2452</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>25</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -404242,7 +404557,7 @@
     <UrunID>2451</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -405880,7 +406195,7 @@
     <UrunID>2373</UrunID>
     <Fiyat1>370</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>29</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -405943,7 +406258,7 @@
     <UrunID>2370</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>33</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -405964,7 +406279,7 @@
     <UrunID>2369</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>46</Stok>
+    <Stok>45</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -406069,7 +406384,7 @@
     <UrunID>2364</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -406216,7 +406531,7 @@
     <UrunID>2357</UrunID>
     <Fiyat1>370</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>42</Stok>
+    <Stok>41</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -406363,7 +406678,7 @@
     <UrunID>2350</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -407161,7 +407476,7 @@
     <UrunID>2308</UrunID>
     <Fiyat1>330</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -408505,7 +408820,7 @@
     <UrunID>2235</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -408526,7 +408841,7 @@
     <UrunID>2234</UrunID>
     <Fiyat1>375</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -409009,7 +409324,7 @@
     <UrunID>2211</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -409030,7 +409345,7 @@
     <UrunID>2210</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -409093,7 +409408,7 @@
     <UrunID>2207</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -409114,7 +409429,7 @@
     <UrunID>2206</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -411655,7 +411970,7 @@
     <UrunID>2054</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -411676,7 +411991,7 @@
     <UrunID>2053</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>5</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -412033,7 +412348,7 @@
     <UrunID>2036</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -412054,7 +412369,7 @@
     <UrunID>2035</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -412663,7 +412978,7 @@
     <UrunID>2001</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>349,9999995</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -412915,7 +413230,7 @@
     <UrunID>1989</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>34</Stok>
+    <Stok>33</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413566,7 +413881,7 @@
     <UrunID>1957</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413587,7 +413902,7 @@
     <UrunID>1956</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413629,7 +413944,7 @@
     <UrunID>1954</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413839,7 +414154,7 @@
     <UrunID>1944</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413860,7 +414175,7 @@
     <UrunID>1943</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -413902,7 +414217,7 @@
     <UrunID>1941</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414154,7 +414469,7 @@
     <UrunID>1929</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414175,7 +414490,7 @@
     <UrunID>1928</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>40</Stok>
+    <Stok>39</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414196,7 +414511,7 @@
     <UrunID>1927</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>91</Stok>
+    <Stok>87</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414385,7 +414700,7 @@
     <UrunID>1918</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>33</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414406,7 +414721,7 @@
     <UrunID>1917</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>34</Stok>
+    <Stok>33</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415288,7 +415603,7 @@
     <UrunID>1865</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415519,7 +415834,7 @@
     <UrunID>1846</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415561,7 +415876,7 @@
     <UrunID>1844</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415708,7 +416023,7 @@
     <UrunID>1837</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>26</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415729,7 +416044,7 @@
     <UrunID>1836</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416233,7 +416548,7 @@
     <UrunID>1812</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>47</Stok>
+    <Stok>46</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416464,7 +416779,7 @@
     <UrunID>1801</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416527,7 +416842,7 @@
     <UrunID>1798</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>20</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416569,7 +416884,7 @@
     <UrunID>1796</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>29</Stok>
+    <Stok>27</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416590,7 +416905,7 @@
     <UrunID>1795</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>33</Stok>
+    <Stok>30</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416695,7 +417010,7 @@
     <UrunID>1790</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>42</Stok>
+    <Stok>41</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -416737,7 +417052,7 @@
     <UrunID>1788</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417472,7 +417787,7 @@
     <UrunID>1753</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417514,7 +417829,7 @@
     <UrunID>1751</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417535,7 +417850,7 @@
     <UrunID>1750</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -418165,7 +418480,7 @@
     <UrunID>1708</UrunID>
     <Fiyat1>220</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -418249,7 +418564,7 @@
     <UrunID>1704</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -420643,7 +420958,7 @@
     <UrunID>1576</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>10</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -420853,7 +421168,7 @@
     <UrunID>1566</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -421462,7 +421777,7 @@
     <UrunID>1521</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -421672,7 +421987,7 @@
     <UrunID>1511</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -422197,7 +422512,7 @@
     <UrunID>1486</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -422659,7 +422974,7 @@
     <UrunID>1452</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -423499,7 +423814,7 @@
     <UrunID>1406</UrunID>
     <Fiyat1>330</Fiyat1>
     <Fiyat2>700</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
