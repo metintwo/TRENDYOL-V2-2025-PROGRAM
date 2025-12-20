@@ -515,19 +515,18 @@ def dashboard():
     # 🔹 Trendyol’dan sipariş çek
     orders_raw, total_elements = get_orders(status=status, size=500)
 
-    # 🔥 SKU filtreleme (ALL seçilmişse hepsi gelir)
+    # 🔥 SKU filtresi – SADECE siparişi filtreler, satırları silmez
     if selected_filters and "ALL" not in selected_filters:
-        new_list = []
+        filtered_orders = []
+
         for o in orders_raw:
-            valid_lines = []
-            for l in o.get("lines", []):
-                sku = (l.get("merchantSku") or l.get("sku") or "").upper()
-                if sku in selected_filters:
-                    valid_lines.append(l)
-            if valid_lines:
-                o["lines"] = valid_lines
-                new_list.append(o)
-        orders_raw = new_list
+            if any(
+                    (l.get("merchantSku") or l.get("sku") or "").upper() in selected_filters
+                    for l in o.get("lines", [])
+            ):
+                filtered_orders.append(o)
+
+        orders_raw = filtered_orders
 
     # 🔥 Renk filtresi (Doğru yöntem)
     if color_filter:
