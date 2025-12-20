@@ -155,66 +155,38 @@
 </div>
 
 <script>
-function openPopupPrint(barcode, stok, urun, qty) {
+async function openPopupPrint(barcode, stok, urun, qty) {
 
-    // 1) Sayaç için backend’e POST gönder
+    // 1️⃣ Backend logu GARANTİ yaz
     const formData = new FormData();
     formData.append("barcode", barcode);
     formData.append("stok_kodu", stok);
     formData.append("urun_adi", urun);
     formData.append("qty", qty);
 
-    fetch("/browser_print", {
+    await fetch("/browser_print", {
         method: "POST",
         body: formData
     });
 
-    // 2) Popup aç
+    // 2️⃣ LOG YAZILDIKTAN SONRA popup aç
     const params = "width=400,height=600,left=200,top=100";
     const popup = window.open("", "printWindow", params);
 
     let imgs = "";
     for (let i = 0; i < qty; i++) {
-        imgs += `<img id="label-img" src="/preview?barcode=${barcode}&stok_kodu=${stok}&urun_adi=${encodeURIComponent(urun)}"><br>`;
+        imgs += `<img src="/preview?barcode=${barcode}&stok_kodu=${stok}&urun_adi=${encodeURIComponent(urun)}"><br>`;
     }
 
     popup.document.write(`
         <html>
-        <head>
-            <style>
-            @media print {
-                body * { visibility: hidden !important; }
-                #label-img, #label-img * { visibility: visible !important; }
-
-                #label-img {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                }
-            }
-            </style>
-        </head>
-
-        <body style="text-align:center; padding:10px;">
-
-            <div style="font-size:18px; margin-bottom:10px;">
-                Etiket Önizleme
-            </div>
-
-            <div id="label-area">
-                ${imgs}
-            </div>
-
-            <button onclick="window.print();"
-                style="padding:10px 20px; font-size:18px; background:black; color:white; border:none; border-radius:6px; margin-top:10px;">
-                🖨 Yazdır
-            </button>
-
+        <body onload="window.print()">
+            ${imgs}
         </body>
         </html>
     `);
 }
+
 </script>
 
 

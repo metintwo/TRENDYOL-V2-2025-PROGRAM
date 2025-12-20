@@ -141,35 +141,37 @@ def add_log(barcode, qty, stok, urun):
     except:
         data = []
 
-    data.append({
-        "ts": datetime.utcnow().isoformat(),
-        "barcode": barcode,
-        "qty": qty,
-        "stok": stok,
-        "urun": urun
-    })
+    for _ in range(int(qty)):   # 🔥 HER ETİKET AYRI
+        data.append({
+            "ts": datetime.now().isoformat(),  # TR saati
+            "barcode": barcode,
+            "qty": 1,
+            "stok": stok,
+            "urun": urun
+        })
 
     LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
 
-
-
-def get_14h_count():
+def get_today_count():
     ensure_log()
     try:
         data = json.loads(LOG_FILE.read_text("utf-8"))
     except:
         return 0
 
-    cutoff = datetime.utcnow() - timedelta(hours=14)
+    today = datetime.now().date()   # Yerel gün
     total = 0
+
     for r in data:
         try:
             ts = datetime.fromisoformat(r["ts"])
-            if ts >= cutoff:
-                total += int(r["qty"])
+            if ts.date() == today:
+                total += 1           # Her log = 1 etiket
         except:
             pass
+
     return total
+
 # ===========================
 #  ETİKET OLUŞTURMA
 # ===========================
@@ -226,7 +228,7 @@ def paketleme():
     q = request.args.get("q", "").strip().lower()
     page = int(request.args.get("page", 1))
     per_page = 20
-    counter = get_14h_count()
+    counter = get_today_count()
 
     # Eğer arama yoksa boş liste göster
     if q == "":
