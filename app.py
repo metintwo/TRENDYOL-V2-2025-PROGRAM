@@ -1233,7 +1233,7 @@ def kargo_raporu():
     date_from = request.args.get("from")  # YYYY-MM-DD
     date_to = request.args.get("to")      # YYYY-MM-DD
 
-    q = ShippingLog.query
+    Order.query.filter(Order.status == "Picking")
 
     if date_from:
         try:
