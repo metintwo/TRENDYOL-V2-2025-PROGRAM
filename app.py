@@ -856,6 +856,8 @@ def api_line_image():
 @app.route("/isleme-al/<supplier_id>/<int:package_id>", methods=["POST"])
 @login_required
 def isleme_al(supplier_id, package_id):
+    from datetime import datetime, timezone, timedelta
+    IST = timezone(timedelta(hours=3))
     if current_user.role not in ["kargo", "ofis", "admin"]:
         flash("❌ Sipariş işleme alma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
@@ -952,7 +954,7 @@ def isleme_al(supplier_id, package_id):
                 color=" | ".join(renkler),
                 size=" | ".join(bedenler),
 
-                processed_at=datetime.utcnow(),
+                processed_at=datetime.now(IST),
                 shipped_at=None
             )
 
