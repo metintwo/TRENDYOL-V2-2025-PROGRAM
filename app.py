@@ -38,7 +38,7 @@ except:
     HAS_BARCODE = False
 
 XML_FILE = Path("Entegra.xml")
-LOG_FILE = Path("print_log_web.json")
+
 
 DEFAULT_LAYOUT = {
     "dpi": 203,
@@ -128,48 +128,7 @@ PAGE_SIZE = 20
 # ===========================
 #   LOG SİSTEMİ
 # ===========================
-def ensure_log():
-    if not LOG_FILE.exists():
-        LOG_FILE.write_text("[]", encoding="utf-8")
 
-
-def add_log(barcode, qty, stok, urun):
-    ensure_log()
-    try:
-        data = json.loads(LOG_FILE.read_text("utf-8"))
-    except:
-        data = []
-
-    for _ in range(int(qty)):   # 🔥 HER ETİKET AYRI
-        data.append({
-            "ts": datetime.now().isoformat(),  # TR saati
-            "barcode": barcode,
-            "qty": 1,
-            "stok": stok,
-            "urun": urun
-        })
-
-    LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
-
-def get_today_count():
-    ensure_log()
-    try:
-        data = json.loads(LOG_FILE.read_text("utf-8"))
-    except:
-        return 0
-
-    today = datetime.now().date()   # Yerel gün
-    total = 0
-
-    for r in data:
-        try:
-            ts = datetime.fromisoformat(r["ts"])
-            if ts.date() == today:
-                total += 1           # Her log = 1 etiket
-        except:
-            pass
-
-    return total
 
 # ===========================
 #  ETİKET OLUŞTURMA
@@ -221,13 +180,19 @@ def render_label(barcode, stok, urun):
 @app.route("/paketleme", methods=["GET"])
 @login_required
 def paketleme():
-    ensure_log()
+    from sqlalchemy import func
+    from models import PackagingLog
+
+    counter = db.session.query(
+        func.coalesce(func.sum(PackagingLog.qty), 0)
+    ).filter(
+        func.date(PackagingLog.printed_at) == datetime.now(IST).date()
+    ).scalar()
 
     xml_name = XML_FILE.name if XML_FILE.exists() else None
     q = request.args.get("q", "").strip().lower()
     page = int(request.args.get("page", 1))
     per_page = 20
-    counter = get_today_count()
 
     # Eğer arama yoksa boş liste göster
     if q == "":
@@ -311,23 +276,30 @@ def preview_label_route():
     return send_file(buf, mimetype="image/png")
 
 
+from models import PackagingLog
+
 @app.route("/browser_print", methods=["POST"])
 @login_required
 def browser_print():
-    barcode = request.form.get("barcode")
-    stok = request.form.get("stok_kodu")
-    urun = request.form.get("urun_adi")
-    qty = int(request.form.get("qty", "1"))
+    barcode = request.form["barcode"]
+    stok = request.form["stok_kodu"]
+    urun = request.form["urun_adi"]
+    qty = int(request.form.get("qty", 1))
 
-    add_log(barcode, qty, stok, urun)
+    log = PackagingLog(
+        barcode=barcode,
+        stok_kodu=stok,
+        urun_adi=urun,
+        qty=qty,
+        printed_at=datetime.now(IST),
+        user=current_user.username
+    )
 
-    return render_template_string("""
-        <html><body onload="window.print();window.close();">
-        {% for i in range(qty) %}
-            <img src="/preview?barcode={{barcode}}&stok_kodu={{stok}}&urun_adi={{urun}}">
-        {% endfor %}
-        </body></html>
-    """, barcode=barcode, stok=stok, urun=urun, qty=qty)
+    db.session.add(log)
+    db.session.commit()
+
+    return jsonify({"ok": True})
+
 
 SURAT_KARGO_HESAPLARI = {
     "564724": {  # RUNADES

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "ts": "2025-12-30T11:11:09.168219",
+    "barcode": "10001205",
+    "qty": 3,
+    "stok": "KAİ",
+    "urun": "KIZILPINAR ATATÜRK İ.O KANGURU C 4"
+  },
+  {
+    "ts": "2025-12-30T11:12:52.463679",
+    "barcode": "10001205",
+    "qty": 1,
+    "stok": "KAİ",
+    "urun": "KIZILPINAR ATATÜRK İ.O KANGURU C 4"
+  }
+]

@@ -157,37 +157,54 @@
 <script>
 async function openPopupPrint(barcode, stok, urun, qty) {
 
-    // 1️⃣ Backend logu GARANTİ yaz
+    // 1️⃣ Önce backend'e log yaz
     const formData = new FormData();
     formData.append("barcode", barcode);
     formData.append("stok_kodu", stok);
     formData.append("urun_adi", urun);
     formData.append("qty", qty);
 
-    await fetch("/browser_print", {
+    const res = await fetch("/browser_print", {
         method: "POST",
         body: formData
     });
 
-    // 2️⃣ LOG YAZILDIKTAN SONRA popup aç
-    const params = "width=400,height=600,left=200,top=100";
-    const popup = window.open("", "printWindow", params);
+    if (!res.ok) {
+        alert("Etiket logu yazılamadı");
+        return;
+    }
+
+    // 2️⃣ Popup aç
+    const popup = window.open("", "_blank", "width=400,height=600");
 
     let imgs = "";
     for (let i = 0; i < qty; i++) {
         imgs += `<img src="/preview?barcode=${barcode}&stok_kodu=${stok}&urun_adi=${encodeURIComponent(urun)}"><br>`;
     }
 
+    popup.document.open();
     popup.document.write(`
         <html>
-        <body onload="window.print()">
+        <head>
+            <title>Yazdır</title>
+        </head>
+        <body>
             ${imgs}
+            <script>
+                setTimeout(function () {
+                    window.print();
+                    window.onafterprint = function () {
+                        window.close();
+                    };
+                }, 500);
+            <\/script>
         </body>
         </html>
     `);
+    popup.document.close();
 }
-
 </script>
+
 
 
 </body>

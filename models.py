@@ -57,3 +57,20 @@ class ShippingLog(db.Model):
     shipped_at = db.Column(db.DateTime, nullable=True)
 
     order_date = db.Column(db.DateTime, nullable=True)
+
+# ==============================
+#   PACKAGING LOG MODEL (ETİKET)
+# ==============================
+class PackagingLog(db.Model):
+    __tablename__ = "packaging_logs"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    barcode = db.Column(db.String(100), nullable=False)
+    stok_kodu = db.Column(db.String(100), nullable=False)
+    urun_adi = db.Column(db.Text, nullable=False)
+
+    qty = db.Column(db.Integer, nullable=False)
+    printed_at = db.Column(db.DateTime, nullable=False)
+
+    user = db.Column(db.String(50), nullable=True)
