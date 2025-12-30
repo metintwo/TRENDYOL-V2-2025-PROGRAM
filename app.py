@@ -1244,13 +1244,12 @@ def kargo_raporu():
 
     if date_to:
         try:
-            # gün sonuna kadar dahil et
             dt_to = datetime.strptime(date_to, "%Y-%m-%d") + timedelta(days=1)
             q = q.filter(ShippingLog.processed_at < dt_to)
         except:
             pass
 
-    # 🔥 filtreli / filtresiz tüm kayıtlar
+    # 🔥 İşleme alınan kayıtlar (DASHBOARD GERÇEĞİ)
     logs = q.order_by(ShippingLog.processed_at.asc()).all()
 
     rows = []
@@ -1258,15 +1257,15 @@ def kargo_raporu():
         rows.append({
             "Mağaza": log.supplier_name,
             "Order No": log.order_number,
+            "Kargo Barkod": log.tracking_number,
             "Müşteri": log.customer_name,
             "Sipariş Tarihi": log.order_date,
+            "İşleme Alınma Tarihi": log.processed_at,
             "Ürün Adı": str(log.product_name),
             "SKU": str(log.sku),
             "Renk": str(log.color),
             "Beden": str(log.size),
             "Adet": int(log.quantity or 1),
-            "Kargo Barkod": log.tracking_number,
-            "İşleme Alınma Tarihi": log.processed_at
         })
 
     if not rows:
@@ -1275,34 +1274,24 @@ def kargo_raporu():
 
     df = pd.DataFrame(rows)
 
-    # 🔥 KARGO BAZLI GRUPLAMA (TEK PAKET = TEK SATIR)
-    df_grouped = df.groupby(
-        ["Mağaza", "Order No", "Kargo Barkod"],
-        as_index=False
-    ).agg({
-        "Müşteri": "first",
-        "Sipariş Tarihi": "first",
-        "İşleme Alınma Tarihi": "first",
-        "Ürün Adı": lambda x: " | ".join(sorted(set(map(str, x)))),
-        "SKU": lambda x: " | ".join(sorted(set(map(str, x)))),
-        "Renk": lambda x: " | ".join(sorted(set(map(str, x)))),
-        "Beden": lambda x: " | ".join(sorted(set(map(str, x)))),
-        "Adet": "sum"
-    })
-
-    total_kargo = len(df_grouped)
+    # ✅ KESİN DOĞRU SAYI
+    total_kargo = len(df)
     teslim_eden = "Baran Özkaya"
 
-    # 📦 Excel yaz (tablo 3. satırdan)
+    # =========================
+    # 📦 EXCEL YAZ
+    # =========================
     with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
-        df_grouped.to_excel(
+        df.to_excel(
             writer,
             sheet_name=sheet_name,
             index=False,
             startrow=2
         )
 
-    # ✍️ Excel üst / alt düzenlemeler
+    # =========================
+    # ✍️ ÜST / ALT YAZILAR
+    # =========================
     wb = load_workbook(excel_path)
     ws = wb[sheet_name]
 
