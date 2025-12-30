@@ -919,38 +919,45 @@ def isleme_al(supplier_id, package_id):
             print("→ Line sayısı:", len(lines))
 
             # =========================
-            # DB LOG KAYITLARI
+            # DB LOG KAYDI (TEK PAKET = TEK LOG)
             # =========================
+
+            urun_adlari = []
+            skular = []
+            renkler = []
+            bedenler = []
+            toplam_adet = 0
+
             for line in lines:
-                print("→ LOG EKLENİYOR:", line.get("productName"))
+                urun_adlari.append(str(line.get("productName")))
+                skular.append(str(line.get("merchantSku")))
+                renkler.append(str(line.get("productColor")))
+                bedenler.append(str(line.get("productSize")))
+                toplam_adet += int(line.get("quantity", 1))
 
-                log = ShippingLog(
-                    supplier_id=supplier_id,
-                    supplier_name=supplier_name,
+            log = ShippingLog(
+                supplier_id=supplier_id,
+                supplier_name=supplier_name,
 
-                    order_number=order_number,
-                    tracking_number=tracking_number,
-                    package_id=str(package_id),
+                order_number=order_number,
+                tracking_number=tracking_number,
+                package_id=str(package_id),
 
-                    customer_name=customer_name,
-                    order_date=order_date,
+                customer_name=customer_name,
+                order_date=order_date,
 
-                    product_name=line.get("productName"),
-                    sku=line.get("merchantSku"),
-                    quantity=line.get("quantity", 1),
-                    color=line.get("productColor"),
-                    size=line.get("productSize"),
+                product_name=" | ".join(urun_adlari),
+                sku=" | ".join(skular),
+                quantity=toplam_adet,
+                color=" | ".join(renkler),
+                size=" | ".join(bedenler),
 
-                    image_url=line.get("imageUrl") or line.get("productImageUrl"),
+                processed_at=datetime.utcnow(),
+                shipped_at=None
+            )
 
-                    processed_at=datetime.utcnow(),
-                    shipped_at=None
-                )
-
-                db.session.add(log)
-
+            db.session.add(log)
             db.session.commit()
-            print("✓ DB LOG KAYDEDİLDİ")
 
             # =========================
             # EXCEL KAYDI (TEK SEFER)
@@ -1234,7 +1241,7 @@ def kargo_raporu():
     date_from = request.args.get("from")  # YYYY-MM-DD
     date_to = request.args.get("to")      # YYYY-MM-DD
 
-    Order.query.filter(Order.status == "Picking")
+    q = ShippingLog.query
 
     if date_from:
         try:
