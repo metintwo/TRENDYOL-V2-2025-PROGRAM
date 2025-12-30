@@ -1219,7 +1219,6 @@ from io import BytesIO
 @app.route("/kargo-raporu")
 @login_required
 def kargo_raporu():
-    from models import Order
     import pandas as pd
     from datetime import datetime, timedelta
     import os, tempfile
