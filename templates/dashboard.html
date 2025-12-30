@@ -244,12 +244,48 @@
 </div>
 
 <!-- 📦 Kargo Excel Raporu (Buraya EKLENDİ) -->
-<a href="/kargo-raporu" class="btn btn-success"
-   style="height:38px; display:flex; align-items:center;">
+<button class="btn btn-success"
+        style="height:38px; display:flex; align-items:center;"
+        onclick="downloadKargoRaporu()">
   📦 Kargo Excel Raporu
-</a>
+</button>
   <button class="btn btn-primary">Filtrele</button>
 </form>
+<div class="card mt-3">
+  <div class="card-body">
+    <h6 class="mb-3">📦 Kargo Raporu (Excel)</h6>
+
+    <div class="row g-2 align-items-end">
+      <div class="col-md-3">
+        <label class="form-label">Başlangıç Tarihi</label>
+        <input type="date" id="dateFrom" class="form-control">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Bitiş Tarihi</label>
+        <input type="date" id="dateTo" class="form-control">
+      </div>
+
+      <div class="col-md-6 d-flex flex-wrap gap-2">
+        <button class="btn btn-primary" onclick="downloadKargoRaporu()">
+          📥 Excel İndir
+        </button>
+
+        <button class="btn btn-outline-secondary" onclick="setToday()">
+          Bugün
+        </button>
+
+        <button class="btn btn-outline-secondary" onclick="setYesterday()">
+          Dün
+        </button>
+
+        <button class="btn btn-outline-secondary" onclick="setLast7()">
+          Son 7 Gün
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- ===== TABLO ===== -->
@@ -561,6 +597,49 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+</script>
+<script>
+function downloadKargoRaporu() {
+  const from = document.getElementById("dateFrom").value;
+  const to = document.getElementById("dateTo").value;
+
+  let url = "/kargo-raporu";
+  const params = [];
+
+  if (from) params.push("from=" + from);
+  if (to) params.push("to=" + to);
+
+  if (params.length > 0) {
+    url += "?" + params.join("&");
+  }
+
+  window.location.href = url;
+}
+
+// 📅 HIZLI TARİH BUTONLARI
+
+function setToday() {
+  const today = new Date().toISOString().slice(0, 10);
+  document.getElementById("dateFrom").value = today;
+  document.getElementById("dateTo").value = today;
+}
+
+function setYesterday() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  const y = d.toISOString().slice(0, 10);
+  document.getElementById("dateFrom").value = y;
+  document.getElementById("dateTo").value = y;
+}
+
+function setLast7() {
+  const today = new Date();
+  const past = new Date();
+  past.setDate(today.getDate() - 6);
+
+  document.getElementById("dateFrom").value = past.toISOString().slice(0, 10);
+  document.getElementById("dateTo").value = today.toISOString().slice(0, 10);
+}
 </script>
 
 

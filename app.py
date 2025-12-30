@@ -16,7 +16,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User
 from models import ShippingLog
 from flask import session
-from datetime import datetime, timedelta
 from collections import defaultdict
 
 
@@ -878,40 +877,50 @@ def isleme_al(supplier_id, package_id):
 
     if ok:
         print("update_package_status OK ✓")
+
         from models import ShippingLog
         from trendyol_api import get_order_detail
+        from excel_kargo_kaydet import excele_ekle
+        from datetime import timezone, timedelta
 
         try:
             order_detail = get_order_detail(supplier_id, package_id)
             print("order_detail:", order_detail)
 
-            # Müşteri isim
+            # --- Müşteri ---
             customer_name = f"{order_detail.get('customerFirstName','')} {order_detail.get('customerLastName','')}"
 
-            # 🔥 Mağaza adı
-            supplier_name = order_detail.get("supplier_name") or order_detail.get("supplierName") or ""
+            # --- Mağaza ---
+            supplier_name = (
+                order_detail.get("supplier_name")
+                or order_detail.get("supplierName")
+                or ""
+            )
 
-            # 🔥 Sipariş numarası
+            # --- Sipariş ---
             order_number = order_detail.get("orderNumber")
-
-            # 🔥 Tracking Number (kargo barkodu)
             tracking_number = order_detail.get("cargoTrackingNumber")
 
-            # Sipariş tarihi (ISO → datetime)
-            from datetime import timezone, timedelta
+            # --- Sipariş Tarihi ---
             IST = timezone(timedelta(hours=3))
-
-            order_date_raw = order_detail.get("orderDate")
             order_date = None
+            order_date_raw = order_detail.get("orderDate")
+
             if order_date_raw:
                 try:
-                    dt = datetime.fromtimestamp(int(order_date_raw)/1000, tz=timezone.utc)
+                    dt = datetime.fromtimestamp(
+                        int(order_date_raw) / 1000,
+                        tz=timezone.utc
+                    )
                     order_date = dt.astimezone(IST)
                 except:
                     order_date = None
 
             print("→ Line sayısı:", len(lines))
 
+            # =========================
+            # DB LOG KAYITLARI
+            # =========================
             for line in lines:
                 print("→ LOG EKLENİYOR:", line.get("productName"))
 
@@ -941,7 +950,33 @@ def isleme_al(supplier_id, package_id):
                 db.session.add(log)
 
             db.session.commit()
-            print("✓ LOG KAYDEDİLDİ")
+            print("✓ DB LOG KAYDEDİLDİ")
+
+            # =========================
+            # EXCEL KAYDI (TEK SEFER)
+            # =========================
+            try:
+                urunler = []
+
+                for line in lines:
+                    urunler.append({
+                        "stok_kodu": line.get("merchantSku"),
+                        "urun_adi": line.get("productName"),
+                        "renk": line.get("productColor"),
+                        "beden": line.get("productSize"),
+                        "adet": line.get("quantity", 1)
+                    })
+
+                excele_ekle(
+                    order_no=order_number,
+                    kullanici=current_user.username,
+                    urunler=urunler
+                )
+
+                print("✓ EXCEL KAYDI ALINDI")
+
+            except Exception as excel_err:
+                print("❌ EXCEL HATASI:", excel_err)
 
         except Exception as e:
             print("❌ LOG HATASI:", e)
@@ -950,7 +985,9 @@ def isleme_al(supplier_id, package_id):
     else:
         print("❌ update_package_status başarısız!")
 
-    # Parametreleri geri gönder
+    # =========================
+    # PARAMETRELERİ GERİ GÖNDER
+    # =========================
     params = {}
 
     params["page"] = request.form.get("page", "1")
@@ -972,9 +1009,7 @@ def isleme_al(supplier_id, package_id):
         params["row_index"] = request.form.get("row_index")
 
     flash("✅ Sipariş işleme alındı", "success")
-
     return redirect(url_for("dashboard", **params))
-
 
 # ---- Etiket Yazdır ----
 @app.route("/etiket-yazdir/<supplier_id>/<int:package_id>")
@@ -1178,18 +1213,45 @@ from io import BytesIO
 @login_required
 def kargo_raporu():
     import pandas as pd
+    from datetime import datetime, timedelta
+    import os, tempfile
+    from flask import send_file, request
     from openpyxl import load_workbook
-    from openpyxl.drawing.image import Image as XLImage
-    from datetime import datetime
-    import base64, os, tempfile
+    from openpyxl.styles import Font
 
-    today = datetime.now().strftime("%Y-%m-%d")
+    now = datetime.now()
+    today_str = now.strftime("%d.%m.%Y")
+    sheet_name = now.strftime("%Y-%m-%d")
 
-    # 🔥 Sunucuda güvenli geçici klasöre yaz
-    excel_path = f"/tmp/kargo_raporu_{today}.xlsx"
+    # ✅ geçici dosya yolu
+    tmp_dir = tempfile.gettempdir()
+    excel_path = os.path.join(tmp_dir, f"kargo_raporu_{sheet_name}.xlsx")
 
-    # 🔥 Verileri çek
-    logs = ShippingLog.query.order_by(ShippingLog.processed_at.desc()).all()
+    # =========================
+    # 📅 TARİH FİLTRESİ (URL)
+    # =========================
+    date_from = request.args.get("from")  # YYYY-MM-DD
+    date_to = request.args.get("to")      # YYYY-MM-DD
+
+    q = ShippingLog.query
+
+    if date_from:
+        try:
+            dt_from = datetime.strptime(date_from, "%Y-%m-%d")
+            q = q.filter(ShippingLog.processed_at >= dt_from)
+        except:
+            pass
+
+    if date_to:
+        try:
+            # gün sonuna kadar dahil et
+            dt_to = datetime.strptime(date_to, "%Y-%m-%d") + timedelta(days=1)
+            q = q.filter(ShippingLog.processed_at < dt_to)
+        except:
+            pass
+
+    # 🔥 filtreli / filtresiz tüm kayıtlar
+    logs = q.order_by(ShippingLog.processed_at.asc()).all()
 
     rows = []
     for log in logs:
@@ -1198,46 +1260,72 @@ def kargo_raporu():
             "Order No": log.order_number,
             "Müşteri": log.customer_name,
             "Sipariş Tarihi": log.order_date,
-            "Ürün Adı": log.product_name,
-            "SKU": log.sku,
-            "Renk": log.color,
-            "Beden": log.size,
-            "Adet": log.quantity,
+            "Ürün Adı": str(log.product_name),
+            "SKU": str(log.sku),
+            "Renk": str(log.color),
+            "Beden": str(log.size),
+            "Adet": int(log.quantity or 1),
             "Kargo Barkod": log.tracking_number,
-            "İşleme Alınma Tarihi": log.processed_at,
-            "Kargo Teslim Alma / Geçiş": log.shipped_at
+            "İşleme Alınma Tarihi": log.processed_at
         })
+
+    if not rows:
+        pd.DataFrame().to_excel(excel_path, index=False)
+        return send_file(excel_path, as_attachment=True)
 
     df = pd.DataFrame(rows)
 
-    # 🔥 Excel oluştur / güncelle
-    df.to_excel(excel_path, sheet_name=today, index=False, engine="openpyxl")
+    # 🔥 KARGO BAZLI GRUPLAMA (TEK PAKET = TEK SATIR)
+    df_grouped = df.groupby(
+        ["Mağaza", "Order No", "Kargo Barkod"],
+        as_index=False
+    ).agg({
+        "Müşteri": "first",
+        "Sipariş Tarihi": "first",
+        "İşleme Alınma Tarihi": "first",
+        "Ürün Adı": lambda x: " | ".join(sorted(set(map(str, x)))),
+        "SKU": lambda x: " | ".join(sorted(set(map(str, x)))),
+        "Renk": lambda x: " | ".join(sorted(set(map(str, x)))),
+        "Beden": lambda x: " | ".join(sorted(set(map(str, x)))),
+        "Adet": "sum"
+    })
 
-    # 🔥 Barkod resimlerini sheet’e ekle
+    total_kargo = len(df_grouped)
+    teslim_eden = "Baran Özkaya"
+
+    # 📦 Excel yaz (tablo 3. satırdan)
+    with pd.ExcelWriter(excel_path, engine="openpyxl") as writer:
+        df_grouped.to_excel(
+            writer,
+            sheet_name=sheet_name,
+            index=False,
+            startrow=2
+        )
+
+    # ✍️ Excel üst / alt düzenlemeler
     wb = load_workbook(excel_path)
-    ws = wb[today]
+    ws = wb[sheet_name]
 
-    start_row = 2
-    for idx, log in enumerate(logs):
-        if log.barcode_image:
-            try:
-                png_bytes = base64.b64decode(log.barcode_image)
-                tmpfile = tempfile.NamedTemporaryFile(delete=False, suffix=".png")
-                tmpfile.write(png_bytes)
-                tmpfile.close()
+    # ÜST
+    ws["A1"] = f"Toplam Kargo: {total_kargo}"
+    ws["A1"].font = Font(bold=True)
 
-                img = XLImage(tmpfile.name)
-                img.width = 120
-                img.height = 120
+    # ALT
+    last_row = ws.max_row + 2
 
-                ws.add_image(img, f"L{start_row + idx}")
+    ws[f"A{last_row}"] = (
+        "Yukarıda listelenen kargo paketlerini eksiksiz ve sağlam şekilde teslim aldım."
+    )
+    ws[f"A{last_row}"].font = Font(bold=True)
 
-            except Exception as e:
-                print("PNG ekleme hatası:", e)
+    ws[f"A{last_row + 2}"] = f"Teslim Eden: {teslim_eden}"
+    ws[f"D{last_row + 2}"] = f"Tarih: {today_str}"
+    ws[f"A{last_row + 4}"] = "Teslim Alan: ____________________"
 
     wb.save(excel_path)
 
     return send_file(excel_path, as_attachment=True)
+
 
 # ---- Main ----
 if __name__ == "__main__":
