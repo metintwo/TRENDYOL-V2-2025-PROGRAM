@@ -159,8 +159,14 @@ def filter_orders(orders):
             filtered.append(order)
     return filtered
 # ---------- orders list ----------
-def get_orders(status: str = "Created", size: int = 200,
-               startDate: Optional[int] = None, include_images: bool = False):
+def get_orders(
+    status: str = "Created",
+    size: int = 200,
+    page: int = 0,              # 🔥 EKLE
+    startDate: Optional[int] = None,
+    include_images: bool = False
+):
+
     """
     Siparişleri getirir.
     Tüm sayfaları dolaşır, eksiksiz sipariş listesi + toplam adet döner.
@@ -217,45 +223,16 @@ def get_orders(status: str = "Created", size: int = 200,
     def _deadline_sort_key(x):
         dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
         if not dl:
-            return (10**15, -(x.get("lastModifiedDate") or 0))
+            return (10 ** 15, -(x.get("lastModifiedDate") or 0))
         try:
             rem = int(dl) - now_ms
         except Exception:
-            rem = 10**14
+            rem = 10 ** 14
         return (rem, -(x.get("lastModifiedDate") or 0))
 
     result.sort(key=_deadline_sort_key)
-
     return result, total
 
-    def _deadline_sort_key(x):
-        dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
-        if not dl:
-            return (10**15, -(x.get("lastModifiedDate") or 0))  # teslim tarihi yoksa sona
-        try:
-            rem = int(dl) - now_ms   # kalan süre (ms)
-        except Exception:
-            rem = 10**14
-        return (rem, -(x.get("lastModifiedDate") or 0))
-
-    result.sort(key=_deadline_sort_key)
-
-    return result, total
-
-
-    def _deadline_sort_key(x):
-        dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
-        if not dl:
-            return (10**15, -(x.get("lastModifiedDate") or 0))  # teslim tarihi yoksa sona
-        try:
-            rem = int(dl) - now_ms   # kalan süre (ms)
-        except Exception:
-            rem = 10**14
-        return (rem, -(x.get("lastModifiedDate") or 0))
-
-    result.sort(key=_deadline_sort_key)
-
-    return result, total
 
 # ---------- update status ----------
 def update_package_status(supplier_id: str, package_id: int, lines: List[Dict[str, Any]],

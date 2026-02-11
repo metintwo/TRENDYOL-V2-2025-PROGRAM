@@ -95,44 +95,34 @@
     Toplam Ürün Çeşidi: <strong>{{ total }}</strong>
   </div>
 
-  {% set seen = [] %}
   {% set bedenler = ["S", "M", "L", "XL"] %}
 
   {% for r in tablo %}
-    {% set combo = r.stok ~ "-" ~ r.renk_ad %}
-    {% if combo not in seen %}
-      {% set _ = seen.append(combo) %}
-      {% set adetler = {} %}
-      {% for rr in tablo if rr.stok == r.stok and rr.renk_ad == r.renk_ad %}
-        {% set _ = adetler.update({rr.beden: rr.adet}) %}
-      {% endfor %}
+    {% set bg = r.renk_kodu %}
+    {% set text_color = "white" if bg in ["#000000", "#001f3f", "#0033a0", "#800020", "#6d28d9"] else "black" %}
 
-      {% set bg = r.renk_kodu %}
-      {% set text_color = "white" if bg in ["#000000", "#001f3f", "#0033a0", "#800020", "#6d28d9"] else "black" %}
-
-      <div class="urun-kutu">
-        <div class="urun-baslik" style="background: {{ bg }}; color: {{ text_color }};">
-          <span class="renk-dot" style="background: {{ bg }}"></span>
-          {{ r.urun_adi }} - {{ r.renk_ad }}
-        </div>
-
-        <table class="beden-tablo">
-          <tr>
-            <th>BEDEN</th>
-            {% for b in bedenler %}
-              <th>{{ b }}</th>
-            {% endfor %}
-          </tr>
-          <tr>
-            <td><strong>ADET</strong></td>
-            {% for b in bedenler %}
-              {% set adet = adetler.get(b, 0) %}
-              <td class="{% if adet == 0 %}zero{% endif %}">{{ adet }}</td>
-            {% endfor %}
-          </tr>
-        </table>
+    <div class="urun-kutu">
+      <div class="urun-baslik" style="background: {{ bg }}; color: {{ text_color }};">
+        <span class="renk-dot" style="background: {{ bg }}"></span>
+        {{ r.urun_adi }} - {{ r.renk_ad }}
       </div>
-    {% endif %}
+
+      <table class="beden-tablo">
+        <tr>
+          <th>BEDEN</th>
+          {% for b in bedenler %}
+            <th>{{ b }}</th>
+          {% endfor %}
+        </tr>
+        <tr>
+          <td><strong>ADET</strong></td>
+          {% for b in bedenler %}
+            {% set adet = r.adetler.get(b, 0) %}
+            <td class="{% if adet == 0 %}zero{% endif %}">{{ adet }}</td>
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
   {% endfor %}
 </div>
 

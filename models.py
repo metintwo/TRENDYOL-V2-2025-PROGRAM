@@ -74,3 +74,16 @@ class PackagingLog(db.Model):
     printed_at = db.Column(db.DateTime, nullable=False)
 
     user = db.Column(db.String(50), nullable=True)
+
+class ShippingAlarm(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    alarm_type = db.Column(db.String(50))  # DUPLICATE_PACKAGE | WRONG_BARCODE
+    supplier_id = db.Column(db.String(30))
+    package_id = db.Column(db.String(50))
+    tracking_number = db.Column(db.String(50))
+
+    message = db.Column(db.String(255))
+    created_by = db.Column(db.String(50))
+    created_at = db.Column(db.DateTime)
+
