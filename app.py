@@ -24,8 +24,13 @@ _CREATED_CACHE = {
     "ts": 0
 }
 
+DASHBOARD_CREATED_CACHE = {"data": None, "ts": 0}
 
-def get_all_created_orders(use_cache=True, cache_ttl=60):
+_KARGO_TOPLAMA_CACHE = {"data": None, "ts": 0}
+
+
+
+def get_all_created_orders(use_cache=True, cache_ttl=90):
     global _CREATED_CACHE
 
     now = time.time()
@@ -36,7 +41,7 @@ def get_all_created_orders(use_cache=True, cache_ttl=60):
     all_orders = []
     seen_ids = set()
     page = 0
-    size = 200  # Trendyol genelde 200 güvenli
+    size = 100  # Trendyol genelde 200 güvenli
 
     while True:
         orders, total = get_orders(status="Created", size=size, page=page)
@@ -549,6 +554,10 @@ def dashboard():
         unique[oid] = o
 
     orders_raw = list(unique.values())
+    # 🔥 EKLE
+    if status == "Created":
+        DASHBOARD_CREATED_CACHE["data"] = orders_raw
+        DASHBOARD_CREATED_CACHE["ts"] = time.time()
 
     # 🔥 MAĞAZA (SUPPLIER) FİLTRESİ – yapıyı bozmadan
     if supplier_filter:
@@ -920,7 +929,8 @@ def isleme_al(supplier_id, package_id):
     # =================================================
     # YETKİ KONTROLÜ
     # =================================================
-    if current_user.role not in ["kargo", "ofis", "admin"]:
+    role = (current_user.role or "").strip().lower()
+    if role not in ["kargo", "ofis", "admin"]:
         flash("❌ Sipariş işleme alma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
@@ -1180,22 +1190,32 @@ def kargo_teslim_pdf():
     c.save()
     return send_file(file_path, as_attachment=True)
 
-
-
 @app.route("/etiket_rapor_toplama")
 @login_required
 def kargo_toplama():
-    if current_user.role not in ["kargo", "ofis", "admin"]:
+    print("KARGO TOPLAMA ROLE RAW:", repr(current_user.role))
+    print("KARGO TOPLAMA ROLE NORM:", (current_user.role or "").strip().lower())
+
+    role = (current_user.role or "").strip().lower()
+    if role not in ["kargo", "ofis", "admin"]:
         flash("❌ Bu sayfaya erişim yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
     try:
-        all_orders = get_all_created_orders()
-
+        global _KARGO_TOPLAMA_CACHE
+        import time, re, unicodedata
         from collections import defaultdict
-        import re, unicodedata
 
-        # 🔥 Doğru toplama yapısı (stok + renk bazlı, bedenler normalize)
+        now = time.time()
+        refresh = request.args.get("refresh") == "1"
+
+        # ⚡ 5 dakika cache (yenile butonu ile bypass edilebilir)
+        if not refresh and _KARGO_TOPLAMA_CACHE["data"] is not None and now - _KARGO_TOPLAMA_CACHE["ts"] < 300:
+            tablo = _KARGO_TOPLAMA_CACHE["data"]
+            return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
+
+        all_orders, _ = get_orders(status="Created", size=1000, page=0)
+
         toplu_liste = defaultdict(lambda: {
             "urun_adi": "",
             "stok": "",
@@ -1221,15 +1241,12 @@ def kargo_toplama():
             "PLR": "POLAR HIRKA"
         }
 
-        # 🔧 Renk normalize
         def normalize_color_name(name):
             if not name:
                 return {"kod": "#cccccc", "ad": "Belirsiz", "key": "belirsiz"}
-
             raw = unicodedata.normalize("NFKD", name)
             raw = raw.encode("ascii", "ignore").decode("utf-8", "ignore")
             raw = raw.strip().upper()
-
             raw = re.sub(r"\((.*?)\)", "", raw)
             raw = re.sub(r"\s+", " ", raw)
 
@@ -1247,70 +1264,51 @@ def kargo_toplama():
 
             renk_ad = raw.title()
             renk_key = raw.lower().replace(" ", "")
-
             renkler = {
-                "beyaz": "#ffffff",
-                "siyah": "#000000",
-                "lacivert": "#001f3f",
-                "gri": "#b0b0b0",
-                "füme": "#5a5a5a",
-                "bordo": "#800020",
-                "haki": "#6b705c",
-                "bej": "#f5f0d0",
-                "kahverengi": "#6f4e37",
-                "turuncu": "#ff7b00",
+                "beyaz": "#ffffff","siyah": "#000000","lacivert": "#001f3f",
+                "gri": "#b0b0b0","füme": "#5a5a5a","bordo": "#800020",
+                "haki": "#6b705c","bej": "#f5f0d0","kahverengi": "#6f4e37","turuncu": "#ff7b00",
             }
-
             kod = renkler.get(renk_key, "#cccccc")
             return {"kod": kod, "ad": renk_ad, "key": renk_key}
 
-        # 🔧 Beden normalize (asıl hata buradaydı)
         def normalize_beden(b):
-            if not b:
-                return "BELİRSİZ"
+            if not b: return "BELİRSİZ"
             b = b.strip().upper()
-            if b in ["S", "SMALL"]:
-                return "S"
-            if b in ["M", "MEDIUM"]:
-                return "M"
-            if b in ["L", "LARGE"]:
-                return "L"
-            if b in ["XL", "X-LARGE", "EXTRA LARGE"]:
-                return "XL"
+            if b in ["S","SMALL"]: return "S"
+            if b in ["M","MEDIUM"]: return "M"
+            if b in ["L","LARGE"]: return "L"
+            if b in ["XL","X-LARGE","EXTRA LARGE"]: return "XL"
             return b
 
-        # 🔹 Siparişleri birleştir (DOĞRU SAYIM)
         for order in all_orders:
             for l in order.get("lines", []):
                 stok = str(l.get("merchantSku") or l.get("productCode") or "BELİRSİZ").strip().upper()
-
                 renk_raw = str(l.get("productColor") or "BELİRSİZ")
                 beden_raw = str(l.get("productSize") or "BELİRSİZ")
 
                 beden = normalize_beden(beden_raw)
                 urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
-
                 renk_bilgi = normalize_color_name(renk_raw)
-                renk_ad = renk_bilgi["ad"]
-                renk_kodu = renk_bilgi["kod"]
-                renk_key = renk_bilgi["key"]
 
                 try:
                     adet = int(l.get("quantity"))
                 except:
                     adet = 1
 
-                key = (stok, renk_key)
+                key = (stok, renk_bilgi["key"])
+                item = toplu_liste[key]
 
-                toplu_liste[key]["urun_adi"] = urun_adi
-                toplu_liste[key]["stok"] = stok
-                toplu_liste[key]["renk_ad"] = renk_ad
-                toplu_liste[key]["renk_kodu"] = renk_kodu
+                item["urun_adi"] = urun_adi
+                item["stok"] = stok
+                item["renk_ad"] = renk_bilgi["ad"]
+                item["renk_kodu"] = renk_bilgi["kod"]
 
-                if beden not in toplu_liste[key]["adetler"]:
-                    toplu_liste[key]["adetler"][beden] = 0
+                # ✅ BURASI KRİTİK FIX
+                if beden not in item["adetler"]:
+                    item["adetler"][beden] = 0
 
-                toplu_liste[key]["adetler"][beden] += adet
+                item["adetler"][beden] += adet
 
         SKU_ORDER = ["ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE","KMTK","BKTK","KKTK","DYTK","PLR"]
 
@@ -1323,10 +1321,9 @@ def kargo_toplama():
 
         tablo = sorted(toplu_liste.values(), key=sort_key)
 
-        # 🧪 Debug – gerçek kontrol
-        print("TOPLAM SİPARİŞ:", len(all_orders))
-        print("TOPLAM SATIR:", sum(len(o.get("lines", [])) for o in all_orders))
-        print("TOPLAM ÜRÜN ADEDİ (TOPLAMA):", sum(sum(v["adetler"].values()) for v in tablo))
+        # 🧠 Cache yaz
+        _KARGO_TOPLAMA_CACHE["data"] = tablo
+        _KARGO_TOPLAMA_CACHE["ts"] = time.time()
 
         return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
 
@@ -1336,7 +1333,6 @@ def kargo_toplama():
         traceback.print_exc()
         flash(f"Kargo toplama hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
-
 
 
 # ---- Excel Raporu İçin Genel Importlar ----

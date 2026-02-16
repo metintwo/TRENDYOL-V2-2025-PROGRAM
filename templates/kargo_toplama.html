@@ -83,6 +83,46 @@
 <body>
 
 <div class="container-fluid">
+
+  <!-- 🔎 ÖZET TABLO (tek bakışta kontrol) -->
+  <div class="card mb-2 no-print">
+    <div class="card-header py-1"><strong>📊 Özet – Beden Bazlı Toplam</strong></div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-sm mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Ürün</th>
+            <th>Stok</th>
+            <th>Renk</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+            <th>Toplam</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in tablo %}
+          <tr>
+            <td>{{ r.urun_adi }}</td>
+            <td><strong>{{ r.stok }}</strong></td>
+            <td>
+              <span class="renk-dot" style="background: {{ r.renk_kodu }}"></span>
+              {{ r.renk_ad }}
+            </td>
+            <td>{{ r.adetler.get("S", 0) }}</td>
+            <td>{{ r.adetler.get("M", 0) }}</td>
+            <td>{{ r.adetler.get("L", 0) }}</td>
+            <td>{{ r.adetler.get("XL", 0) }}</td>
+            <td><strong>{{ r.adetler.get("S",0) + r.adetler.get("M",0) + r.adetler.get("L",0) + r.adetler.get("XL",0) }}</strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ÜST BAR -->
   <div class="d-flex justify-content-between align-items-center mb-1 no-print">
     <h6>🚛 Kargo Toplama Listesi</h6>
     <div>
