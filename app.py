@@ -1154,7 +1154,10 @@ def kargo_toplama():
     try:
         all_orders = get_all_created_orders()
 
-        # 🔥 Doğru toplama yapısı (stok + renk bazlı, bedenler ayrı)
+        from collections import defaultdict
+        import re, unicodedata
+
+        # 🔥 Doğru toplama yapısı (stok + renk bazlı, bedenler normalize)
         toplu_liste = defaultdict(lambda: {
             "urun_adi": "",
             "stok": "",
@@ -1180,8 +1183,7 @@ def kargo_toplama():
             "PLR": "POLAR HIRKA"
         }
 
-        import re, unicodedata
-
+        # 🔧 Renk normalize
         def normalize_color_name(name):
             if not name:
                 return {"kod": "#cccccc", "ad": "Belirsiz", "key": "belirsiz"}
@@ -1224,12 +1226,30 @@ def kargo_toplama():
             kod = renkler.get(renk_key, "#cccccc")
             return {"kod": kod, "ad": renk_ad, "key": renk_key}
 
-        # 🔹 Siparişleri birleştir
+        # 🔧 Beden normalize (asıl hata buradaydı)
+        def normalize_beden(b):
+            if not b:
+                return "BELİRSİZ"
+            b = b.strip().upper()
+            if b in ["S", "SMALL"]:
+                return "S"
+            if b in ["M", "MEDIUM"]:
+                return "M"
+            if b in ["L", "LARGE"]:
+                return "L"
+            if b in ["XL", "X-LARGE", "EXTRA LARGE"]:
+                return "XL"
+            return b
+
+        # 🔹 Siparişleri birleştir (DOĞRU SAYIM)
         for order in all_orders:
             for l in order.get("lines", []):
                 stok = str(l.get("merchantSku") or l.get("productCode") or "BELİRSİZ").strip().upper()
+
                 renk_raw = str(l.get("productColor") or "BELİRSİZ")
-                beden = str(l.get("productSize") or "BELİRSİZ").strip().upper()
+                beden_raw = str(l.get("productSize") or "BELİRSİZ")
+
+                beden = normalize_beden(beden_raw)
                 urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
 
                 renk_bilgi = normalize_color_name(renk_raw)
@@ -1238,7 +1258,7 @@ def kargo_toplama():
                 renk_key = renk_bilgi["key"]
 
                 try:
-                    adet = int(l.get("quantity", 1))
+                    adet = int(l.get("quantity"))
                 except:
                     adet = 1
 
@@ -1265,9 +1285,10 @@ def kargo_toplama():
 
         tablo = sorted(toplu_liste.values(), key=sort_key)
 
-        # 🧪 Debug – sayım kontrol
+        # 🧪 Debug – gerçek kontrol
         print("TOPLAM SİPARİŞ:", len(all_orders))
-        print("TOPLAM ÜRÜN ADEDİ:", sum(sum(v["adetler"].values()) for v in tablo))
+        print("TOPLAM SATIR:", sum(len(o.get("lines", [])) for o in all_orders))
+        print("TOPLAM ÜRÜN ADEDİ (TOPLAMA):", sum(sum(v["adetler"].values()) for v in tablo))
 
         return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
 
@@ -1277,6 +1298,7 @@ def kargo_toplama():
         traceback.print_exc()
         flash(f"Kargo toplama hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
+
 
 
 # ---- Excel Raporu İçin Genel Importlar ----
