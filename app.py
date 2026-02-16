@@ -17,6 +17,47 @@ from models import db, User
 from models import ShippingLog
 from flask import session
 from collections import defaultdict
+import time
+
+_CREATED_CACHE = {
+    "data": None,
+    "ts": 0
+}
+
+
+def get_all_created_orders(use_cache=True, cache_ttl=60):
+    global _CREATED_CACHE
+
+    now = time.time()
+    if use_cache and _CREATED_CACHE["data"] is not None:
+        if now - _CREATED_CACHE["ts"] < cache_ttl:
+            return _CREATED_CACHE["data"]
+
+    all_orders = []
+    seen_ids = set()
+    page = 0
+    size = 200  # Trendyol genelde 200 güvenli
+
+    while True:
+        orders, total = get_orders(status="Created", size=size, page=page)
+        if not orders:
+            break
+
+        for o in orders:
+            oid = o.get("id") or o.get("packageId") or o.get("package_id")
+            if oid in seen_ids:
+                continue
+            seen_ids.add(oid)
+            all_orders.append(o)
+
+        if len(orders) < size:
+            break
+
+        page += 1
+
+    _CREATED_CACHE["data"] = all_orders
+    _CREATED_CACHE["ts"] = now
+    return all_orders
 
 
 # ===========================
@@ -53,6 +94,7 @@ DEFAULT_LAYOUT = {
     "barcode_text_font_size": 14,
     "product_font_size": 20,
 }
+
 # ===========================
 #   XML OKUMA
 # ===========================
@@ -496,7 +538,17 @@ def dashboard():
     selected_filters = request.args.getlist("filter")
 
     # 🔹 Trendyol’dan sipariş çek
-    orders_raw, total_elements = get_orders(status=status, size=500)
+    orders_raw, total_elements = get_orders(status=status, size=per_page, page=page - 1)
+
+    # 🔁 Duplicate (aynı paket) temizleme – sadece bu sayfa için
+    unique = {}
+    for o in orders_raw:
+        oid = o.get("id") or o.get("packageId") or o.get("package_id")
+        if oid is None:
+            continue
+        unique[oid] = o
+
+    orders_raw = list(unique.values())
 
     # 🔥 MAĞAZA (SUPPLIER) FİLTRESİ – yapıyı bozmadan
     if supplier_filter:
@@ -1128,21 +1180,7 @@ def kargo_teslim_pdf():
     c.save()
     return send_file(file_path, as_attachment=True)
 
-def get_all_created_orders():
-    all_orders = []
-    page = 0
-    size = 200  # Trendyol genelde 200 izin verir
 
-    while True:
-        orders, total = get_orders(status="Created", size=size, page=page)
-        all_orders.extend(orders)
-
-        if len(all_orders) >= total:
-            break
-
-        page += 1
-
-    return all_orders
 
 @app.route("/etiket_rapor_toplama")
 @login_required
