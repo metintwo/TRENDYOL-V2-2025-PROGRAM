@@ -1,5 +1,5 @@
 
-from models import ShippingLog, ShippingAlarm
+
 import os, json, time, sys
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from io import BytesIO
@@ -17,52 +17,6 @@ from models import db, User
 from models import ShippingLog
 from flask import session
 from collections import defaultdict
-import time
-
-_CREATED_CACHE = {
-    "data": None,
-    "ts": 0
-}
-
-DASHBOARD_CREATED_CACHE = {"data": None, "ts": 0}
-
-_KARGO_TOPLAMA_CACHE = {"data": None, "ts": 0}
-
-
-
-def get_all_created_orders(use_cache=True, cache_ttl=90):
-    global _CREATED_CACHE
-
-    now = time.time()
-    if use_cache and _CREATED_CACHE["data"] is not None:
-        if now - _CREATED_CACHE["ts"] < cache_ttl:
-            return _CREATED_CACHE["data"]
-
-    all_orders = []
-    seen_ids = set()
-    page = 0
-    size = 100  # Trendyol genelde 200 güvenli
-
-    while True:
-        orders, total = get_orders(status="Created", size=size, page=page)
-        if not orders:
-            break
-
-        for o in orders:
-            oid = o.get("id") or o.get("packageId") or o.get("package_id")
-            if oid in seen_ids:
-                continue
-            seen_ids.add(oid)
-            all_orders.append(o)
-
-        if len(orders) < size:
-            break
-
-        page += 1
-
-    _CREATED_CACHE["data"] = all_orders
-    _CREATED_CACHE["ts"] = now
-    return all_orders
 
 
 # ===========================
@@ -84,7 +38,7 @@ except:
     HAS_BARCODE = False
 
 XML_FILE = Path("Entegra.xml")
-
+LOG_FILE = Path("print_log_web.json")
 
 DEFAULT_LAYOUT = {
     "dpi": 203,
@@ -99,7 +53,6 @@ DEFAULT_LAYOUT = {
     "barcode_text_font_size": 14,
     "product_font_size": 20,
 }
-
 # ===========================
 #   XML OKUMA
 # ===========================
@@ -175,7 +128,48 @@ PAGE_SIZE = 20
 # ===========================
 #   LOG SİSTEMİ
 # ===========================
+def ensure_log():
+    if not LOG_FILE.exists():
+        LOG_FILE.write_text("[]", encoding="utf-8")
 
+
+def add_log(barcode, qty, stok, urun):
+    ensure_log()
+    try:
+        data = json.loads(LOG_FILE.read_text("utf-8"))
+    except:
+        data = []
+
+    for _ in range(int(qty)):   # 🔥 HER ETİKET AYRI
+        data.append({
+            "ts": datetime.now().isoformat(),  # TR saati
+            "barcode": barcode,
+            "qty": 1,
+            "stok": stok,
+            "urun": urun
+        })
+
+    LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
+
+def get_today_count():
+    ensure_log()
+    try:
+        data = json.loads(LOG_FILE.read_text("utf-8"))
+    except:
+        return 0
+
+    today = datetime.now().date()   # Yerel gün
+    total = 0
+
+    for r in data:
+        try:
+            ts = datetime.fromisoformat(r["ts"])
+            if ts.date() == today:
+                total += 1           # Her log = 1 etiket
+        except:
+            pass
+
+    return total
 
 # ===========================
 #  ETİKET OLUŞTURMA
@@ -227,19 +221,13 @@ def render_label(barcode, stok, urun):
 @app.route("/paketleme", methods=["GET"])
 @login_required
 def paketleme():
-    from sqlalchemy import func
-    from models import PackagingLog
-
-    counter = db.session.query(
-        func.coalesce(func.sum(PackagingLog.qty), 0)
-    ).filter(
-        func.date(PackagingLog.printed_at) == datetime.now(IST).date()
-    ).scalar()
+    ensure_log()
 
     xml_name = XML_FILE.name if XML_FILE.exists() else None
     q = request.args.get("q", "").strip().lower()
     page = int(request.args.get("page", 1))
     per_page = 20
+    counter = get_today_count()
 
     # Eğer arama yoksa boş liste göster
     if q == "":
@@ -323,30 +311,23 @@ def preview_label_route():
     return send_file(buf, mimetype="image/png")
 
 
-from models import PackagingLog
-
 @app.route("/browser_print", methods=["POST"])
 @login_required
 def browser_print():
-    barcode = request.form["barcode"]
-    stok = request.form["stok_kodu"]
-    urun = request.form["urun_adi"]
-    qty = int(request.form.get("qty", 1))
+    barcode = request.form.get("barcode")
+    stok = request.form.get("stok_kodu")
+    urun = request.form.get("urun_adi")
+    qty = int(request.form.get("qty", "1"))
 
-    log = PackagingLog(
-        barcode=barcode,
-        stok_kodu=stok,
-        urun_adi=urun,
-        qty=qty,
-        printed_at=datetime.now(IST),
-        user=current_user.username
-    )
+    add_log(barcode, qty, stok, urun)
 
-    db.session.add(log)
-    db.session.commit()
-
-    return jsonify({"ok": True})
-
+    return render_template_string("""
+        <html><body onload="window.print();window.close();">
+        {% for i in range(qty) %}
+            <img src="/preview?barcode={{barcode}}&stok_kodu={{stok}}&urun_adi={{urun}}">
+        {% endfor %}
+        </body></html>
+    """, barcode=barcode, stok=stok, urun=urun, qty=qty)
 
 SURAT_KARGO_HESAPLARI = {
     "564724": {  # RUNADES
@@ -389,23 +370,13 @@ SURAT_KARGO_HESAPLARI = {
 
 # 🔹 Filtre SKU listesi
 FILTER_SKUS = [
-    "HRKA","BMBRTK","ETK3I","KFTK","SFTK","FDKY","BSKLE","KIKT","CNT","MTR","ETKP",
-    "TAYT","ESF3I","ESPE","SWT3I","PLZO","KSKP","ESFKP","KMTK",
-    "BKTK","KKTK","OFBS","BTSH","SBP","SGP","UBP","UGP",
-    "KBP","KGP","ULP","KKFE","BSKLTY","TSH","FSAH",
-    "KSTK","OFTA","HRTK","EPA","OBSWT","DYTK","SLP","KLP",
-    "ELBS","DKP","KMNO","ESTK","SAL","BAT","HRKI","PBK",
-    "PLR","KIRUT","DKRT","IPBMR","CETK","PYKP","GUPNY",
-
-    # Ayakkabı / Çanta
-    "575 AYAKKABI","4005 AYAKKABI","SR158 AYAKKABI","SR619 AYAKKABI","316 AYAKKABI",
-    "123 AYAKKABI",
-    "ATHLETIC CANTA",
-    "VEBI EMINI ILKOKUL CANTASI"
+    "KFTK", "ETK3I", "BSKLE", "KIKT", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
+    "KSKP", "ESFKP", "KMTK", "BKTK", "KKTK", "OFBS", "BTSH", "SBP", "SGP", "UBP", "UGP",
+    "KBP", "KGP", "ULP", "KKFE", "BSKLTY", "TSH", "HRKA", "FDKY", "FSAH", "KSTK", "OFTA",
+    "HRTK", "EPA", "OBSWT", "DYTK", "SLP", "KLP", "ELBS", "DKP", "KMNO", "ESTK", "SAL",
+    "BAT", "HRKI", "CNT", "MTR", "PBK", "OFT", "PLR"
 ]
-
 FILTER_SKUS = [sku.upper() for sku in FILTER_SKUS]
-
 
 from datetime import datetime, timezone
 
@@ -543,28 +514,7 @@ def dashboard():
     selected_filters = request.args.getlist("filter")
 
     # 🔹 Trendyol’dan sipariş çek
-    orders_raw, total_elements = get_orders(status=status, size=per_page, page=page - 1)
-
-    # 🔁 Duplicate (aynı paket) temizleme – sadece bu sayfa için
-    unique = {}
-    for o in orders_raw:
-        oid = o.get("id") or o.get("packageId") or o.get("package_id")
-        if oid is None:
-            continue
-        unique[oid] = o
-
-    orders_raw = list(unique.values())
-    # 🔥 EKLE
-    if status == "Created":
-        DASHBOARD_CREATED_CACHE["data"] = orders_raw
-        DASHBOARD_CREATED_CACHE["ts"] = time.time()
-
-    # 🔥 MAĞAZA (SUPPLIER) FİLTRESİ – yapıyı bozmadan
-    if supplier_filter:
-        orders_raw = [
-            o for o in orders_raw
-            if str(o.get("supplier_id")) == str(supplier_filter)
-        ]
+    orders_raw, total_elements = get_orders(status=status, size=500)
 
     # 🔥 SKU filtresi – SADECE siparişi filtreler, satırları silmez
     if selected_filters and "ALL" not in selected_filters:
@@ -703,21 +653,6 @@ def questions():
         flash(f"Sorular alınamadı: {e}", "danger")
         return redirect(url_for("index"))
 
-@app.route("/api/available-skus")
-@login_required
-def api_available_skus():
-    # Mevcut siparişlerden SKU'ları topla (Created statüsü üzerinden)
-    orders_raw, _ = get_orders(status=request.args.get("status", "Created"), size=500)
-
-    skus = set()
-    for o in orders_raw:
-        for l in o.get("lines", []):
-            sku = (l.get("merchantSku") or l.get("sku") or "").strip()
-            if sku:
-                # normalize: büyük harf + sadeleştirme
-                skus.add(sku.upper())
-
-    return jsonify({"skus": sorted(skus)})
 
 # ---- Kullanıcı Kayıt ----
 @app.route("/register", methods=["GET", "POST"])
@@ -916,36 +851,41 @@ def api_line_image():
 
     return jsonify({"url": url})
 
+def get_all_created_orders():
+    page = 0
+    size = 200
+    all_orders = []
 
+    while True:
+        orders, total = get_orders(status="Created", page=page, size=size)
+        if not orders:
+            break
+
+        all_orders.extend(orders)
+
+        if len(orders) < size:
+            break
+
+        page += 1
+
+    return all_orders
+
+# ---- Sipariş İşleme ----
 @app.route("/isleme-al/<supplier_id>/<int:package_id>", methods=["POST"])
 @login_required
 def isleme_al(supplier_id, package_id):
     from datetime import datetime, timezone, timedelta
-    from models import ShippingLog, ShippingAlarm
-    from trendyol_api import get_order_detail
-
     IST = timezone(timedelta(hours=3))
-
-    # =================================================
-    # YETKİ KONTROLÜ
-    # =================================================
-    role = (current_user.role or "").strip().lower()
-    if role not in ["kargo", "ofis", "admin"]:
+    if current_user.role not in ["kargo", "ofis", "admin"]:
         flash("❌ Sipariş işleme alma yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
-    # =================================================
-    # SATIR VERİLERİ
-    # =================================================
     lines_raw = request.form.get("lines", "[]")
     try:
         lines = json.loads(lines_raw)
     except:
         lines = []
 
-    # =================================================
-    # PAKET DURUMU
-    # =================================================
     ok = update_package_status(
         supplier_id,
         package_id,
@@ -953,142 +893,132 @@ def isleme_al(supplier_id, package_id):
         status="Picking"
     )
 
-    if not ok:
-        flash("❌ Paket durumu güncellenemedi!", "danger")
-        return redirect(url_for("dashboard"))
+    print("=== LOG BAŞLIYOR ===")
 
-    try:
-        # =================================================
-        # 🚨 ALARM 1: AYNI PAKET
-        # =================================================
-        existing = ShippingLog.query.filter_by(
-            supplier_id=supplier_id,
-            package_id=str(package_id)
-        ).first()
+    if ok:
+        print("update_package_status OK ✓")
 
-        if existing:
-            alarm = ShippingAlarm(
-                alarm_type="DUPLICATE_PACKAGE",
-                supplier_id=supplier_id,
-                package_id=str(package_id),
-                tracking_number=existing.tracking_number,
-                message="Aynı paket ikinci kez işleme alınmaya çalışıldı",
-                created_by=current_user.username,
-                created_at=datetime.now(IST)
+        from models import ShippingLog
+        from trendyol_api import get_order_detail
+        from excel_kargo_kaydet import excele_ekle
+        from datetime import timezone, timedelta
+
+        try:
+            order_detail = get_order_detail(supplier_id, package_id)
+            print("order_detail:", order_detail)
+
+            # --- Müşteri ---
+            customer_name = f"{order_detail.get('customerFirstName','')} {order_detail.get('customerLastName','')}"
+
+            # --- Mağaza ---
+            supplier_name = (
+                order_detail.get("supplier_name")
+                or order_detail.get("supplierName")
+                or ""
             )
-            db.session.add(alarm)
+
+            # --- Sipariş ---
+            order_number = order_detail.get("orderNumber")
+            tracking_number = order_detail.get("cargoTrackingNumber")
+
+            # --- Sipariş Tarihi ---
+            IST = timezone(timedelta(hours=3))
+            order_date = None
+            order_date_raw = order_detail.get("orderDate")
+
+            if order_date_raw:
+                try:
+                    dt = datetime.fromtimestamp(
+                        int(order_date_raw) / 1000,
+                        tz=timezone.utc
+                    )
+                    order_date = dt.astimezone(IST)
+                except:
+                    order_date = None
+
+            print("→ Line sayısı:", len(lines))
+
+            # =========================
+            # DB LOG KAYDI (TEK PAKET = TEK LOG)
+            # =========================
+
+            urun_adlari = []
+            skular = []
+            renkler = []
+            bedenler = []
+            toplam_adet = 0
+
+            for line in lines:
+                urun_adlari.append(str(line.get("productName")))
+                skular.append(str(line.get("merchantSku")))
+                renkler.append(str(line.get("productColor")))
+                bedenler.append(str(line.get("productSize")))
+                toplam_adet += int(line.get("quantity", 1))
+
+            log = ShippingLog(
+                supplier_id=supplier_id,
+                supplier_name=supplier_name,
+
+                order_number=order_number,
+                tracking_number=tracking_number,
+                package_id=str(package_id),
+
+                customer_name=customer_name,
+                order_date=order_date,
+
+                product_name=" | ".join(urun_adlari),
+                sku=" | ".join(skular),
+                quantity=toplam_adet,
+                color=" | ".join(renkler),
+                size=" | ".join(bedenler),
+
+                processed_at=datetime.now(IST),
+                shipped_at=None
+            )
+
+            db.session.add(log)
             db.session.commit()
 
-            flash("🚨 BU KARGO PAKETİ DAHA ÖNCE İŞLEME ALINMIŞ!", "danger")
-            return redirect(url_for("dashboard"))
-
-        # =================================================
-        # SİPARİŞ DETAYLARI
-        # =================================================
-        order_detail = get_order_detail(supplier_id, package_id)
-
-        customer_name = f"{order_detail.get('customerFirstName','')} {order_detail.get('customerLastName','')}"
-        supplier_name = order_detail.get("supplier_name") or order_detail.get("supplierName") or ""
-        order_number = order_detail.get("orderNumber")
-        tracking_number = order_detail.get("cargoTrackingNumber")
-
-        # =================================================
-        # 🚨 ALARM 2: YANLIŞ BARKOD
-        # =================================================
-        if tracking_number:
-            wrong = ShippingLog.query.filter(
-                ShippingLog.tracking_number == tracking_number,
-                ShippingLog.package_id != str(package_id)
-            ).first()
-
-            if wrong:
-                alarm = ShippingAlarm(
-                    alarm_type="WRONG_BARCODE",
-                    supplier_id=supplier_id,
-                    package_id=str(package_id),
-                    tracking_number=tracking_number,
-                    message="Aynı barkod farklı pakette kullanıldı",
-                    created_by=current_user.username,
-                    created_at=datetime.now(IST)
-                )
-                db.session.add(alarm)
-                db.session.commit()
-
-                flash("🚨 YANLIŞ KARGO! BU BARKOD BAŞKA PAKETE AİT!", "danger")
-                return redirect(url_for("dashboard"))
-
-        # =================================================
-        # SİPARİŞ TARİHİ (TR)
-        # =================================================
-        order_date = None
-        order_date_raw = order_detail.get("orderDate")
-
-        if order_date_raw:
+            # =========================
+            # EXCEL KAYDI (TEK SEFER)
+            # =========================
             try:
-                dt = datetime.fromtimestamp(
-                    int(order_date_raw) / 1000,
-                    tz=timezone.utc
+                urunler = []
+
+                for line in lines:
+                    urunler.append({
+                        "stok_kodu": line.get("merchantSku"),
+                        "urun_adi": line.get("productName"),
+                        "renk": line.get("productColor"),
+                        "beden": line.get("productSize"),
+                        "adet": line.get("quantity", 1)
+                    })
+
+                excele_ekle(
+                    order_no=order_number,
+                    kullanici=current_user.username,
+                    urunler=urunler
                 )
-                order_date = dt.astimezone(IST)
-            except:
-                order_date = None
 
-        # =================================================
-        # PAKET İÇERİĞİ (BİRLEŞTİR)
-        # =================================================
-        urun_adlari = []
-        skular = []
-        renkler = []
-        bedenler = []
-        toplam_adet = 0
+                print("✓ EXCEL KAYDI ALINDI")
 
-        for line in lines:
-            urun_adlari.append(str(line.get("productName")))
-            skular.append(str(line.get("merchantSku")))
-            renkler.append(str(line.get("productColor")))
-            bedenler.append(str(line.get("productSize")))
-            toplam_adet += int(line.get("quantity", 1))
+            except Exception as excel_err:
+                print("❌ EXCEL HATASI:", excel_err)
 
-        # =================================================
-        # 🧾 TEK PAKET = TEK LOG
-        # =================================================
-        log = ShippingLog(
-            supplier_id=supplier_id,
-            supplier_name=supplier_name,
+        except Exception as e:
+            print("❌ LOG HATASI:", e)
+            db.session.rollback()
 
-            order_number=order_number,
-            tracking_number=tracking_number,
-            package_id=str(package_id),
+    else:
+        print("❌ update_package_status başarısız!")
 
-            customer_name=customer_name,
-            order_date=order_date,
+    # =========================
+    # PARAMETRELERİ GERİ GÖNDER
+    # =========================
+    params = {}
 
-            product_name=" | ".join(urun_adlari),
-            sku=" | ".join(skular),
-            quantity=toplam_adet,
-            color=" | ".join(renkler),
-            size=" | ".join(bedenler),
-
-            processed_at=datetime.now(IST),
-            shipped_at=None,
-            created_by=current_user.username
-        )
-
-        db.session.add(log)
-        db.session.commit()
-
-    except Exception as e:
-        db.session.rollback()
-        print("❌ LOG HATASI:", e)
-        flash("❌ Kargo işleme sırasında hata oluştu!", "danger")
-
-    # =================================================
-    # DASHBOARD PARAMETRELERİ
-    # =================================================
-    params = {
-        "page": request.form.get("page", "1"),
-        "status": request.form.get("status", "Created")
-    }
+    params["page"] = request.form.get("page", "1")
+    params["status"] = request.form.get("status", "Created")
 
     if request.form.get("supplier"):
         params["supplier"] = request.form.get("supplier")
@@ -1105,9 +1035,8 @@ def isleme_al(supplier_id, package_id):
     if request.form.get("row_index"):
         params["row_index"] = request.form.get("row_index")
 
-    flash("✅ Sipariş başarıyla işleme alındı", "success")
+    flash("✅ Sipariş işleme alındı", "success")
     return redirect(url_for("dashboard", **params))
-
 
 # ---- Etiket Yazdır ----
 @app.route("/etiket-yazdir/<supplier_id>/<int:package_id>")
@@ -1119,111 +1048,23 @@ def etiket_yazdir(supplier_id, package_id):
         return redirect(url_for("dashboard"))
     return render_template("etiket.html", o=order)
 
-@app.route("/kargo-alarm-gecmisi")
-@login_required
-def kargo_alarm_gecmisi():
-    alarms = ShippingAlarm.query.order_by(
-        ShippingAlarm.created_at.desc()
-    ).limit(500).all()
+from collections import defaultdict
+import re, unicodedata
+from flask import render_template, redirect, url_for, flash
+from flask_login import login_required, current_user
 
-    return render_template("kargo_alarm_gecmisi.html", alarms=alarms)
-
-@app.route("/kargo-performans")
-@login_required
-def kargo_performans():
-    from sqlalchemy import func
-
-    today = datetime.now().date()
-
-    data = (
-        db.session.query(
-            ShippingLog.created_by,
-            func.count(ShippingLog.id).label("paket_sayisi")
-        )
-        .filter(func.date(ShippingLog.processed_at) == today)
-        .group_by(ShippingLog.created_by)
-        .all()
-    )
-
-    return render_template("kargo_performans.html", data=data)
-
-@app.route("/kargo-teslim-pdf")
-@login_required
-def kargo_teslim_pdf():
-    from reportlab.lib.pagesizes import A4
-    from reportlab.pdfgen import canvas
-    from sqlalchemy import func
-
-    today = datetime.now().date()
-    IST = timezone(timedelta(hours=3))
-
-    logs = ShippingLog.query.filter(
-        func.date(ShippingLog.processed_at) == today
-    ).all()
-
-    file_path = f"/tmp/kargo_teslim_{today}.pdf"
-    c = canvas.Canvas(file_path, pagesize=A4)
-
-    y = 800
-    c.setFont("Helvetica", 10)
-
-    c.drawString(40, y, f"GÜNLÜK KARGO TESLİM TUTANAĞI - {today}")
-    y -= 30
-
-    for log in logs:
-        c.drawString(
-            40,
-            y,
-            f"{log.package_id} | {log.tracking_number} | {log.customer_name}"
-        )
-        y -= 15
-        if y < 50:
-            c.showPage()
-            y = 800
-
-    y -= 30
-    c.drawString(40, y, "Yukarıda listelenen kargolar eksiksiz teslim alınmıştır.")
-    y -= 40
-    c.drawString(40, y, f"Teslim Eden: {current_user.username}")
-    c.drawString(300, y, f"Tarih: {datetime.now(IST).strftime('%d.%m.%Y')}")
-
-    c.save()
-    return send_file(file_path, as_attachment=True)
-
-@app.route("/etiket_rapor_toplama")
+@app.route("/kargo-toplama")
 @login_required
 def kargo_toplama():
-    print("KARGO TOPLAMA ROLE RAW:", repr(current_user.role))
-    print("KARGO TOPLAMA ROLE NORM:", (current_user.role or "").strip().lower())
-
-    role = (current_user.role or "").strip().lower()
-    if role not in ["kargo", "ofis", "admin"]:
+    if current_user.role not in ["kargo", "ofis", "admin"]:
         flash("❌ Bu sayfaya erişim yetkiniz yok.", "danger")
         return redirect(url_for("dashboard"))
 
     try:
-        global _KARGO_TOPLAMA_CACHE
-        import time, re, unicodedata
-        from collections import defaultdict
+        all_orders, total = get_orders(status="Created", size=1000)
 
-        now = time.time()
-        refresh = request.args.get("refresh") == "1"
-
-        # ⚡ 5 dakika cache (yenile butonu ile bypass edilebilir)
-        if not refresh and _KARGO_TOPLAMA_CACHE["data"] is not None and now - _KARGO_TOPLAMA_CACHE["ts"] < 300:
-            tablo = _KARGO_TOPLAMA_CACHE["data"]
-            return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
-
-        all_orders, _ = get_orders(status="Created", size=1000, page=0)
-
-        toplu_liste = defaultdict(lambda: {
-            "urun_adi": "",
-            "stok": "",
-            "renk_ad": "",
-            "renk_kodu": "#cccccc",
-            "adetler": {"S": 0, "M": 0, "L": 0, "XL": 0}
-        })
-
+        print("API’den gelen created paket:", len(all_orders))
+        # 🔹 STK -> Ürün isimleri
         STK_TO_NAME = {
             "ETK3I": "JAGGER EŞOFMAN TAKIMI",
             "BMBRTK": "BOMBER TAKIM",
@@ -1241,89 +1082,133 @@ def kargo_toplama():
             "PLR": "POLAR HIRKA"
         }
 
+        # 🔹 Renk normalize fonksiyonu
         def normalize_color_name(name):
             if not name:
                 return {"kod": "#cccccc", "ad": "Belirsiz", "key": "belirsiz"}
+
             raw = unicodedata.normalize("NFKD", name)
+            raw = raw.replace("İ", "i").replace("ı", "i").replace("i̇", "i")
             raw = raw.encode("ascii", "ignore").decode("utf-8", "ignore")
             raw = raw.strip().upper()
+
             raw = re.sub(r"\((.*?)\)", "", raw)
             raw = re.sub(r"\s+", " ", raw)
 
-            if re.search(r"FUME|SMOKE|CHARCOAL|DARK GREY", raw): raw = "FÜME"
+            for junk in ["RENK", "RENGI", "RENGİ", "RNG", "MAVI", "MAVİ", "MAVISI", "MAVİSİ", "VERT", "MELANJ", "COLOR"]:
+                raw = raw.replace(junk, "")
+
+            if re.search(r"FÜM|FUME|SMOKE|CHARCOAL|DARK GREY", raw): raw = "FÜME"
             elif re.search(r"GRI|GREY|GRAY", raw): raw = "GRİ"
-            elif re.search(r"SAKS", raw): raw = "SAKS MAVİSİ"
-            elif re.search(r"BEBE|BABY", raw): raw = "BEBE MAVİSİ"
+            elif re.search(r"SAX|SAKS|SAX BLUE|SAKS MAVI", raw): raw = "SAKS MAVİSİ"
+            elif re.search(r"BEBE|BABY BLUE|BEBEMAVI", raw): raw = "BEBE MAVİSİ"
+            elif re.search(r"MURDUM|MORDO", raw): raw = "MÜRDÜM"
             elif re.search(r"BLACK|SIYAH", raw): raw = "SİYAH"
             elif re.search(r"LACI|LACIVERT", raw): raw = "LACİVERT"
             elif re.search(r"HAKI|KHAKI", raw): raw = "HAKİ"
             elif re.search(r"KAHVE|BROWN", raw): raw = "KAHVERENGİ"
             elif re.search(r"BEIGE", raw): raw = "BEJ"
+            elif re.search(r"VIZON|VISON", raw): raw = "VİZON"
             elif re.search(r"BORDO", raw): raw = "BORDO"
             elif re.search(r"ORANGE", raw): raw = "TURUNCU"
 
+            raw = raw.strip()
             renk_ad = raw.title()
-            renk_key = raw.lower().replace(" ", "")
+
+            renk_key = (
+                raw.lower()
+                .replace(" ", "")
+                .replace("-", "")
+                .replace("_", "")
+                .replace(".", "")
+                .replace("/", "")
+                .replace("\\", "")
+                .replace("ı", "i")
+                .replace("ş", "s")
+                .replace("ç", "c")
+                .replace("ö", "o")
+                .replace("ü", "u")
+                .replace("ğ", "g")
+            )
+
             renkler = {
-                "beyaz": "#ffffff","siyah": "#000000","lacivert": "#001f3f",
-                "gri": "#b0b0b0","füme": "#5a5a5a","bordo": "#800020",
-                "haki": "#6b705c","bej": "#f5f0d0","kahverengi": "#6f4e37","turuncu": "#ff7b00",
+                "beyaz": "#ffffff",
+                "siyah": "#000000",
+                "lacivert": "#001f3f",
+                "mavi": "#007bff",
+                "saksmavisi": "#0066cc",
+                "bebemavisi": "#a5d8ff",
+                "gri": "#b0b0b0",
+                "füme": "#5a5a5a",
+                "kirmizi": "#d62828",
+                "bordo": "#800020",
+                "yesil": "#198754",
+                "pembe": "#f472b6",
+                "fusya": "#c026d3",
+                "mor": "#6d28d9",
+                "mürdüm": "#5f0f40",
+                "kahverengi": "#6f4e37",
+                "bej": "#f5f0d0",
+                "vizon": "#c6b299",
+                "haki": "#6b705c",
+                "camel": "#c19a6b",
+                "turuncu": "#ff7b00",
+                "tas": "#d6cfc7"
             }
-            kod = renkler.get(renk_key, "#cccccc")
+
+            kod = "#cccccc"
+            for key, val in renkler.items():
+                if renk_key.endswith(key):
+                    kod = val
+                    break
+
             return {"kod": kod, "ad": renk_ad, "key": renk_key}
 
-        def normalize_beden(b):
-            if not b: return "BELİRSİZ"
-            b = b.strip().upper()
-            if b in ["S","SMALL"]: return "S"
-            if b in ["M","MEDIUM"]: return "M"
-            if b in ["L","LARGE"]: return "L"
-            if b in ["XL","X-LARGE","EXTRA LARGE"]: return "XL"
-            return b
+        # 🔹 Ürün+Renk bazında bedenlere göre toplama
+        toplu_liste = {}
 
         for order in all_orders:
             for l in order.get("lines", []):
                 stok = str(l.get("merchantSku") or l.get("productCode") or "BELİRSİZ").strip().upper()
-                renk_raw = str(l.get("productColor") or "BELİRSİZ")
-                beden_raw = str(l.get("productSize") or "BELİRSİZ")
-
-                beden = normalize_beden(beden_raw)
+                renk_raw = str(l.get("productColor") or "BELİRSİZ").strip().upper()
+                beden = str(l.get("productSize") or "BELİRSİZ").strip().upper()
                 urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
+
                 renk_bilgi = normalize_color_name(renk_raw)
+                renk_ad = renk_bilgi["ad"]
+                renk_kodu = renk_bilgi["kod"]
+                renk_key = renk_bilgi["key"]
 
                 try:
-                    adet = int(l.get("quantity"))
+                    adet = int(l.get("quantity", 1))
                 except:
                     adet = 1
 
-                key = (stok, renk_bilgi["key"])
-                item = toplu_liste[key]
+                key = (stok, renk_key)
 
-                item["urun_adi"] = urun_adi
-                item["stok"] = stok
-                item["renk_ad"] = renk_bilgi["ad"]
-                item["renk_kodu"] = renk_bilgi["kod"]
+                if key not in toplu_liste:
+                    toplu_liste[key] = {
+                        "urun_adi": urun_adi,
+                        "stok": stok,
+                        "renk_ad": renk_ad,
+                        "renk_kodu": renk_kodu,
+                        "adetler": {"S": 0, "M": 0, "L": 0, "XL": 0}
+                    }
 
-                # ✅ BURASI KRİTİK FIX
-                if beden not in item["adetler"]:
-                    item["adetler"][beden] = 0
-
-                item["adetler"][beden] += adet
+                if beden in toplu_liste[key]["adetler"]:
+                    toplu_liste[key]["adetler"][beden] += adet
+                else:
+                    toplu_liste[key]["adetler"].setdefault(beden, 0)
+                    toplu_liste[key]["adetler"][beden] += adet
 
         SKU_ORDER = ["ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE","KMTK","BKTK","KKTK","DYTK","PLR"]
 
         def sort_key(x):
-            try:
-                sku_index = SKU_ORDER.index(x["stok"])
-            except ValueError:
-                sku_index = 999
+            try: sku_index = SKU_ORDER.index(x["stok"])
+            except ValueError: sku_index = 999
             return (sku_index, x["renk_ad"].lower())
 
         tablo = sorted(toplu_liste.values(), key=sort_key)
-
-        # 🧠 Cache yaz
-        _KARGO_TOPLAMA_CACHE["data"] = tablo
-        _KARGO_TOPLAMA_CACHE["ts"] = time.time()
 
         return render_template("kargo_toplama.html", tablo=tablo, total=len(tablo))
 
@@ -1451,4 +1336,3 @@ def kargo_raporu():
 # ---- Main ----
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
