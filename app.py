@@ -29,6 +29,34 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from datetime import datetime, timedelta
 from PIL import Image, ImageDraw, ImageFont
+from datetime import datetime, timedelta
+
+CACHED_CREATED_ORDERS = []
+CACHED_AT = None
+
+def get_created_orders_cached(force_refresh=False, ttl_sec=60):
+    """
+    Created siparişleri cache'li olarak döner.
+    Dashboard ve kargo-toplama aynı kaynağı kullanır.
+    """
+    global CACHED_CREATED_ORDERS, CACHED_AT
+
+    now = datetime.utcnow()
+
+    cache_expired = (
+        CACHED_AT is None or
+        (now - CACHED_AT) > timedelta(seconds=ttl_sec)
+    )
+
+    if force_refresh or cache_expired or not CACHED_CREATED_ORDERS:
+        orders, total = get_orders(status="Created", size=1000)
+        CACHED_CREATED_ORDERS = orders
+        CACHED_AT = now
+        print("🔄 Created siparişler Trendyol'dan yenilendi:", len(CACHED_CREATED_ORDERS))
+    else:
+        print("⚡ Created siparişler cache'ten alındı:", len(CACHED_CREATED_ORDERS))
+
+    return CACHED_CREATED_ORDERS
 
 try:
     from barcode import Code128
@@ -513,8 +541,11 @@ def dashboard():
     search_query = (request.args.get("search") or "").strip().lower()
     selected_filters = request.args.getlist("filter")
 
-    # 🔹 Trendyol’dan sipariş çek
-    orders_raw, total_elements = get_orders(status=status, size=500)
+    if status == "Created":
+        orders_raw = get_created_orders_cached(force_refresh=True)
+        total_elements = len(orders_raw)
+    else:
+        orders_raw, total_elements = get_orders(status=status, size=500)
 
     # 🔥 SKU filtresi – SADECE siparişi filtreler, satırları silmez
     if selected_filters and "ALL" not in selected_filters:
@@ -1061,9 +1092,10 @@ def kargo_toplama():
         return redirect(url_for("dashboard"))
 
     try:
-        all_orders, total = get_orders(status="Created", size=1000)
-
+        all_orders = get_created_orders_cached(force_refresh=False)
+        print("🚛 Kargo toplama created sipariş:", len(all_orders))
         print("API’den gelen created paket:", len(all_orders))
+
         # 🔹 STK -> Ürün isimleri
         STK_TO_NAME = {
             "ETK3I": "JAGGER EŞOFMAN TAKIMI",
@@ -1164,7 +1196,7 @@ def kargo_toplama():
 
             return {"kod": kod, "ad": renk_ad, "key": renk_key}
 
-        # 🔹 Ürün+Renk bazında bedenlere göre toplama
+        # 🔹 Ürün + renk bazında beden toplama
         toplu_liste = {}
 
         for order in all_orders:
@@ -1175,37 +1207,33 @@ def kargo_toplama():
                 urun_adi = STK_TO_NAME.get(stok, str(l.get("productName") or "").strip())
 
                 renk_bilgi = normalize_color_name(renk_raw)
-                renk_ad = renk_bilgi["ad"]
-                renk_kodu = renk_bilgi["kod"]
-                renk_key = renk_bilgi["key"]
 
                 try:
                     adet = int(l.get("quantity", 1))
                 except:
                     adet = 1
 
-                key = (stok, renk_key)
+                key = (stok, renk_bilgi["key"])
 
                 if key not in toplu_liste:
                     toplu_liste[key] = {
                         "urun_adi": urun_adi,
                         "stok": stok,
-                        "renk_ad": renk_ad,
-                        "renk_kodu": renk_kodu,
+                        "renk_ad": renk_bilgi["ad"],
+                        "renk_kodu": renk_bilgi["kod"],
                         "adetler": {"S": 0, "M": 0, "L": 0, "XL": 0}
                     }
 
-                if beden in toplu_liste[key]["adetler"]:
-                    toplu_liste[key]["adetler"][beden] += adet
-                else:
-                    toplu_liste[key]["adetler"].setdefault(beden, 0)
-                    toplu_liste[key]["adetler"][beden] += adet
+                toplu_liste[key]["adetler"].setdefault(beden, 0)
+                toplu_liste[key]["adetler"][beden] += adet
 
         SKU_ORDER = ["ETK3I","BMBRTK","HRKA","FDKY","KFTK","BSKLE","SWT3I","ESF3I","ESPE","KMTK","BKTK","KKTK","DYTK","PLR"]
 
         def sort_key(x):
-            try: sku_index = SKU_ORDER.index(x["stok"])
-            except ValueError: sku_index = 999
+            try:
+                sku_index = SKU_ORDER.index(x["stok"])
+            except ValueError:
+                sku_index = 999
             return (sku_index, x["renk_ad"].lower())
 
         tablo = sorted(toplu_liste.values(), key=sort_key)
@@ -1218,7 +1246,6 @@ def kargo_toplama():
         traceback.print_exc()
         flash(f"Kargo toplama hatası: {e}", "danger")
         return redirect(url_for("dashboard"))
-
 
 # ---- Excel Raporu İçin Genel Importlar ----
 from flask import send_file
