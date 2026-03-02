@@ -534,7 +534,7 @@ def index():
 def dashboard():
     status = request.args.get("status", "Created")
     page = int(request.args.get("page", 1))
-    per_page = 100
+    per_page = 200
 
     supplier_filter = request.args.get("supplier", "")
     color_filter = request.args.get("color", "")
