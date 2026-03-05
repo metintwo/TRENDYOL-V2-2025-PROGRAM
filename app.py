@@ -481,50 +481,61 @@ IST = timezone(timedelta(hours=3))  # Türkiye saati
 @app.route("/")
 def index():
     try:
-        today = datetime.now(IST).date()  # Türkiye tarihi
+        today = datetime.now(IST).date()
 
-        # Created siparişler
-        created_orders, created_count = get_orders(status="Created", size=1000)
+        created_orders, _ = get_orders(status="Created", size=200)
+        created_count = len(created_orders)
 
-        # Picking siparişler
-        picking_orders, picking_count = get_orders(status="Picking", size=1000)
+        picking_orders, _ = get_orders(status="Picking", size=200)
+        picking_count = len(picking_orders)
 
-        # Shipped siparişler
-        shipped_orders, shipped_count = get_orders(status="Shipped", size=1000)
+        shipped_orders, _ = get_orders(status="Shipped", size=200)
+        shipped_count = len(shipped_orders)
 
+        # Yapılması gereken kargo
+        to_ship = created_count
         # 🔹 Bugün taşımada olanları yakala
         daily_shipped = []
+
         for o in shipped_orders:
-            # shipmentCreatedDate → varsa
+
             dt_parsed = parse_date(o.get("shipmentCreatedDate"))
+
             if not dt_parsed:
-                # fallback: orderDate / lastModifiedDate de kontrol et
                 dt_parsed = parse_date(o.get("lastModifiedDate") or o.get("orderDate"))
 
             if dt_parsed:
+
                 if dt_parsed.tzinfo is None:
                     dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
 
                 dt_local = dt_parsed.astimezone(IST)
+
                 if dt_local.date() == today:
                     daily_shipped.append(o)
 
-        # Günlük shipped sayısı
+        # 🔹 bugün gönderilen
         shipped_today_count = len(daily_shipped)
 
-        # 📦 Genel toplam
-        total_all = created_count + picking_count + shipped_today_count
+        # 📦 GERÇEK TOPLAM
+        total_all = created_count + picking_count + shipped_count
 
     except Exception as e:
+
         print("❌ Kargo istatistikleri alınamadı:", e)
-        created_count = picking_count = shipped_today_count = total_all = 0
+
+        created_count = 0
+        picking_count = 0
+        shipped_count = 0
+        shipped_today_count = 0
+        total_all = 0
 
     return render_template(
         "index.html",
-        created_count=created_count,
+        created_count=to_ship,
         picking_count=picking_count,
         shipped_count=shipped_today_count,
-        total_all=total_all
+        total_all=to_ship + shipped_today_count
     )
 # ============================
 # 🚀 D A S H B O A R D – MODEL A (SABİT SAYFALAMA)
