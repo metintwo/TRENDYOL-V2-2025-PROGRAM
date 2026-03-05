@@ -174,15 +174,33 @@
   </a>
 
   <!-- Mağaza -->
-  <select name="supplier" class="form-select" style="max-width:150px;">
-    <option value="">Tümü</option>
-    <option value="564724" {% if request.args.get('supplier') == '564724' %}selected{% endif %}>RUNADES</option>
-    <option value="940685" {% if request.args.get('supplier') == '940685' %}selected{% endif %}>YAKAMEL TEKSTİL</option>
-    <option value="938355" {% if request.args.get('supplier') == '938355' %}selected{% endif %}>YKML</option>
-    <option value="1086036" {% if request.args.get('supplier') == '1086036' %}selected{% endif %}>CMZ COLLECTION</option>
-    <option value="1127426" {% if request.args.get('supplier') == '1127426' %}selected{% endif %}>BARLİZ TEKSTİL</option>
-    <option value="994330" {% if request.args.get('supplier') == '994330' %}selected{% endif %}>BAY BAYAN</option>
-  </select>
+ <select name="supplier" class="form-select" style="max-width:150px;">
+  <option value="">Tümü</option>
+
+  <option value="564724" {{ 'selected' if request.args.get('supplier')=='564724' else '' }}>
+    RUNADES
+  </option>
+
+  <option value="940685" {{ 'selected' if request.args.get('supplier')=='940685' else '' }}>
+    YAKAMEL TEKSTİL
+  </option>
+
+  <option value="938355" {{ 'selected' if request.args.get('supplier')=='938355' else '' }}>
+    YKML
+  </option>
+
+  <option value="1086036" {{ 'selected' if request.args.get('supplier')=='1086036' else '' }}>
+    CMZ COLLECTION
+  </option>
+
+  <option value="1127426" {{ 'selected' if request.args.get('supplier')=='1127426' else '' }}>
+    BARLİZ TEKSTİL
+  </option>
+
+  <option value="994330" {{ 'selected' if request.args.get('supplier')=='994330' else '' }}>
+    BAY BAYAN
+  </option>
+</select>
 
   <!-- Renk -->
   <select name="color" class="form-select" style="max-width:140px;">
@@ -243,9 +261,9 @@
   </ul>
 </div>
 
-<
-
-  <button class="btn btn-primary">Filtrele</button>
+<button type="submit" class="btn btn-primary">
+  Filtrele
+</button>
 </form>
 <div class="card mt-3">
   <div class="card-body">
@@ -283,6 +301,13 @@
   </div>
 </div>
 
+<div class="alert alert-info fw-bold">
+Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<span style="color:red;font-weight:600;">
+24 Saatten Az Kalan: {{ urgent_24h }}
+</span>
+</div>
 
 <!-- ===== TABLO ===== -->
 <div class="table-responsive bg-white rounded shadow-sm">
@@ -304,7 +329,7 @@
 
       {% for o in orders %}
 <tr>
-    <td>{{ (page-1) * per_page + loop.index }}</td>
+    <td>{{ loop.index }}</td>
 
     <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
 

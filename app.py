@@ -484,13 +484,13 @@ def index():
         today = datetime.now(IST).date()  # Türkiye tarihi
 
         # Created siparişler
-        created_orders, created_count = get_orders(status="Created", size=500)
+        created_orders, created_count = get_orders(status="Created", size=1000)
 
         # Picking siparişler
-        picking_orders, picking_count = get_orders(status="Picking", size=500)
+        picking_orders, picking_count = get_orders(status="Picking", size=1000)
 
         # Shipped siparişler
-        shipped_orders, shipped_count = get_orders(status="Shipped", size=500)
+        shipped_orders, shipped_count = get_orders(status="Shipped", size=1000)
 
         # 🔹 Bugün taşımada olanları yakala
         daily_shipped = []
@@ -532,117 +532,132 @@ def index():
 @app.route("/dashboard")
 @login_required
 def dashboard():
+
     status = request.args.get("status", "Created")
     page = int(request.args.get("page", 1))
-    per_page = 200
+    per_page = 100
 
     supplier_filter = request.args.get("supplier", "")
     color_filter = request.args.get("color", "")
-    search_query = (request.args.get("search") or "").strip().lower()
     selected_filters = request.args.getlist("filter")
 
-    if status == "Created":
-        orders_raw = get_created_orders_cached(force_refresh=True)
-        total_elements = len(orders_raw)
-    else:
-        orders_raw, total_elements = get_orders(status=status, size=500)
+    # 🔹 Siparişleri çek
+    all_orders, real_total_to_ship = get_orders(status=status, size=200)
 
-    # 🔥 SKU filtresi – SADECE siparişi filtreler, satırları silmez
-    if selected_filters and "ALL" not in selected_filters:
-        filtered_orders = []
+    orders_raw = all_orders.copy()
 
-        for o in orders_raw:
-            if any(
-                    (l.get("merchantSku") or l.get("sku") or "").upper() in selected_filters
-                    for l in o.get("lines", [])
-            ):
-                filtered_orders.append(o)
+    # -----------------------------
+    # MAĞAZA FİLTRESİ
+    # -----------------------------
+    if supplier_filter and supplier_filter != "ALL":
+        orders_raw = [
+            o for o in orders_raw
+            if str(o.get("supplier_id")) == supplier_filter
+        ]
 
-        orders_raw = filtered_orders
-
-    # 🔥 Renk filtresi (Doğru yöntem)
+    # -----------------------------
+    # RENK FİLTRESİ
+    # -----------------------------
     if color_filter:
-        cf = color_filter.upper()
-        filtered_orders = []
-
+        filtered = []
         for o in orders_raw:
-            # Sipariş içinde eşleşen herhangi bir renk var mı?
-            has_color = False
-
             for l in o.get("lines", []):
-                color = (l.get("productColor") or "").upper()
-                if color.startswith(cf):
-                    has_color = True
+                if color_filter.upper() in str(l.get("productColor","")).upper():
+                    filtered.append(o)
                     break
+        orders_raw = filtered
 
-            # Eğer sipariş bu rengi içeriyorsa listeye ekle
-            if has_color:
-                filtered_orders.append(o)
+    # -----------------------------
+    # STOK KODU FİLTRESİ
+    # -----------------------------
+    if selected_filters and "ALL" not in selected_filters:
+        filtered = []
+        for o in orders_raw:
+            for l in o.get("lines", []):
+                sku = (l.get("merchantSku") or l.get("sku") or "").upper()
 
-        # Siparişleri güncelle (içindeki satırları silmeden)
-        orders_raw = filtered_orders
+                if any(f in sku for f in selected_filters):
+                    filtered.append(o)
+                    break
+        orders_raw = filtered
 
-    # 🔹 Mağaza adı
-    for o in orders_raw:
-        o["supplier_name"] = AVAILABLE_SUPPLIERS.get(str(o.get("supplier_id")), "Bilinmeyen")
+    # -----------------------------
+    # SÜREYE GÖRE SIRALA
+    # -----------------------------
+    from datetime import datetime, timezone
 
-        # 🔥 Hediye Paketi Talebi kontrolü
-        is_gift = o.get("giftBoxRequested", False)
-
-        gift_note = (
-                o.get("giftNote") or
-                o.get("giftMessage") or
-                o.get("customerNote") or
-                ""
-        )
-
-        o["is_gift"] = is_gift
-        o["gift_note"] = gift_note
-
-    # 🔥 24 saatten az kalanlar
-    urgent_orders = []
     now = datetime.now(timezone.utc)
 
+    def deadline_sort(order):
+        dl = order.get("extendedAgreedDeliveryDate") or order.get("agreedDeliveryDate")
+
+        if not dl:
+            return 999999999
+
+        try:
+            dt = parse_date(dl)
+            if not dt:
+                return 999999999
+
+            diff = (dt - now).total_seconds()
+            return diff
+
+        except:
+            return 999999999
+
+    orders_raw.sort(key=deadline_sort)
+
+    # -----------------------------
+    # 24 SAAT KALANLAR
+    # -----------------------------
+    urgent_24h = 0
+
     for o in orders_raw:
+
         dl = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
-        dt = parse_date(dl)
 
-        if dt:
-            diff = (dt - now).total_seconds() / 3600
-            if diff <= 24:
-                urgent_orders.append(o)
+        if not dl:
+            continue
 
-    urgent_count = len(urgent_orders)
+        try:
+            dt_deadline = parse_date(dl)
 
-    # 🔥 URL parametresine göre listeyi filtrele
-    if request.args.get("urgent") == "true":
-        orders_raw = urgent_orders
+            if not dt_deadline:
+                continue
 
-    # 🔹 Kargolanacak Created sipariş sayısı
-    total_to_ship = sum(1 for o in orders_raw if o.get("status") == "Created")
+            kalan = (dt_deadline - now).total_seconds()
 
-    # 🔹 Tarih formatla
+            if 0 < kalan <= 86400:
+                urgent_24h += 1
+
+        except:
+            pass
+
+    # -----------------------------
+    # MAĞAZA ADI EKLE
+    # -----------------------------
     for o in orders_raw:
-        dt = parse_date(o.get("orderDate"))
-        if dt:
-            o["orderDateFormatted"] = dt.astimezone(IST).strftime("%d.%m.%Y %H:%M")
-        else:
-            o["orderDateFormatted"] = "-"
+        o["supplier_name"] = AVAILABLE_SUPPLIERS.get(
+            str(o.get("supplier_id")), "Bilinmeyen"
+        )
 
-    # 📌 SAYFALAMA
-    total_pages = max((len(orders_raw) // per_page) + (1 if len(orders_raw) % per_page else 0), 1)
+    # -----------------------------
+    # SAYFALAMA
+    # -----------------------------
+    total_orders = len(orders_raw)
 
-    if page < 1:
-        page = 1
-    if page > total_pages:
-        page = total_pages
+    total_pages = max((total_orders // per_page) + (1 if total_orders % per_page else 0), 1)
+
+    page = max(1, min(page, total_pages))
 
     start = (page - 1) * per_page
     end = start + per_page
+
     orders = orders_raw[start:end]
-    # --- Pagination Button Range ---
+
     start_page = max(1, page - 3)
     end_page = min(total_pages, page + 3)
+
     page_numbers = list(range(start_page, end_page + 1))
 
     return render_template(
@@ -651,8 +666,8 @@ def dashboard():
         page=page,
         total_pages=total_pages,
         page_numbers=page_numbers,
-        urgent_count=urgent_count,
-        total_to_ship=total_to_ship,
+        total_to_ship=real_total_to_ship,
+        urgent_24h=urgent_24h,
         selected_filters=selected_filters,
         supplier_filter=supplier_filter,
         color_filter=color_filter,

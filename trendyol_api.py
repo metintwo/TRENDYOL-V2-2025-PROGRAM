@@ -159,66 +159,64 @@ def filter_orders(orders):
             filtered.append(order)
     return filtered
 # ---------- orders list ----------
-def get_orders(
-    status: str = "Created",
-    size: int = 200,
-    page: int = 0,              # 🔥 EKLE
-    startDate: Optional[int] = None,
-    include_images: bool = False
-):
+def get_orders(status="Created", size=200):
 
-    """
-    Siparişleri getirir.
-    Tüm sayfaları dolaşır, eksiksiz sipariş listesi + toplam adet döner.
-    Backend tarafında kalan süreye göre sıralı döner.
-    """
-    end   = dt.datetime.now() + dt.timedelta(minutes=1)
-    start = dt.datetime.fromtimestamp(startDate / 1000) if startDate else end - dt.timedelta(days=14)
+    all_orders = []
 
-    result: List[Dict[str, Any]] = []
-    total = 0
+    for magaza in magazalar:
 
-    for m in magazalar:
-        sid = m["supplier_id"]
-        url = BASE + ORDERS_PATH.format(sellerId=sid)
+        supplier_id = magaza["supplier_id"]
+        api_key = magaza["api_key"]
+        api_secret = magaza["api_secret"]
 
         page = 0
+
         while True:
+
+            url = BASE + ORDERS_PATH.format(sellerId=supplier_id)
+
             params = {
                 "status": status,
-                "startDate": _ms(start),
-                "endDate": _ms(end),
-                "orderByField": "PackageLastModifiedDate",
-                "orderByDirection": "DESC",
-                "size": size,
                 "page": page,
+                "size": size,
+                "orderByField": "PackageLastModifiedDate",
+                "orderByDirection": "DESC"
             }
+
             try:
-                r = SESSION.get(url, headers=_headers(m["api_key"], m["api_secret"]),
-                                params=params, timeout=TIMEOUT)
+
+                r = SESSION.get(
+                    url,
+                    headers=_headers(api_key, api_secret),
+                    params=params,
+                    timeout=TIMEOUT
+                )
+
                 if r.status_code != 200:
-                    print(f"❌ {sid} orders status: {r.status_code} -> {r.text[:300]}")
+                    print("❌ orders", supplier_id, r.status_code, r.text[:200])
                     break
 
-                data = r.json() or {}
-                total += data.get("totalElements", 0)
+                data = r.json()
+                content = data.get("content", [])
 
-                content = data.get("content") or []
                 if not content:
                     break
 
                 for pkg in content:
-                    result.append(_normalize_order(pkg, supplier_id=sid))
+                    all_orders.append(
+                        _normalize_order(pkg, supplier_id)
+                    )
 
-                if (page + 1) * size >= data.get("totalElements", 0):
+                if len(content) < size:
                     break
+
                 page += 1
 
             except Exception as e:
-                print(f"❌ {sid} orders error:", e)
+                print("❌ get_orders exception:", e)
                 break
 
-    now_ms = int(dt.datetime.now().timestamp() * 1000)
+    return all_orders, len(all_orders)
 
     def _deadline_sort_key(x):
         dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
