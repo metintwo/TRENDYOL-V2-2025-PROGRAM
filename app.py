@@ -34,7 +34,7 @@ from datetime import datetime, timedelta
 CACHED_CREATED_ORDERS = []
 CACHED_AT = None
 
-def get_created_orders_cached(force_refresh=False, ttl_sec=60):
+def get_created_orders_cached(force_refresh=False, ttl_sec=5):
     """
     Created siparişleri cache'li olarak döner.
     Dashboard ve kargo-toplama aynı kaynağı kullanır.
@@ -954,6 +954,11 @@ def isleme_al(supplier_id, package_id):
 
     if ok:
         print("update_package_status OK ✓")
+
+        # 🔥 Created sipariş cache temizle
+        global CACHED_CREATED_ORDERS, CACHED_AT
+        CACHED_CREATED_ORDERS = []
+        CACHED_AT = None
 
         from models import ShippingLog
         from trendyol_api import get_order_detail
