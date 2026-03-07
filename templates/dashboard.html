@@ -328,7 +328,7 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
     <tbody id="ordersBody">
 
       {% for o in orders %}
-<tr>
+<tr id="row-{{ o.id }}">
     <td>{{ loop.index }}</td>
 
     <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
@@ -408,7 +408,9 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
 
         <td>{{ o.status }}</td>
 <td>
- <form method="POST" action="{{ url_for('isleme_al', supplier_id=o.supplier_id, package_id=o.id) }}">
+ <form method="POST"
+      class="form-isleme-al"
+      action="{{ url_for('isleme_al', supplier_id=o.supplier_id, package_id=o.id) }}">
     <input type="hidden" name="lines" value='{{ o.lines | tojson }}'>
 
     <input type="hidden" name="status" value="{{ request.args.get('status', 'Created') }}">
@@ -500,11 +502,13 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+
 // ===============================
-//   📌 ARAMA
+// 📌 ARAMA
 // ===============================
 document.getElementById("searchBox").addEventListener("input", function() {
     const q = this.value.toLowerCase().trim();
+
     document.querySelectorAll("#ordersBody tr").forEach(tr => {
         tr.style.display = tr.innerText.toLowerCase().includes(q) ? "" : "none";
     });
@@ -512,45 +516,57 @@ document.getElementById("searchBox").addEventListener("input", function() {
 
 
 // ===============================
-//   📌 GÖRSEL POPUP
+// 📌 GÖRSEL POPUP
 // ===============================
 const imgModal = new bootstrap.Modal(document.getElementById("imgModal"));
 const modalImg = document.getElementById("modalImg");
 
-document.addEventListener("click", e => {
+document.addEventListener("click", function(e){
+
     const img = e.target.closest(".product-img");
-    if (!img) return;
+    if(!img) return;
+
     modalImg.src = img.src;
     imgModal.show();
+
 });
 
-modalImg.addEventListener("click", () => imgModal.hide());
+modalImg.addEventListener("click", function(){
+    imgModal.hide();
+});
 
 
 // ===============================
-//   📌 YAZDIRMA POPUP
+// 📌 YAZDIRMA POPUP
 // ===============================
-document.addEventListener("click", e => {
+document.addEventListener("click", function(e){
+
     const btn = e.target.closest(".btn-print");
-    if (!btn) return;
+    if(!btn) return;
 
     const modal = new bootstrap.Modal(document.getElementById("printModal"));
     const iframe = document.getElementById("printFrame");
 
-    iframe.onload = () => {
-        try { iframe.contentWindow.print(); } catch(err){}
-        setTimeout(() => modal.hide(), 1200);
+    iframe.onload = function(){
+        try{
+            iframe.contentWindow.print();
+        }catch(err){}
+
+        setTimeout(()=> modal.hide(),1200);
     };
 
     iframe.src = btn.dataset.url + "?_=" + Date.now();
+
     modal.show();
+
 });
 
 
 // ===============================
-//   📌 LAZY LOAD
+// 📌 LAZY LOAD
 // ===============================
-function loadImage(img) {
+function loadImage(img){
+
     const qs = new URLSearchParams({
         supplier_id: img.dataset.supplier,
         barcode: img.dataset.barcode,
@@ -560,109 +576,180 @@ function loadImage(img) {
     });
 
     fetch("/api/line-image?" + qs.toString())
-        .then(r => r.json())
-        .then(d => {
-            if (d.url) img.src = d.url;
-        });
+    .then(r => r.json())
+    .then(d => {
+        if(d.url){
+            img.src = d.url;
+        }
+    });
+
 }
 
 document.querySelectorAll("img.lazy-img").forEach(loadImage);
 
 
 // ===============================
-//   📌 COUNTDOWN
+// 📌 COUNTDOWN
 // ===============================
 function fmt(ms){
+
     const total = Math.floor(ms / 1000);
+
     const d = Math.floor(total / 86400);
     const h = Math.floor((total % 86400) / 3600);
     const m = Math.floor((total % 3600) / 60);
     const s = total % 60;
 
-    if (d > 0) return `${d} gün ${h} saat ${m} dk`;
-    return `${h} saat ${m} dk ${s} sn`;
+    if(d > 0){
+        return d + " gün " + h + " saat " + m + " dk";
+    }
+
+    return h + " saat " + m + " dk " + s + " sn";
+
 }
 
 function tickCountdowns(){
+
     const now = Date.now();
+
     document.querySelectorAll(".countdown").forEach(el => {
+
         const dl = Number(el.dataset.deadline);
-        if (!dl) {
+
+        if(!dl){
             el.textContent = "Kalan: —";
             return;
         }
 
         const diff = dl - now;
-        if (diff <= 0) {
+
+        if(diff <= 0){
             el.textContent = "SÜRE DOLDU ❗";
-        } else {
+        }
+        else{
             el.textContent = "Kalan: " + fmt(diff);
         }
+
     });
+
 }
 
 tickCountdowns();
-setInterval(tickCountdowns, 1000);
+setInterval(tickCountdowns,1000);
 
 
-// ======================================
-// 🔥 İşlem sonrası aynı sıraya geri dön
-// ======================================
-document.addEventListener("DOMContentLoaded", function() {
-    const rowIndex = new URLSearchParams(window.location.search).get("row_index");
-    if (rowIndex) {
-        const row = document.querySelector(`#ordersBody tr:nth-child(${rowIndex})`);
-        if (row) {
-            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+// ====================================
+// 🚀 İŞLEME AL TIKLANINCA SATIRI GİZLE
+// ====================================
+document.querySelectorAll(".form-isleme-al").forEach(form => {
+
+    form.addEventListener("submit", function(){
+
+        const row = form.closest("tr");
+
+        if(row){
+
+            row.style.opacity = "0.3";
+            row.style.transition = "0.3s";
+
+            setTimeout(function(){
+                row.remove();
+            },200);
+
         }
+
+    });
+
+});
+
+
+// ======================================
+// 🔥 İŞLEM SONRASI AYNI SIRAYA DÖN
+// ======================================
+document.addEventListener("DOMContentLoaded", function(){
+
+    const rowIndex = new URLSearchParams(window.location.search).get("row_index");
+
+    if(rowIndex){
+
+        const row = document.querySelector(`#ordersBody tr:nth-child(${rowIndex})`);
+
+        if(row){
+            row.scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+        }
+
     }
+
 });
 
 </script>
+
+
 <script>
-function downloadKargoRaporu() {
-  const from = document.getElementById("dateFrom").value;
-  const to = document.getElementById("dateTo").value;
 
-  let url = "/kargo-raporu";
-  const params = [];
+// ===============================
+// 📥 KARGO RAPORU
+// ===============================
+function downloadKargoRaporu(){
 
-  if (from) params.push("from=" + from);
-  if (to) params.push("to=" + to);
+    const from = document.getElementById("dateFrom").value;
+    const to = document.getElementById("dateTo").value;
 
-  if (params.length > 0) {
-    url += "?" + params.join("&");
-  }
+    let url = "/kargo-raporu";
 
-  window.location.href = url;
+    const params = [];
+
+    if(from) params.push("from=" + from);
+    if(to) params.push("to=" + to);
+
+    if(params.length){
+        url += "?" + params.join("&");
+    }
+
+    window.location.href = url;
+
 }
 
-// 📅 HIZLI TARİH BUTONLARI
 
-function setToday() {
-  const today = new Date().toISOString().slice(0, 10);
-  document.getElementById("dateFrom").value = today;
-  document.getElementById("dateTo").value = today;
+// ===============================
+// 📅 TARİH BUTONLARI
+// ===============================
+function setToday(){
+
+    const today = new Date().toISOString().slice(0,10);
+
+    document.getElementById("dateFrom").value = today;
+    document.getElementById("dateTo").value = today;
+
 }
 
-function setYesterday() {
-  const d = new Date();
-  d.setDate(d.getDate() - 1);
-  const y = d.toISOString().slice(0, 10);
-  document.getElementById("dateFrom").value = y;
-  document.getElementById("dateTo").value = y;
+function setYesterday(){
+
+    const d = new Date();
+
+    d.setDate(d.getDate() - 1);
+
+    const y = d.toISOString().slice(0,10);
+
+    document.getElementById("dateFrom").value = y;
+    document.getElementById("dateTo").value = y;
+
 }
 
-function setLast7() {
-  const today = new Date();
-  const past = new Date();
-  past.setDate(today.getDate() - 6);
+function setLast7(){
 
-  document.getElementById("dateFrom").value = past.toISOString().slice(0, 10);
-  document.getElementById("dateTo").value = today.toISOString().slice(0, 10);
+    const today = new Date();
+
+    const past = new Date();
+
+    past.setDate(today.getDate() - 6);
+
+    document.getElementById("dateFrom").value = past.toISOString().slice(0,10);
+    document.getElementById("dateTo").value = today.toISOString().slice(0,10);
+
 }
+
 </script>
-
-
-</body>
-</html>
