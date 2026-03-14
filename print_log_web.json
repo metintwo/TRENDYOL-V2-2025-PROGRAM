@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "ts": "2026-03-14T10:18:45.936957",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:18:51.384382",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:19:16.201910",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:19:22.956381",
+    "barcode": "KMTK0052",
+    "qty": 5,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:20:03.191671",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:25:56.409065",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:41:34.204947",
+    "barcode": "KMTK0052",
+    "qty": 1,
+    "stok": "KMTK",
+    "urun": "LACİVERT KİMONO BÜRÜMCÜK TAKIM XL"
+  },
+  {
+    "ts": "2026-03-14T10:41:43.102433",
+    "barcode": "A0000018",
+    "qty": 1,
+    "stok": "SBSD",
+    "urun": "Sneaker Beyaz Siyah Deri 44"
+  }
+]

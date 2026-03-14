@@ -29,14 +29,24 @@ from flask_login import login_required
 # ==================================
 # PATHLER
 # ==================================
+
 BASE_DIR = Path(__file__).resolve().parent
+
 XML_FILE = BASE_DIR / "Entegra.xml"
 LOG_FILE = BASE_DIR / "print_log_web.json"
 SETTINGS_FILE = BASE_DIR / "settings.json"
 
+# Barkod cache
+CACHE_DIR = BASE_DIR / "barcode_cache"
+CACHE_DIR.mkdir(exist_ok=True)
+
+# Etiket cache
+LABEL_CACHE = BASE_DIR / "label_cache"
+LABEL_CACHE.mkdir(exist_ok=True)
+
+# Log arşiv
 ARCHIVE_DIR = BASE_DIR / "logs_archive"
 ARCHIVE_DIR.mkdir(exist_ok=True)
-
 # ==================================
 # SETTINGS – FINAL TEK SİSTEM
 # ==================================
@@ -118,22 +128,28 @@ def ensure_log():
         LOG_FILE.write_text("[]", "utf-8")
 
 def add_log(barcode, qty, stok, urun):
+
     ensure_log()
+
     try:
         data = json.loads(LOG_FILE.read_text("utf-8"))
     except:
         data = []
 
+    qty = int(qty)
+
     data.append({
         "ts": datetime.utcnow().isoformat(),
-        "barcode": barcode,
+        "barcode": str(barcode),
         "qty": qty,
-        "stok": stok,
-        "urun": urun
+        "stok": str(stok),
+        "urun": str(urun)
     })
 
-    LOG_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), "utf-8")
-
+    LOG_FILE.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2),
+        "utf-8"
+    )
 def read_logs():
     ensure_log()
     try:
@@ -234,82 +250,112 @@ def wrap_text(draw, text, font, max_width):
 
 
 def render_label(barcode, stok, urun):
+
+    label_cache_file = LABEL_CACHE / f"{barcode}_{stok}.png"
+
+    # Eğer etiket cache varsa direkt yükle
+    if label_cache_file.exists():
+        return Image.open(label_cache_file)
+
     settings = load_settings()
 
     dpi = int(settings["dpi"])
-    SCALE = 1.10  # %90 boyut (10% küçültme)
+    SCALE = 1.10
 
     W = int(mm_to_px(settings["label_width_mm"], dpi) * SCALE)
     H = int(mm_to_px(settings["label_height_mm"], dpi) * SCALE)
 
-    # Etiket yazıcıları taşma toleransı ister
     W -= 2
     H -= 2
-    LEFT_OFFSET = -15  # Etiketi komple sola çek
+
+    LEFT_OFFSET = -15
+
     img = Image.new("L", (W, H), 255)
     draw = ImageDraw.Draw(img)
 
-    # === STOK KODU ===
     f_stok = load_font(int(settings["header_font_size"]), bold=True)
+
     stok_x = int(settings["margin_left"]) + LEFT_OFFSET
     stok_y = int(settings["margin_top"])
+
     draw.text((stok_x, stok_y), stok, 0, font=f_stok)
 
-    # === BARKOD OLUŞTURMA ===
+    cache_file = CACHE_DIR / f"{barcode}.png"
+
+    bc_h = mm_to_px(settings["barcode_height_mm"], dpi)
+    usable_w = W - int(settings["margin_left"]) - 10
+
     try:
-        from barcode import Code128
-        from barcode.writer import ImageWriter
 
-        code = Code128(str(barcode), writer=ImageWriter())
-        buf = io.BytesIO()
-        code.write(buf, options={"module_width": float(settings["module_width"]), "font_size": 0})
+        if cache_file.exists():
+            bc = Image.open(cache_file)
 
-        bc = Image.open(io.BytesIO(buf.getvalue()))
-        bc_h = mm_to_px(settings["barcode_height_mm"], dpi)
+        else:
+            from barcode import Code128
+            from barcode.writer import ImageWriter
 
-        # Barkod genişliği
-        usable_w = W - int(settings["margin_left"]) - 10
+            code = Code128(str(barcode), writer=ImageWriter())
 
-        # Resize
+            buf = io.BytesIO()
+
+            code.write(
+                buf,
+                options={
+                    "module_width": float(settings["module_width"]),
+                    "font_size": 0
+                }
+            )
+
+            bc = Image.open(io.BytesIO(buf.getvalue()))
+            bc.save(cache_file)
+
         bc = bc.resize((usable_w, bc_h))
 
-        # Barkod pozisyonu
         bc_x = int(settings["margin_left"]) + LEFT_OFFSET
         bc_y = stok_y + f_stok.size + 12
+
         img.paste(bc, (bc_x, bc_y))
 
-        # === BARKOD NUMARASI: Stok kodu ile aynı hizaya, en sağa ===
-        f_barc = load_font(int(settings["header_font_size"]) - 2, bold=False)
+    except Exception as e:
+        print("❌ Barkod oluşturulamadı:", e)
+
+    try:
+
+        f_barc = load_font(int(settings["header_font_size"]) - 2)
 
         barcode_text = str(barcode)
+
         text_w = draw.textlength(barcode_text, font=f_barc)
 
-        # Sağ tarafa yerleştir (5px içeride)
         barcode_x = W - text_w - 5 + LEFT_OFFSET
-        barcode_y = stok_y  # Stok kodu ile aynı çizgi
+        barcode_y = stok_y
 
         draw.text((barcode_x, barcode_y), barcode_text, 0, font=f_barc)
 
-    except Exception as e:
-        print("❌ Barkod çizilemedi:", e)
+    except:
+        pass
 
-    # === ÜRÜN ADI ORTALANMIŞ ===
     f_prod = load_font(int(settings["product_font_size"]), bold=True)
+
     max_width = W - int(settings["margin_left"]) - 10
 
     lines = wrap_text(draw, urun, f_prod, max_width)
 
-    # Başlangıç Y konumu (barkodun altına 10px boşluk)
     y = bc_y + bc_h + 10
 
     for line in lines:
         text_w = draw.textlength(line, font=f_prod)
-        center_x = (W - text_w) // 2 + LEFT_OFFSET # → ORTALA
+
+        center_x = (W - text_w) // 2 + LEFT_OFFSET
+
         draw.text((center_x, y), line, 0, font=f_prod)
+
         y += f_prod.size + 4
 
-    return img
+    # etiketi cache'e kaydet
+    img.save(label_cache_file)
 
+    return img
 
 # ==================================
 # PAKETLEME SAYFASI
@@ -348,6 +394,17 @@ def paketleme_page():
         total_count=total_count,
         settings=load_settings()
     )
+
+@paketleme_blueprint.route("/clear-cache")
+def clear_cache():
+
+    for f in LABEL_CACHE.glob("*.png"):
+        f.unlink()
+
+    for f in CACHE_DIR.glob("*.png"):
+        f.unlink()
+
+    return "Cache temizlendi"
 
 # ==================================
 # ÖNİZLEME
@@ -549,6 +606,40 @@ def rapor_toplam_excel():
         download_name=f"toplam_rapor_{date_sel}.xlsx"
     )
 
+# ==================================
+# CANLI DASHBOARD DATA
+# ==================================
+
+@paketleme_blueprint.route("/dashboard-data")
+@login_required
+def dashboard_data():
+
+    logs = read_logs()
+
+    today = datetime.utcnow().date()
+
+    today_logs = [
+        r for r in logs
+        if datetime.fromisoformat(r["ts"]).date() == today
+    ]
+
+    total_today = sum(int(r["qty"]) for r in today_logs)
+
+    operators = {}
+
+    for r in today_logs:
+        op = r.get("operator","Bilinmiyor")
+        operators.setdefault(op,0)
+        operators[op] += int(r["qty"])
+
+    last = today_logs[-1] if today_logs else None
+
+    return {
+        "today_total": total_today,
+        "operators": operators,
+        "last_product": last["urun"] if last else "",
+        "last_barcode": last["barcode"] if last else ""
+    }
 
 # ==================================
 # AYAR SAYFASI
