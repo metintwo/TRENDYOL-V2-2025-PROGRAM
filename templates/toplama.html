@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<title>Depo Toplama Paneli</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+background:#f5f7fb;
+padding:20px;
+}
+
+.order-box{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-bottom:12px;
+cursor:pointer;
+border:1px solid #ddd;
+}
+
+.order-header{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.product-img{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:6px;
+border:1px solid #ddd;
+cursor:pointer;
+}
+
+.item{
+padding:10px;
+border-bottom:1px solid #eee;
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.picked{
+background:#d4edda;
+}
+
+.barcode-input{
+max-width:200px;
+}
+
+.customer{
+font-size:14px;
+color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<h4 class="mb-3">📦 Depo Toplama Paneli</h4>
+
+<div id="waitingOrders">
+
+{% for order in waiting_orders %}
+
+<div class="order-box" onclick="toggleOrder('{{order.packageId}}')">
+
+<div class="order-header">
+
+<img
+src="{{order.lines[0].productImage}}"
+class="product-img"
+loading="lazy"
+onclick="event.stopPropagation();toggleImage(this)"
+>
+
+<div>
+
+<strong>{{loop.index}}. Sipariş</strong><br>
+
+<strong>{{order.supplierName}}</strong>
+
+<div class="customer">
+{{order.customerFirstName}} {{order.customerLastName}}
+</div>
+
+</div>
+
+</div>
+
+
+<div id="order-{{order.packageId}}" style="display:none;margin-top:10px;">
+
+{% for item in order.lines %}
+
+<div class="item" id="item-{{order.packageId}}-{{loop.index}}">
+
+<img
+src="{{item.productImage}}"
+class="product-img"
+loading="lazy"
+onclick="toggleImage(this)"
+>
+
+<div style="flex:1">
+
+<strong>{{ item.productName }}</strong><br>
+
+Renk: {{ item.productColor }} |
+Beden: {{ item.productSize }} |
+Adet: {{ item.quantity }}
+
+</div>
+
+<input
+type="text"
+class="form-control barcode-input"
+placeholder="Barkod okut"
+data-order="{{order.packageId}}"
+data-item="item-{{order.packageId}}-{{loop.index}}"
+>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<hr>
+
+<h4>📦 Toplanan Siparişler</h4>
+
+<div>
+
+{% for order in picked_orders %}
+
+<div class="order-box">
+
+<strong>{{order.orderNumber}}</strong>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+function toggleOrder(id){
+
+    let el = document.getElementById("order-"+id)
+
+    if(el.style.display=="none"){
+        el.style.display="block"
+    }else{
+        el.style.display="none"
+    }
+
+}
+
+
+// ---------------------------
+// BARKOD OKUTMA
+// ---------------------------
+function scanBarcode(order_id,input,item_id){
+
+    let barcode = input.value.trim()
+
+    if(!barcode) return
+
+    fetch("/scan_barcode",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            order_id:order_id,
+            barcode:barcode
+        })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+
+        if(data.success){
+
+            let el = document.getElementById(item_id)
+
+            if(el){
+                el.classList.add("picked")
+            }
+
+            input.value=""
+            input.focus()
+
+            if(data.complete){
+                location.reload()
+            }
+
+        }else{
+            alert(data.error || "Barkod okunamadı")
+        }
+
+    })
+    .catch(err=>{
+        console.error("Scan error:",err)
+    })
+}
+
+
+// ---------------------------
+// ENTER İLE OKUTMA
+// ---------------------------
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+
+        let input = document.activeElement
+
+        if(input.classList.contains("barcode-input")){
+
+            e.preventDefault()
+
+            let order_id = input.dataset.order
+            let item_id = input.dataset.item
+
+            scanBarcode(order_id,input,item_id)
+
+        }
+
+    }
+
+})
+
+
+// ---------------------------
+// GÖRSEL BÜYÜTME
+// ---------------------------
+function toggleImage(img){
+
+    if(img.style.position=="fixed"){
+
+        img.style.position=""
+        img.style.width="90px"
+        img.style.height="90px"
+        img.style.zIndex=""
+
+    }else{
+
+        img.style.position="fixed"
+        img.style.top="50%"
+        img.style.left="50%"
+        img.style.transform="translate(-50%,-50%)"
+        img.style.width="500px"
+        img.style.height="auto"
+        img.style.zIndex="9999"
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>

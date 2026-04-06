@@ -94,7 +94,7 @@ def _normalize_order(pkg: Dict[str, Any], supplier_id: str) -> Dict[str, Any]:
             "productColor": li.get("productColor", ""),
             "quantity": li.get("quantity", 1),
             "price": li.get("price") or li.get("amount"),
-            "merchantSku": li.get("merchantSku", ""),
+            "merchantSku": li.get("merchantSku") or li.get("stockCode", ""),
             "sku": li.get("sku", ""),
             "barcode": li.get("barcode", ""),
             "productCode": li.get("productCode", "")
@@ -109,7 +109,7 @@ def _normalize_order(pkg: Dict[str, Any], supplier_id: str) -> Dict[str, Any]:
         "supplier_name": id_to_name.get(supplier_id, supplier_id),
 
         # Temel bilgiler
-        "id": pkg.get("id"),
+        "id": pkg.get("shipmentPackageId") or pkg.get("id"),
         "orderNumber": pkg.get("orderNumber", ""),
         "status": pkg.get("status", ""),
 
@@ -162,6 +162,7 @@ def filter_orders(orders):
 def get_orders(status="Created", size=200):
 
     all_orders = []
+    seen_ids = set()  # 🔥 duplicate engelle
 
     for magaza in magazalar:
 
@@ -170,6 +171,7 @@ def get_orders(status="Created", size=200):
         api_secret = magaza["api_secret"]
 
         page = 0
+        max_page = 50  # 🔥 güvenlik limiti (sonsuz loop engel)
 
         while True:
 
@@ -184,7 +186,6 @@ def get_orders(status="Created", size=200):
             }
 
             try:
-
                 r = SESSION.get(
                     url,
                     headers=_headers(api_key, api_secret),
@@ -193,31 +194,51 @@ def get_orders(status="Created", size=200):
                 )
 
                 if r.status_code != 200:
-                    print("❌ orders", supplier_id, r.status_code, r.text[:200])
+                    print(f"❌ orders hata → mağaza:{supplier_id} code:{r.status_code}")
                     break
 
                 data = r.json()
                 content = data.get("content", [])
 
+                # 🔥 VERİ YOKSA BİTİR (DOĞRU BREAK)
                 if not content:
                     break
 
                 for pkg in content:
-                    all_orders.append(
-                        _normalize_order(pkg, supplier_id)
+
+                    order = _normalize_order(pkg, supplier_id)
+
+                    # 🔥 DOĞRU ID
+                    order_id = (
+                        pkg.get("shipmentPackageId")
+                        or pkg.get("packageId")
+                        or pkg.get("id")
                     )
 
-                if len(content) < size:
-                    break
+                    # 🔥 duplicate engelle
+                    if order_id in seen_ids:
+                        continue
+
+                    seen_ids.add(order_id)
+
+                    all_orders.append(order)
+
+                print(f"📦 {supplier_id} | page:{page} | gelen:{len(content)}")
 
                 page += 1
+
+                # 🔥 sonsuz loop güvenliği
+                if page > max_page:
+                    print("⚠️ max page limit aşıldı")
+                    break
 
             except Exception as e:
                 print("❌ get_orders exception:", e)
                 break
 
-    return all_orders, len(all_orders)
+    print("✅ TOPLAM ÇEKİLEN:", len(all_orders))
 
+    return all_orders, len(all_orders)
     def _deadline_sort_key(x):
         dl = x.get("extendedAgreedDeliveryDate") or x.get("agreedDeliveryDate")
         if not dl:
@@ -329,7 +350,7 @@ def resolve_line_image(
         search_list.append({"productCode": productCode})
 
     # 3) productId → productCode rakamsa
-    if productCode and productCode.isdigit():
+    if productCode and str(productCode).isdigit():
         search_list.append({"productId": int(productCode)})
 
     # 4) merchantSku ile tarama (stokCode DEĞİL!)

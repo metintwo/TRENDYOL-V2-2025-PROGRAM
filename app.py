@@ -17,7 +17,8 @@ from models import db, User
 from models import ShippingLog
 from flask import session
 from collections import defaultdict
-
+from flask import render_template, request, jsonify
+from models import db, Order, OrderItem
 
 # ===========================
 #  PAKETLEME MODÜLÜ IMPORT
@@ -552,10 +553,32 @@ def dashboard():
     color_filter = request.args.get("color", "")
     selected_filters = request.args.getlist("filter")
 
-    # 🔹 Siparişleri çek
-    all_orders, real_total_to_ship = get_orders(status=status, size=200)
+    # 🔥 KRİTİK FIX
+    selected_filters = [f for f in selected_filters if f and f != "ALL"]
 
-    orders_raw = all_orders.copy()
+    # 🔹 Siparişleri çek
+    all_orders = get_created_orders_cached()
+    real_total_to_ship = len(all_orders)
+
+    orders_raw = []
+
+    for o in all_orders:
+
+        if not isinstance(o, dict):
+            continue
+
+        # ✅ ID FIX
+        o["id"] = (
+            o.get("shipmentPackageId")
+            or o.get("packageId")
+            or o.get("id")
+        )
+
+        # ✅ SUPPLIER FIX
+        o["supplier_id"] = o.get("supplier_id") or o.get("supplierId")
+
+        if o["id"]:
+            orders_raw.append(o)
 
     # -----------------------------
     # MAĞAZA FİLTRESİ
@@ -563,13 +586,13 @@ def dashboard():
     if supplier_filter and supplier_filter != "ALL":
         orders_raw = [
             o for o in orders_raw
-            if str(o.get("supplier_id")) == supplier_filter
+            if str(o.get("supplier_id", "")) == supplier_filter
         ]
 
     # -----------------------------
-    # RENK FİLTRESİ
+    # RENK FİLTRESİ (FIX)
     # -----------------------------
-    if color_filter:
+    if color_filter and color_filter != "":
         filtered = []
         for o in orders_raw:
             for l in o.get("lines", []):
@@ -579,9 +602,14 @@ def dashboard():
         orders_raw = filtered
 
     # -----------------------------
-    # STOK KODU FİLTRESİ
+    # SKU FİLTRESİ (FIX)
     # -----------------------------
-    if selected_filters and "ALL" not in selected_filters:
+    selected_filters = request.args.getlist("filter")
+
+    # 🔥 GERÇEK FIX
+    if selected_filters == [''] or selected_filters == []:
+        selected_filters = []
+    if selected_filters and len(selected_filters) > 0:
         filtered = []
         for o in orders_raw:
             for l in o.get("lines", []):
@@ -593,10 +621,9 @@ def dashboard():
         orders_raw = filtered
 
     # -----------------------------
-    # SÜREYE GÖRE SIRALA
+    # SIRALAMA
     # -----------------------------
     from datetime import datetime, timezone
-
     now = datetime.now(timezone.utc)
 
     def deadline_sort(order):
@@ -610,21 +637,18 @@ def dashboard():
             if not dt:
                 return 999999999
 
-            diff = (dt - now).total_seconds()
-            return diff
-
+            return (dt - now).total_seconds()
         except:
             return 999999999
 
     orders_raw.sort(key=deadline_sort)
 
     # -----------------------------
-    # 24 SAAT KALANLAR
+    # 24 SAAT
     # -----------------------------
     urgent_24h = 0
 
     for o in orders_raw:
-
         dl = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
 
         if not dl:
@@ -632,7 +656,6 @@ def dashboard():
 
         try:
             dt_deadline = parse_date(dl)
-
             if not dt_deadline:
                 continue
 
@@ -640,12 +663,11 @@ def dashboard():
 
             if 0 < kalan <= 86400:
                 urgent_24h += 1
-
         except:
             pass
 
     # -----------------------------
-    # MAĞAZA ADI EKLE
+    # MAĞAZA ADI
     # -----------------------------
     for o in orders_raw:
         o["supplier_name"] = AVAILABLE_SUPPLIERS.get(
@@ -691,7 +713,180 @@ def dashboard():
             "status": status
         }
     )
+# --------------------------------
+# TOPLAMA SAYFASI
+# --------------------------------
+from trendyol_api import resolve_line_image
 
+SELLER_NAMES = {
+    "994330": "BAY BAYAN",
+    "938355": "YKML",
+    "1127426": "BARLİZ",
+    "1086036": "CMZ COLLECTION",
+    "940685": "YAKAMEL TEKSTİL",
+    "564724": "RUNADES"
+}
+
+@app.route("/toplama")
+def toplama():
+
+    orders = get_created_orders_cached()
+
+    waiting_orders = []
+    picked_orders = []
+
+    for o in orders:
+
+        package_id = str(
+            o.get("shipmentPackageId")
+            or o.get("packageId")
+            or o.get("id")
+        )
+        o["packageId"] = package_id
+
+        o["customerFirstName"] = o.get("customerFirstName", "")
+        o["customerLastName"] = o.get("customerLastName", "")
+
+        supplier_id = str(
+            o.get("supplier_id")
+            or o.get("supplierId")
+            or o.get("sellerId")
+            or ""
+        )
+
+        o["supplierName"] = SELLER_NAMES.get(supplier_id, supplier_id)
+
+        lines = o.get("lines", [])
+
+        for line in lines:
+
+            barcode = str(line.get("barcode") or "")
+
+            # 1️⃣ sipariş içinden resim varsa
+            image = (
+                line.get("imageUrl")
+                or line.get("productImage")
+                or line.get("productImageUrl")
+            )
+
+            # 2️⃣ cache kontrol
+            if not image and barcode in IMAGE_CACHE:
+                image = IMAGE_CACHE[barcode]
+
+            # 3️⃣ product API (sadece ilk sefer)
+            if not image:
+
+                try:
+                    image = resolve_line_image(
+                        supplier_id=supplier_id,
+                        barcode=barcode,
+                        merchantSku=line.get("merchantSku") or line.get("stockCode"),
+                        sku=line.get("sku"),
+                        productCode=str(line.get("productCode") or "")
+                    )
+
+                    if image:
+                        IMAGE_CACHE[barcode] = image
+
+                except:
+                    image = None
+
+            # 4️⃣ placeholder
+            if not image:
+                image = "https://via.placeholder.com/90"
+
+            line["productImage"] = image
+
+            line["productColor"] = (
+                line.get("productColor")
+                or line.get("color")
+                or "-"
+            )
+
+            line["productSize"] = (
+                line.get("productSize")
+                or line.get("size")
+                or "-"
+            )
+
+            line["productName"] = line.get("productName", "")
+
+            line["quantity"] = line.get("quantity", 1)
+
+        o["lines"] = lines
+
+        existing = Order.query.filter_by(package_id=package_id).first()
+
+        if existing and existing.order_stage == "picked":
+            picked_orders.append(o)
+        else:
+            waiting_orders.append(o)
+
+    return render_template(
+        "toplama.html",
+        waiting_orders=waiting_orders,
+        picked_orders=picked_orders
+    )
+# --------------------------------
+# BARKOD OKUTMA API
+# --------------------------------
+@app.route("/scan_barcode", methods=["POST"])
+def scan_barcode():
+
+    data = request.json
+    order_id = data["order_id"]
+    barcode = data["barcode"]
+
+    item = (
+        OrderItem.query
+        .filter_by(order_id=order_id, barcode=barcode)
+        .filter(OrderItem.picked_qty < OrderItem.quantity)
+        .first()
+    )
+
+    if not item:
+        return jsonify({"error": "Bu barkod siparişte yok"})
+
+    item.picked_qty += 1
+    db.session.commit()
+
+    return jsonify({
+        "success": True,
+        "product": item.product_name,
+        "picked": item.picked_qty,
+        "total": item.quantity
+    })
+
+# --- IMAGE CACHE ---
+IMAGE_CACHE = {}
+
+def preload_images():
+    """
+    Sunucu açılırken siparişlerdeki ürün resimlerini cache'e alır.
+    Aynı barkod tekrar API çağırmaz.
+    """
+    try:
+        orders = get_created_orders_cached()
+        for o in orders:
+            supplier_id = str(o.get("supplier_id") or o.get("supplierId") or o.get("sellerId") or "")
+            for line in o.get("lines", []):
+                barcode = line.get("barcode")
+                if not barcode:
+                    continue
+                if barcode in IMAGE_CACHE:
+                    continue
+
+                img = resolve_line_image(
+                    supplier_id=supplier_id,
+                    barcode=barcode,
+                    merchantSku=line.get("merchantSku"),
+                    sku=line.get("sku"),
+                    productCode=str(line.get("productCode") or "")
+                )
+                if img:
+                    IMAGE_CACHE[barcode] = img
+    except Exception as e:
+        print("❌ preload_images error:", e)
 # ---- Sorular ----
 @app.route("/questions")
 @login_required
