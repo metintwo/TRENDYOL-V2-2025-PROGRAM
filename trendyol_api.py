@@ -26,7 +26,7 @@ id_to_name = {
     "938355": "YKML-YAŞAR YILMAZ",
     "994330": "BAY BAYAN",
     "940685": "YAKAMEL TEKSTİL - TUĞÇE YILMAZ",
-    "564724": "RUNADES",
+    "564724": "YUNUS EMRE KAYA",
     "1127426": "BARLİZ TEKSTİL",
     "1086036": "CMZ COLLECTION",
 }

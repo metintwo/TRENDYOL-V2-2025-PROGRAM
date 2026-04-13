@@ -359,7 +359,7 @@ def browser_print():
     """, barcode=barcode, stok=stok, urun=urun, qty=qty)
 
 SURAT_KARGO_HESAPLARI = {
-    "564724": {  # RUNADES
+    "564724": {  # YUNUS EMRE KAYA
         "KullaniciAdi": "1500205406",   # ✅ sözleşme kodu artık kullanıcı adı
         "Sifre": "Yunus.5406",          # ✅ senin gerçek şifren
         "SozlesmeKodu": "1500205406",   # aynı kalabilir
@@ -413,7 +413,7 @@ from datetime import datetime, timezone
 
 # 🔹 Mağaza ve Renk Filtresi Ayarları
 AVAILABLE_SUPPLIERS = {
-    "564724": "RUNADES",
+    "564724": "YUNUS EMRE KAYA",
     "940685": "YAKAMEL TEKSTİL",
     "938355": "YKML",
     "1086036": "CMZ COLLECTION",
@@ -724,7 +724,7 @@ SELLER_NAMES = {
     "1127426": "BARLİZ",
     "1086036": "CMZ COLLECTION",
     "940685": "YAKAMEL TEKSTİL",
-    "564724": "RUNADES"
+    "564724": "YUNUS EMRE KAYA"
 }
 
 @app.route("/toplama")
