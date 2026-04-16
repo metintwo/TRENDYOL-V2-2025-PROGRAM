@@ -484,7 +484,7 @@ def index():
     try:
         today = datetime.now(IST).date()
 
-        created_orders, _ = get_orders(status="Created", size=200)
+        created_orders = get_created_orders_cached()
         created_count = len(created_orders)
 
         picking_orders, _ = get_orders(status="Picking", size=200)
@@ -557,7 +557,11 @@ def dashboard():
     selected_filters = [f for f in selected_filters if f and f != "ALL"]
 
     # 🔹 Siparişleri çek
-    all_orders = get_created_orders_cached()
+    if status == "Created":
+        all_orders = get_created_orders_cached()
+    else:
+        all_orders, _ = get_orders(status=status, size=200)
+
     real_total_to_ship = len(all_orders)
 
     orders_raw = []
@@ -583,7 +587,7 @@ def dashboard():
     # -----------------------------
     # MAĞAZA FİLTRESİ
     # -----------------------------
-    if supplier_filter and supplier_filter != "ALL":
+    if supplier_filter:
         orders_raw = [
             o for o in orders_raw
             if str(o.get("supplier_id", "")) == supplier_filter
@@ -602,15 +606,11 @@ def dashboard():
         orders_raw = filtered
 
     # -----------------------------
-    # SKU FİLTRESİ (FIX)
+    # SKU FİLTRESİ (TEMİZ)
     # -----------------------------
-    selected_filters = request.args.getlist("filter")
-
-    # 🔥 GERÇEK FIX
-    if selected_filters == [''] or selected_filters == []:
-        selected_filters = []
-    if selected_filters and len(selected_filters) > 0:
+    if selected_filters:
         filtered = []
+
         for o in orders_raw:
             for l in o.get("lines", []):
                 sku = (l.get("merchantSku") or l.get("sku") or "").upper()
@@ -618,6 +618,7 @@ def dashboard():
                 if any(f in sku for f in selected_filters):
                     filtered.append(o)
                     break
+
         orders_raw = filtered
 
     # -----------------------------
@@ -724,6 +725,7 @@ SELLER_NAMES = {
     "1127426": "BARLİZ",
     "1086036": "CMZ COLLECTION",
     "940685": "YAKAMEL TEKSTİL",
+    "1190254": "RUNADES",
     "564724": "YUNUS EMRE KAYA"
 }
 

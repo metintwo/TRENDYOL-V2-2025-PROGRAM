@@ -197,6 +197,10 @@
     BARLİZ TEKSTİL
   </option>
 
+  <option value="1190254" {{ 'selected' if request.args.get('supplier')=='1190254' else '' }}>
+    RUNADES
+  </option>
+
   <option value="994330" {{ 'selected' if request.args.get('supplier')=='994330' else '' }}>
     BAY BAYAN
   </option>
@@ -232,7 +236,7 @@
                             supplier=request.args.get('supplier'),
                             color=request.args.get('color'),
                             status=request.args.get('status','Created'),
-                            filter='ALL') }}">
+                            filter='') }}">
             Hepsi
         </a>
       </li>
@@ -248,15 +252,16 @@
         "OFT","PLR","SFTK","KUKT"
       ] %}
       <li>
-        <a class="dropdown-item {% if code in selected_filters %}active fw-bold{% endif %}"
-           href="{{ url_for('dashboard',
-                            supplier=request.args.get('supplier'),
-                            color=request.args.get('color'),
-                            status=request.args.get('status','Created'),
-                            filter=code) }}">
-            {{ code }}
-        </a>
-      </li>
+  <a class="dropdown-item {% if code in selected_filters %}active fw-bold{% endif %}"
+     href="{{ url_for('dashboard',
+        supplier=request.args.get('supplier'),
+        color=request.args.get('color'),
+        status=request.args.get('status','Created'),
+        filter=[code] + request.args.getlist('filter')
+     ) }}">
+      {{ code }}
+  </a>
+</li>
       {% endfor %}
   </ul>
 </div>

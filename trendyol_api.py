@@ -20,6 +20,7 @@ magazalar = [
     {"supplier_id": "564724", "api_key": "oOiLfMB6LOJbyhVNk9zW", "api_secret": "nJPGoNm81NdHnuuSkpje"},
     {"supplier_id": "1127426", "api_key": "k7wl7ZigesBcjunfN1Zi", "api_secret": "lkiNlWUms04zvSumqHDy"},
     {"supplier_id": "1086036", "api_key": "mTYdRwclOTJ6o17894yG", "api_secret": "jbw0bvLZiILAwSW8uODE"},
+    {"supplier_id": "1190254", "api_key": "6KOTo2V0lVp6ENsUZHZh", "api_secret": "FgmQBu5fFAFDVzlX4LKY"},
 ]
 
 id_to_name = {
@@ -29,6 +30,7 @@ id_to_name = {
     "564724": "YUNUS EMRE KAYA",
     "1127426": "BARLİZ TEKSTİL",
     "1086036": "CMZ COLLECTION",
+    "1190254": "RUNADES",
 }
 
 BASE = "https://apigw.trendyol.com"
