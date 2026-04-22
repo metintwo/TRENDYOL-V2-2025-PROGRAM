@@ -46,45 +46,65 @@ def get_created_orders_cached(force_refresh=False, ttl_sec=5):
     )
 
     if force_refresh or cache_expired or not CACHED_CREATED_ORDERS:
+
         all_orders = []
 
         for st in ["Created", "Picking", "Invoiced"]:
-            orders, _ = get_orders(status=st, size=200)
-            all_orders.extend(orders)
+            try:
+                orders, _ = get_orders(status=st, size=200)
+                if orders:
+                    all_orders.extend(orders)
+                    print(f"📦 {st}:", len(orders))
+            except Exception as e:
+                print(f"❌ {st} hata:", e)
 
-        # 🔥 BURASI DÜZELTİLDİ
+        # 🔥 DUPLICATE TEMİZLE (EN KRİTİK)
+        unique = {}
+
+        for o in all_orders:
+
+            if not isinstance(o, dict):
+                continue
+
+            oid = (
+                o.get("shipmentPackageId")
+                or o.get("packageId")
+                or o.get("id")
+            )
+
+            if not oid:
+                continue
+
+            existing = unique.get(oid)
+
+            if existing:
+                old_time = existing.get("lastModifiedDate", 0)
+                new_time = o.get("lastModifiedDate", 0)
+
+                if new_time and old_time and new_time > old_time:
+                    unique[oid] = o
+            else:
+                unique[oid] = o
+
+        all_orders = list(unique.values())
+
+        # 🔥 supplier fix (yurt dışı için)
+        for o in all_orders:
+            o["supplier_id"] = (
+                o.get("supplier_id")
+                or o.get("supplierId")
+                or o.get("sellerId")
+            )
+
         CACHED_CREATED_ORDERS = all_orders
-
         CACHED_AT = now
-        print("🔄 TÜM siparişler yenilendi:", len(CACHED_CREATED_ORDERS))
+
+        print("🔄 NET SİPARİŞ:", len(all_orders))
+
     else:
         print("⚡ Cache:", len(CACHED_CREATED_ORDERS))
 
     return CACHED_CREATED_ORDERS
-
-try:
-    from barcode import Code128
-    from barcode.writer import ImageWriter
-    HAS_BARCODE = True
-except:
-    HAS_BARCODE = False
-
-XML_FILE = Path("Entegra.xml")
-LOG_FILE = Path("print_log_web.json")
-
-DEFAULT_LAYOUT = {
-    "dpi": 203,
-    "label_width_mm": 50.0,
-    "label_height_mm": 30.0,
-    "margin_x_mm": 3.0,
-    "margin_top_mm": 3.0,
-    "margin_bottom_mm": 3.0,
-    "barcode_height_mm": 18.0,
-    "module_width": 0.35,
-    "header_font_size": 18,
-    "barcode_text_font_size": 14,
-    "product_font_size": 20,
-}
 # ===========================
 #   XML OKUMA
 # ===========================
@@ -559,33 +579,20 @@ def dashboard():
     # 🔥 KRİTİK FIX
     selected_filters = [f for f in selected_filters if f and f != "ALL"]
 
-    # 🔹 Siparişleri çek
+    all_orders = get_created_orders_cached()
+
     if status == "Created":
-        all_orders = get_created_orders_cached()
+        orders_raw = [
+            o for o in all_orders
+            if (o.get("status") or o.get("shipmentPackageStatus")) in ["Created", "Invoiced"]
+        ]
     else:
-        all_orders, _ = get_orders(status=status, size=200)
+        orders_raw = [
+            o for o in all_orders
+            if (o.get("status") or o.get("shipmentPackageStatus")) == status
+        ]
 
-    real_total_to_ship = len(all_orders)
-
-    orders_raw = []
-
-    for o in all_orders:
-
-        if not isinstance(o, dict):
-            continue
-
-        # ✅ ID FIX
-        o["id"] = (
-            o.get("shipmentPackageId")
-            or o.get("packageId")
-            or o.get("id")
-        )
-
-        # ✅ SUPPLIER FIX
-        o["supplier_id"] = o.get("supplier_id") or o.get("supplierId")
-
-        if o["id"]:
-            orders_raw.append(o)
+    real_total_to_ship = len(orders_raw)
 
     # -----------------------------
     # MAĞAZA FİLTRESİ
