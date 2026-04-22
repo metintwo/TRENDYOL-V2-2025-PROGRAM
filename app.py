@@ -36,10 +36,6 @@ CACHED_CREATED_ORDERS = []
 CACHED_AT = None
 
 def get_created_orders_cached(force_refresh=False, ttl_sec=5):
-    """
-    Created siparişleri cache'li olarak döner.
-    Dashboard ve kargo-toplama aynı kaynağı kullanır.
-    """
     global CACHED_CREATED_ORDERS, CACHED_AT
 
     now = datetime.utcnow()
@@ -50,12 +46,19 @@ def get_created_orders_cached(force_refresh=False, ttl_sec=5):
     )
 
     if force_refresh or cache_expired or not CACHED_CREATED_ORDERS:
-        orders, total = get_orders(status="Created", size=1000)
-        CACHED_CREATED_ORDERS = orders
+        all_orders = []
+
+        for st in ["Created", "Picking", "Invoiced"]:
+            orders, _ = get_orders(status=st, size=200)
+            all_orders.extend(orders)
+
+        # 🔥 BURASI DÜZELTİLDİ
+        CACHED_CREATED_ORDERS = all_orders
+
         CACHED_AT = now
-        print("🔄 Created siparişler Trendyol'dan yenilendi:", len(CACHED_CREATED_ORDERS))
+        print("🔄 TÜM siparişler yenilendi:", len(CACHED_CREATED_ORDERS))
     else:
-        print("⚡ Created siparişler cache'ten alındı:", len(CACHED_CREATED_ORDERS))
+        print("⚡ Cache:", len(CACHED_CREATED_ORDERS))
 
     return CACHED_CREATED_ORDERS
 
