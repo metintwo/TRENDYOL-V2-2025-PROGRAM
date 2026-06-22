@@ -374,13 +374,11 @@ def browser_print():
     add_log(barcode, qty, stok, urun)
 
     return render_template_string("""
-        <html>
-        <body onload="window.print();">
+        <html><body onload="window.print();window.close();">
         {% for i in range(qty) %}
             <img src="/preview?barcode={{barcode}}&stok_kodu={{stok}}&urun_adi={{urun}}">
         {% endfor %}
-        </body>
-        </html>
+        </body></html>
     """, barcode=barcode, stok=stok, urun=urun, qty=qty)
 
 SURAT_KARGO_HESAPLARI = {
