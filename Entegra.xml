@@ -1,6 +1,2673 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEJ Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0040</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61396</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEJ Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0039</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61393</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEJ Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0038</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61390</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEJ Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0037</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61387</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEJ Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0036</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61384</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LİLA Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0035</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61381</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LİLA Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0034</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61378</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LİLA Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0033</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61375</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LİLA Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0032</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61372</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LİLA Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0031</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61369</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LACİ Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0030</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61366</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LACİ Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0029</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61363</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LACİ Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0028</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61360</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LACİ Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0027</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61357</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN LACİ Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0026</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61354</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEYAZ Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0025</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61351</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEYAZ Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0024</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61348</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEYAZ Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0023</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61345</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEYAZ Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0022</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61342</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN BEYAZ Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0021</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61339</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN KAHVE Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0020</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61336</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN KAHVE Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0019</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61333</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN KAHVE Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0018</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61330</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN KAHVE Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61327</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN KAHVE Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0016</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61324</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN SİYAH Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0015</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61321</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN SİYAH Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0014</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61318</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN SİYAH Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0013</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61315</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN SİYAH Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61312</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN SİYAH Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61309</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN YEŞİL Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61306</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN YEŞİL Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61303</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN YEŞİL Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61300</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN YEŞİL Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61297</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN YEŞİL Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61294</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN FÜME Şort Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61291</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN FÜME Şort Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61288</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN FÜME Şort Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61285</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN FÜME Şort Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61282</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KSTK</Kod>
+    <Baslik>KADIN FÜME Şort Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>KSTK0001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61279</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ KAHVE Kadın Şort Takım XL</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0016</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61276</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ KAHVE Kadın Şort Takım L</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0015</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61273</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ KAHVE Kadın Şort Takım M</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0014</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61270</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ KAHVE Kadın Şort Takım S</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0013</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61267</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ LACİ Kadın Şort Takım XL</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61264</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>-FİTİLLİ LACİ Kadın Şort Takım L</Baslik>
+    <Marka>-FİTİLLİ</Marka>
+    <barcode>FSTK0011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61261</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ LACİ Kadın Şort Takım M</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61258</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ LACİ Kadın Şort Takım S</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61255</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ FÜME Kadın Şort Takım XL</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61252</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ FÜME Kadın Şort Takım L</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61249</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ FÜME Kadın Şort Takım M</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61246</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ FÜME Kadın Şort Takım S</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61243</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ SİYAH Kadın Şort Takım XL</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61240</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ SİYAH Kadın Şort Takım L</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61237</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ SİYAH Kadın Şort Takım M</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61234</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FSTK</Kod>
+    <Baslik>FİTİLLİ SİYAH Kadın Şort Takım S</Baslik>
+    <Marka>FİTİLLİ</Marka>
+    <barcode>FSTK0001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61231</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN LİLA Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0040</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61228</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN LİLA Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0039</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61225</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN LİLA Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0038</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61222</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN LİLA Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0037</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61219</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN LİLA Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0036</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61216</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BORDO Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0035</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61213</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BORDO Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0034</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61210</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BORDO Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0033</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61207</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BORDO Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0032</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61204</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BORDO Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0031</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61201</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN KAHVE Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0030</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61198</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN KAHVE Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0029</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61195</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN KAHVE Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0028</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61192</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN KAHVE Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0027</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61189</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN KAHVE Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0026</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61186</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BEJ Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0025</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61183</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BEJ Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0024</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61180</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BEJ Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0023</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61177</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BEJ Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0022</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61174</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN BEJ Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0021</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61171</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN YEŞİL Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0020</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61168</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN YEŞİL Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0019</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61165</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN YEŞİL Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0018</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61162</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN YEŞİL Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61159</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN YEŞİL Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0016</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61156</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN FÜME Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0015</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61153</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN FÜME Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0014</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61150</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN FÜME Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0013</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61147</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN FÜME Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61144</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN FÜME Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61141</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>-GYTK</Kod>
+    <Baslik>KADIN SİYAH Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61138</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN SİYAH Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61135</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN SİYAH Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61132</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN SİYAH Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61129</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN SİYAH Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61126</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN Laci Geniş Yaka Takım 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61123</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN Laci Geniş Yaka Takım XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61120</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN Laci Geniş Yaka Takım L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61117</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN Laci Geniş Yaka Takım M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61114</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>GYTK</Kod>
+    <Baslik>KADIN Laci Geniş Yaka Takım S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>GYTK0001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61111</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KIRMIZI FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00035</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61108</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KIRMIZI FİTİLLİ ATLET XL </Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00034</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61105</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KIRMIZI FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00033</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61102</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KIRMIZI FİTİLLİ ATLET M</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00032</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61099</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KIRMIZI FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00031</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61096</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK LACİVERT FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00030</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61093</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK LACİVERT FİTİLLİ ATLET XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00029</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61090</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK LACİVERT FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00028</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61087</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK LACİVERT FİTİLLİ ATLET M</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00027</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61084</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK LACİVERT FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00026</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61081</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK SİYAH FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00025</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61078</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK SİYAH FİTİLLİ ATLET XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00024</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61075</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK SİYAH FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00023</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61072</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK SİYAH FİTİLLİ ATLET M</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00022</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61069</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK SİYAH FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00021</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61066</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK BEYAZ FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00020</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61063</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK BEYAZ FİTİLLİ ATLET XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00019</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61060</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK BEYAZ FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00018</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61057</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK BEYAZ FİTİLLİ ATLET M</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61054</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK BEYAZ FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00016</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61051</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK GRİ FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00015</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61048</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK GRİ FİTİLLİ ATLET XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00014</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61045</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK GRİ FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00013</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61042</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK GRİ FİTİLLİ ATLET M</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61039</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK GRİ FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61036</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK HAKİ FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61033</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK HAKİ FİTİLLİ ATLET XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61030</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK HAKİ FİTİLLİ ATLET L</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61027</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>-ERKEK HAKİ FİTİLLİ ATLET M</Baslik>
+    <Marka>-ERKEK</Marka>
+    <barcode>FEA00007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61024</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK HAKİ FİTİLLİ ATLET S</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61021</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>FEA</Kod>
+    <Baslik>ERKEK KAHVE FİTİLLİ ATLET 2XL</Baslik>
+    <Marka>ERKEK</Marka>
+    <barcode>FEA00005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61018</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>FEA</Kod>
     <Baslik>ERKEK KAHVE FİTİLLİ ATLET XL</Baslik>
     <Marka>ERKEK</Marka>
@@ -139284,7 +141951,7 @@
     <subcategory />
     <UrunID>41099</UrunID>
     <Fiyat1>1572,94</Fiyat1>
-    <Fiyat2>2649,99</Fiyat2>
+    <Fiyat2>2900</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -139494,7 +142161,7 @@
     <subcategory />
     <UrunID>41069</UrunID>
     <Fiyat1>605</Fiyat1>
-    <Fiyat2>1899,99</Fiyat2>
+    <Fiyat2>1999,9</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -139830,7 +142497,7 @@
     <subcategory />
     <UrunID>41021</UrunID>
     <Fiyat1>1704,94</Fiyat1>
-    <Fiyat2>2949,9</Fiyat2>
+    <Fiyat2>3780</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -140397,7 +143064,7 @@
     <subcategory />
     <UrunID>40940</UrunID>
     <Fiyat1>1649,94</Fiyat1>
-    <Fiyat2>2849,99</Fiyat2>
+    <Fiyat2>2999,9</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -347101,7 +349768,7 @@
     <UrunID>10674</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>26</Stok>
+    <Stok>25</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -377950,7 +380617,7 @@
     <UrunID>4574</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>127</Stok>
+    <Stok>126</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -403801,7 +406468,7 @@
     <UrunID>3140</UrunID>
     <Fiyat1>100</Fiyat1>
     <Fiyat2>100</Fiyat2>
-    <Stok>1698</Stok>
+    <Stok>1697</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417745,7 +420412,7 @@
     <UrunID>2359</UrunID>
     <Fiyat1>370</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>59</Stok>
+    <Stok>58</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
