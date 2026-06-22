@@ -270,68 +270,72 @@ document.getElementById('qty_{{ loop.index }}').value
 
 function openPopupPrint(barcode, stok, urun, qty){
 
-const form=document.createElement("form")
+    const iframe = document.getElementById("printFrame");
 
-form.method="POST"
-form.action="/browser_print"
-form.target="_blank"
+    const form = document.createElement("form");
 
-const fields={
-barcode:barcode,
-stok_kodu:stok,
-urun_adi:urun,
-qty:qty
+    form.method = "POST";
+    form.action = "/browser_print";
+    form.target = "printFrame";
+
+    const fields = {
+        barcode: barcode,
+        stok_kodu: stok,
+        urun_adi: urun,
+        qty: qty
+    };
+
+    for(const key in fields){
+
+        const input = document.createElement("input");
+
+        input.type = "hidden";
+        input.name = key;
+        input.value = fields[key];
+
+        form.appendChild(input);
+    }
+
+    iframe.onload = function(){
+        try{
+            iframe.contentWindow.print();
+        }catch(e){
+            console.log(e);
+        }
+    };
+
+    document.body.appendChild(form);
+    form.submit();
+    form.remove();
 }
-
-for(const key in fields){
-
-const input=document.createElement("input")
-
-input.type="hidden"
-input.name=key
-input.value=fields[key]
-
-form.appendChild(input)
-
-}
-
-document.body.appendChild(form)
-form.submit()
-form.remove()
-
-}
-
-
 
 async function loadDashboard(){
 
-try{
+    try{
 
-const r=await fetch("/dashboard-data")
+        const r = await fetch("/dashboard-data");
+        const data = await r.json();
 
-const data=await r.json()
+        document.getElementById("todayTotal").innerText = data.today_total;
+        document.getElementById("lastProduct").innerText = data.last_product;
+        document.getElementById("lastBarcode").innerText = data.last_barcode;
 
-document.getElementById("todayTotal").innerText=data.today_total
-document.getElementById("lastProduct").innerText=data.last_product
-document.getElementById("lastBarcode").innerText=data.last_barcode
+        let html = "";
 
-let html=""
+        for(const op in data.operators){
+            html += `<div>${op} : ${data.operators[op]}</div>`;
+        }
 
-for(const op in data.operators){
+        document.getElementById("operatorList").innerHTML = html;
 
-html+=`<div>${op} : ${data.operators[op]}</div>`
+    }catch(e){
+        console.log(e);
+    }
 
 }
 
-document.getElementById("operatorList").innerHTML=html
-
-}catch(e){}
-
-}
-
-setInterval(loadDashboard,2000)
-
-loadDashboard()
+setInterval(loadDashboard, 2000);
+loadDashboard();
 
 </script>
 
