@@ -422,7 +422,7 @@ SURAT_KARGO_HESAPLARI = {
 
 # 🔹 Filtre SKU listesi
 FILTER_SKUS = [
-    "KFTK", "ETK3I", "BSKLE", "KIKT", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
+    "KFTK", "ETK3I", "BSKLE", "KIKT","GYTK","KVKT","KSTK","ESTK", "ETKP", "TAYT", "ESF3I", "ESPE", "SWT3I", "PLZO",
     "KSKP", "ESFKP", "KMTK", "BKTK", "KKTK", "OFBS", "BTSH", "SBP", "SGP", "UBP", "UGP",
     "KBP", "KGP", "ULP", "KKFE", "BSKLTY", "TSH", "HRKA", "FDKY", "FSAH", "KSTK", "OFTA",
     "HRTK", "EPA", "OBSWT", "DYTK", "SLP", "KLP", "ELBS", "DKP", "KMNO", "ESTK", "SAL",
