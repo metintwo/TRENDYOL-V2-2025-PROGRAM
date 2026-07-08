@@ -1,6 +1,2442 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>KKME</Kod>
+    <Baslik>LACİVERT KOLSUZ KREP MİDİ ELBİSE 2XL</Baslik>
+    <Marka>LACİVERT</Marka>
+    <barcode>KKME0024</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61744</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KKME</Kod>
+    <Baslik>KAHVERENGİ KOLSUZ KREP MİDİ ELBİSE 2XL</Baslik>
+    <Marka>KAHVERENGİ</Marka>
+    <barcode>KKME0023</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61741</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KKME</Kod>
+    <Baslik>FÜME  KOLSUZ KREP MİDİ ELBİSE 2XL</Baslik>
+    <Marka>FÜME</Marka>
+    <barcode>KKME0022</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61738</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KKME</Kod>
+    <Baslik>SİYAH KOLSUZ KREP MİDİ ELBİSE 2XL</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KKME0021</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61735</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>VİZON V YAKA  KISA KOLLU TAKIM 2XL</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KVKT0045</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61732</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>VİZON V YAKA  KISA KOLLU TAKIM XL</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KVKT0044</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61729</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>VİZON V YAKA  KISA KOLLU TAKIM L</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KVKT0043</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61726</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>VİZON V YAKA  KISA KOLLU TAKIM M</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KVKT0042</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61723</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>VİZON V YAKA  KISA KOLLU TAKIM S</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KVKT0041</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61720</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Su Yeşili  Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Su</Marka>
+    <barcode>ETKP0095</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61717</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEJ  Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>BEJ</Marka>
+    <barcode>ETKP0094</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61714</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>ÇİZGİLİ Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>ÇİZGİLİ</Marka>
+    <barcode>ETKP0093</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61711</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEBE MAVİ Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>BEBE</Marka>
+    <barcode>ETKP0092</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61708</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BORDO Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>ETKP0091</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61705</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>SAKS MAVİ Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>SAKS</Marka>
+    <barcode>ETKP0090</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61702</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>MOR Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>MOR</Marka>
+    <barcode>ETKP0089</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61699</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Antrasit Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Antrasit</Marka>
+    <barcode>ETKP0088</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61696</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Kahverengi Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Kahverengi</Marka>
+    <barcode>ETKP0087</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61693</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Kırmızı Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Kırmızı</Marka>
+    <barcode>ETKP0086</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61690</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Haki Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Haki</Marka>
+    <barcode>ETKP0085</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61687</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>İndigo Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>İndigo</Marka>
+    <barcode>ETKP0084</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61684</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Lacivert Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Lacivert</Marka>
+    <barcode>ETKP0083</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61681</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Yeşil Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Yeşil</Marka>
+    <barcode>ETKP0082</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61678</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>GRİ Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>GRİ</Marka>
+    <barcode>ETKP0081</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61675</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Füme Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Füme</Marka>
+    <barcode>ETKP0080</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61672</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>K.Yeşil Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>K.Yeşil</Marka>
+    <barcode>ETKP0079</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61669</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>Siyah Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>Siyah</Marka>
+    <barcode>ETKP0078</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61666</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR25771</Kod>
+    <Baslik>FENERBAHÇE 500 ML PLASTİK MATARA</Baslik>
+    <Marka>FENERBAHÇE</Marka>
+    <barcode>8683150257719</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61663</UrunID>
+    <Fiyat1>299,94</Fiyat1>
+    <Fiyat2>599,9</Fiyat2>
+    <Stok>40</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR25571</Kod>
+    <Baslik>GALATASARAY 500 ML PLASTİK MATARA</Baslik>
+    <Marka>GALATASARAY</Marka>
+    <barcode>8683150255715</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61660</UrunID>
+    <Fiyat1>299,94</Fiyat1>
+    <Fiyat2>599,9</Fiyat2>
+    <Stok>40</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24666</Kod>
+    <Baslik>SMILEY 500 ML MATARA</Baslik>
+    <Marka>SMILEY</Marka>
+    <barcode>8683150246669</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61657</UrunID>
+    <Fiyat1>180</Fiyat1>
+    <Fiyat2>350</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24872</Kod>
+    <Baslik>SNOOPY 500 ML MATARA PINK</Baslik>
+    <Marka>SNOOPY</Marka>
+    <barcode>8683150248724</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61654</UrunID>
+    <Fiyat1>229,95</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>40</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24490</Kod>
+    <Baslik>MONSTER HIGH 500 ML PLASTİK MATARA</Baslik>
+    <Marka>MONSTER</Marka>
+    <barcode>8683150244900</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61651</UrunID>
+    <Fiyat1>249,9</Fiyat1>
+    <Fiyat2>540</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24491</Kod>
+    <Baslik>MONSTER HIGH 500 ML PLASTİK MATARA</Baslik>
+    <Marka>MONSTER</Marka>
+    <barcode>8683150244917</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61648</UrunID>
+    <Fiyat1>249,9</Fiyat1>
+    <Fiyat2>540</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24623</Kod>
+    <Baslik>MY LITTLE PONY PLASTİK 500 ML MATARA</Baslik>
+    <Marka>MY</Marka>
+    <barcode>8683150246232</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61645</UrunID>
+    <Fiyat1>199,9</Fiyat1>
+    <Fiyat2>500</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK23662</Kod>
+    <Baslik>TRANSFORMERS PLASTİK MATARA 500 ML</Baslik>
+    <Marka>TRANSFORMERS</Marka>
+    <barcode>8683150236622</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61642</UrunID>
+    <Fiyat1>180</Fiyat1>
+    <Fiyat2>430</Fiyat2>
+    <Stok>40</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>VELİ</Kod>
+    <Baslik>VELİKÖY İ.O ANA HIRKA 4 BDN</Baslik>
+    <Marka>VELİKÖY</Marka>
+    <barcode>00002403</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61639</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>8</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>VELİ</Kod>
+    <Baslik>VELİKÖY İ.O ANA HIRKA 3 BDN</Baslik>
+    <Marka>VELİKÖY</Marka>
+    <barcode>00002402</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61636</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>15</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>VELİ</Kod>
+    <Baslik>VELİKÖY İ.O ANA HIRKA 2 BDN</Baslik>
+    <Marka>VELİKÖY</Marka>
+    <barcode>00002401</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61633</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>9</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>CUMİ</Kod>
+    <Baslik>CUMHURİYET İ.O ANA HIRKA 4 BDN</Baslik>
+    <Marka>CUMHURİYET</Marka>
+    <barcode>00002399</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61630</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>9</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>CUMİ</Kod>
+    <Baslik>CUMHURİYET İ.O ANA HIRKA 3 BDN</Baslik>
+    <Marka>CUMHURİYET</Marka>
+    <barcode>00002398</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61627</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>21</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>CUMİ</Kod>
+    <Baslik>CUMHURİYET İ.O ANA HIRKA 2 BDN</Baslik>
+    <Marka>CUMHURİYET</Marka>
+    <barcode>00002397</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61624</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>SFG</Kod>
+    <Baslik>SALİHA FİKRİ G ANA E ALTI 4 BDN</Baslik>
+    <Marka>SALİHA</Marka>
+    <barcode>00002395</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61621</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>15</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>SFG</Kod>
+    <Baslik>SALİHA FİKRİ G ANA E ALTI 3 BDN</Baslik>
+    <Marka>SALİHA</Marka>
+    <barcode>00002394</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61618</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>47</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>SFG</Kod>
+    <Baslik>SALİHA FİKRİ G ANA E ALTI 2 BDN</Baslik>
+    <Marka>SALİHA</Marka>
+    <barcode>00002393</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61615</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>18</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA HIRKA 4 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002391</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61612</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>16</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA HIRKA 3 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002390</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61609</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>28</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA HIRKA 2 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002389</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61606</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>15</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA E ALTI 4 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002387</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61603</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>22</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA E ALTI 3 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002386</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61600</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>43</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>İNİ</Kod>
+    <Baslik>İNCİ NARİN İ O ANA E ALTI 2 BDN</Baslik>
+    <Marka>İNCİ</Marka>
+    <barcode>00002385</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61597</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>21</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA HIRKA 4 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002383</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61594</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>32</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA HIRKA 3 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002382</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61591</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>61</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA HIRKA 2 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002381</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61588</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>13</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA E ALTI 4 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002379</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61585</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>45</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA E ALTI 3 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002378</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61582</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>89</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZEHA</Kod>
+    <Baslik>ZÜBEYDE HANIM ANA E ALTI 2 BDN</Baslik>
+    <Marka>ZÜBEYDE</Marka>
+    <barcode>00002377</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61579</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>22</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AAO</Kod>
+    <Baslik>AYÇİÇEĞİ ANAOKULU E ALTI 4 BDN</Baslik>
+    <Marka>AYÇİÇEĞİ</Marka>
+    <barcode>00002375</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61576</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>42</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AAO</Kod>
+    <Baslik>AYÇİÇEĞİ ANAOKULU E ALTI 3 BDN</Baslik>
+    <Marka>AYÇİÇEĞİ</Marka>
+    <barcode>00002374</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61573</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>78</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AAO</Kod>
+    <Baslik>AYÇİÇEĞİ ANAOKULU E ALTI 2 BDN</Baslik>
+    <Marka>AYÇİÇEĞİ</Marka>
+    <barcode>00002373</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61570</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA HIRKA 4 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002371</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61567</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>24</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA HIRKA 3 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002370</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61564</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>50</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA HIRKA 2 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002369</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61561</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>11</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA E ALTI 4 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002367</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61558</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>11</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA E ALTI 3 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002366</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61555</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>45</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ZMG</Kod>
+    <Baslik>ZEHRA MEHMET G. ANA E ALTI 2 BDN</Baslik>
+    <Marka>ZEHRA</Marka>
+    <barcode>00002365</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61552</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA E ALTI 4 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002363</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61549</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>80</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA E ALTI 3 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002362</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61546</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>1</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA E ALTI 2 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002361</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61543</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>23</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA HIRKA 4 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002359</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61540</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>50</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA HIRKA 3 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002358</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61537</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>74</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AŞB</Kod>
+    <Baslik>AZİZE ŞAHAP B ANA HIRKA 2 BDN</Baslik>
+    <Marka>AZİZE</Marka>
+    <barcode>00002357</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61534</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>25</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA HIRKA 4 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002355</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61531</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>17</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA HIRKA 3 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002354</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61528</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>69</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA HIRKA 2 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002353</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61525</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>17</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA E ALTI 4 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002351</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61522</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>17</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA E ALTI 3 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002350</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61519</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>81</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MSKO</Kod>
+    <Baslik>MÜJGAN SK O ANA E ALTI 2 BDN</Baslik>
+    <Marka>MÜJGAN</Marka>
+    <barcode>00002349</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61516</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>24</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA HIRKA 4 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002347</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61513</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>11</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA HIRKA 3 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002346</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61510</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA HIRKA 2 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002345</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61507</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>8</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA E ALTI 4 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002343</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61504</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>24</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA E ALTI 3 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002342</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61501</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>40</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ŞEUO</Kod>
+    <Baslik>ŞEHİT ERDEM U.O ANA E ALTI 2 BDN</Baslik>
+    <Marka>ŞEHİT</Marka>
+    <barcode>00002341</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61498</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>18</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PEA</Kod>
+    <Baslik>PERİHAN ERGÜN ANA.HIRKA 4 BDN</Baslik>
+    <Marka>PERİHAN</Marka>
+    <barcode>00002339</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61495</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PEA</Kod>
+    <Baslik>PERİHAN ERGÜN ANA.HIRKA 3 BDN</Baslik>
+    <Marka>PERİHAN</Marka>
+    <barcode>00002338</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61492</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>28</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PEA</Kod>
+    <Baslik>PERİHAN ERGÜN ANA.HIRKA 2 BDN</Baslik>
+    <Marka>PERİHAN</Marka>
+    <barcode>00002337</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61489</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>11</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O HIRKA 4 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002335</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61486</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>29</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O HIRKA 3 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002334</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61483</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>29</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O HIRKA 2 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002333</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61480</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>16</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O E ALTI 4 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002331</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61477</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>51</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O E ALTI 3 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002330</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61474</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>31</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MAEİ</Kod>
+    <Baslik>MEHMET AKİF E İ.O E ALTI 2 BDN</Baslik>
+    <Marka>MEHMET</Marka>
+    <barcode>00002329</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61471</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>25</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA E ALTI 4 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002327</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61468</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA E ALTI 3 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002326</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61465</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>52</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA E ALTI 2 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002325</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61462</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA HIRKA 4 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002323</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61459</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA HIRKA 3 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002322</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61456</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>26</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇTİ</Kod>
+    <Baslik>TEPE İ O ANA HIRKA 2 BDN</Baslik>
+    <Marka>TEPE</Marka>
+    <barcode>00002321</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61453</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>6</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA HIRKA 4 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002319</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61450</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>8</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA HIRKA 3 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002318</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61447</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>32</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA HIRKA 2 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002317</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61444</UrunID>
+    <Fiyat1>340</Fiyat1>
+    <Fiyat2>650</Fiyat2>
+    <Stok>17</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA E ALTI 4 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002315</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61441</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>37</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA E ALTI 3 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002314</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61438</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>78</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KIZİ</Kod>
+    <Baslik>KIZILPINAR İ O ANA E ALTI 2 BDN</Baslik>
+    <Marka>KIZILPINAR</Marka>
+    <barcode>00002313</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61435</UrunID>
+    <Fiyat1>250</Fiyat1>
+    <Fiyat2>450</Fiyat2>
+    <Stok>74</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>-</Kod>
+    <Baslik>-</Baslik>
+    <Marka>-</Marka>
+    <barcode />
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61432</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>HRKA</Kod>
+    <Baslik>Kırmızı  Kapşonlu Kanguru Cp XL</Baslik>
+    <Marka>Kırmızı</Marka>
+    <barcode>HRKA0059</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61429</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>HRKA</Kod>
+    <Baslik>Kırmızı  Kapşonlu Kanguru Cp L</Baslik>
+    <Marka>Kırmızı</Marka>
+    <barcode>HRKA0058</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61426</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>HRKA</Kod>
+    <Baslik>Kırmızı  Kapşonlu Kanguru Cp M</Baslik>
+    <Marka>Kırmızı</Marka>
+    <barcode>HRKA0057</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61423</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>HRKA</Kod>
+    <Baslik>Kırmızı  Kapşonlu Kanguru Cp S</Baslik>
+    <Marka>Kırmızı</Marka>
+    <barcode>HRKA0056</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61420</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000073</Kod>
+    <Baslik>Renkli Ortaokul Çantası</Baslik>
+    <Marka>Renkli</Marka>
+    <barcode>80000073</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61417</UrunID>
+    <Fiyat1>990</Fiyat1>
+    <Fiyat2>2199,9</Fiyat2>
+    <Stok>70</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000072</Kod>
+    <Baslik>Renkli İlkokul Çantası</Baslik>
+    <Marka>Renkli</Marka>
+    <barcode>80000072</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61414</UrunID>
+    <Fiyat1>880</Fiyat1>
+    <Fiyat2>1949,9</Fiyat2>
+    <Stok>108</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000071</Kod>
+    <Baslik>Okul Lise Sırt Çantası</Baslik>
+    <Marka>Okul</Marka>
+    <barcode>80000071</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61411</UrunID>
+    <Fiyat1>1150</Fiyat1>
+    <Fiyat2>2299,9</Fiyat2>
+    <Stok>60</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000070</Kod>
+    <Baslik>Crıncle Okul Çantası </Baslik>
+    <Marka>Crıncle</Marka>
+    <barcode>80000070</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61408</UrunID>
+    <Fiyat1>730</Fiyat1>
+    <Fiyat2>1549,9</Fiyat2>
+    <Stok>50</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000069</Kod>
+    <Baslik>Yeni Lüx Okul Çantası</Baslik>
+    <Marka>Yeni</Marka>
+    <barcode>80000069</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61405</UrunID>
+    <Fiyat1>1650</Fiyat1>
+    <Fiyat2>2699,9</Fiyat2>
+    <Stok>30</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000068</Kod>
+    <Baslik>Karışık Lüx Okul Çantası</Baslik>
+    <Marka>Karışık</Marka>
+    <barcode>80000068</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61402</UrunID>
+    <Fiyat1>650</Fiyat1>
+    <Fiyat2>1499,9</Fiyat2>
+    <Stok>180</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>80000067</Kod>
+    <Baslik>Süper Lüx Okul Çantası</Baslik>
+    <Marka>Süper</Marka>
+    <barcode>80000067</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61399</UrunID>
+    <Fiyat1>780</Fiyat1>
+    <Fiyat2>1649,9</Fiyat2>
+    <Stok>318</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>KSTK</Kod>
     <Baslik>KADIN BEJ Şort Takım 2XL</Baslik>
     <Marka>KADIN</Marka>
@@ -4076,8 +6512,8 @@
   </Urun>
   <Urun>
     <Kod>KVKT</Kod>
-    <Baslik>LACİ V YAKA  KISA KOLLU TAKIM 2XL</Baslik>
-    <Marka>LACİ</Marka>
+    <Baslik>LACİVERT V YAKA  KISA KOLLU TAKIM 2XL</Baslik>
+    <Marka>LACİVERT</Marka>
     <barcode>KVKT0039</barcode>
     <Aciklama />
     <Durum>1</Durum>
@@ -5000,7 +7436,7 @@
   </Urun>
   <Urun>
     <Kod>KIKT</Kod>
-    <Baslik>Kahverengi Kadın İspanyol Paça Kısa K Takım</Baslik>
+    <Baslik>Kahverengi Kadın İspanyol Paça Kısa K Takım 2XL</Baslik>
     <Marka>Kahverengi</Marka>
     <barcode>KIKT0074</barcode>
     <Aciklama />
@@ -12424,7 +14860,7 @@
     <UrunID>59623</UrunID>
     <Fiyat1>229,95</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>260</Stok>
+    <Stok>220</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -12445,7 +14881,7 @@
     <UrunID>59620</UrunID>
     <Fiyat1>180</Fiyat1>
     <Fiyat2>430</Fiyat2>
-    <Stok>580</Stok>
+    <Stok>540</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -12886,7 +15322,7 @@
     <UrunID>59557</UrunID>
     <Fiyat1>180</Fiyat1>
     <Fiyat2>350</Fiyat2>
-    <Stok>80</Stok>
+    <Stok>60</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -13579,7 +16015,7 @@
     <UrunID>59458</UrunID>
     <Fiyat1>890</Fiyat1>
     <Fiyat2>1600</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -131871,7 +134307,7 @@
     <subcategory />
     <UrunID>42557</UrunID>
     <Fiyat1>539,94</Fiyat1>
-    <Fiyat2>899,99</Fiyat2>
+    <Fiyat2>999,99</Fiyat2>
     <Stok>6</Stok>
     <KDV>20</KDV>
     <ImageName1 />
@@ -131914,7 +134350,7 @@
     <UrunID>42551</UrunID>
     <Fiyat1>299,9</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>44</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -132166,7 +134602,7 @@
     <UrunID>42515</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>44</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -132228,7 +134664,7 @@
     <subcategory />
     <UrunID>42506</UrunID>
     <Fiyat1>139,99</Fiyat1>
-    <Fiyat2>344,99</Fiyat2>
+    <Fiyat2>550</Fiyat2>
     <Stok>2</Stok>
     <KDV>20</KDV>
     <ImageName1 />
@@ -132312,7 +134748,7 @@
     <subcategory />
     <UrunID>42494</UrunID>
     <Fiyat1>185</Fiyat1>
-    <Fiyat2>359,99</Fiyat2>
+    <Fiyat2>599,9</Fiyat2>
     <Stok>3</Stok>
     <KDV>20</KDV>
     <ImageName1 />
@@ -132460,7 +134896,7 @@
     <UrunID>42473</UrunID>
     <Fiyat1>200</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>22</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -141930,7 +144366,7 @@
     <subcategory />
     <UrunID>41102</UrunID>
     <Fiyat1>550</Fiyat1>
-    <Fiyat2>1099,99</Fiyat2>
+    <Fiyat2>1299,9</Fiyat2>
     <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -142119,7 +144555,7 @@
     <subcategory />
     <UrunID>41075</UrunID>
     <Fiyat1>1595</Fiyat1>
-    <Fiyat2>2750</Fiyat2>
+    <Fiyat2>3499,9</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -142455,7 +144891,7 @@
     <subcategory />
     <UrunID>41027</UrunID>
     <Fiyat1>1759,94</Fiyat1>
-    <Fiyat2>2889,9</Fiyat2>
+    <Fiyat2>3110</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -142581,7 +145017,7 @@
     <subcategory />
     <UrunID>41009</UrunID>
     <Fiyat1>977,9</Fiyat1>
-    <Fiyat2>1849,9</Fiyat2>
+    <Fiyat2>2250</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -142623,7 +145059,7 @@
     <subcategory />
     <UrunID>41003</UrunID>
     <Fiyat1>750</Fiyat1>
-    <Fiyat2>1600</Fiyat2>
+    <Fiyat2>1950</Fiyat2>
     <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1 />
@@ -142917,8 +145353,8 @@
     <subcategory />
     <UrunID>40961</UrunID>
     <Fiyat1>845</Fiyat1>
-    <Fiyat2>1289,99</Fiyat2>
-    <Stok>2</Stok>
+    <Fiyat2>1900</Fiyat2>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -345841,7 +348277,7 @@
     <UrunID>11949</UrunID>
     <Fiyat1>455,94</Fiyat1>
     <Fiyat2>845</Fiyat2>
-    <Stok>63</Stok>
+    <Stok>56</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346042,16 +348478,16 @@
     <Kod>7355608</Kod>
     <Baslik>EŞOFMAN TAKIMI V004</Baslik>
     <Marka>EŞOFMAN</Marka>
-    <barcode>8687355608004</barcode>
+    <barcode>90000004</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
     <category />
     <subcategory />
     <UrunID>11919</UrunID>
-    <Fiyat1>450</Fiyat1>
-    <Fiyat2>900</Fiyat2>
-    <Stok>-7</Stok>
+    <Fiyat1>570</Fiyat1>
+    <Fiyat2>1599,9</Fiyat2>
+    <Stok>85</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346063,16 +348499,16 @@
     <Kod>7355608</Kod>
     <Baslik>EŞOFMAN TAKIMI V003</Baslik>
     <Marka>EŞOFMAN</Marka>
-    <barcode>8687355608003</barcode>
+    <barcode>90000003</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
     <category />
     <subcategory />
     <UrunID>11916</UrunID>
-    <Fiyat1>450</Fiyat1>
-    <Fiyat2>950</Fiyat2>
-    <Stok>2</Stok>
+    <Fiyat1>530</Fiyat1>
+    <Fiyat2>1699,9</Fiyat2>
+    <Stok>125</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346084,16 +348520,16 @@
     <Kod>7355608</Kod>
     <Baslik>EŞOFMAN TAKIMI V002</Baslik>
     <Marka>EŞOFMAN</Marka>
-    <barcode>8687355608002</barcode>
+    <barcode>90000002</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
     <category />
     <subcategory />
     <UrunID>11913</UrunID>
-    <Fiyat1>450</Fiyat1>
-    <Fiyat2>1150</Fiyat2>
-    <Stok>9</Stok>
+    <Fiyat1>650</Fiyat1>
+    <Fiyat2>1999,9</Fiyat2>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346105,16 +348541,16 @@
     <Kod>7355608</Kod>
     <Baslik>EŞOFMAN TAKIMI V001</Baslik>
     <Marka>EŞOFMAN</Marka>
-    <barcode>8687355608001</barcode>
+    <barcode>90000001</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
     <category />
     <subcategory />
     <UrunID>11910</UrunID>
-    <Fiyat1>450</Fiyat1>
-    <Fiyat2>999,9</Fiyat2>
-    <Stok>24</Stok>
+    <Fiyat1>590</Fiyat1>
+    <Fiyat2>1749,9</Fiyat2>
+    <Stok>115</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346219,7 +348655,7 @@
     <UrunID>11895</UrunID>
     <Fiyat1>395,95</Fiyat1>
     <Fiyat2>845,9</Fiyat2>
-    <Stok>60</Stok>
+    <Stok>59</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -346638,7 +349074,7 @@
     <subcategory />
     <UrunID>11832</UrunID>
     <Fiyat1>599</Fiyat1>
-    <Fiyat2>699</Fiyat2>
+    <Fiyat2>999</Fiyat2>
     <Stok>6</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
@@ -347142,7 +349578,7 @@
     <subcategory />
     <UrunID>11760</UrunID>
     <Fiyat1>155</Fiyat1>
-    <Fiyat2>350</Fiyat2>
+    <Fiyat2>400</Fiyat2>
     <Stok>52</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -347689,7 +350125,7 @@
     <UrunID>11643</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>888</Stok>
+    <Stok>848</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -347794,7 +350230,7 @@
     <UrunID>11628</UrunID>
     <Fiyat1>1759,94</Fiyat1>
     <Fiyat2>3170,9</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -347878,7 +350314,7 @@
     <UrunID>11616</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>755</Stok>
+    <Stok>715</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -347920,7 +350356,7 @@
     <UrunID>11610</UrunID>
     <Fiyat1>299,9</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>630</Stok>
+    <Stok>590</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -348046,7 +350482,7 @@
     <UrunID>11592</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>500</Stok>
+    <Stok>460</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349768,7 +352204,7 @@
     <UrunID>10674</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>25</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349789,7 +352225,7 @@
     <UrunID>10671</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>23</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349810,7 +352246,7 @@
     <UrunID>10668</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>23</Stok>
+    <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349831,7 +352267,7 @@
     <UrunID>10665</UrunID>
     <Fiyat1>450</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>42</Stok>
+    <Stok>41</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352477,7 +354913,7 @@
     <UrunID>10166</UrunID>
     <Fiyat1>1250</Fiyat1>
     <Fiyat2>2900</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352938,7 +355374,7 @@
     <subcategory />
     <UrunID>10088</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -352959,7 +355395,7 @@
     <subcategory />
     <UrunID>10085</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -352980,7 +355416,7 @@
     <subcategory />
     <UrunID>10082</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>-2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353001,7 +355437,7 @@
     <subcategory />
     <UrunID>10079</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353022,7 +355458,7 @@
     <subcategory />
     <UrunID>10076</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353043,7 +355479,7 @@
     <subcategory />
     <UrunID>10073</UrunID>
     <Fiyat1>300</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353064,7 +355500,7 @@
     <subcategory />
     <UrunID>10070</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353085,7 +355521,7 @@
     <subcategory />
     <UrunID>10067</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353106,7 +355542,7 @@
     <subcategory />
     <UrunID>10064</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353127,7 +355563,7 @@
     <subcategory />
     <UrunID>10061</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353148,7 +355584,7 @@
     <subcategory />
     <UrunID>10058</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>-5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353169,7 +355605,7 @@
     <subcategory />
     <UrunID>10055</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -353904,7 +356340,7 @@
     <subcategory />
     <UrunID>9941</UrunID>
     <Fiyat1>1399,95</Fiyat1>
-    <Fiyat2>2799,9</Fiyat2>
+    <Fiyat2>2600</Fiyat2>
     <Stok>16</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -354807,7 +357243,7 @@
     <subcategory />
     <UrunID>9755</UrunID>
     <Fiyat1>235</Fiyat1>
-    <Fiyat2>450</Fiyat2>
+    <Fiyat2>500</Fiyat2>
     <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -358021,7 +360457,7 @@
     <UrunID>9194</UrunID>
     <Fiyat1>199,9</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>80</Stok>
+    <Stok>60</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -358042,7 +360478,7 @@
     <UrunID>9191</UrunID>
     <Fiyat1>199,9</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>145</Stok>
+    <Stok>125</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -358104,7 +360540,7 @@
     <subcategory />
     <UrunID>9179</UrunID>
     <Fiyat1>250</Fiyat1>
-    <Fiyat2>450</Fiyat2>
+    <Fiyat2>550</Fiyat2>
     <Stok>14</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
@@ -358126,7 +360562,7 @@
     <UrunID>9176</UrunID>
     <Fiyat1>249,9</Fiyat1>
     <Fiyat2>540</Fiyat2>
-    <Stok>100</Stok>
+    <Stok>80</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -358147,7 +360583,7 @@
     <UrunID>9173</UrunID>
     <Fiyat1>249,9</Fiyat1>
     <Fiyat2>540</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>-10</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -358159,7 +360595,7 @@
     <Kod>MTR24464</Kod>
     <Baslik>SLAZENGER 500 ML PLASTİK MATARA</Baslik>
     <Marka>SLAZENGER</Marka>
-    <barcode>86831502446</barcode>
+    <barcode>8683150244641</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -358923,7 +361359,7 @@
     <subcategory />
     <UrunID>6336</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -363312,7 +365748,7 @@
     <subcategory />
     <UrunID>5741</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -363649,7 +366085,7 @@
     <UrunID>5700</UrunID>
     <Fiyat1>170</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -364615,7 +367051,7 @@
     <UrunID>5608</UrunID>
     <Fiyat1>400</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>39</Stok>
+    <Stok>38</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -368058,7 +370494,7 @@
     <subcategory />
     <UrunID>5204</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -368079,7 +370515,7 @@
     <subcategory />
     <UrunID>5203</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -368100,7 +370536,7 @@
     <subcategory />
     <UrunID>5202</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -371797,7 +374233,7 @@
     <UrunID>5024</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -371839,7 +374275,7 @@
     <UrunID>5022</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>33</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -373918,7 +376354,7 @@
     <UrunID>4920</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>78</Stok>
+    <Stok>134</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -373939,7 +376375,7 @@
     <UrunID>4919</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>71</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -373960,7 +376396,7 @@
     <UrunID>4918</UrunID>
     <Fiyat1>300</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>133</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -373981,7 +376417,7 @@
     <UrunID>4917</UrunID>
     <Fiyat1>280</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>69</Stok>
+    <Stok>128</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374380,7 +376816,7 @@
     <UrunID>4897</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -379566,7 +382002,7 @@
     <subcategory />
     <UrunID>4625</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379587,7 +382023,7 @@
     <subcategory />
     <UrunID>4624</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379608,7 +382044,7 @@
     <subcategory />
     <UrunID>4622</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379629,7 +382065,7 @@
     <subcategory />
     <UrunID>4621</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379650,7 +382086,7 @@
     <subcategory />
     <UrunID>4620</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379671,7 +382107,7 @@
     <subcategory />
     <UrunID>4619</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379692,7 +382128,7 @@
     <subcategory />
     <UrunID>4618</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379713,7 +382149,7 @@
     <subcategory />
     <UrunID>4617</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>-1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379734,7 +382170,7 @@
     <subcategory />
     <UrunID>4616</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -379755,7 +382191,7 @@
     <subcategory />
     <UrunID>4615</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -380596,7 +383032,7 @@
     <UrunID>4575</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>49</Stok>
+    <Stok>174</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380617,7 +383053,7 @@
     <UrunID>4574</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>126</Stok>
+    <Stok>188</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380638,7 +383074,7 @@
     <UrunID>4573</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>108</Stok>
+    <Stok>172</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380659,7 +383095,7 @@
     <UrunID>4572</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>90</Stok>
+    <Stok>231</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380680,7 +383116,7 @@
     <UrunID>4571</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>57</Stok>
+    <Stok>125</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380701,7 +383137,7 @@
     <UrunID>4570</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>31</Stok>
+    <Stok>143</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -380953,7 +383389,7 @@
     <UrunID>4558</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -382192,7 +384628,7 @@
     <UrunID>4494</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -384354,7 +386790,7 @@
     <subcategory />
     <UrunID>4382</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384375,7 +386811,7 @@
     <subcategory />
     <UrunID>4381</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384396,7 +386832,7 @@
     <subcategory />
     <UrunID>4380</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>24</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384417,7 +386853,7 @@
     <subcategory />
     <UrunID>4379</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384438,7 +386874,7 @@
     <subcategory />
     <UrunID>4378</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384459,7 +386895,7 @@
     <subcategory />
     <UrunID>4377</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384480,7 +386916,7 @@
     <subcategory />
     <UrunID>4376</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384501,7 +386937,7 @@
     <subcategory />
     <UrunID>4375</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384522,7 +386958,7 @@
     <subcategory />
     <UrunID>4374</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384543,7 +386979,7 @@
     <subcategory />
     <UrunID>4373</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384564,7 +387000,7 @@
     <subcategory />
     <UrunID>4372</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -384585,7 +387021,7 @@
     <subcategory />
     <UrunID>4371</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391683,7 +394119,7 @@
     <subcategory />
     <UrunID>3988</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391704,7 +394140,7 @@
     <subcategory />
     <UrunID>3987</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391725,7 +394161,7 @@
     <subcategory />
     <UrunID>3986</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391746,7 +394182,7 @@
     <subcategory />
     <UrunID>3985</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391767,7 +394203,7 @@
     <subcategory />
     <UrunID>3984</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391788,7 +394224,7 @@
     <subcategory />
     <UrunID>3983</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391809,7 +394245,7 @@
     <subcategory />
     <UrunID>3982</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391830,7 +394266,7 @@
     <subcategory />
     <UrunID>3981</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391851,7 +394287,7 @@
     <subcategory />
     <UrunID>3980</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -391872,7 +394308,7 @@
     <subcategory />
     <UrunID>3979</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -403968,7 +406404,7 @@
     <subcategory />
     <UrunID>3337</UrunID>
     <Fiyat1>310</Fiyat1>
-    <Fiyat2>320</Fiyat2>
+    <Fiyat2>650</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -406468,7 +408904,7 @@
     <UrunID>3140</UrunID>
     <Fiyat1>100</Fiyat1>
     <Fiyat2>100</Fiyat2>
-    <Stok>1697</Stok>
+    <Stok>1696</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -414616,7 +417052,7 @@
     <UrunID>2641</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415435,7 +417871,7 @@
     <UrunID>2602</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>900</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -415498,7 +417934,7 @@
     <UrunID>2599</UrunID>
     <Fiyat1>510</Fiyat1>
     <Fiyat2>800</Fiyat2>
-    <Stok>29</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417199,7 +419635,7 @@
     <UrunID>2512</UrunID>
     <Fiyat1>350</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417472,7 +419908,7 @@
     <UrunID>2499</UrunID>
     <Fiyat1>360</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -417661,7 +420097,7 @@
     <UrunID>2490</UrunID>
     <Fiyat1>380</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>30</Stok>
+    <Stok>29</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -426082,7 +428518,7 @@
     <UrunID>2045</UrunID>
     <Fiyat1>315</Fiyat1>
     <Fiyat2>650</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -426796,7 +429232,7 @@
     <UrunID>2006</UrunID>
     <Fiyat1>155</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -426964,7 +429400,7 @@
     <UrunID>1998</UrunID>
     <Fiyat1>205</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -427006,7 +429442,7 @@
     <UrunID>1996</UrunID>
     <Fiyat1>155</Fiyat1>
     <Fiyat2>400</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -432213,7 +434649,7 @@
     <subcategory />
     <UrunID>1717</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432234,7 +434670,7 @@
     <subcategory />
     <UrunID>1716</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>8</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432255,7 +434691,7 @@
     <subcategory />
     <UrunID>1715</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432276,7 +434712,7 @@
     <subcategory />
     <UrunID>1714</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432297,7 +434733,7 @@
     <subcategory />
     <UrunID>1713</UrunID>
     <Fiyat1>165</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>24</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432318,7 +434754,7 @@
     <subcategory />
     <UrunID>1712</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432339,7 +434775,7 @@
     <subcategory />
     <UrunID>1711</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432360,7 +434796,7 @@
     <subcategory />
     <UrunID>1710</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432381,7 +434817,7 @@
     <subcategory />
     <UrunID>1709</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432402,7 +434838,7 @@
     <subcategory />
     <UrunID>1708</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432423,7 +434859,7 @@
     <subcategory />
     <UrunID>1707</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432444,7 +434880,7 @@
     <subcategory />
     <UrunID>1706</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432465,7 +434901,7 @@
     <subcategory />
     <UrunID>1705</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>22</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432486,7 +434922,7 @@
     <subcategory />
     <UrunID>1704</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432507,7 +434943,7 @@
     <subcategory />
     <UrunID>1703</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432528,7 +434964,7 @@
     <subcategory />
     <UrunID>1702</UrunID>
     <Fiyat1>170</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432549,7 +434985,7 @@
     <subcategory />
     <UrunID>1701</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432570,7 +435006,7 @@
     <subcategory />
     <UrunID>1700</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>20</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432591,7 +435027,7 @@
     <subcategory />
     <UrunID>1699</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>0</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432612,7 +435048,7 @@
     <subcategory />
     <UrunID>1698</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -432633,7 +435069,7 @@
     <subcategory />
     <UrunID>1697</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -433515,7 +435951,7 @@
     <subcategory />
     <UrunID>1641</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -433536,7 +435972,7 @@
     <subcategory />
     <UrunID>1640</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -433557,7 +435993,7 @@
     <subcategory />
     <UrunID>1639</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>13</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -433578,7 +436014,7 @@
     <subcategory />
     <UrunID>1638</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>21</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -433599,7 +436035,7 @@
     <subcategory />
     <UrunID>1637</UrunID>
     <Fiyat1>220</Fiyat1>
-    <Fiyat2>400</Fiyat2>
+    <Fiyat2>450</Fiyat2>
     <Stok>5</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
@@ -435889,7 +438325,7 @@
     <UrunID>1512</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -435910,7 +438346,7 @@
     <UrunID>1511</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -435931,7 +438367,7 @@
     <UrunID>1510</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>0</Stok>
+    <Stok>53</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -435952,7 +438388,7 @@
     <UrunID>1509</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>78</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -435973,7 +438409,7 @@
     <UrunID>1508</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>69</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -435994,7 +438430,7 @@
     <UrunID>1507</UrunID>
     <Fiyat1>185</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>-1</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -436036,7 +438472,7 @@
     <UrunID>1505</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>28</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -436057,7 +438493,7 @@
     <UrunID>1504</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>24</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -436078,7 +438514,7 @@
     <UrunID>1503</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>27</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -436120,7 +438556,7 @@
     <UrunID>1501</UrunID>
     <Fiyat1>235</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>11</Stok>
+    <Stok>20</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
