@@ -1,6 +1,468 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>KİREMİT ATLET KETEN KADIN TAKIM 2XL</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>AKTK0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61810</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>KİREMİT ATLET KETEN KADIN TAKIM XL</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>AKTK0009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61807</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>KİREMİT ATLET KETEN KADIN TAKIM L</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>AKTK0008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61804</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>KİREMİT ATLET KETEN KADIN TAKIM M</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>AKTK0007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61801</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>KİREMİT ATLET KETEN KADIN TAKIM S</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>AKTK0006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61798</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>SİYAH ATLET KETEN KADIN TAKIM 2XL</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>AKTK0005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61795</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>SİYAH ATLET KETEN KADIN TAKIM XL</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>AKTK0004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61792</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>SİYAH ATLET KETEN KADIN TAKIM L</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>AKTK0003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61789</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>SİYAH ATLET KETEN KADIN TAKIM M</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>AKTK0002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61786</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>AKTK</Kod>
+    <Baslik>SİYAH ATLET KETEN KADIN TAKIM S</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>AKTK0001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61783</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-3</Kod>
+    <Baslik>Futbool K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Futbool</Marka>
+    <barcode>80000058</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61780</UrunID>
+    <Fiyat1>800</Fiyat1>
+    <Fiyat2>1749,9</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>NEFTİ Kadın İspanyol Paça Kısa K Takım 2XL</Baslik>
+    <Marka>NEFTİ</Marka>
+    <barcode>KIKT0080</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61777</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>NEFTİ Kadın İspanyol Paça Kısa K Takım XL</Baslik>
+    <Marka>NEFTİ</Marka>
+    <barcode>KIKT0079</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61774</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>NEFTİ Kadın İspanyol Paça Kısa K Takım L</Baslik>
+    <Marka>NEFTİ</Marka>
+    <barcode>KIKT0078</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61771</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>NEFTİ Kadın İspanyol Paça Kısa K Takım M</Baslik>
+    <Marka>NEFTİ</Marka>
+    <barcode>KIKT0077</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61768</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>NEFTİ Kadın İspanyol Paça Kısa K Takım S</Baslik>
+    <Marka>NEFTİ</Marka>
+    <barcode>KIKT0076</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61765</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-8</Kod>
+    <Baslik>Minecarft Lego K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Minecarft</Marka>
+    <barcode>80000063</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61762</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1850</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-9</Kod>
+    <Baslik>Gameover Lego K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Gameover</Marka>
+    <barcode>80000064</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61759</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1740</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-10</Kod>
+    <Baslik>Astronot Lego K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Astronot</Marka>
+    <barcode>80000065</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61756</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1600</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-1</Kod>
+    <Baslik>Spiderman K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Spiderman</Marka>
+    <barcode>80000056</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61753</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1730</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNTYV2026-5</Kod>
+    <Baslik>Kuromi K.Beslenme 3 Set İlkokul Çantası</Baslik>
+    <Marka>Kuromi</Marka>
+    <barcode>80000060</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61750</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1780</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT58005</Kod>
+    <Baslik>SPEED UNISEX SET OKUL ÇANTASI</Baslik>
+    <Marka>SPEED</Marka>
+    <barcode>825058005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61747</UrunID>
+    <Fiyat1>890</Fiyat1>
+    <Fiyat2>1740</Fiyat2>
+    <Stok>10</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>KKME</Kod>
     <Baslik>LACİVERT KOLSUZ KREP MİDİ ELBİSE 2XL</Baslik>
     <Marka>LACİVERT</Marka>
@@ -15847,7 +16309,7 @@
     <UrunID>59482</UrunID>
     <Fiyat1>890</Fiyat1>
     <Fiyat2>1690</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -145396,7 +145858,7 @@
     <UrunID>40955</UrunID>
     <Fiyat1>750</Fiyat1>
     <Fiyat2>1550</Fiyat2>
-    <Stok>1</Stok>
+    <Stok>36</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -149692,7 +150154,7 @@
     <Kod>ÇNT58005</Kod>
     <Baslik>SPEED UNISEX SET OKUL ÇANTASI</Baslik>
     <Marka>SPEED</Marka>
-    <barcode>825058005</barcode>
+    <barcode>82505805</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -349988,8 +350450,8 @@
   </Urun>
   <Urun>
     <Kod>ÇNTY2502</Kod>
-    <Baslik>Astronot desenli Çanta</Baslik>
-    <Marka>Astronot</Marka>
+    <Baslik>-</Baslik>
+    <Marka>-</Marka>
     <barcode>80000021</barcode>
     <Aciklama />
     <Durum>1</Durum>
@@ -374317,7 +374779,7 @@
     <UrunID>5020</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>85</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374338,7 +374800,7 @@
     <UrunID>5019</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>18</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374359,7 +374821,7 @@
     <UrunID>5018</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>42</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374380,7 +374842,7 @@
     <UrunID>5017</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>100</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383284,7 +383746,7 @@
     <UrunID>4563</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>67</Stok>
+    <Stok>147</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383305,7 +383767,7 @@
     <UrunID>4562</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>57</Stok>
+    <Stok>102</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383326,7 +383788,7 @@
     <UrunID>4561</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>59</Stok>
+    <Stok>124</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383347,7 +383809,7 @@
     <UrunID>4560</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>57</Stok>
+    <Stok>207</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383368,7 +383830,7 @@
     <UrunID>4559</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>99</Stok>
+    <Stok>221</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -383389,7 +383851,7 @@
     <UrunID>4558</UrunID>
     <Fiyat1>420</Fiyat1>
     <Fiyat2>550</Fiyat2>
-    <Stok>21</Stok>
+    <Stok>47</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -465487,468 +465949,6 @@
     <ImageName5 />
   </Urun>
   <Urun>
-    <Kod>-00000064</Kod>
-    <Baslik>-KIZ MESLEK A LİSE KISA KOLLU S BDN </Baslik>
-    <Marka>-KIZ</Marka>
-    <barcode>00000064</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>30</UrunID>
-    <Fiyat1>25,5</Fiyat1>
-    <Fiyat2>55</Fiyat2>
-    <Stok>7</Stok>
-    <KDV>10</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000063</Kod>
-    <Baslik>-KIZ MESLEK A LİSE KISA KOLLU 12 BDN </Baslik>
-    <Marka>-KIZ</Marka>
-    <barcode>00000063</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>29</UrunID>
-    <Fiyat1>25,5</Fiyat1>
-    <Fiyat2>55</Fiyat2>
-    <Stok>13</Stok>
-    <KDV>10</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000062</Kod>
-    <Baslik>-KIZ MESLEK A LİSE KISA KOLLU 10 BDN </Baslik>
-    <Marka>-KIZ</Marka>
-    <barcode>00000062</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>28</UrunID>
-    <Fiyat1>25,5</Fiyat1>
-    <Fiyat2>55</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>10</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000061</Kod>
-    <Baslik>-KIZ MESLEK UZN KOLLU (L,XL BDN )</Baslik>
-    <Marka>-KIZ</Marka>
-    <barcode>00000061</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>27</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>45</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000060</Kod>
-    <Baslik>KIZ MESLEK UZN KOLLU    (M BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000060</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>26</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>25</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000059</Kod>
-    <Baslik>KIZ MESLEK UZN KOLLU GRİ   (S BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000059</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>25</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>15</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000058</Kod>
-    <Baslik>KIZ MESLEK UZN KOLLU  (12 BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000058</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>24</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>45</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000057</Kod>
-    <Baslik>KIZ MESLEK UZN KOLLU  (10 BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000057</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>23</UrunID>
-    <Fiyat1>15</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>19</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000056</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZLAKOS ( XL, XXL BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000056</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>22</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000055</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZ LAKOS ( L BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000055</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>21</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>2</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000054</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZ LAKOS ( M BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000054</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>20</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>35</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000053</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZ LAKOS ( S BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000053</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>19</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>4</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000052</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZ LAKOS ( 12 BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000052</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>18</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>10</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000051</Kod>
-    <Baslik>KIZ MESLEK KISA KOLLU BEYAZ LAKOS ( 10 BDN )</Baslik>
-    <Marka>KIZ</Marka>
-    <barcode>00000051</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>17</UrunID>
-    <Fiyat1>5</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>10</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000048</Kod>
-    <Baslik>LİLA LAKOS UZUN KOLLU ( 8 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000048</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>16</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000046</Kod>
-    <Baslik>LİLA LAKOS UZUN KOLLU ( 4 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000046</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>13</UrunID>
-    <Fiyat1>13</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>3</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000045</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( S BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000045</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>12</UrunID>
-    <Fiyat1>14</Fiyat1>
-    <Fiyat2>20</Fiyat2>
-    <Stok>2</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000043</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( 7 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000043</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>11</UrunID>
-    <Fiyat1>11</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>1</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000042</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( 6 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000042</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>10</UrunID>
-    <Fiyat1>11</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>5</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000041</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( 5 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000041</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>9</UrunID>
-    <Fiyat1>11</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000040</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( 4 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000040</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>8</UrunID>
-    <Fiyat1>11</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-  <Urun>
-    <Kod>-00000039</Kod>
-    <Baslik>LİLA LAKOS KISA KOLLU ( 3 BEDEN)</Baslik>
-    <Marka>LİLA</Marka>
-    <barcode>00000039</barcode>
-    <Aciklama />
-    <Durum>1</Durum>
-    <mainCategory />
-    <category />
-    <subcategory />
-    <UrunID>7</UrunID>
-    <Fiyat1>11</Fiyat1>
-    <Fiyat2>15</Fiyat2>
-    <Stok>0</Stok>
-    <KDV>0</KDV>
-    <ImageName1 />
-    <ImageName2 />
-    <ImageName3 />
-    <ImageName4 />
-    <ImageName5 />
-  </Urun>
-</urunler>
     <Kod>-00000064</Kod>
     <Baslik>-KIZ MESLEK A LİSE KISA KOLLU S BDN </Baslik>
     <Marka>-KIZ</Marka>
