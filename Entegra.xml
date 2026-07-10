@@ -1,6 +1,1581 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>VİZON Kadın İspanyol Paça Kısa K Takım 2XL</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KIKT0090</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62035</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>VİZON Kadın İspanyol Paça Kısa K Takım XL</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KIKT0089</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62032</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>VİZON Kadın İspanyol Paça Kısa K Takım L</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KIKT0088</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62029</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>VİZON Kadın İspanyol Paça Kısa K Takım M</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KIKT0087</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62026</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>VİZON Kadın İspanyol Paça Kısa K Takım S</Baslik>
+    <Marka>VİZON</Marka>
+    <barcode>KIKT0086</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62023</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEYAZ Penye Kısa K Oversize Takım 2XL</Baslik>
+    <Marka>BEYAZ</Marka>
+    <barcode>ETKP0100</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62020</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEYAZ Penye Kısa K Oversize Takım XL</Baslik>
+    <Marka>BEYAZ</Marka>
+    <barcode>ETKP0099</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62017</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEYAZ Penye Kısa K Oversize Takım L</Baslik>
+    <Marka>BEYAZ</Marka>
+    <barcode>ETKP0098</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62014</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEYAZ Penye Kısa K Oversize Takım M</Baslik>
+    <Marka>BEYAZ</Marka>
+    <barcode>ETKP0097</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62011</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ETKP</Kod>
+    <Baslik>BEYAZ Penye Kısa K Oversize Takım S</Baslik>
+    <Marka>BEYAZ</Marka>
+    <barcode>ETKP0096</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62008</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>MİNT Kadın İspanyol Paça Kısa K Takım 2XL</Baslik>
+    <Marka>MİNT</Marka>
+    <barcode>KIKT0085</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62005</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>MİNT Kadın İspanyol Paça Kısa K Takım XL</Baslik>
+    <Marka>MİNT</Marka>
+    <barcode>KIKT0084</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>62002</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>MİNT Kadın İspanyol Paça Kısa K Takım L</Baslik>
+    <Marka>MİNT</Marka>
+    <barcode>KIKT0083</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61999</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>MİNT Kadın İspanyol Paça Kısa K Takım M</Baslik>
+    <Marka>MİNT</Marka>
+    <barcode>KIKT0082</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61996</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KİKT</Kod>
+    <Baslik>MİNT Kadın İspanyol Paça Kısa K Takım S</Baslik>
+    <Marka>MİNT</Marka>
+    <barcode>KIKT0081</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61993</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ESTK</Kod>
+    <Baslik>YEŞİL Erkek Şort Takım 2XL</Baslik>
+    <Marka>YEŞİL</Marka>
+    <barcode>ESTK0035</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61990</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ESTK</Kod>
+    <Baslik>YEŞİL Erkek Şort Takım XL</Baslik>
+    <Marka>YEŞİL</Marka>
+    <barcode>ESTK0034</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61987</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ESTK</Kod>
+    <Baslik>YEŞİL Erkek Şort Takım L</Baslik>
+    <Marka>YEŞİL</Marka>
+    <barcode>ESTK0033</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61984</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ESTK</Kod>
+    <Baslik>YEŞİL Erkek Şort Takım M</Baslik>
+    <Marka>YEŞİL</Marka>
+    <barcode>ESTK0032</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61981</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ESTK</Kod>
+    <Baslik>YEŞİL Erkek Şort Takım S</Baslik>
+    <Marka>YEŞİL</Marka>
+    <barcode>ESTK0031</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61978</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>BORDO V YAKA  KISA KOLLU TAKIM 2XL</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>KVKT0050</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61975</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>BORDO V YAKA  KISA KOLLU TAKIM XL</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>KVKT0049</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61972</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>BORDO V YAKA  KISA KOLLU TAKIM L</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>KVKT0048</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61969</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>BORDO V YAKA  KISA KOLLU TAKIM M</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>KVKT0047</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61966</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KVKT</Kod>
+    <Baslik>BORDO V YAKA  KISA KOLLU TAKIM S</Baslik>
+    <Marka>BORDO</Marka>
+    <barcode>KVKT0046</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61963</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>KİREMİT  KISA KETEN KADIN TAKIM 2XL</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>KEKTK0010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61960</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>KİREMİT  KISA KETEN KADIN TAKIM XL</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>KEKTK0009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61957</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>MTR24464</Kod>
+    <Baslik>SLAZENGER 500 ML PLASTİK MATARA</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150244641</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61954</UrunID>
+    <Fiyat1>299</Fiyat1>
+    <Fiyat2>640</Fiyat2>
+    <Stok>20</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>KİREMİT  KISA KETEN KADIN TAKIM L</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>KEKTK0008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61951</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>KİREMİT  KISA KETEN KADIN TAKIM M</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>KEKTK0007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61948</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>KİREMİT  KISA KETEN KADIN TAKIM S</Baslik>
+    <Marka>KİREMİT</Marka>
+    <barcode>KEKTK0006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61945</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>SİYAH KISA KETEN KADIN TAKIM 2XL</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KEKTK0005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61942</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>SİYAH KISA KETEN KADIN TAKIM XL</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KEKTK0004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61939</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>SİYAH KISA KETEN KADIN TAKIM L</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KEKTK0003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61936</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>M</Kod>
+    <Baslik>SİYAH KISA KETEN KADIN TAKIM M</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KEKTK0002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61933</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KEKTK</Kod>
+    <Baslik>SİYAH KISA KETEN KADIN TAKIM S</Baslik>
+    <Marka>SİYAH</Marka>
+    <barcode>KEKTK0001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61930</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>0</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK24885</Kod>
+    <Baslik>SNOOPY SAKLAMA KABI</Baslik>
+    <Marka>SNOOPY</Marka>
+    <barcode>8683150248854</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61927</UrunID>
+    <Fiyat1>79,95</Fiyat1>
+    <Fiyat2>239,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK23663</Kod>
+    <Baslik>TRANSFORMERS SAKLAMA KABI </Baslik>
+    <Marka>TRANSFORMERS</Marka>
+    <barcode>8683150236639</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61924</UrunID>
+    <Fiyat1>69,95</Fiyat1>
+    <Fiyat2>169,9</Fiyat2>
+    <Stok>6</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK24572</Kod>
+    <Baslik>GALATASARAY SAKLAMA KABI SİYAH</Baslik>
+    <Marka>GALATASARAY</Marka>
+    <barcode>8683150245723</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61921</UrunID>
+    <Fiyat1>65,89</Fiyat1>
+    <Fiyat2>250,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24495</Kod>
+    <Baslik>MONSTER HIGH SAKLAMA KABI</Baslik>
+    <Marka>MONSTER</Marka>
+    <barcode>8683150244955</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61918</UrunID>
+    <Fiyat1>69,95</Fiyat1>
+    <Fiyat2>209,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK24494</Kod>
+    <Baslik>MONSTER HIGH SAKLAMA KABI</Baslik>
+    <Marka>MONSTER</Marka>
+    <barcode>8683150244948</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61915</UrunID>
+    <Fiyat1>69,95</Fiyat1>
+    <Fiyat2>215,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK25368</Kod>
+    <Baslik>BEŞİKTAŞ İNCE ÇUBUK DESENLİ SAKLAMA KABI</Baslik>
+    <Marka>BEŞİKTAŞ</Marka>
+    <barcode>8683150253681</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61912</UrunID>
+    <Fiyat1>108</Fiyat1>
+    <Fiyat2>189,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK24794</Kod>
+    <Baslik>FENERBAHÇE SAKLAMA KABI LOGO</Baslik>
+    <Marka>FENERBAHÇE</Marka>
+    <barcode>8683150247949</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61909</UrunID>
+    <Fiyat1>108</Fiyat1>
+    <Fiyat2>264,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK22776</Kod>
+    <Baslik>BRAWL STARS SAKLAMA KABI</Baslik>
+    <Marka>BRAWL</Marka>
+    <barcode>8683150227767</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61906</UrunID>
+    <Fiyat1>59,95</Fiyat1>
+    <Fiyat2>225,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>PBK25573</Kod>
+    <Baslik>GALATASARAY SAKLAMA KABI</Baslik>
+    <Marka>GALATASARAY</Marka>
+    <barcode>8683150255739</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61903</UrunID>
+    <Fiyat1>108</Fiyat1>
+    <Fiyat2>264,9</Fiyat2>
+    <Stok>12</Stok>
+    <KDV>20</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24027</Kod>
+    <Baslik>SLAZENGER FERMUAR DETAYLI GREY SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240278</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61900</UrunID>
+    <Fiyat1>1299,95</Fiyat1>
+    <Fiyat2>2599,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24007</Kod>
+    <Baslik>SLAZENGER TORIA LILAC SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240070</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61897</UrunID>
+    <Fiyat1>1399,95</Fiyat1>
+    <Fiyat2>2600</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24455</Kod>
+    <Baslik>SLAZENGER BLUE BATIC SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150244559</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61894</UrunID>
+    <Fiyat1>1439,95</Fiyat1>
+    <Fiyat2>3099,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24052</Kod>
+    <Baslik>SLAZENGER COMFORT LILAC SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240520</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61891</UrunID>
+    <Fiyat1>1043,9</Fiyat1>
+    <Fiyat2>2099,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT23238</Kod>
+    <Baslik>SLAZENGER KIND SKATE OKUL ÇEKÇEK ÇANTASI </Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150232389</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61888</UrunID>
+    <Fiyat1>1449,95</Fiyat1>
+    <Fiyat2>3499,9</Fiyat2>
+    <Stok>2</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24050</Kod>
+    <Baslik>SLAZENGER COMFORT GREY SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240506</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61885</UrunID>
+    <Fiyat1>1259,95</Fiyat1>
+    <Fiyat2>2999,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24078</Kod>
+    <Baslik>SLAZENGER KIDS TROLLEY OKUL ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240780</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61882</UrunID>
+    <Fiyat1>1719,95</Fiyat1>
+    <Fiyat2>3999,9</Fiyat2>
+    <Stok>2</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24015</Kod>
+    <Baslik>SLAZENGER LILAC SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240155</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61879</UrunID>
+    <Fiyat1>1179,95</Fiyat1>
+    <Fiyat2>2449,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24005</Kod>
+    <Baslik>SLAZENGER TORIA PINK SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240056</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61876</UrunID>
+    <Fiyat1>1399,95</Fiyat1>
+    <Fiyat2>2799,9</Fiyat2>
+    <Stok>2</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24051</Kod>
+    <Baslik>SLAZENGER COMFORT BLACK SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240513</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61873</UrunID>
+    <Fiyat1>1259,95</Fiyat1>
+    <Fiyat2>2799,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24461</Kod>
+    <Baslik>SLAZENGER PINK ARMOR SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150244610</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61870</UrunID>
+    <Fiyat1>1589,95</Fiyat1>
+    <Fiyat2>3179,9</Fiyat2>
+    <Stok>2</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24009</Kod>
+    <Baslik>SLAZENGER TORIA GREY SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240094</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61867</UrunID>
+    <Fiyat1>1399,95</Fiyat1>
+    <Fiyat2>2799,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24014</Kod>
+    <Baslik>SLAZENGER GREY SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240148</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61864</UrunID>
+    <Fiyat1>1179,95</Fiyat1>
+    <Fiyat2>2569,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT23164</Kod>
+    <Baslik>SLAZENGER VELVET AZUR MAVİ</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150231641</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61861</UrunID>
+    <Fiyat1>899,95</Fiyat1>
+    <Fiyat2>1999,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT23131</Kod>
+    <Baslik>SLAZENGER SİYAH ZIRHLI SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150231313</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61858</UrunID>
+    <Fiyat1>1589,95</Fiyat1>
+    <Fiyat2>3349,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24012</Kod>
+    <Baslik>SLAZENGER TORIA BLACK SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240124</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61855</UrunID>
+    <Fiyat1>1399,95</Fiyat1>
+    <Fiyat2>2999,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24234</Kod>
+    <Baslik>SUPERGA CONTOUR LOGO SIRT ÇANTASI</Baslik>
+    <Marka>SUPERGA</Marka>
+    <barcode>8683150242340</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61852</UrunID>
+    <Fiyat1>1559,95</Fiyat1>
+    <Fiyat2>3399,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24026</Kod>
+    <Baslik>SLAZENGER FERMUAR DETAYLI BLACK SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240261</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61849</UrunID>
+    <Fiyat1>1299,9</Fiyat1>
+    <Fiyat2>2850</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24016</Kod>
+    <Baslik>SLAZENGER BLACK SIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240162</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61846</UrunID>
+    <Fiyat1>1179,95</Fiyat1>
+    <Fiyat2>2870</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24208</Kod>
+    <Baslik>SUPERGA VERTICAL RED SIRT ÇANTASI</Baslik>
+    <Marka>SUPERGA</Marka>
+    <barcode>8683150242081</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61843</UrunID>
+    <Fiyat1>1669,95</Fiyat1>
+    <Fiyat2>3339,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>ÇNT24055</Kod>
+    <Baslik>SLAZENGER COMFORT GREENSIRT ÇANTASI</Baslik>
+    <Marka>SLAZENGER</Marka>
+    <barcode>8683150240551</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61840</UrunID>
+    <Fiyat1>1259,95</Fiyat1>
+    <Fiyat2>3099,9</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26360</Kod>
+    <Baslik>BEŞİKTAŞ ÇUBUKLU KALEM ÇANTASI</Baslik>
+    <Marka>BEŞİKTAŞ</Marka>
+    <barcode>8683150263604</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61837</UrunID>
+    <Fiyat1>519,95</Fiyat1>
+    <Fiyat2>890</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26301</Kod>
+    <Baslik>BEŞİKTAŞ ÇUBUKLU KALEM ÇANTASI</Baslik>
+    <Marka>BEŞİKTAŞ</Marka>
+    <barcode>8683150263017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61834</UrunID>
+    <Fiyat1>549,95</Fiyat1>
+    <Fiyat2>1049,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26578</Kod>
+    <Baslik>GALATASARAY KALEM ÇANTASI</Baslik>
+    <Marka>GALATASARAY</Marka>
+    <barcode>8683150265783</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61831</UrunID>
+    <Fiyat1>519</Fiyat1>
+    <Fiyat2>1150</Fiyat2>
+    <Stok>5</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26548</Kod>
+    <Baslik>GALATASARAY KALEM ÇANTASI</Baslik>
+    <Marka>GALATASARAY</Marka>
+    <barcode>8683150265486</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61828</UrunID>
+    <Fiyat1>519</Fiyat1>
+    <Fiyat2>1150</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26319</Kod>
+    <Baslik>BEŞİKTAŞ ARMA VE YAZILI KALEM ÇANTASI</Baslik>
+    <Marka>BEŞİKTAŞ</Marka>
+    <barcode>8683150263192</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61825</UrunID>
+    <Fiyat1>520</Fiyat1>
+    <Fiyat2>1099</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26327</Kod>
+    <Baslik>BEŞİKTAŞ KALEM ÇANTASI</Baslik>
+    <Marka>BEŞİKTAŞ</Marka>
+    <barcode>8683150263277</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61822</UrunID>
+    <Fiyat1>569,95</Fiyat1>
+    <Fiyat2>1149,9</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26710</Kod>
+    <Baslik>FENERBAHÇE KALEM ÇANTASI</Baslik>
+    <Marka>FENERBAHÇE</Marka>
+    <barcode>8683150267107</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61819</UrunID>
+    <Fiyat1>519,9</Fiyat1>
+    <Fiyat2>890</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26720</Kod>
+    <Baslik>FENERBAHÇE KALEM ÇANTASI</Baslik>
+    <Marka>FENERBAHÇE</Marka>
+    <barcode>8683150267206</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61816</UrunID>
+    <Fiyat1>529,9</Fiyat1>
+    <Fiyat2>920</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>KLM26722</Kod>
+    <Baslik>FENERBAHÇE KALEM ÇANTASI</Baslik>
+    <Marka>FENERBAHÇE</Marka>
+    <barcode>8683150267220</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>61813</UrunID>
+    <Fiyat1>539</Fiyat1>
+    <Fiyat2>1130</Fiyat2>
+    <Stok>3</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>AKTK</Kod>
     <Baslik>KİREMİT ATLET KETEN KADIN TAKIM 2XL</Baslik>
     <Marka>KİREMİT</Marka>
@@ -1042,7 +2617,7 @@
     <UrunID>61663</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>40</Stok>
+    <Stok>60</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -1063,7 +2638,7 @@
     <UrunID>61660</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>40</Stok>
+    <Stok>80</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -1105,7 +2680,7 @@
     <UrunID>61654</UrunID>
     <Fiyat1>229,95</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>40</Stok>
+    <Stok>80</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -1168,7 +2743,7 @@
     <UrunID>61645</UrunID>
     <Fiyat1>199,9</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>30</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -1189,7 +2764,7 @@
     <UrunID>61642</UrunID>
     <Fiyat1>180</Fiyat1>
     <Fiyat2>430</Fiyat2>
-    <Stok>40</Stok>
+    <Stok>80</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -2890,7 +4465,7 @@
     <UrunID>61399</UrunID>
     <Fiyat1>780</Fiyat1>
     <Fiyat2>1649,9</Fiyat2>
-    <Stok>318</Stok>
+    <Stok>317</Stok>
     <KDV>0</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -8803,7 +10378,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>ANTRASİT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>ANTRASİT</Marka>
-    <barcode>ÇTKP0035</barcode>
+    <barcode>CTKP0035</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -8824,7 +10399,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>ANTRASİT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>ANTRASİT</Marka>
-    <barcode>ÇTKP0034</barcode>
+    <barcode>CTKP0034</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -8845,7 +10420,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>ANTRASİT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>ANTRASİT</Marka>
-    <barcode>ÇTKP0033</barcode>
+    <barcode>CTKP0033</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -8866,7 +10441,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>ANTRASİT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>ANTRASİT</Marka>
-    <barcode>ÇTKP0032</barcode>
+    <barcode>CTKP0032</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -8887,7 +10462,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>ANTRASİT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>ANTRASİT</Marka>
-    <barcode>ÇTKP0031</barcode>
+    <barcode>CTKP0031</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9379,7 +10954,7 @@
     <UrunID>60472</UrunID>
     <Fiyat1>519</Fiyat1>
     <Fiyat2>1150</Fiyat2>
-    <Stok>24</Stok>
+    <Stok>19</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9463,7 +11038,7 @@
     <UrunID>60460</UrunID>
     <Fiyat1>519</Fiyat1>
     <Fiyat2>1150</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9547,7 +11122,7 @@
     <UrunID>60448</UrunID>
     <Fiyat1>519,9</Fiyat1>
     <Fiyat2>890</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9568,7 +11143,7 @@
     <UrunID>60445</UrunID>
     <Fiyat1>539</Fiyat1>
     <Fiyat2>1130</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9589,7 +11164,7 @@
     <UrunID>60442</UrunID>
     <Fiyat1>529,9</Fiyat1>
     <Fiyat2>920</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9673,7 +11248,7 @@
     <UrunID>60430</UrunID>
     <Fiyat1>519,95</Fiyat1>
     <Fiyat2>890</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9757,7 +11332,7 @@
     <UrunID>60418</UrunID>
     <Fiyat1>569,95</Fiyat1>
     <Fiyat2>1149,9</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9778,7 +11353,7 @@
     <UrunID>60415</UrunID>
     <Fiyat1>549,95</Fiyat1>
     <Fiyat2>1049,9</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9799,7 +11374,7 @@
     <UrunID>60412</UrunID>
     <Fiyat1>520</Fiyat1>
     <Fiyat2>1099</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -9853,7 +11428,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>BORDO ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>BORDO</Marka>
-    <barcode>ÇTKP0030</barcode>
+    <barcode>CTKP0030</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9874,7 +11449,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>BORDO ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>BORDO</Marka>
-    <barcode>ÇTKP0029</barcode>
+    <barcode>CTKP0029</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9895,7 +11470,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>BORDO ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>BORDO</Marka>
-    <barcode>ÇTKP0028</barcode>
+    <barcode>CTKP0028</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9916,7 +11491,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>BORDO ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>BORDO</Marka>
-    <barcode>ÇTKP0027</barcode>
+    <barcode>CTKP0027</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9937,7 +11512,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>BORDO ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>BORDO</Marka>
-    <barcode>ÇTKP0026</barcode>
+    <barcode>CTKP0026</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9958,7 +11533,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>YEŞİL ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>YEŞİL</Marka>
-    <barcode>ÇTKP0025</barcode>
+    <barcode>CTKP0025</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -9979,7 +11554,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>YEŞİL ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>YEŞİL</Marka>
-    <barcode>ÇTKP0024</barcode>
+    <barcode>CTKP0024</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10000,7 +11575,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>YEŞİL ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>YEŞİL</Marka>
-    <barcode>ÇTKP0023</barcode>
+    <barcode>CTKP0023</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10021,7 +11596,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>YEŞİL ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>YEŞİL</Marka>
-    <barcode>ÇTKP0022</barcode>
+    <barcode>CTKP0022</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10042,7 +11617,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>YEŞİL ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>YEŞİL</Marka>
-    <barcode>ÇTKP0021</barcode>
+    <barcode>CTKP0021</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10063,7 +11638,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>KAHVERENGİ ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>KAHVERENGİ</Marka>
-    <barcode>ÇTKP0020</barcode>
+    <barcode>CTKP0020</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10084,7 +11659,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>KAHVERENGİ ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>KAHVERENGİ</Marka>
-    <barcode>ÇTKP0019</barcode>
+    <barcode>CTKP0019</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10105,7 +11680,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>KAHVERENGİ ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>KAHVERENGİ</Marka>
-    <barcode>ÇTKP0018</barcode>
+    <barcode>CTKP0018</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10126,7 +11701,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>KAHVERENGİ ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>KAHVERENGİ</Marka>
-    <barcode>ÇTKP0017</barcode>
+    <barcode>CTKP0017</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10147,7 +11722,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>KAHVERENGİ ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>KAHVERENGİ</Marka>
-    <barcode>ÇTKP0016</barcode>
+    <barcode>CTKP0016</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10168,7 +11743,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>LACİVERT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>LACİVERT</Marka>
-    <barcode>ÇTKP0015</barcode>
+    <barcode>CTKP0015</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10189,7 +11764,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>LACİVERT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>LACİVERT</Marka>
-    <barcode>ÇTKP0014</barcode>
+    <barcode>CTKP0014</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10210,7 +11785,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>LACİVERT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>LACİVERT</Marka>
-    <barcode>ÇTKP0013</barcode>
+    <barcode>CTKP0013</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10231,7 +11806,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>LACİVERT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>LACİVERT</Marka>
-    <barcode>ÇTKP0012</barcode>
+    <barcode>CTKP0012</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10252,7 +11827,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>LACİVERT ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>LACİVERT</Marka>
-    <barcode>ÇTKP0011</barcode>
+    <barcode>CTKP0011</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10273,7 +11848,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>FÜME ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>FÜME</Marka>
-    <barcode>ÇTKP0010</barcode>
+    <barcode>CTKP0010</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10294,7 +11869,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>FÜME ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>FÜME</Marka>
-    <barcode>ÇTKP0009</barcode>
+    <barcode>CTKP0009</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10315,7 +11890,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>FÜME ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>FÜME</Marka>
-    <barcode>ÇTKP0008</barcode>
+    <barcode>CTKP0008</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10336,7 +11911,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>FÜME ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>FÜME</Marka>
-    <barcode>ÇTKP0007</barcode>
+    <barcode>CTKP0007</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10357,7 +11932,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>FÜME ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>FÜME</Marka>
-    <barcode>ÇTKP0006</barcode>
+    <barcode>CTKP0006</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10378,7 +11953,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>SİYAH ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 9-10 Yaş</Baslik>
     <Marka>SİYAH</Marka>
-    <barcode>ÇTKP0005</barcode>
+    <barcode>CTKP0005</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10399,7 +11974,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>SİYAH ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 7-8 Yaş</Baslik>
     <Marka>SİYAH</Marka>
-    <barcode>ÇTKP0004</barcode>
+    <barcode>CTKP0004</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10420,7 +11995,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>SİYAH ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 5-6 Yaş</Baslik>
     <Marka>SİYAH</Marka>
-    <barcode>ÇTKP0003</barcode>
+    <barcode>CTKP0003</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10441,7 +12016,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>SİYAH ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 3-4 Yaş</Baslik>
     <Marka>SİYAH</Marka>
-    <barcode>ÇTKP0002</barcode>
+    <barcode>CTKP0002</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -10462,7 +12037,7 @@
     <Kod>ÇTKP</Kod>
     <Baslik>SİYAH ÇOCUK İKİ İPLİK KISA KOLLU TAKIM 1-2 Yaş</Baslik>
     <Marka>SİYAH</Marka>
-    <barcode>ÇTKP0001</barcode>
+    <barcode>CTKP0001</barcode>
     <Aciklama />
     <Durum>1</Durum>
     <mainCategory />
@@ -15322,7 +16897,7 @@
     <UrunID>59623</UrunID>
     <Fiyat1>229,95</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>220</Stok>
+    <Stok>180</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15343,7 +16918,7 @@
     <UrunID>59620</UrunID>
     <Fiyat1>180</Fiyat1>
     <Fiyat2>430</Fiyat2>
-    <Stok>540</Stok>
+    <Stok>500</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15364,7 +16939,7 @@
     <UrunID>59617</UrunID>
     <Fiyat1>69,95</Fiyat1>
     <Fiyat2>169,9</Fiyat2>
-    <Stok>34</Stok>
+    <Stok>28</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15385,7 +16960,7 @@
     <UrunID>59614</UrunID>
     <Fiyat1>79,95</Fiyat1>
     <Fiyat2>239,9</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>13</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15427,7 +17002,7 @@
     <UrunID>59608</UrunID>
     <Fiyat1>69,95</Fiyat1>
     <Fiyat2>215,9</Fiyat2>
-    <Stok>107</Stok>
+    <Stok>95</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15448,7 +17023,7 @@
     <UrunID>59605</UrunID>
     <Fiyat1>59,95</Fiyat1>
     <Fiyat2>225,9</Fiyat2>
-    <Stok>108</Stok>
+    <Stok>96</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15469,7 +17044,7 @@
     <UrunID>59602</UrunID>
     <Fiyat1>1669,95</Fiyat1>
     <Fiyat2>3339,9</Fiyat2>
-    <Stok>12</Stok>
+    <Stok>9</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15490,7 +17065,7 @@
     <UrunID>59599</UrunID>
     <Fiyat1>1559,95</Fiyat1>
     <Fiyat2>3399,9</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15511,7 +17086,7 @@
     <UrunID>59596</UrunID>
     <Fiyat1>1259,95</Fiyat1>
     <Fiyat2>2999,9</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15532,7 +17107,7 @@
     <UrunID>59593</UrunID>
     <Fiyat1>1179,95</Fiyat1>
     <Fiyat2>2449,9</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>12</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15553,7 +17128,7 @@
     <UrunID>59590</UrunID>
     <Fiyat1>1399,95</Fiyat1>
     <Fiyat2>2999,9</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15574,7 +17149,7 @@
     <UrunID>59587</UrunID>
     <Fiyat1>1449,95</Fiyat1>
     <Fiyat2>3499,9</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15595,7 +17170,7 @@
     <UrunID>59584</UrunID>
     <Fiyat1>1589,95</Fiyat1>
     <Fiyat2>3349,9</Fiyat2>
-    <Stok>14</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15637,7 +17212,7 @@
     <UrunID>59578</UrunID>
     <Fiyat1>69,95</Fiyat1>
     <Fiyat2>209,9</Fiyat2>
-    <Stok>84</Stok>
+    <Stok>72</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15700,7 +17275,7 @@
     <UrunID>59569</UrunID>
     <Fiyat1>1439,95</Fiyat1>
     <Fiyat2>3099,9</Fiyat2>
-    <Stok>19</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15721,7 +17296,7 @@
     <UrunID>59566</UrunID>
     <Fiyat1>1299,95</Fiyat1>
     <Fiyat2>2599,9</Fiyat2>
-    <Stok>17</Stok>
+    <Stok>14</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15742,7 +17317,7 @@
     <UrunID>59563</UrunID>
     <Fiyat1>1589,95</Fiyat1>
     <Fiyat2>3179,9</Fiyat2>
-    <Stok>4</Stok>
+    <Stok>2</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15763,7 +17338,7 @@
     <UrunID>59560</UrunID>
     <Fiyat1>1259,95</Fiyat1>
     <Fiyat2>3099,9</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>17</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -15805,7 +17380,7 @@
     <UrunID>59554</UrunID>
     <Fiyat1>1719,95</Fiyat1>
     <Fiyat2>3999,9</Fiyat2>
-    <Stok>8</Stok>
+    <Stok>6</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -134812,7 +136387,7 @@
     <UrunID>42551</UrunID>
     <Fiyat1>299,9</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>64</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -135064,7 +136639,7 @@
     <UrunID>42515</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>44</Stok>
+    <Stok>64</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -135358,7 +136933,7 @@
     <UrunID>42473</UrunID>
     <Fiyat1>200</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>22</Stok>
+    <Stok>32</Stok>
     <KDV>20</KDV>
     <ImageName1 />
     <ImageName2 />
@@ -349600,7 +351175,7 @@
     <UrunID>11823</UrunID>
     <Fiyat1>108</Fiyat1>
     <Fiyat2>264,9</Fiyat2>
-    <Stok>252</Stok>
+    <Stok>240</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -349726,7 +351301,7 @@
     <UrunID>11805</UrunID>
     <Fiyat1>108</Fiyat1>
     <Fiyat2>189,9</Fiyat2>
-    <Stok>71</Stok>
+    <Stok>59</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350587,7 +352162,7 @@
     <UrunID>11643</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>848</Stok>
+    <Stok>808</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350776,7 +352351,7 @@
     <UrunID>11616</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>715</Stok>
+    <Stok>695</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350818,7 +352393,7 @@
     <UrunID>11610</UrunID>
     <Fiyat1>299,9</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>590</Stok>
+    <Stok>570</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -350944,7 +352519,7 @@
     <UrunID>11592</UrunID>
     <Fiyat1>299,94</Fiyat1>
     <Fiyat2>599,9</Fiyat2>
-    <Stok>460</Stok>
+    <Stok>440</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352813,7 +354388,7 @@
     <UrunID>10650</UrunID>
     <Fiyat1>1399,95</Fiyat1>
     <Fiyat2>2799,9</Fiyat2>
-    <Stok>7</Stok>
+    <Stok>4</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352834,7 +354409,7 @@
     <UrunID>10647</UrunID>
     <Fiyat1>1043,9</Fiyat1>
     <Fiyat2>2099,9</Fiyat2>
-    <Stok>13</Stok>
+    <Stok>10</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352960,7 +354535,7 @@
     <UrunID>10629</UrunID>
     <Fiyat1>1179,95</Fiyat1>
     <Fiyat2>2569,9</Fiyat2>
-    <Stok>20</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -352981,7 +354556,7 @@
     <UrunID>10626</UrunID>
     <Fiyat1>1179,95</Fiyat1>
     <Fiyat2>2870</Fiyat2>
-    <Stok>35</Stok>
+    <Stok>32</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -356803,7 +358378,7 @@
     <UrunID>9941</UrunID>
     <Fiyat1>1399,95</Fiyat1>
     <Fiyat2>2600</Fiyat2>
-    <Stok>16</Stok>
+    <Stok>11</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -356929,7 +358504,7 @@
     <UrunID>9896</UrunID>
     <Fiyat1>1259,95</Fiyat1>
     <Fiyat2>2799,9</Fiyat2>
-    <Stok>49</Stok>
+    <Stok>44</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -356950,7 +358525,7 @@
     <UrunID>9893</UrunID>
     <Fiyat1>1299,9</Fiyat1>
     <Fiyat2>2850</Fiyat2>
-    <Stok>42</Stok>
+    <Stok>37</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -356971,7 +358546,7 @@
     <UrunID>9875</UrunID>
     <Fiyat1>108</Fiyat1>
     <Fiyat2>264,9</Fiyat2>
-    <Stok>150</Stok>
+    <Stok>138</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357034,7 +358609,7 @@
     <UrunID>9866</UrunID>
     <Fiyat1>65,89</Fiyat1>
     <Fiyat2>250,9</Fiyat2>
-    <Stok>131</Stok>
+    <Stok>119</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -357181,7 +358756,7 @@
     <UrunID>9845</UrunID>
     <Fiyat1>1399,95</Fiyat1>
     <Fiyat2>2799,9</Fiyat2>
-    <Stok>9</Stok>
+    <Stok>7</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -359554,7 +361129,7 @@
     <UrunID>9392</UrunID>
     <Fiyat1>899,95</Fiyat1>
     <Fiyat2>1999,9</Fiyat2>
-    <Stok>18</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -360919,7 +362494,7 @@
     <UrunID>9194</UrunID>
     <Fiyat1>199,9</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>60</Stok>
+    <Stok>50</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -360940,7 +362515,7 @@
     <UrunID>9191</UrunID>
     <Fiyat1>199,9</Fiyat1>
     <Fiyat2>500</Fiyat2>
-    <Stok>125</Stok>
+    <Stok>115</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -361066,7 +362641,7 @@
     <UrunID>9170</UrunID>
     <Fiyat1>299</Fiyat1>
     <Fiyat2>640</Fiyat2>
-    <Stok>205</Stok>
+    <Stok>185</Stok>
     <KDV>20</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374275,7 +375850,7 @@
     <UrunID>5044</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>43</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374296,7 +375871,7 @@
     <UrunID>5043</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>2</Stok>
+    <Stok>3</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374317,7 +375892,7 @@
     <UrunID>5042</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>31</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -374338,7 +375913,7 @@
     <UrunID>5041</UrunID>
     <Fiyat1>440</Fiyat1>
     <Fiyat2>600</Fiyat2>
-    <Stok>6</Stok>
+    <Stok>15</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
@@ -376879,7 +378454,7 @@
     <UrunID>4917</UrunID>
     <Fiyat1>280</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>128</Stok>
+    <Stok>136</Stok>
     <KDV>10</KDV>
     <ImageName1>-</ImageName1>
     <ImageName2>-</ImageName2>
