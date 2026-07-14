@@ -104,7 +104,7 @@ def get_created_orders_cached(force_refresh=False, ttl_sec=5):
     else:
         print("⚡ Cache:", len(CACHED_CREATED_ORDERS))
 
-    return CACHED_CREATED_ORDERS
+    return list(CACHED_CREATED_ORDERS)
 # ===========================
 #   XML OKUMA
 # ===========================
@@ -1321,6 +1321,102 @@ from collections import defaultdict
 import re, unicodedata
 from flask import render_template, redirect, url_for, flash
 from flask_login import login_required, current_user
+
+from flask import request, render_template_string
+
+@app.route("/toplu-etiket", methods=["GET", "POST"])
+@login_required
+def toplu_etiket():
+
+    html = ""
+
+    # -----------------------------
+    # SEÇİLENLERİ YAZDIR
+    # -----------------------------
+    if request.method == "POST":
+
+        data = request.get_json(silent=True) or {}
+
+        for item in data.get("orders", []):
+
+            order = get_order_detail(
+                item["supplier"],
+                int(item["package"])
+            )
+
+            if not order:
+                print(f"❌ Etiket alınamadı: {item['supplier']} / {item['package']}")
+                continue
+
+            html += render_template("etiket.html", o=order)
+            html += '<div style="page-break-after:always;"></div>'
+
+        return render_template_string(html)
+
+    # -----------------------------
+    # SON 24 SAAT
+    # -----------------------------
+    if request.args.get("mode") == "urgent24":
+
+        now = datetime.now(timezone.utc)
+
+        orders = list(get_created_orders_cached())
+
+        for o in orders:
+
+            status = o.get("status") or o.get("shipmentPackageStatus")
+
+            if status not in ["Created", "Invoiced"]:
+                continue
+
+            dl = o.get("extendedAgreedDeliveryDate") or o.get("agreedDeliveryDate")
+
+            if not dl:
+                continue
+
+            try:
+
+                dt = parse_date(dl)
+
+                if not dt:
+                    continue
+
+                kalan = (dt - now).total_seconds()
+
+                if 0 < kalan <= 86400:
+
+                    package_id = (
+                            o.get("shipmentPackageId")
+                            or o.get("packageId")
+                            or o.get("id")
+                    )
+
+                    detail = get_order_detail(
+                        str(o.get("supplier_id")),
+                        int(package_id)
+                    )
+
+                    if not detail:
+                        print(f"❌ Etiket alınamadı -> {o.get('supplier_id')} / {o.get('id')}")
+                        continue
+
+                    html += render_template("etiket.html", o=detail)
+                    html += '<div style="page-break-after:always;"></div>'
+
+
+            except Exception as e:
+
+                import traceback
+
+                print("=" * 80)
+
+                print("TOPLU ETİKET HATASI")
+
+                traceback.print_exc()
+
+                print("=" * 80)
+
+        return render_template_string(html)
 
 @app.route("/kargo-toplama")
 @login_required

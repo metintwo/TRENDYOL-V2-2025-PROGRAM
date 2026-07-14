@@ -28,9 +28,12 @@
     }
     .tiny { font-size: 11px; line-height: 1.15; margin: 0; }
     .tiny-addr { max-height: 26mm; overflow: hidden; }
-    .prod-list { font-size: 11px; margin: 0; padding-left: 14px; max-height: 22mm; overflow: hidden; }
-    .barcode-wrap { width: 100%; text-align: center; }
-    #barcode { width: 100%; height: 22mm; }
+    .prod-list{
+    font-size:9px;
+    margin:0;
+    padding-left:12px;
+    line-height:1.15;
+}
   </style>
 </head>
 <body>
@@ -54,13 +57,27 @@
     </div>
 
     <div>
-      <p class="tiny" style="margin-bottom:1mm;"><strong>Ürünler</strong></p>
-      <ol class="prod-list">
-        {% for l in o.get('lines', []) %}
-          <li>{{ l['productName'] }} (x{{ l['quantity'] }})</li>
-        {% endfor %}
-      </ol>
-    </div>
+    <p class="tiny" style="margin-bottom:1mm;"><strong>Ürünler</strong></p>
+
+    <ol class="prod-list">
+    {% for l in o.get('lines', []) %}
+        <li style="margin-bottom:2px; line-height:1.1;">
+
+    <strong>{{ l.get('merchantSku') or l.get('stockCode') or l.get('sku') or '-' }}</strong>
+    &nbsp;|&nbsp;
+
+    {{ l.get('productColor','-') }}
+    &nbsp;|&nbsp;
+
+    {{ l.get('productSize','-') }}
+    &nbsp;|&nbsp;
+
+    x{{ l.get('quantity',1) }}
+
+</li>
+    {% endfor %}
+    </ol>
+</div>
 
     <div class="barcode-wrap">
       <svg id="barcode"></svg>
