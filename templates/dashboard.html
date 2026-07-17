@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <meta charset="UTF-8">
   <title>Siparişler | Çoklu Mağaza</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,22 +32,60 @@
 
 
 
-/* --- ÜRÜN KARTI (line-card) --- */
-.line-card {
-    background: #e8edf7;              /* ❗ Soft açık mavi-gri */
-    border: 2px solid #cfd6e6;        /* Hafif daha koyu çerçeve */
-    border-radius: 10px;
-    padding: 8px;
-    transition: 0.25s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-    color: #0f152c;                   /* Yazı rengi koyu lacivert */
+.line-card{
+
+    background:#edf2fb;
+
+    color:#111827;
+
+    border:2px solid #d4dceb;
+
+    border-radius:16px;
+
+    padding:14px;
+
+    transition:.25s;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    height:100%;
+
 }
 
-/* Hover efekti — ürün kartı parlasın */
-.line-card:hover {
-    transform: scale(1.03);
-    border-color: #4acbff;
-    box-shadow: 0 6px 20px rgba(0, 200, 255, 0.25);
+.line-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#4acbff;
+
+    box-shadow:0 10px 25px rgba(74,203,255,.25);
+
+}
+
+.line-card .fw-bold{
+
+    color:#111827 !important;
+
+    font-weight:700;
+
+}
+
+.line-card .text-muted{
+
+    color:#4b5563 !important;
+
+}
+
+.line-card small{
+
+    color:#4b5563 !important;
+
 }
 
 
@@ -132,6 +172,837 @@
         color: white;
     }
 
+.header-left{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.header-left img{
+
+width:58px;
+
+}
+
+.header-left h2{
+    margin:0;
+    font-size:34px;
+    font-weight:700;
+    color:#ffffff;
+}
+
+.header-left small{
+    color:#b8c4dd;
+}
+
+.user-name{
+    font-weight:600;
+    color:#ffffff;
+}
+
+#headerDate{
+    font-size:13px;
+    color:#b8c4dd;
+}
+
+#headerClock{
+    font-size:32px;
+    font-weight:700;
+    color:#4acbff;
+}
+
+.header-right{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.btn-admin{
+
+padding:8px 18px;
+
+background:#ffc107;
+
+color:#000;
+
+border-radius:25px;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.circle-btn{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+border:2px solid #2563eb;
+
+color:#2563eb;
+
+text-decoration:none;
+
+transition:.25s;
+
+}
+
+.circle-btn:hover{
+
+transform:translateY(-2px);
+
+background:#2563eb;
+
+color:white;
+
+}
+
+.circle-btn.danger{
+
+border-color:#dc3545;
+
+color:#dc3545;
+
+}
+
+.circle-btn.danger:hover{
+
+background:#dc3545;
+
+color:white;
+
+}
+    /* ===========================
+   MODERN FILTER CARD
+=========================== */
+
+.filter-card{
+
+    max-width:1550px;
+    margin:0 auto 25px;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:22px;
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+}
+
+.filter-card .form-select{
+
+    min-width:170px;
+    height:46px;
+
+    border-radius:12px;
+
+    border:1px solid #d8dee9;
+
+}
+
+.filter-card .btn{
+
+    height:46px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+    /* ===========================
+   TABLE WRAPPER
+=========================== */
+
+.table-wrapper{
+
+    max-width:1550px;
+
+    margin:0 auto;
+
+    background:#18233d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+
+}
+    .custom-table-head{
+
+    background:#182848;
+
+}
+
+.custom-table-head th{
+
+    background:#182848 !important;
+
+    color:white;
+
+    border:none;
+
+    padding:18px;
+
+    font-size:15px;
+
+}
+.table thead th{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+    .table tbody tr{
+
+    transition:.25s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#eef6ff;
+
+    transform:scale(1.002);
+
+}
+.table{
+
+    color:white;
+
+    margin:0;
+
+    border-collapse:separate;
+
+    border-spacing:0 14px;
+
+}
+
+.table tbody td{
+
+    background:#18233d;
+
+    color:#f3f4f6;
+
+    border:none;
+
+    vertical-align:middle;
+
+    padding:18px 14px;
+
+}
+.table tbody td:first-child{
+
+    border-radius:18px 0 0 18px;
+
+}
+
+.table tbody td:last-child{
+
+    border-radius:0 18px 18px 0;
+
+}
+
+.table tbody tr{
+
+    transition:.25s;
+
+}
+
+.table tbody tr:hover td{
+
+    background:#223150;
+
+    box-shadow:0 8px 22px rgba(74,203,255,.15);
+
+}
+
+.table tbody tr{
+
+    transition:.25s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#223150;
+
+}
+
+.table tbody tr:hover td{
+
+    background:#223150;
+
+}
+    /* ===========================
+   DASHBOARD CARD
+=========================== */
+
+.dashboard-card{
+
+    max-width:1550px;
+
+    margin:0 auto 20px;
+
+    background:#18233d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:22px;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+
+}
+
+.dashboard-card h6{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    margin-bottom:18px;
+
+}
+
+.dashboard-card label{
+
+    color:#cbd5e1;
+
+}
+
+.dashboard-card .form-control{
+
+    background:#24324f;
+
+    border:1px solid #324364;
+
+    color:white;
+
+}
+
+.dashboard-card .form-control:focus{
+
+    background:#24324f;
+
+    color:white;
+
+    border-color:#4acbff;
+
+    box-shadow:none;
+
+}
+    .stats-box{
+
+    max-width:1550px;
+
+    margin:20px auto;
+
+    background:#18233d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:18px 25px;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.2);
+
+}
+
+.stats-box strong{
+
+    color:#4acbff;
+
+}
+    .page-header{
+
+    max-width:1550px;
+    margin:0 auto 25px;
+    padding:22px 35px;
+
+    background:#18233d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+    .btn-process{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:8px 16px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.btn-process:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+    .btn-print-modern{
+
+    width:58px;
+
+    height:58px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#475569;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.25);
+
+}
+
+.btn-print-modern i{
+
+    font-size:24px;
+
+}
+
+.btn-print-modern:hover{
+
+    background:#4acbff;
+
+    color:#111827;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 22px rgba(74,203,255,.35);
+
+}
+    .store-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,#2563eb,#4acbff);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:0 4px 12px rgba(37,99,235,.35);
+
+}
+    .status-created,
+.status-picking,
+.status-shipped,
+.status-default{
+
+    display:inline-block;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+.status-created{
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+.status-picking{
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+
+.status-shipped{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.status-default{
+
+    background:#64748b;
+
+    color:white;
+
+}
+    .row-number{
+
+    width:34px;
+
+    height:34px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#24324f;
+
+    color:#4acbff;
+
+    font-weight:700;
+
+}
+    .order-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.order-no{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#4acbff;
+
+}
+
+.customer-name{
+
+    color:#d6dbe8;
+
+    font-size:14px;
+
+}
+.order-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    font-size:13px;
+
+}
+.gift-badge{
+
+    display:inline-block;
+
+    width:max-content;
+
+    background:#ffca28;
+
+    color:#111;
+
+    padding:5px 10px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.gift-note{
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+    font-style:italic;
+
+}
+    .table{
+
+    border-collapse:separate;
+
+    border-spacing:0 14px;
+
+}
+
+.table tbody tr{
+
+    background:#18233d;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.20);
+
+}
+
+.table tbody td{
+
+    border:none;
+
+    padding:18px 14px;
+
+}
+
+.table tbody td:first-child{
+
+    border-radius:18px 0 0 18px;
+
+}
+
+.table tbody td:last-child{
+
+    border-radius:0 18px 18px 0;
+
+}
+    .compact-head th{
+
+    padding:12px 10px;
+
+    font-size:13px;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+}
+    .order-date{
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+}
+
+.order-date i{
+
+    color:#4acbff;
+
+    margin-right:5px;
+
+}
+
+.countdown-box{
+
+    margin-top:4px;
+
+}
+    .stats-box{
+
+    max-width:1550px;
+
+    margin:20px auto;
+
+    background:#18233d;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:18px 25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.stats-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.stats-right{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:340px;
+
+    height:46px;
+
+    background:#24324f;
+
+    border:1px solid #324364;
+
+    border-radius:12px;
+
+    padding:0 14px;
+
+}
+
+.search-box i{
+
+    color:#4acbff;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+}
+
+.search-box input::placeholder{
+
+    color:#94a3b8;
+
+}
+    .order-info{
+
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+
+}
+
+.order-no{
+
+    font-size:17px;
+    font-weight:700;
+    color:#4acbff;
+
+}
+
+.customer-name{
+
+    font-size:13px;
+    color:#d6dbe8;
+    line-height:1.2;
+
+}
+
+.order-date{
+
+    font-size:12px;
+    color:#aeb8ca;
+    line-height:1.2;
+
+}
+
+.countdown{
+
+    font-size:12px;
+    font-weight:600;
+    color:#ff5a5a !important;
+
+}
 </style>
 
 
@@ -139,16 +1010,91 @@
 
 <body>
 
-<!-- ===== ÜST BAR ===== -->
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <div class="d-flex align-items-center gap-2">
-    <img src="{{ url_for('static', filename='logo.png') }}" style="height:34px;">
-    <h3 class="mb-0">YAKAMEL</h3>
-  </div>
+<script>
 
-  <input id="searchBox" type="search" class="form-control" placeholder="Ara…" style="max-width:220px;">
+function updateHeaderClock(){
 
-  <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅ Ana Sayfa</a>
+    const now=new Date();
+
+    document.getElementById("headerClock").innerHTML=
+        now.toLocaleTimeString("tr-TR");
+
+    document.getElementById("headerDate").innerHTML=
+        now.toLocaleDateString("tr-TR",
+        {
+            weekday:"long",
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        });
+
+}
+
+updateHeaderClock();
+
+setInterval(updateHeaderClock,1000);
+
+</script>
+<!-- ========= HEADER ========= -->
+
+<div class="page-header">
+
+    <div class="header-left">
+
+        <img src="{{ url_for('static', filename='logo.png') }}">
+
+        <div>
+
+            <h2>YAKAMEL GROUP</h2>
+
+            <small>Sipariş ve Depo Yönetim Sistemi</small>
+
+        </div>
+
+    </div>
+
+    <div class="header-center">
+
+        <div id="headerDate"></div>
+
+        <div id="headerClock"></div>
+
+    </div>
+
+    <div class="header-right">
+
+        <div class="user-name">
+
+            <i class="fa-solid fa-user"></i>
+
+            {{ current_user.username }}
+
+        </div>
+
+        {% if current_user.role=="admin" %}
+        <a href="/admin" class="btn-admin">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Admin
+
+        </a>
+        {% endif %}
+
+        <a href="/change-password" class="circle-btn">
+
+            <i class="fa-solid fa-key"></i>
+
+        </a>
+
+        <a href="/logout" class="circle-btn danger">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </a>
+
+    </div>
+
 </div>
 
 <style>
@@ -163,7 +1109,10 @@
 </style>
 
 <!-- ===== FİLTRELER ===== -->
-<form id="filterForm" class="d-flex flex-wrap gap-3 mb-3" method="get" action="{{ url_for('dashboard') }}">
+<form id="filterForm"
+      class="filter-card"
+      method="get"
+      action="{{ url_for('dashboard') }}">
 
   <!-- 🔥 24 Saat Kalanlar BUTONU -->
   <a href="{{ url_for('dashboard', urgent='true') }}"
@@ -287,7 +1236,7 @@
 </button>
 
 </form>
-<div class="card mt-3">
+<div class="dashboard-card">
   <div class="card-body">
     <h6 class="mb-3">📦 Kargo Raporu (Excel)</h6>
 
@@ -323,26 +1272,49 @@
   </div>
 </div>
 
-<div class="alert alert-info fw-bold">
-Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
-&nbsp;&nbsp;|&nbsp;&nbsp;
-<span style="color:red;font-weight:600;">
-24 Saatten Az Kalan: {{ urgent_24h }}
-</span>
+<div class="stats-box">
+
+    <div class="stats-left">
+
+        Toplam Sipariş:
+        <strong>{{ total_to_ship }}</strong>
+
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+
+        <span style="color:red;font-weight:600;">
+            24 Saatten Az Kalan: {{ urgent_24h }}
+        </span>
+
+    </div>
+
+    <div class="stats-right">
+
+        <div class="search-box">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        id="searchBox"
+        type="search"
+        placeholder="Sipariş No, Müşteri, Barkod...">
+
+</div>
+
+    </div>
+
 </div>
 
 <!-- ===== TABLO ===== -->
-<div class="table-responsive bg-white rounded shadow-sm">
+<div class="table-wrapper">
   <table class="table table-hover align-middle mb-0">
-    <thead class="table-dark">
+    <thead class="custom-table-head compact-head">
 <tr>
     <th width="40">
         <input type="checkbox" id="selectAll">
     </th>
     <th>#</th>
     <th>Mağaza</th>
-    <th>Sipariş</th>
-    <th>Tarih</th>
+    <th width="14%">Sipariş Bilgileri</th>
     <th>Ürünler (max 100)</th>
     <th>Durum</th>
     <th>İşlem</th>
@@ -363,40 +1335,69 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
             data-package="{{ o.id }}">
     </td>
 
-    <td>{{ loop.index }}</td>
-
-    <td><span class="badge bg-info text-dark">{{ o.supplier_name }}</span></td>
-
-    <td>
-        <b>{{ o.orderNumber }}</b><br>
-        <small>{{ o.customerFirstName }} {{ o.customerLastName }}</small>
-
-        {% if o.giftPackageRequested %}
-          <div class="badge bg-warning text-dark mt-1" style="font-size:.8rem;">
-            🎁 HEDİYE PAKETİ TALEBİ VAR
-          </div>
-
-          {% if o.giftNote %}
-            <div class="text-muted" style="font-size:.75rem;">
-              Not: {{ o.giftNote }}
-            </div>
-          {% endif %}
-        {% endif %}
-    </td>
-
-
-<td>
-    {{ o.orderDateFormatted }}
-
-    {% set deadline = o.extendedAgreedDeliveryDate or o.agreedDeliveryDate %}
-    <div class="small text-danger countdown"
-         data-deadline="{{ deadline }}">
-         Kalan: —
-    </div>
+   <td>
+    <span class="row-number">
+        {{ loop.index }}
+    </span>
 </td>
 
+    <td>
+    <span class="store-badge">
+        {{ o.supplier_name }}
+    </span>
+</td>
+    {% set deadline = o.extendedAgreedDeliveryDate or o.agreedDeliveryDate %}
+    <td>
 
+<div class="order-info">
 
+    <div class="order-no">
+        #{{ o.orderNumber }}
+    </div>
+
+    <div class="customer-name">
+        <i class="fa-solid fa-user"></i>
+        {{ o.customerFirstName }} {{ o.customerLastName }}
+    </div>
+
+    <div class="order-date">
+        <i class="fa-regular fa-calendar"></i>
+        {{ o.orderDateFormatted }}
+    </div>
+
+    <div class="countdown-box">
+        <div class="small text-danger countdown"
+             data-deadline="{{ deadline }}">
+        </div>
+    </div>
+
+    {% if o.giftPackageRequested %}
+        <div class="gift-bad ge">🎁 Hediye Paketi</div>
+
+        {% if o.giftNote %}
+        <div class="gift-note">
+            {{ o.giftNote }}
+        </div>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+    {% if o.giftPackageRequested %}
+        <div class="gift-badge">
+            🎁 Hediye Paketi
+        </div>
+
+        {% if o.giftNote %}
+            <div class="gift-note">
+                {{ o.giftNote }}
+            </div>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+</td>
         <td>
   <div class="products-grid">
     {% for l in o.lines %}
@@ -440,7 +1441,27 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
 
 
 
-        <td>{{ o.status }}</td>
+        <td>
+
+{% if o.status=="Created" %}
+
+<span class="status-created">Created</span>
+
+{% elif o.status=="Picking" %}
+
+<span class="status-picking">Picking</span>
+
+{% elif o.status=="Shipped" %}
+
+<span class="status-shipped">Shipped</span>
+
+{% else %}
+
+<span class="status-default">{{ o.status }}</span>
+
+{% endif %}
+
+</td>
 <td>
  <form method="POST"
       class="form-isleme-al"
@@ -461,18 +1482,24 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
     <!-- 🔥 Satır index -->
     <input type="hidden" name="row_index" value="{{ loop.index }}">
 
-    <button class="btn btn-primary btn-sm">İşleme Al</button>
+   <button class="btn btn-process">
+    <i class="fa-solid fa-box-open"></i>
+    İşleme Al
+</button>
 </form>
 
 </td>
 
 
         <td>
-          <button class="btn btn-secondary btn-sm btn-print"
-                  data-url="{{ url_for('etiket_yazdir', supplier_id=o.supplier_id, package_id=o.id) }}">
-            🖨
-          </button>
-        </td>
+    <button
+        class="btn btn-print-modern btn-print"
+        data-url="{{ url_for('etiket_yazdir', supplier_id=o.supplier_id, package_id=o.id) }}">
+
+        <i class="fa-solid fa-print"></i>
+
+    </button>
+</td>
       </tr>
       {% endfor %}
 
@@ -540,14 +1567,28 @@ Toplam Sipariş: <strong>{{ total_to_ship }}</strong>
 // ===============================
 // 📌 ARAMA
 // ===============================
-document.getElementById("searchBox").addEventListener("input", function() {
-    const q = this.value.toLowerCase().trim();
+document.addEventListener("DOMContentLoaded", function(){
 
-    document.querySelectorAll("#ordersBody tr").forEach(tr => {
-        tr.style.display = tr.innerText.toLowerCase().includes(q) ? "" : "none";
+    const searchBox = document.getElementById("searchBox");
+
+    if(!searchBox) return;
+
+    searchBox.addEventListener("input", function(){
+
+        const q = this.value.toLowerCase().trim();
+
+        document.querySelectorAll("#ordersBody tr").forEach(tr => {
+
+            tr.style.display =
+                tr.innerText.toLowerCase().includes(q)
+                ? ""
+                : "none";
+
+        });
+
     });
-});
 
+});
 
 // ===============================
 // 📌 GÖRSEL POPUP
@@ -651,7 +1692,7 @@ function tickCountdowns(){
         const dl = Number(el.dataset.deadline);
 
         if(!dl){
-            el.textContent = "Kalan: —";
+            el.textContent = "";
             return;
         }
 
@@ -661,7 +1702,7 @@ function tickCountdowns(){
             el.textContent = "SÜRE DOLDU ❗";
         }
         else{
-            el.textContent = "Kalan: " + fmt(diff);
+            el.textContent = fmt(diff);
         }
 
     });

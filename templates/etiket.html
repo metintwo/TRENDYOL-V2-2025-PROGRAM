@@ -80,7 +80,7 @@
 </div>
 
     <div class="barcode-wrap">
-      <svg id="barcode"></svg>
+      <svg id="barcode-{{ o.id }}"></svg>
       <div class="tiny"><strong>Takip No:</strong> {{ o.get('cargoTrackingNumber','-') }}</div>
     </div>
   </div>
@@ -90,7 +90,7 @@
       var code = "{{ o.get('cargoTrackingNumber', '') }}";
       code = (code || "").toString().trim();
       if (code) {
-        JsBarcode("#barcode", code, {
+        JsBarcode("#barcode-{{ o.id }}", code, {
           format: "CODE128",
           displayValue: true,
           fontSize: 10,
@@ -99,7 +99,7 @@
           lineColor: "#000"
         });
       } else {
-        var el = document.getElementById("barcode");
+        var el = document.getElementById("barcode-{{ o.id }}");
         if (el) el.style.display = "none";
       }
     })();

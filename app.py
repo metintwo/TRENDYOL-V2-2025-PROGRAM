@@ -507,7 +507,7 @@ def index():
     try:
         today = datetime.now(IST).date()
 
-        created_orders = get_created_orders_cached()
+        created_orders, _ = get_orders(status="Created", size=200)
         created_count = len(created_orders)
 
         picking_orders, _ = get_orders(status="Picking", size=200)
@@ -542,7 +542,7 @@ def index():
         shipped_today_count = len(daily_shipped)
 
         # 📦 GERÇEK TOPLAM
-        total_all = created_count + picking_count + shipped_count
+        total_all = picking_count + shipped_today_count
 
     except Exception as e:
 
@@ -559,7 +559,7 @@ def index():
         created_count=to_ship,
         picking_count=picking_count,
         shipped_count=shipped_today_count,
-        total_all=to_ship + shipped_today_count
+        total_all=total_all
     )
 # ============================
 # 🚀 D A S H B O A R D – MODEL A (SABİT SAYFALAMA)
