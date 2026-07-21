@@ -737,8 +737,8 @@ SELLER_NAMES = {
     "1086036": "CMZ COLLECTION",
     "940685": "YAKAMEL TEKSTİL",
     "1190254": "RUNADES",
-    "564724": "YUNUS EMRE KAYA"
-    "1294231": "SEVORİA WEAR",
+    "564724": "YUNUS EMRE KAYA",
+    "1294231": "SEVORİA WEAR"
 }
 
 @app.route("/toplama")
