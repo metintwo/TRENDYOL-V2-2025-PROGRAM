@@ -682,7 +682,7 @@ def dashboard():
     # -----------------------------
     for o in orders_raw:
         o["supplier_name"] = AVAILABLE_SUPPLIERS.get(
-            str(o.get("supplier_id")), "Bilinmeyen"
+            str(o.get("supplier_id")), "RUNADES"
         )
 
     # -----------------------------
@@ -737,6 +737,7 @@ SELLER_NAMES = {
     "940685": "YAKAMEL TEKSTİL",
     "1190254": "RUNADES",
     "564724": "YUNUS EMRE KAYA"
+    "1294231": "SEVORİA WEAR",
 }
 
 @app.route("/toplama")
