@@ -1,0 +1,16 @@
+﻿.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+build/
+
+barcode_cache/
+label_cache/
+
+*.log
+logs_archive/
+kargo_raporu.xlsx
