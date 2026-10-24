@@ -172,6 +172,33 @@ login_manager.init_app(app)
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
+
+# Rol atanmamış hesaplar uygulamanın hiçbir işlevine erişemez.
+# Bu kontrol blueprint dahil tüm Flask uç noktalarında çalışır.
+VALID_ROLES = {"üye", "kargo", "soru", "ofis", "admin"}
+PUBLIC_ENDPOINTS = {"login", "register", "static"}
+
+@app.before_request
+def enforce_login_and_assigned_role():
+    endpoint = request.endpoint
+
+    # Giriş/kayıt ve statik dosyalar herkese açık kalır.
+    if endpoint is None or endpoint in PUBLIC_ENDPOINTS:
+        return None
+
+    # Uygulamadaki tüm diğer sayfa ve API uç noktaları oturum gerektirir.
+    if not current_user.is_authenticated:
+        return redirect(url_for("login", next=request.path))
+
+    # Sadece tanımlı ve yönetici tarafından atanmış roller erişebilir.
+    role = (getattr(current_user, "role", None) or "").strip().lower()
+    if role not in VALID_ROLES:
+        logout_user()
+        flash("Hesabınıza henüz bir rol atanmamış. Yönetici rol atayana kadar erişim sağlayamazsınız.", "warning")
+        return redirect(url_for("login"))
+
+    return None
+
 # ---- .env yükle ----
 load_dotenv()
 
@@ -426,7 +453,8 @@ FILTER_SKUS = [
     "KSKP", "ESFKP", "KMTK", "BKTK", "KKTK", "OFBS", "BTSH", "SBP", "SGP", "UBP", "UGP",
     "KBP", "KGP", "ULP", "KKFE", "BSKLTY", "TSH", "HRKA", "FDKY", "FSAH", "KSTK", "OFTA",
     "HRTK", "EPA", "OBSWT", "DYTK", "SLP", "KLP", "ELBS", "DKP", "KMNO", "ESTK", "SAL",
-    "BAT", "HRKI", "CNT", "MTR", "PBK", "OFT", "PLR"
+    "BAT", "HRKI", "CNT", "MTR", "PBK", "OFT", "PLR",
+    "BMCKT", "SFHT", "BGHTK", "BSBTK", "EL3I"
 ]
 FILTER_SKUS = [sku.upper() for sku in FILTER_SKUS]
 
@@ -931,7 +959,7 @@ def register():
             flash("❌ Bu kullanıcı adı zaten var.", "danger")
             return redirect(url_for("register"))
 
-        new_user = User(username=username)
+        new_user = User(username=username, role="beklemede")
         new_user.set_password(password)   # ✔️ HASHLİYOR
 
         db.session.add(new_user)
@@ -953,6 +981,11 @@ def login():
         user = User.query.filter_by(username=username).first()
 
         if user and user.check_password(password):
+            role = (getattr(user, "role", None) or "").strip().lower()
+            if role not in VALID_ROLES:
+                flash("Giriş yapılamadı: Hesabınıza henüz bir rol atanmamış. Yöneticiyle iletişime geçin.", "warning")
+                return render_template("login.html")
+
             login_user(user)
             return redirect(url_for("index"))
         else:
@@ -1047,7 +1080,7 @@ def change_role(user_id):
         return redirect(url_for("admin_panel"))
 
     new_role = request.form.get("role")
-    if new_role not in ["üye", "kargo", "soru", "ofis", "admin"]:
+    if new_role not in ["beklemede", "üye", "kargo", "soru", "ofis", "admin"]:
         flash("❌ Geçersiz rol seçildi.", "danger")
         return redirect(url_for("admin_panel"))
 

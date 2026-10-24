@@ -1,6 +1,531 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urunler>
   <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN BORDO ŞERİT BİYELİ BOMBER TAKIM 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK048</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8909</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN BORDO ŞERİT BİYELİ BOMBER TAKIM XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK032</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8906</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN BORDO ŞERİT BİYELİ BOMBER TAKIM L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK031</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8903</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN BORDO ŞERİT BİYELİ BOMBER TAKIM M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK030</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8900</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN BORDO ŞERİT BİYELİ BOMBER TAKIM S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK029</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8897</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN FÜME ŞERİT BİYELİ BOMBER TAKIM 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK045</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8894</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN FÜME ŞERİT BİYELİ BOMBER TAKIM XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK020</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8891</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN FÜME ŞERİT BİYELİ BOMBER TAKIM L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK019</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8888</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN FÜME ŞERİT BİYELİ BOMBER TAKIM M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK018</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8885</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN FÜME ŞERİT BİYELİ BOMBER TAKIM S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK017</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8882</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN LACİVERT ŞERİT BİYELİ BOMBER TAKIM 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK043</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8879</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN LACİVERT ŞERİT BİYELİ BOMBER TAKIM XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK012</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8876</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN LACİVERT ŞERİT BİYELİ BOMBER TAKIM L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK011</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8873</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN LACİVERT ŞERİT BİYELİ BOMBER TAKIM M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK010</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8870</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN LACİVERT ŞERİT BİYELİ BOMBER TAKIM S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK009</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8867</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN KAHVE ŞERİT BİYELİ BOMBER TAKIM 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK042</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8864</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN KAHVE ŞERİT BİYELİ BOMBER TAKIM XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK008</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8861</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN KAHVE ŞERİT BİYELİ BOMBER TAKIM L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK007</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8858</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN KAHVE ŞERİT BİYELİ BOMBER TAKIM M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK006</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8855</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN KAHVE ŞERİT BİYELİ BOMBER TAKIM S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK005</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8852</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN SİYAH ŞERİT BİYELİ BOMBER TAKIM 2XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK041</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8849</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN SİYAH ŞERİT BİYELİ BOMBER TAKIM XL</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK004</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8846</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN SİYAH ŞERİT BİYELİ BOMBER TAKIM L</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK003</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8843</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN SİYAH ŞERİT BİYELİ BOMBER TAKIM M</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK002</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8840</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
+    <Kod>BSBTK</Kod>
+    <Baslik>KADIN SİYAH ŞERİT BİYELİ BOMBER TAKIM S</Baslik>
+    <Marka>KADIN</Marka>
+    <barcode>BSBTK001</barcode>
+    <Aciklama />
+    <Durum>1</Durum>
+    <mainCategory />
+    <category />
+    <subcategory />
+    <UrunID>8837</UrunID>
+    <Fiyat1>0</Fiyat1>
+    <Fiyat2>0</Fiyat2>
+    <Stok>0</Stok>
+    <KDV>10</KDV>
+    <ImageName1 />
+    <ImageName2 />
+    <ImageName3 />
+    <ImageName4 />
+    <ImageName5 />
+  </Urun>
+  <Urun>
     <Kod>ÇOSBO</Kod>
     <Baslik>ÇOSB OO KISA K 11 BDN</Baslik>
     <Marka>ÇOSB</Marka>
@@ -13,7 +538,7 @@
     <UrunID>8834</UrunID>
     <Fiyat1>0</Fiyat1>
     <Fiyat2>450</Fiyat2>
-    <Stok>3</Stok>
+    <Stok>1</Stok>
     <KDV>10</KDV>
     <ImageName1 />
     <ImageName2 />

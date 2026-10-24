@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
     # 🔐 hashli şifre
     password_hash = db.Column(db.String(255), nullable=False)
 
-    role = db.Column(db.String(20), default="user")
+    role = db.Column(db.String(20), default="beklemede", nullable=False)
 
     # --- Şifre belirleme ---
     def set_password(self, password):

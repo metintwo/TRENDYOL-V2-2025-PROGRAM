@@ -6,7 +6,7 @@ __pycache__/
 *.py[cod]
 venv/
 .venv/
-build/
+../../Yeni klasör (4)/build/
 
 barcode_cache/
 label_cache/

@@ -55,6 +55,7 @@
               <td>
                 <form method="POST" action="{{ url_for('change_role', user_id=u.id) }}" class="d-flex">
                   <select name="role" class="form-select form-select-sm me-2">
+                    <option value="beklemede" {{ 'selected' if u.role not in ['üye', 'kargo', 'soru', 'ofis', 'admin'] else '' }}>Rol Atanmamış</option>
                     <option value="üye" {{ 'selected' if u.role == 'üye' else '' }}>Üye</option>
                     <option value="kargo" {{ 'selected' if u.role == 'kargo' else '' }}>Kargo</option>
                     <option value="soru" {{ 'selected' if u.role == 'soru' else '' }}>Soru</option>
